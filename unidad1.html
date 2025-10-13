@@ -1,22 +1,98 @@
 <h2>1. El Alfabeto </h2>
         <p>Ouça e pratique a pronúncia. Preste atenção nas letras <strong>J (jota)</strong>, que é forte, e <strong>H (hache)</strong>, que é muda.</p>
 <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-    .header { background-color: #007bff; color: white; padding: 15px; text-align: center; }
-    .lesson-container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #007bff; }
-    .audio-player { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-    .audio-player:last-child { border-bottom: none; }
-    .play-button { background-color: #28a745; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-    .play-button:hover { background-color: #218838; }
-    .content-item { flex-grow: 1; margin-right: 15px; font-size: 1.1em; }
-    .content-item strong { font-size: 1.2em; color: #333; }
+    /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
+    body { 
+        font-family: sans-serif; 
+        margin: 0; 
+        padding: 20px 10px; /* AUMENTADO: Relleno general para evitar tocar bordes */
+        background-color: #f4f4f9; 
+        color: #333; 
+        line-height: 1.6; /* Mejora la lectura */
+    }
     
-    /* ¡Asegúrate de que esta regla esté aquí! */
+    .header { 
+        background-color: #007bff; 
+        color: white; 
+        padding: 20px; /* Más relleno en el encabezado */
+        text-align: center; 
+        margin-bottom: 20px; 
+        border-radius: 8px; /* Pequeñas curvas */
+    }
+    
+    .lesson-container { 
+        max-width: 900px; /* Permite que ocupe más espacio en pantallas grandes */
+        margin: 0 auto; /* Centra el contenedor principal */
+        padding: 25px; /* Más relleno dentro del contenedor */
+        background: white; 
+        border-radius: 12px; /* Bordes más suaves */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra más notable */
+    }
+    
+    h2 { 
+        border-bottom: 3px solid #007bff; 
+        padding-bottom: 12px; 
+        color: #007bff; 
+        margin-top: 30px; /* Más espacio sobre cada título */
+    }
+
+    /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
+    .audio-player { 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 12px 0; /* Más relleno arriba y abajo */
+        border-bottom: 1px solid #eee; 
+    }
+    .audio-player:last-child { border-bottom: none; }
+    
+    .content-item { 
+        flex-grow: 1; 
+        margin-right: 15px; 
+        font-size: 1.1em; 
+        display: flex; /* Permite alinear la imagen y el texto */
+        align-items: center;
+    }
+    .content-item strong { 
+        font-size: 1.2em; 
+        color: #333; 
+        min-width: 100px; /* Asegura que la letra y el nombre no se muevan */
+    }
+    
+    /* 3. ESTILOS DE BOTONES E IMAGEN */
+    .play-button { 
+        background-color: #28a745; 
+        color: white; 
+        border: none; 
+        padding: 8px 15px; 
+        cursor: pointer; 
+        border-radius: 5px; 
+        font-weight: bold; 
+        min-width: 70px; /* Asegura que todos los botones sean del mismo tamaño */
+        margin-left: 10px;
+    }
+    .play-button:hover { background-color: #218838; }
+
     .content-item img {
-        height: 30px; /* Tamaño fijo, no necesita 'width: auto' */
+        height: 30px; 
         vertical-align: middle;
         border-radius: 4px;
+        margin-left: 15px; /* Más separación entre la palabra y la imagen */
+    }
+
+    /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
+    @media (max-width: 600px) {
+        .audio-player {
+            flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no hay espacio */
+        }
+        .content-item {
+            flex-basis: 100%; /* El texto ocupa toda la línea */
+            margin-bottom: 10px;
+        }
+        .play-button {
+            width: 100%; /* Botón grande para tocar con el dedo */
+            margin-top: 5px;
+        }
     }
 </style>
         <div id="alphabet-list">
