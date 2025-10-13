@@ -331,3 +331,158 @@
         </div>
 
         <hr style="margin-top: 30px;">
+        
+
+        <h2>2. Números (0 a 20)</h2>
+        <p>Ouça o áudio e complete com a palavra correta. *Usaremos JavaScript para verificar a resposta*.</p>
+        
+        <div class="audio-player">
+            <span class="content-item">Número 15:</span>
+            <input type="text" id="input-15" placeholder="Escreva a palavra aqui">
+            <button class="play-button" onclick="document.getElementById('audio-15').play()">Ouvir</button>
+            <audio id="audio-15" src="assets/audio/unidad1/numeros0a20/QUINCE.mp3"></audio>
+            <button onclick="checkAnswer('input-15', 'quince')">Verificar</button>
+            <span id="feedback-15" style="margin-left: 10px;"></span>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Número 8:</span>
+            <input type="text" id="input-8" placeholder="Escreva a palavra aqui">
+            <button class="play-button" onclick="document.getElementById('audio-8').play()">Ouvir</button>
+            <audio id="audio-8" src="assets/audio/unidad1/numeros0a20/OCHO.mp3"></audio>
+            <button onclick="checkAnswer('input-8', 'ocho')">Verificar</button>
+            <span id="feedback-8" style="margin-left: 10px;"></span>
+        </div>
+
+        <hr style="margin-top: 30px;">
+
+
+        <h2>3. El Verbo SER</h2>
+        <p>O verbo SER é usado para identidade e origem. Preste atenção na conjugação.</p>
+        
+        <div class="audio-player">
+            <span class="content-item">Yo soy (Eu sou)</span>
+            <button class="play-button" onclick="document.getElementById('audio-soy').play()">Ouvir</button>
+            <audio id="audio-ser-soy" src="assets/audio/unidad1/gramatica/ser/soy.mp3"></audio>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Tú eres (Você é)</span>
+            <button class="play-button" onclick="document.getElementById('audio-eres').play()">Ouvir</button>
+            <audio id="audio-ser-eres" src="assets/audio/unidad1/gramatica/ser/eres.mp3"></audio>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Él/Ella/Usted es (Ele/Ela/Você é)</span>
+            <button class="play-button" onclick="document.getElementById('audio-es').play()">Ouvir</button>
+            <audio id="audio-ser-es" src="assets/audio/unidad1/gramatica/ser/es.mp3"></audio>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Nosotros/as somos (Nós somos)</span>
+            <button class="play-button" onclick="document.getElementById('audio-somos').play()">Ouvir</button>
+            <audio id="audio-ser-somos" src="assets/audio/unidad1/gramatica/ser/somos.mp3"></audio>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Ellos/Ellas/Ustedes son (Eles/Elas/Vocês são)</span>
+            <button class="play-button" onclick="document.getElementById('audio-son').play()">Ouvir</button>
+            <audio id="audio-ser-son" src="assets/audio/unidad1/gramatica/ser/son.mp3"></audio>
+        </div>
+
+        <hr style="margin-top: 30px;">
+
+
+        <h2>4. El Verbo LLAMARSE (Pronomes Reflexivos)</h2>
+        <p>O verbo **LLAMARSE** é um verbo reflexivo. O pronome reflexivo (me, te, se, nos, os, se) deve vir **antes** do verbo.</p>
+        
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left; border: 1px solid #ddd;">
+            <thead>
+                <tr style="background-color: #f0f0f0;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">Pronome</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Conjugação</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">Tradução</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">Yo</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">**me llamo**</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Eu me chamo</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Tú</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">**te llamas**</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Tu te chamas</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">Él / Ella / Usted</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">**se llama**</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Ele / Ela / Você se chama</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Nosotros/as</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">**nos llamamos**</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Nós nos chamamos</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">Ellos/Ellas / Ustedes</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">**se llaman**</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Eles / Elas / Vocês se chamam</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Ouça a pronúncia:</h3>
+        <div class="audio-player">
+            <span class="content-item">Yo me llamo</span>
+            <button class="play-button" onclick="document.getElementById('audio-me llamo').play()">Ouvir</button>
+            <audio id="audio-llamar-yo" src="assets/audio/unidad1/gramatica/me llamo.mp3"></audio>
+        </div>
+        <div class="audio-player">
+            <span class="content-item">Tú te llamas</span>
+            <button class="play-button" onclick="document.getElementById('audio-te llamas').play()">Ouvir</button>
+            <audio id="audio-llamar-tu" src="assets/audio/unidad1/gramatica/te llamas.mp3"></audio>
+        </div>
+        <hr style="margin-top: 30px;">
+
+
+        <h2>5. Contracciones (AL y DEL)</h2>
+        <p>No espanhol, existem duas contrações obrigatórias que ocorrem quando a preposição **A** ou **DE** se junta ao artigo **EL**.</p>
+
+        <div style="padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #007bff;">
+            <h3>1. Contração AL</h3>
+            <p style="font-size: 1.1em;">**AL** é formada pela preposição **A** + artigo **EL**.</p>
+            <div class="audio-player">
+                <span class="content-item">Ouça a pronúncia de **AL**:</span>
+                <button class="play-button" onclick="document.getElementById('audio-al-simple').play()">Ouvir AL</button>
+                <audio id="audio-al-simple" src="assets/audio/unidad1/contracciones/al.mp3"></audio>
+            </div>
+            <p style="margin-top: 15px; font-weight: bold;">Exemplo:</p>
+            <div class="audio-player">
+                <span class="content-item">A cafeteira está **al** fundo do corredor.</span>
+                <button class="play-button" onclick="document.getElementById('audio-ejemplo-al').play()">Ouvir Frase</button>
+                <audio id="audio-ejemplo-al" src="assets/audio/unidad1/contracciones/ejemplo-al.mp3"></audio>
+            </div>
+        </div>
+        
+        <div style="padding: 15px; border-radius: 8px; border: 1px solid #ff9900;">
+            <h3>2. Contração DEL</h3>
+            <p style="font-size: 1.1em;">**DEL** é formada pela preposição **DE** + artigo **EL**.</p>
+            <div class="audio-player">
+                <span class="content-item">Ouça a pronúncia de **DEL**:</span>
+                <button class="play-button" onclick="document.getElementById('audio-del-simple').play()">Ouvir DEL</button>
+                <audio id="audio-del-simple" src="assets/audio/unidad1/contracciones/del.mp3"></audio>
+            </div>
+            <p style="margin-top: 15px; font-weight: bold;">Exemplo:</p>
+            <div class="audio-player">
+                <span class="content-item">Te espero na entrada **del** teatro.</span>
+                <button class="play-button" onclick="document.getElementById('audio-ejemplo-del').play()">Ouvir Frase</button>
+                <audio id="audio-ejemplo-del" src="assets/audio/unidad1/contracciones/te espero.mp3"></audio>
+            </div>
+        </div>
+
+        <hr style="margin-top: 30px;">
+        
+        ```
+
+### ⏭️ Siguiente Paso: Diálogos de Fluidez
+
+Ahora tienes las lecciones de números y gramática. El siguiente paso es la sección más interactiva: **Diálogos de Presentación**.
+
+**¿Quieres que te proporcione el código HTML para la lección de Diálogos y *Shadowing*, para que puedas agregar la última gran sección a tu `unidad1.html`?**
