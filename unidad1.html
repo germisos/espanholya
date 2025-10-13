@@ -332,29 +332,185 @@
 
         <hr style="margin-top: 30px;">
         
-
         <h2>2. Números (0 a 20)</h2>
-        <p>Ouça o áudio e complete com a palavra correta. *Usaremos JavaScript para verificar a resposta*.</p>
+        <p>Ouça o áudio e complete com a palavra correta. Use a função **Verificar** para checar a resposta.</p>
         
-        <div class="audio-player">
-            <span class="content-item">Número 15:</span>
-            <input type="text" id="input-15" placeholder="Escreva a palavra aqui">
-            <button class="play-button" onclick="document.getElementById('audio-15').play()">Ouvir</button>
-            <audio id="audio-15" src="assets/audio/unidad1/numeros0a20/QUINCE.mp3"></audio>
-            <button onclick="checkAnswer('input-15', 'quince')">Verificar</button>
-            <span id="feedback-15" style="margin-left: 10px;"></span>
-        </div>
-        <div class="audio-player">
-            <span class="content-item">Número 8:</span>
-            <input type="text" id="input-8" placeholder="Escreva a palavra aqui">
-            <button class="play-button" onclick="document.getElementById('audio-8').play()">Ouvir</button>
-            <audio id="audio-8" src="assets/audio/unidad1/numeros0a20/OCHO.mp3"></audio>
-            <button onclick="checkAnswer('input-8', 'ocho')">Verificar</button>
-            <span id="feedback-8" style="margin-left: 10px;"></span>
-        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">0:</span>
+                <input type="text" id="input-0" placeholder="zero">
+                <button class="play-button" onclick="document.getElementById('audio-0').play()">Ouvir</button>
+                <audio id="audio-0" src="assets/audio/unidad1/numeros0a20/CERO.mp3"></audio>
+                <button onclick="checkAnswer('input-0', 'cero')">Verificar</button>
+                <span id="feedback-0" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">1:</span>
+                <input type="text" id="input-1" placeholder="um">
+                <button class="play-button" onclick="document.getElementById('audio-1').play()">Ouvir</button>
+                <audio id="audio-1" src="assets/audio/unidad1/numeros0a20/UNO.mp3"></audio>
+                <button onclick="checkAnswer('input-1', 'uno')">Verificar</button>
+                <span id="feedback-1" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">2:</span>
+                <input type="text" id="input-2" placeholder="dois">
+                <button class="play-button" onclick="document.getElementById('audio-2').play()">Ouvir</button>
+                <audio id="audio-2" src="assets/audio/unidad1/numeros0a20/DOS.mp3"></audio>
+                <button onclick="checkAnswer('input-2', 'dos')">Verificar</button>
+                <span id="feedback-2" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">3:</span>
+                <input type="text" id="input-3" placeholder="três">
+                <button class="play-button" onclick="document.getElementById('audio-3').play()">Ouvir</button>
+                <audio id="audio-3" src="assets/audio/unidad1/numeros0a20/TRES.mp3"></audio>
+                <button onclick="checkAnswer('input-3', 'tres')">Verificar</button>
+                <span id="feedback-3" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">4:</span>
+                <input type="text" id="input-4" placeholder="quatro">
+                <button class="play-button" onclick="document.getElementById('audio-4').play()">Ouvir</button>
+                <audio id="audio-4" src="assets/audio/unidad1/numeros0a20/CUATRO.mp3"></audio>
+                <button onclick="checkAnswer('input-4', 'cuatro')">Verificar</button>
+                <span id="feedback-4" style="margin-left: 10px;"></span>
+            </div>
 
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">5:</span>
+                <input type="text" id="input-5" placeholder="cinco">
+                <button class="play-button" onclick="document.getElementById('audio-5').play()">Ouvir</button>
+                <audio id="audio-5" src="assets/audio/unidad1/numeros0a20/CINCO.mp3"></audio>
+                <button onclick="checkAnswer('input-5', 'cinco')">Verificar</button>
+                <span id="feedback-5" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">6:</span>
+                <input type="text" id="input-6" placeholder="seis">
+                <button class="play-button" onclick="document.getElementById('audio-6').play()">Ouvir</button>
+                <audio id="audio-6" src="assets/audio/unidad1/numeros0a20/SEIS.mp3"></audio>
+                <button onclick="checkAnswer('input-6', 'seis')">Verificar</button>
+                <span id="feedback-6" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">7:</span>
+                <input type="text" id="input-7" placeholder="sete">
+                <button class="play-button" onclick="document.getElementById('audio-7').play()">Ouvir</button>
+                <audio id="audio-7" src="assets/audio/unidad1/numeros0a20/SIETE.mp3"></audio>
+                <button onclick="checkAnswer('input-7', 'siete')">Verificar</button>
+                <span id="feedback-7" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">8:</span>
+                <input type="text" id="input-8" placeholder="oito">
+                <button class="play-button" onclick="document.getElementById('audio-8').play()">Ouvir</button>
+                <audio id="audio-8" src="assets/audio/unidad1/numeros0a20/OCHO.mp3"></audio>
+                <button onclick="checkAnswer('input-8', 'ocho')">Verificar</button>
+                <span id="feedback-8" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">9:</span>
+                <input type="text" id="input-9" placeholder="nove">
+                <button class="play-button" onclick="document.getElementById('audio-9').play()">Ouvir</button>
+                <audio id="audio-9" src="assets/audio/unidad1/numeros0a20/NUEVE.mp3"></audio>
+                <button onclick="checkAnswer('input-9', 'nueve')">Verificar</button>
+                <span id="feedback-9" style="margin-left: 10px;"></span>
+            </div>
+
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">10:</span>
+                <input type="text" id="input-10" placeholder="dez">
+                <button class="play-button" onclick="document.getElementById('audio-10').play()">Ouvir</button>
+                <audio id="audio-10" src="assets/audio/unidad1/numeros0a20/DIEZ.mp3"></audio>
+                <button onclick="checkAnswer('input-10', 'diez')">Verificar</button>
+                <span id="feedback-10" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">11:</span>
+                <input type="text" id="input-11" placeholder="onze">
+                <button class="play-button" onclick="document.getElementById('audio-11').play()">Ouvir</button>
+                <audio id="audio-11" src="assets/audio/unidad1/numeros0a20/ONCE.mp3"></audio>
+                <button onclick="checkAnswer('input-11', 'once')">Verificar</button>
+                <span id="feedback-11" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">12:</span>
+                <input type="text" id="input-12" placeholder="doze">
+                <button class="play-button" onclick="document.getElementById('audio-12').play()">Ouvir</button>
+                <audio id="audio-12" src="assets/audio/unidad1/numeros0a20/DOCE.mp3"></audio>
+                <button onclick="checkAnswer('input-12', 'doce')">Verificar</button>
+                <span id="feedback-12" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">13:</span>
+                <input type="text" id="input-13" placeholder="treze">
+                <button class="play-button" onclick="document.getElementById('audio-13').play()">Ouvir</button>
+                <audio id="audio-13" src="assets/audio/unidad1/numeros0a20/TRECE.mp3"></audio>
+                <button onclick="checkAnswer('input-13', 'trece')">Verificar</button>
+                <span id="feedback-13" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">14:</span>
+                <input type="text" id="input-14" placeholder="quatorze">
+                <button class="play-button" onclick="document.getElementById('audio-14').play()">Ouvir</button>
+                <audio id="audio-14" src="assets/audio/unidad1/numeros0a20/CATORCE.mp3"></audio>
+                <button onclick="checkAnswer('input-14', 'catorce')">Verificar</button>
+                <span id="feedback-14" style="margin-left: 10px;"></span>
+            </div>
+
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">15:</span>
+                <input type="text" id="input-15" placeholder="quinze">
+                <button class="play-button" onclick="document.getElementById('audio-15').play()">Ouvir</button>
+                <audio id="audio-15" src="assets/audio/unidad1/numeros0a20/QUINCE.mp3"></audio>
+                <button onclick="checkAnswer('input-15', 'quince')">Verificar</button>
+                <span id="feedback-15" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">16:</span>
+                <input type="text" id="input-16" placeholder="dezesseis">
+                <button class="play-button" onclick="document.getElementById('audio-16').play()">Ouvir</button>
+                <audio id="audio-16" src="assets/audio/unidad1/numeros0a20/DIECISEIS.mp3"></audio>
+                <button onclick="checkAnswer('input-16', 'dieciséis')">Verificar</button>
+                <span id="feedback-16" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">17:</span>
+                <input type="text" id="input-17" placeholder="dezessete">
+                <button class="play-button" onclick="document.getElementById('audio-17').play()">Ouvir</button>
+                <audio id="audio-17" src="assets/audio/unidad1/numeros0a20/DIECISIETE.mp3"></audio>
+                <button onclick="checkAnswer('input-17', 'diecisiete')">Verificar</button>
+                <span id="feedback-17" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">18:</span>
+                <input type="text" id="input-18" placeholder="dezoito">
+                <button class="play-button" onclick="document.getElementById('audio-18').play()">Ouvir</button>
+                <audio id="audio-18" src="assets/audio/unidad1/numeros0a20/DIECIOCHO.mp3"></audio>
+                <button onclick="checkAnswer('input-18', 'dieciocho')">Verificar</button>
+                <span id="feedback-18" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">19:</span>
+                <input type="text" id="input-19" placeholder="dezenove">
+                <button class="play-button" onclick="document.getElementById('audio-19').play()">Ouvir</button>
+                <audio id="audio-19" src="assets/audio/unidad1/numeros0a20/DIECINUEVE.mp3"></audio>
+                <button onclick="checkAnswer('input-19', 'diecinueve')">Verificar</button>
+                <span id="feedback-19" style="margin-left: 10px;"></span>
+            </div>
+            <div class="audio-player" style="flex-basis: 48%;">
+                <span class="content-item">20:</span>
+                <input type="text" id="input-20" placeholder="vinte">
+                <button class="play-button" onclick="document.getElementById('audio-20').play()">Ouvir</button>
+                <audio id="audio-20" src="assets/audio/unidad1/numeros0a20/VEINTE.mp3"></audio>
+                <button onclick="checkAnswer('input-20', 'veinte')">Verificar</button>
+                <span id="feedback-20" style="margin-left: 10px;"></span>
+            </div>
+        </div>
+        
         <hr style="margin-top: 30px;">
-
+        
 
         <h2>3. El Verbo SER</h2>
         <p>O verbo SER é usado para identidade e origem. Preste atenção na conjugação.</p>
@@ -478,7 +634,25 @@
         </div>
 
         <hr style="margin-top: 30px;">
+        <script>
+    // Función para verificar la respuesta en los ejercicios de dictado
+    function checkAnswer(inputId, correctAnswer) {
+        // Obtiene el valor escrito por el usuario y lo convierte a minúsculas
+        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
         
+        // Obtiene el elemento donde se mostrará la retroalimentación
+        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
+        
+        // Compara la respuesta
+        if (userAnswer === correctAnswer) {
+            feedbackElement.textContent = '✅ ¡Correcto!';
+            feedbackElement.style.color = 'green';
+        } else {
+            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
+            feedbackElement.style.color = 'red';
+        }
+    }
+</script>
         ```
 
 ### ⏭️ Siguiente Paso: Diálogos de Fluidez
