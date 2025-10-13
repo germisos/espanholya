@@ -1,88 +1,239 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 1: ¡Hola! - Espanhol Ya</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        .header { background-color: #007bff; color: white; padding: 15px; text-align: center; }
-        .lesson-container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #007bff; }
-        .audio-player { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .audio-player:last-child { border-bottom: none; }
-        .play-button { background-color: #28a745; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        .play-button:hover { background-color: #218838; }
-        .content-item { flex-grow: 1; margin-right: 15px; font-size: 1.1em; }
-        .content-item strong { font-size: 1.2em; color: #333; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>UNIDADE 1: Apresentações e Saudações</h1>
-        <p>Módulo A1-1 (Gratuito)</p>
-    </div>
-
-    <div class="lesson-container">
-        <h2>1. El Alfabeto </h2>
+<h2>1. El Alfabeto </h2>
         <p>Ouça e pratique a pronúncia. Preste atenção nas letras <strong>J (jota)</strong>, que é forte, e <strong>H (hache)</strong>, que é muda.</p>
 
         <div id="alphabet-list">
             <div class="audio-player">
-                <span class="content-item"><strong>A a</strong> (a) - AJO</span>
+                <span class="content-item">
+                    <strong>A a</strong> (a) - AJO
+                    <img src="assets/images/unidad1/abecedario/ajo.png" alt="Ajo">
+                </span>
                 <button class="play-button" onclick="document.getElementById('audio-a').play()">Ouvir</button>
                 <audio id="audio-a" src="assets/audio/unidad1/abecedario/alfabeto-a.mp3"></audio>
             </div>
             <div class="audio-player">
-                <span class="content-item"><strong>J j</strong> (jota) - JAULA</span>
+                <span class="content-item">
+                    <strong>B b</strong> (be) - BARBA
+                    <img src="assets/images/unidad1/abecedario/barba.png" alt="Barba">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-b').play()">Ouvir</button>
+                <audio id="audio-b" src="assets/audio/unidad1/abecedario/alfabeto-b.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>C c</strong> (ce) - CARACOL
+                    <img src="assets/images/unidad1/abecedario/caracol.png" alt="Caracol">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-c').play()">Ouvir</button>
+                <audio id="audio-c" src="assets/audio/unidad1/abecedario/alfabeto-c.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Ch ch</strong> (che) - CHOCOLATE
+                    <img src="assets/images/unidad1/abecedario/chocolate.png" alt="Chocolate">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-ch').play()">Ouvir</button>
+                <audio id="audio-ch" src="assets/audio/unidad1/abecedario/alfabeto-ch.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>D d</strong> (de) - DADO
+                    <img src="assets/images/unidad1/abecedario/dado.png" alt="Dado">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-d').play()">Ouvir</button>
+                <audio id="audio-d" src="assets/audio/unidad1/abecedario/alfabeto-d.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>E e</strong> (e) - ESQUELETO
+                    <img src="assets/images/unidad1/abecedario/esqueleto.png" alt="Esqueleto">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-e').play()">Ouvir</button>
+                <audio id="audio-e" src="assets/audio/unidad1/abecedario/alfabeto-e.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>F f</strong> (efe) - FOCA
+                    <img src="assets/images/unidad1/abecedario/foca.png" alt="Foca">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-f').play()">Ouvir</button>
+                <audio id="audio-f" src="assets/audio/unidad1/abecedario/alfabeto-f.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>G g</strong> (ge) - GATO
+                    <img src="assets/images/unidad1/abecedario/gato.png" alt="Gato">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-g').play()">Ouvir</button>
+                <audio id="audio-g" src="assets/audio/unidad1/abecedario/alfabeto-g.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>H h</strong> (hache) - HAMBURGUESA
+                    <img src="assets/images/unidad1/abecedario/hamburguesa.png" alt="Hamburguesa">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-h').play()">Ouvir</button>
+                <audio id="audio-h" src="assets/audio/unidad1/abecedario/alfabeto-h.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>I i</strong> (i) - ISLA
+                    <img src="assets/images/unidad1/abecedario/isla.png" alt="Isla">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-i').play()">Ouvir</button>
+                <audio id="audio-i" src="assets/audio/unidad1/abecedario/alfabeto-i.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>J j</strong> (jota) - JAULA
+                    <img src="assets/images/unidad1/abecedario/jaula.png" alt="Jaula">
+                </span>
                 <button class="play-button" onclick="document.getElementById('audio-j').play()">Ouvir</button>
                 <audio id="audio-j" src="assets/audio/unidad1/abecedario/alfabeto-j.mp3"></audio>
             </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>K k</strong> (ka) - KIWI
+                    <img src="assets/images/unidad1/abecedario/kiwi.png" alt="Kiwi">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-k').play()">Ouvir</button>
+                <audio id="audio-k" src="assets/audio/unidad1/abecedario/alfabeto-k.mp3"></audio>
             </div>
-
-        <hr style="margin-top: 30px;">
-        <h2>2. Números del 0 al 20</h2>
-        <p>Ouça o áudio e complete com a palavra correta.</p>
-        
-        <div class="audio-player">
-            <span class="content-item">Número 15:</span>
-            <input type="text" id="input-15" placeholder="Escreva a palavra aqui">
-            <button class="play-button" onclick="document.getElementById('audio-15').play()">Ouvir</button>
-            <audio id="audio-15" src="assets/audio/unidad1/numeros0a20/QUINCE.mp3"></audio>
-            <button onclick="checkAnswer('input-15', 'quince')">Verificar</button>
-            <span id="feedback-15"></span>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>L l</strong> (ele) - LIBRO
+                    <img src="assets/images/unidad1/abecedario/libro.png" alt="Libro">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-l').play()">Ouvir</button>
+                <audio id="audio-l" src="assets/audio/unidad1/abecedario/alfabeto-l.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Ll ll</strong> (elle) - LLAVES
+                    <img src="assets/images/unidad1/abecedario/llaves.png" alt="Llaves">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-ll').play()">Ouvir</button>
+                <audio id="audio-ll" src="assets/audio/unidad1/abecedario/alfabeto-ll.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>M m</strong> (eme) - MONO
+                    <img src="assets/images/unidad1/abecedario/mono.png" alt="Mono">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-m').play()">Ouvir</button>
+                <audio id="audio-m" src="assets/audio/unidad1/abecedario/alfabeto-m.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>N n</strong> (ene) - NARIZ
+                    <img src="assets/images/unidad1/abecedario/nariz.png" alt="Nariz">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-n').play()">Ouvir</button>
+                <audio id="audio-n" src="assets/audio/unidad1/abecedario/alfabeto-n.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Ñ ñ</strong> (eñe) - ÑANDÚ
+                    <img src="assets/images/unidad1/abecedario/ñandu.png" alt="Ñandú">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-ñ').play()">Ouvir</button>
+                <audio id="audio-ñ" src="assets/audio/unidad1/abecedario/alfabeto-ñ.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>O o</strong> (o) - OJO
+                    <img src="assets/images/unidad1/abecedario/ojo.png" alt="Ojo">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-o').play()">Ouvir</button>
+                <audio id="audio-o" src="assets/audio/unidad1/abecedario/alfabeto-o.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>P p</strong> (pe) - PERRO
+                    <img src="assets/images/unidad1/abecedario/perro.png" alt="Perro">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-p').play()">Ouvir</button>
+                <audio id="audio-p" src="assets/audio/unidad1/abecedario/alfabeto-p.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Q q</strong> (cu) - QUESO
+                    <img src="assets/images/unidad1/abecedario/queso.png" alt="Queso">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-q').play()">Ouvir</button>
+                <audio id="audio-q" src="assets/audio/unidad1/abecedario/alfabeto-q.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>R r</strong> (erre) - ROSA
+                    <img src="assets/images/unidad1/abecedario/rosa.png" alt="Rosa">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-r').play()">Ouvir</button>
+                <audio id="audio-r" src="assets/audio/unidad1/abecedario/alfabeto-r.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>S s</strong> (ese) - SOL
+                    <img src="assets/images/unidad1/abecedario/sol.png" alt="Sol">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-s').play()">Ouvir</button>
+                <audio id="audio-s" src="assets/audio/unidad1/abecedario/alfabeto-s.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>T t</strong> (te) - TORTUGA
+                    <img src="assets/images/unidad1/abecedario/tortuga.png" alt="Tortuga">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-t').play()">Ouvir</button>
+                <audio id="audio-t" src="assets/audio/unidad1/abecedario/alfabeto-t.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>U u</strong> (u) - UVA
+                    <img src="assets/images/unidad1/abecedario/uva.png" alt="Uva">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-u').play()">Ouvir</button>
+                <audio id="audio-u" src="assets/audio/unidad1/abecedario/alfabeto-u.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>V v</strong> (uve) - VACA
+                    <img src="assets/images/unidad1/abecedario/vaca.png" alt="Vaca">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-v').play()">Ouvir</button>
+                <audio id="audio-v" src="assets/audio/unidad1/abecedario/alfabeto-v.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>W w</strong> (uve doble) - WASABI
+                    <img src="assets/images/unidad1/abecedario/wasabi.png" alt="Wasabi">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-w').play()">Ouvir</button>
+                <audio id="audio-w" src="assets/audio/unidad1/abecedario/alfabeto-w.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>X x</strong> (equis) - XILÓFONO
+                    <img src="assets/images/unidad1/abecedario/xilofono.png" alt="Xilófono">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-x').play()">Ouvir</button>
+                <audio id="audio-x" src="assets/audio/unidad1/abecedario/alfabeto-x.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Y y</strong> (i griega) - YATE
+                    <img src="assets/images/unidad1/abecedario/yate.png" alt="Yate">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-y').play()">Ouvir</button>
+                <audio id="audio-y" src="assets/audio/unidad1/abecedario/alfabeto-y.mp3"></audio>
+            </div>
+            <div class="audio-player">
+                <span class="content-item">
+                    <strong>Z z</strong> (zeta) - ZORRO
+                    <img src="assets/images/unidad1/abecedario/zorro.png" alt="Zorro">
+                </span>
+                <button class="play-button" onclick="document.getElementById('audio-z').play()">Ouvir</button>
+                <audio id="audio-z" src="assets/audio/unidad1/abecedario/alfabeto-z.mp3"></audio>
+            </div>
         </div>
 
         <hr style="margin-top: 30px;">
-        <h2>3. Verbo SER</h2>
-        <p>O verbo SER é usado para identidade e origem. Preste atenção na conjugação.</p>
-        
-        <div class="audio-player">
-            <span class="content-item">Yo soy (Eu sou)</span>
-            <button class="play-button" onclick="document.getElementById('audio-ser-soy').play()">Ouvir</button>
-            <audio id="audio-ser-soy" src="assets/audio/unidad1/gramatica/ser/soy.mp3"></audio>
-        </div>
-        <div class="audio-player">
-            <span class="content-item">Tú eres (Você é)</span>
-            <button class="play-button" onclick="document.getElementById('audio-ser-eres').play()">Ouvir</button>
-            <audio id="audio-ser-eres" src="assets/audio/unidad1/gramatica/ser/eres.mp3"></audio>
-        </div>
-        </div>
-
-    <script>
-        // Función simple de JavaScript para verificar la respuesta del ejercicio de números
-        function checkAnswer(inputId, correctAnswer) {
-            const input = document.getElementById(inputId);
-            const feedbackSpan = document.getElementById('feedback-' + inputId.split('-')[1]);
-            
-            if (input.value.toLowerCase().trim() === correctAnswer.toLowerCase()) {
-                feedbackSpan.textContent = "✅ Certo!";
-                feedbackSpan.style.color = "green";
-            } else {
-                feedbackSpan.textContent = "❌ Errado! Resposta correta: " + correctAnswer.toUpperCase();
-                feedbackSpan.style.color = "red";
-            }
-        }
-    </script>
-</body>
-</html>
