@@ -40,7 +40,7 @@
     .audio-player { 
         display: flex; 
         align-items: center; 
-        justify-content: space-between; 
+        justify-content: flex-start; 
         padding: 12px 0; /* Más relleno arriba y abajo */
         border-bottom: 1px solid #eee; 
     }
@@ -48,9 +48,11 @@
     
     .content-item { 
         font-size: 1.1em; 
-        display: inline-flex; /* Permite alinear la imagen y el texto */
+        display: flex; /* Permite alinear la imagen y el texto */
         align-items: center;
-        margin-right: 20px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 30px;
     }
     .content-item strong { 
         font-size: 1.2em; 
@@ -68,7 +70,7 @@
         border-radius: 5px; 
         font-weight: bold; 
         min-width: 70px; /* Asegura que todos los botones sean del mismo tamaño */
-        margin-left: auto;
+        flex-grow: 0;
     }
     .play-button:hover { background-color: #218838; }
 
