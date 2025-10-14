@@ -47,26 +47,35 @@
         margin: 30px 0;
     }
     
-    /* MODIFICACIÓN CLAVE: Quitamos el background-color del .play-button 
-       para que el estilo en línea (style="") sea el que domine. */
+    /* CLASE BASE: Solo define el padding, borde y transición. NO color de fondo. */
     .play-button {
         padding: 5px 10px;
         border: none;
         border-radius: 5px;
-        color: white; /* Color de texto blanco por defecto */
+        color: white; 
         cursor: pointer;
         font-weight: bold;
-        transition: opacity 0.3s; /* Solo transicionar la opacidad */
-        /* Eliminamos el color de fondo aquí para que los estilos en línea lo definan */
+        transition: opacity 0.3s;
     }
     .play-button:hover {
         opacity: 0.9;
+    }
+
+    /* ESTILO VIBRANTE RE-APLICADO: Se usará en Ej. 2, 3, 4 y la fila "Yo" del Ej. 1 */
+    .yo-verify {
+        background-color: #007bff !important; /* Azul primario para Verificar */
+        color: white !important;
+    }
+
+    /* ESTILO VERDE RE-APLICADO: Se usará en la fila "Yo" del Ej. 1 */
+    .yo-listen {
+        background-color: #28a745 !important; /* Verde éxito para Oír */
+        color: white !important;
     }
     
     /* ESTILOS ESPECÍFICOS DEL EJERCICIO 1: CONJUGACIÓN */
     .conjugation-grid {
         display: grid;
-        /* Estructura: Pronombre | Input | Verificar | Feedback | Oír */
         grid-template-columns: 100px 1fr 100px 1fr 80px; 
         gap: 10px;
         align-items: center;
@@ -76,9 +85,6 @@
         border: 1px solid #ccc;
         border-radius: 4px;
     }
-
-    /* Las clases de color yo-verify, default-verify, etc. fueron eliminadas 
-       porque usaremos el estilo en línea (style="") que es el más prioritario. */
 </style>
 </head>
 <body>
