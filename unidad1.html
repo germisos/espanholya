@@ -4,113 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad 1 - Gramática y Vocabulario</title>
-<style>        
-<head>    /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
-    body { 
-        font-family: sans-serif; 
-        margin: 0; 
-        padding: 25px; /* AUMENTADO: Relleno general para evitar tocar bordes */
-        background-color: #f4f4f9; 
-        color: #333; 
-        line-height: 1.6; /* Mejora la lectura */
-    }
-    <body>
-    <div class="header">
-        <a href="index.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Inicio</a>
+
+    <style>
+        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            padding: 25px; 
+            background-color: #f4f4f9; 
+            color: #333; 
+            line-height: 1.6;
+        }
         
-        <a href="unidad1.html" style="color: white; text-decoration: underline; font-size: 1.5em; margin-right: 30px;">Unidad 1</a> 
+        .header { 
+            background-color: #007bff; 
+            color: white; 
+            padding: 20px;
+            text-align: center; 
+            margin-bottom: 20px; 
+            border-radius: 8px;
+        }
         
-        <a href="ejercicios_unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em;">Ejercicios U1</a>
-    </div>
-    
-    <div class="lesson-container">
-        ```
-
-    .header { 
-        background-color: #007bff; 
-        color: white; 
-        padding: 20px; /* Más relleno en el encabezado */
-        text-align: center; 
-        margin-bottom: 20px; 
-        border-radius: 8px; /* Pequeñas curvas */
-    }
-    
-    .lesson-container { 
-        max-width: 900px; /* Permite que ocupe más espacio en pantallas grandes */
-        margin: 0 auto; /* Centra el contenedor principal */
-        padding: 25px; /* Más relleno dentro del contenedor */
-        background: white; 
-        border-radius: 12px; /* Bordes más suaves */
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra más notable */
-    }
-    
-    h2 { 
-        border-bottom: 3px solid #007bff; 
-        padding-bottom: 12px; 
-        color: #007bff; 
-        margin-top: 30px; /* Más espacio sobre cada título */
-    }
-
-    /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
-    .audio-player { 
-        display: flex; 
-        align-items: center; 
-        justify-content: space-between; 
-        padding: 12px 0; /* Más relleno arriba y abajo */
-        border-bottom: 1px solid #eee; 
-    }
-    .audio-player:last-child { border-bottom: none; }
-    
-    .content-item { 
-        font-size: 1.1em; 
-        display: flex; /* Permite alinear la imagen y el texto */
-        align-items: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-   }
-    .content-item strong { 
-        font-size: 1.2em; 
-        color: #333; 
-        min-width: 100px; /* Asegura que la letra y el nombre no se muevan */
-    }
-    
-    /* 3. ESTILOS DE BOTONES E IMAGEN */
-    .play-button { 
-        background-color: #28a745; 
-        color: white; 
-        border: none; 
-        padding: 8px 15px; 
-        cursor: pointer; 
-        border-radius: 5px; 
-        font-weight: bold; 
-        min-width: 70px; /* Asegura que todos los botones sean del mismo tamaño */
-        margin-left: 20px;
-    }
-    .play-button:hover { background-color: #218838; }
-
-    .content-item img {
-        height: 50px; 
-        vertical-align: middle;
-        border-radius: 4px;
-        margin-left: 15px; /* Más separación entre la palabra y la imagen */
-    }
-
-    /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
-    @media (max-width: 600px) {
-        .audio-player {
-            flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no hay espacio */
+        .lesson-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 25px; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
         }
-        .content-item {
-            flex-basis: 100%; /* El texto ocupa toda la línea */
-            margin-bottom: 10px;
+        
+        h2 { 
+            border-bottom: 3px solid #007bff; 
+            padding-bottom: 12px; 
+            color: #007bff; 
+            margin-top: 30px; 
         }
-        .play-button {
-            width: 100%; /* Botón grande para tocar con el dedo */
-            margin-top: 5px;
+
+        /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
+        .audio-player { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 12px 0; 
+            border-bottom: 1px solid #eee; 
         }
-    }
-</style>
-        </style>
+        .audio-player:last-child { border-bottom: none; }
+        
+        .content-item { 
+            font-size: 1.1em; 
+            display: flex; 
+            align-items: center;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .content-item strong { 
+            font-size: 1.2em; 
+            color: #333; 
+            min-width: 100px; 
+        }
+        
+        /* 3. ESTILOS DE BOTONES E IMAGEN */
+        .play-button { 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            min-width: 70px;
+            margin-left: 20px;
+        }
+        .play-button:hover { background-color: #218838; }
+
+        .content-item img {
+            height: 50px; 
+            vertical-align: middle;
+            border-radius: 4px;
+            margin-left: 15px; 
+        }
+
+        /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
+        @media (max-width: 600px) {
+            .audio-player {
+                flex-wrap: wrap; 
+            }
+            .content-item {
+                flex-basis: 100%; 
+                margin-bottom: 10px;
+            }
+            .play-button {
+                width: 100%; 
+                margin-top: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -123,7 +112,9 @@
     <div class="lesson-container">
         
         <h2>1. El Alfabeto </h2>
-        <div id="alphabet-list">
+        <p>Ouça e pratique a pronúncia. Preste atenção nas letras <strong>J (jota)</strong>, que é forte, e <strong>H (hache)</strong>, que é muda.</p>
+
+        <div id="alphabet-list"><div id="alphabet-list">
             <div class="audio-player">
                 <span class="content-item">
                     <strong>A a</strong> (a) - AJO
