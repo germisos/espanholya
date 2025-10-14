@@ -640,7 +640,73 @@
     </div>
 
 </div>
+        <hr>
+<h3>7. Interpretación de Texto y Comprensión Lectora</h3>
+<p>Lee atentamente los textos y responde a las preguntas con oraciones completas. ¡No olvides usar tu conocimiento de SER/LLAMARSE/Contracciones!</p>
 
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <h4 style="color: #007bff;">A) Historia de María</h4>
+    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 3px solid #007bff;">
+        <p style="font-style: italic;">María es una niña muy feliz. Vive en una casa grande con su mamá, su papá y su perro Max. A María le gusta jugar en el jardín con Max. También le encanta pintar cuadros de colores brillantes. Los fines de semana, María y su familia van al parque a comer helado y jugar juntos.</p>
+    </div>
+    
+    <p style="font-weight: bold;">1. ¿Quién es María y cómo es su vida?</p>
+    <textarea id="resp-A1" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">2. ¿Dónde vive María y con quién?</p>
+    <textarea id="resp-A2" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">3. ¿Qué le gusta hacer a María en su tiempo libre?</p>
+    <textarea id="resp-A3" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">4. ¿Cuál es la actividad favorita de María en el jardín?</p>
+    <textarea id="resp-A4" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">5. ¿Qué hacen María y su familia los fines de semana?</p>
+    <textarea id="resp-A5" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">6. ¿Quién es Max y qué hace con María?</p>
+    <textarea id="resp-A6" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">7. ¿Qué tipo de cuadros le gusta pintar a María?</p>
+    <textarea id="resp-A7" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">8. ¿Por qué crees que María es una niña feliz? (Respuesta Abierta)</p>
+    <textarea id="resp-A8" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <button class="play-button" style="background-color: green; margin-top: 15px;" onclick="showInterpretationAnswers('A')">Mostrar Respuestas (María)</button>
+    <div id="feedback-A" style="margin-top: 15px; padding: 10px; border: 1px dashed green; display: none;"></div>
+
+    <hr style="margin: 30px 0;">
+
+    <h4 style="color: #cc6600;">B) Historia de Pablo</h4>
+    <div style="background-color: #fff8f0; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 3px solid #cc6600;">
+        <p style="font-style: italic;">Pablo es un niño aventurero. Le gusta explorar el bosque cerca de su casa en busca de tesoros. Un día, mientras buscaba entre los árboles, encontró un antiguo mapa en el suelo. El mapa tenía una X marcada en él, indicando la ubicación de un tesoro escondido. Emocionado, Pablo decidió seguir el mapa y buscar el tesoro.</p>
+    </div>
+
+    <p style="font-weight: bold;">1. ¿Quién es Pablo y qué le gusta hacer?</p>
+    <textarea id="resp-B1" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">2. ¿Dónde encontró Pablo el mapa del tesoro?</p>
+    <textarea id="resp-B2" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">3. ¿Qué encontró Pablo en el bosque un día?</p>
+    <textarea id="resp-B3" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">4. ¿Qué indicaba el mapa que encontró Pablo?</p>
+    <textarea id="resp-B4" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">5. ¿Qué decidió hacer Pablo después de encontrar el mapa?</p>
+    <textarea id="resp-B5" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">6. ¿Por qué crees que Pablo estaba emocionado después de encontrar el mapa? (Respuesta Abierta)</p>
+    <textarea id="resp-B6" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <button class="play-button" style="background-color: #cc6600; margin-top: 15px;" onclick="showInterpretationAnswers('B')">Mostrar Respuestas (Pablo)</button>
+    <div id="feedback-B" style="margin-top: 15px; padding: 10px; border: 1px dashed #cc6600; display: none;"></div>
+
+</div>
         
         <hr style="margin-top: 30px;">
         
@@ -688,6 +754,40 @@
             feedbackElement.style.color = "red";
         }
     }
+            function showInterpretationAnswers(blockId) {
+        const feedbackElement = document.getElementById(`feedback-${blockId}`);
+        
+        // Las respuestas posibles que proporcionaste:
+        const answers = {
+            A: [
+                "1. María es una niña feliz que vive en una casa grande con su mamá, su papá y su perro Max.",
+                "2. María vive en una casa grande con su mamá, su papá y su perro Max.",
+                "3. A María le gusta jugar en el jardín con Max y pintar cuadros de colores brillantes.",
+                "4. La actividad favorita de María en el jardín es jugar con Max.",
+                "5. Los fines de semana, María y su familia van al parque a comer helado y jugar juntos.",
+                "6. Max es el perro de María y juega con ella en el jardín.",
+                "7. A María le gusta pintar cuadros de colores brillantes.",
+                "8. (Respuesta Abierta) María es una niña feliz porque vive en una casa grande con su familia, tiene un perro con el que jugar y disfruta de actividades divertidas como pintar y comer helado en el parque con su familia."
+            ],
+            B: [
+                "1. Pablo es un niño aventurero a quien le gusta explorar el bosque en busca de tesoros.",
+                "2. Pablo encontró el mapa del tesoro en el suelo del bosque cerca de su casa.",
+                "3. Pablo encontró un antiguo mapa en el bosque un día.",
+                "4. El mapa tenía una X marcada en él, indicando la ubicación de un tesoro escondido.",
+                "5. Después de encontrar el mapa, Pablo decidió seguirlo y buscar el tesoro.",
+                "6. (Respuesta Abierta) Pablo estaba emocionado después de encontrar el mapa porque le ofrecía la oportunidad de buscar un tesoro escondido y vivir una emocionante aventura en el bosque."
+            ]
+        };
+
+        // Mostrar u ocultar las respuestas
+        if (feedbackElement.style.display === 'none') {
+            feedbackElement.innerHTML = `<h4>Respuestas Posibles:</h4><ul>${answers[blockId].map(a => `<li>${a}</li>`).join('')}</ul>`;
+            feedbackElement.style.display = 'block';
+        } else {
+            feedbackElement.style.display = 'none';
+        }
+    }
 </script>
+
 
         
