@@ -5,95 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios | Unidad 2</title>
     <style>
-        /* ESTILOS DE NAVEGACIÓN AÑADIDOS */
-        .header {
-            background-color: #007bff; /* Color azul para la barra de navegación */
-            padding: 15px 50px; 
-            text-align: center;
-        }
-        /* Fin de estilos de navegación */
-        
-        /* ESTILOS BÁSICOS PARA LA PÁGINA */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .lesson-container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        h3 {
-            color: #444;
-            margin-top: 30px;
-        }
-        p {
-            line-height: 1.6;
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background-color: #ddd;
-            margin: 30px 0;
-        }
-        .play-button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .play-button:hover {
-            opacity: 0.9;
-        }
-        
-        /* ESTILOS ESPECÍFICOS DEL EJERCICIO 1: CONJUGACIÓN */
-        .conjugation-grid {
-            display: grid;
-            /* Estructura: Pronombre | Input | Verificar | Feedback | Oír */
-            grid-template-columns: 100px 1fr 100px 1fr 80px; 
-            gap: 10px;
-            align-items: center;
-        }
-        .conjugation-grid input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        
-        /* ESTILOS POR DEFECTO PARA BOTONES DE CONJUGACIÓN (GRIS SUAVE) */
-        .default-verify {
-            background-color: #d3d3d3; 
-            color: #555;
-        }
-        .default-listen {
-            background-color: #e0e0e0; 
-            color: #555;
-        }
+    /* ESTILOS DE NAVEGACIÓN AÑADIDOS */
+    .header {
+        background-color: #007bff; /* Color azul para la barra de navegación */
+        padding: 15px 50px; 
+        text-align: center;
+    }
+    /* Fin de estilos de navegación */
+    
+    /* ESTILOS BÁSICOS PARA LA PÁGINA */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .lesson-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    h1 {
+        color: #333;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        color: #444;
+        margin-top: 30px;
+    }
+    p {
+        line-height: 1.6;
+    }
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #ddd;
+        margin: 30px 0;
+    }
+    .play-button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .play-button:hover {
+        opacity: 0.9;
+    }
+    
+    /* ESTILOS ESPECÍFICOS DEL EJERCICIO 1: CONJUGACIÓN */
+    .conjugation-grid {
+        display: grid;
+        /* Estructura: Pronombre | Input | Verificar | Feedback | Oír */
+        grid-template-columns: 100px 1fr 100px 1fr 80px; 
+        gap: 10px;
+        align-items: center;
+    }
+    .conjugation-grid input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    /* ESTILOS DE BOTONES: GRISES POR DEFECTO */
+    .default-verify {
+        background-color: #d3d3d3 !important; /* Gris suave para verificar */
+        color: #555 !important;
+    }
+    .default-listen {
+        background-color: #e0e0e0 !important; /* Gris más claro para oír */
+        color: #555 !important;
+    }
 
-        /* ESTILOS PARA LA FILA "YO" y otros Ejercicios (COLORES VIBRANTES) */
-        .yo-verify {
-            background-color: #007bff; /* Azul para Verificar */
-            color: white;
-        }
-        .yo-listen {
-            background-color: #28a745; /* Verde para Oír */
-            color: white;
-        }
-    </style>
+    /* ESTILOS DE BOTONES: COLORES VIBRANTES SOLO PARA FILA "YO" Y OTROS EJERCICIOS */
+    .yo-verify {
+        background-color: #007bff !important; /* Azul primario para Verificar */
+        color: white !important;
+    }
+    .yo-listen {
+        background-color: #28a745 !important; /* Verde éxito para Oír */
+        color: white !important;
+    }
+</style>
 </head>
 <body>
 
