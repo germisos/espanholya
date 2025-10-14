@@ -113,31 +113,61 @@
     
     <div class="lesson-container">
     <h2>Ejercicios de la Unidad 1</h2>
-    <p>¡Practica lo que has aprendido en el Alfabeto, los Números y el Verbo SER!</p>
+    <hr>
+<h3>1. Práctica de Nacionalidades (Género)</h3>
+<p>Transforma la nacionalidad Masculina a Femenina, o viceversa, según la tabla de la lección.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
     
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Italiano:</span>
+        <input type="text" id="ej1-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej1-input', 'italiana', 'ej1-feedback')">Verificar</button>
+        <span id="ej1-feedback" style="margin-left: 10px;"></span>
     </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Alemana:</span>
+        <input type="text" id="ej2-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej2-input', 'alemán', 'ej2-feedback')">Verificar</button>
+        <span id="ej2-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Sueco:</span>
+        <input type="text" id="ej3-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej3-input', 'sueca', 'ej3-feedback')">Verificar</button>
+        <span id="ej3-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Holandesa:</span>
+        <input type="text" id="ej4-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej4-input', 'holandés', 'ej4-feedback')">Verificar</button>
+        <span id="ej4-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+       
 
         <hr style="margin-top: 30px;">
         
 
-
         <script>
-    // Función para verificar la respuesta en los ejercicios de dictado
-    function checkAnswer(inputId, correctAnswer) {
-        // Obtiene el valor escrito por el usuario y lo convierte a minúsculas
-        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
-        
-        // Obtiene el elemento donde se mostrará la retroalimentación
-        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
-        
-        // Compara la respuesta
-        if (userAnswer === correctAnswer) {
-            feedbackElement.textContent = '✅ ¡Correcto!';
-            feedbackElement.style.color = 'green';
+    function checkAnswer(inputId, correctAnswer, feedbackId) {
+        const inputElement = document.getElementById(inputId);
+        const feedbackElement = document.getElementById(feedbackId);
+        // Usamos .toLowerCase().trim() para hacer la comparación más tolerante
+        const userAnswer = inputElement.value.toLowerCase().trim();
+        const correctLower = correctAnswer.toLowerCase().trim();
+
+        if (userAnswer === correctLower) {
+            feedbackElement.textContent = "¡Correcto!";
+            feedbackElement.style.color = "green";
         } else {
-            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
-            feedbackElement.style.color = 'red';
+            feedbackElement.textContent = `Incorrecto. La respuesta es: ${correctAnswer}`;
+            feedbackElement.style.color = "red";
         }
     }
 </script>
-        ```
+        
