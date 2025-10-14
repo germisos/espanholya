@@ -3,31 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios Unidad 1: Presentaciones e Identificación</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ejercicios Unidad 1 - Práctica</title>
+
+    <style>
+        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            padding: 25px; 
+            background-color: #f4f4f9; 
+            color: #333; 
+            line-height: 1.6;
+        }
+        
+        .header { 
+            background-color: #007bff; 
+            color: white; 
+            padding: 20px;
+            text-align: center; 
+            margin-bottom: 20px; 
+            border-radius: 8px;
+        }
+        
+        .lesson-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 25px; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+        }
+        
+        h2 { 
+            border-bottom: 3px solid #007bff; 
+            padding-bottom: 12px; 
+            color: #007bff; 
+            margin-top: 30px; 
+        }
+
+        /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
+        .audio-player { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 12px 0; 
+            border-bottom: 1px solid #eee; 
+        }
+        .audio-player:last-child { border-bottom: none; }
+        
+        .content-item { 
+            font-size: 1.1em; 
+            display: flex; 
+            align-items: center;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .content-item strong { 
+            font-size: 1.2em; 
+            color: #333; 
+            min-width: 100px; 
+        }
+        
+        /* 3. ESTILOS DE BOTONES E IMAGEN */
+        .play-button { 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            min-width: 70px;
+            margin-left: 20px;
+        }
+        .play-button:hover { background-color: #218838; }
+
+        .content-item img {
+            height: 50px; 
+            vertical-align: middle;
+            border-radius: 4px;
+            margin-left: 15px; 
+        }
+
+        /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
+        @media (max-width: 600px) {
+            .audio-player {
+                flex-wrap: wrap; 
+            }
+            .content-item {
+                flex-basis: 100%; 
+                margin-bottom: 10px;
+            }
+            .play-button {
+                width: 100%; 
+                margin-top: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="nav-brand">Español Básico</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="unidad1.html">Unidad 1</a></li>
-                <li><a href="ejercicios_unidad1.html">Ejercicios U1</a></li>
-                </ul>
-        </nav>
-    </header>
-
+    
+    <div class="header">
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Inicio</a>
+    
+    <a href="unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 1</a>
+    
+    <a href="ejercicios_unidad1.html" style="color: white; text-decoration: underline; font-size: 1.5em;">Ejercicios U1</a>
+</div>
+    
     <div class="lesson-container">
-        <h1>Ejercicios de Práctica: Unidad 1</h1>
-        <p>¡Es hora de practicar! Completa los siguientes ejercicios basados en los temas de la Unidad 1 (Alfabeto, Números, Verbos Ser y Llamarse, Pronombres y Vocabulario).</p>
-        
-        <hr style="margin-top: 30px;">
-        <p style="text-align: center; font-style: italic;">Fin de los ejercicios de la Unidad 1.</p>
+    <h2>Ejercicios de la Unidad 1</h2>
+    <p>¡Practica lo que has aprendido en el Alfabeto, los Números y el Verbo SER!</p>
+    
     </div>
 
-    <script>
-        // Aquí podemos añadir funciones JavaScript para revisar respuestas más adelante, si lo deseas.
-    </script>
-</body>
-</html>
+        <hr style="margin-top: 30px;">
+        
+
+
+        <script>
+    // Función para verificar la respuesta en los ejercicios de dictado
+    function checkAnswer(inputId, correctAnswer) {
+        // Obtiene el valor escrito por el usuario y lo convierte a minúsculas
+        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+        
+        // Obtiene el elemento donde se mostrará la retroalimentación
+        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
+        
+        // Compara la respuesta
+        if (userAnswer === correctAnswer) {
+            feedbackElement.textContent = '✅ ¡Correcto!';
+            feedbackElement.style.color = 'green';
+        } else {
+            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
+            feedbackElement.style.color = 'red';
+        }
+    }
+</script>
+        ```
