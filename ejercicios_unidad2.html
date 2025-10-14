@@ -11,7 +11,6 @@
         padding: 15px 50px; 
         text-align: center;
     }
-    /* Fin de estilos de navegación */
     
     /* ESTILOS BÁSICOS PARA LA PÁGINA */
     body {
@@ -47,14 +46,18 @@
         background-color: #ddd;
         margin: 30px 0;
     }
+    
+    /* MODIFICACIÓN CLAVE: Quitamos el background-color del .play-button 
+       para que el estilo en línea (style="") sea el que domine. */
     .play-button {
         padding: 5px 10px;
         border: none;
         border-radius: 5px;
-        color: white;
+        color: white; /* Color de texto blanco por defecto */
         cursor: pointer;
         font-weight: bold;
-        transition: background-color 0.3s;
+        transition: opacity 0.3s; /* Solo transicionar la opacidad */
+        /* Eliminamos el color de fondo aquí para que los estilos en línea lo definan */
     }
     .play-button:hover {
         opacity: 0.9;
@@ -73,26 +76,9 @@
         border: 1px solid #ccc;
         border-radius: 4px;
     }
-    
-    /* ESTILOS DE BOTONES: GRISES POR DEFECTO */
-    .default-verify {
-        background-color: #d3d3d3 !important; /* Gris suave para verificar */
-        color: #555 !important;
-    }
-    .default-listen {
-        background-color: #e0e0e0 !important; /* Gris más claro para oír */
-        color: #555 !important;
-    }
 
-    /* ESTILOS DE BOTONES: COLORES VIBRANTES SOLO PARA FILA "YO" Y OTROS EJERCICIOS */
-    .yo-verify {
-        background-color: #007bff !important; /* Azul primario para Verificar */
-        color: white !important;
-    }
-    .yo-listen {
-        background-color: #28a745 !important; /* Verde éxito para Oír */
-        color: white !important;
-    }
+    /* Las clases de color yo-verify, default-verify, etc. fueron eliminadas 
+       porque usaremos el estilo en línea (style="") que es el más prioritario. */
 </style>
 </head>
 <body>
