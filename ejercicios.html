@@ -1912,6 +1912,25 @@ function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
         }
     }
     <script>
+        // Función para verificar si hay una ancla en la URL al cargar la página
+function checkURLAnchor() {
+    // 1. Obtiene la parte de la URL después del # (ej: '#u2')
+    const hash = window.location.hash; 
+
+    // 2. Determina qué unidad mostrar
+    if (hash === '#u1') {
+        // Llama a la función que ya tienes para cambiar el contenido
+        openUnit('ejercicios-u1');
+    } else if (hash === '#u2') {
+        openUnit('ejercicios-u2');
+    } else {
+        // Si no hay ancla (si el usuario escribió ejercicios.html sin #), muestra U1 por defecto
+        openUnit('ejercicios-u1');
+    }
+}
+
+// 3. Ejecuta la verificación tan pronto como la página termine de cargar
+window.onload = checkURLAnchor;
     // PEGAR TODAS TUS FUNCIONES DE checkAnswer, checkAnswerNumbers, etc.
     
     // AÑADIR LA FUNCIÓN DE CAMBIO DE PESTAÑAS:
