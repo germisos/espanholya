@@ -328,180 +328,73 @@
     
     <h3>4. Números: Del 20 al 99 y Ordinales</h3>
 
-    <h4>A. Números Cardinales del 20 al 99</h4>
-    <p>Regla principal: Los números del **0 al 30** se escriben **todo junto** (Ej: veinticinco). Del **31 al 99** se **separan con 'y'** (Ej: cuarenta y tres). Haz clic en Oír para practicar la pronunciación de cada número.</p>
+    <hr>
+<h3>4.A Números del 20 al 99</h3>
+<p>Los números del 0 al 30 se escriben todo junto. Del 31 al 99 se separan con la conjunción "y".</p>
 
-    <style>
-        /* Estilos específicos para la tabla de números cardinales */
-        .cardinal-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            table-layout: fixed; /* Asegura que las columnas se distribuyan bien */
-        }
-        .cardinal-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            vertical-align: middle;
-        }
-        .cardinal-table .number-col {
-            width: 20%;
-            font-weight: bold;
-            text-align: center;
-        }
-        .cardinal-table .audio-col {
-            width: 15%;
-            text-align: center;
-        }
-    </style>
+<div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+    <h4 style="color: #6a0dad;">Regla de Separación</h4>
+    <ul>
+        <li>**0 al 30:** Se escriben juntos (ej: 28 = veintiocho).</li>
+        <li>**31 al 99:** Se separan con "y" (ej: 43 = cuarenta y tres).</li>
+        <li>*Excepción:* **235** = doscientos treinta y cinco (entre 200 y 35 no va "y").</li>
+    </ul>
+</div>
 
-    <table class="cardinal-table">
+<div style="margin-top: 20px;">
+    <table style="width: 100%; border-collapse: collapse;">
         <thead>
-            <tr>
-                <td colspan="3" style="background-color: #f2f2f2; font-weight: bold;">Bloque 1: 20s y 30s (escritos juntos o con 'y')</td>
-                <td colspan="3" style="background-color: #f2f2f2; font-weight: bold;">Bloque 2: 40s y 50s (escritos con 'y')</td>
+            <tr style="background-color: #f2f2f2;">
+                <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Número</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Escrito</th>
+                <th style="padding: 10px; border: 1px solid #ddd; width: 10%;">Audio</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="number-col">20</td>
-                <td>Veinte</td>
-                <td class="audio-col">
-                    <audio id="audio-20" src="assets/audio/unidad2/veinte.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-20').play()">Oír</button>
-                </td>
-                <td class="number-col">40</td>
-                <td>Cuarenta</td>
-                <td class="audio-col">
-                    <audio id="audio-40" src="assets/audio/unidad2/cuarenta.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-40').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">23</td>
-                <td>Veintitrés</td>
-                <td class="audio-col">
-                    <audio id="audio-23" src="assets/audio/unidad2/veintitres.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-23').play()">Oír</button>
-                </td>
-                <td class="number-col">43</td>
-                <td>Cuarenta y tres</td>
-                <td class="audio-col">
-                    <audio id="audio-43" src="assets/audio/unidad2/cuarenta y tres.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-43').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">25</td>
-                <td>Veinticinco</td>
-                <td class="audio-col">
-                    <audio id="audio-25" src="assets/audio/unidad2/veinticinco.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-25').play()">Oír</button>
-                </td>
-                <td class="number-col">50</td>
-                <td>Cincuenta</td>
-                <td class="audio-col">
-                    <audio id="audio-50" src="assets/audio/unidad2/cincuenta.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-50').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">29</td>
-                <td>Veintinueve</td>
-                <td class="audio-col">
-                    <audio id="audio-29" src="assets/audio/unidad2/veintinueve.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-29').play()">Oír</button>
-                </td>
-                <td class="number-col">55</td>
-                <td>Cincuenta y cinco</td>
-                <td class="audio-col">
-                    <audio id="audio-55" src="assets/audio/unidad2/cincuenta y cinco.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-55').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">31</td>
-                <td>Treinta y uno</td>
-                <td class="audio-col">
-                    <audio id="audio-31" src="assets/audio/unidad2/treinta y uno.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-31').play()">Oír</button>
-                </td>
-                <td class="number-col">56</td>
-                <td>Cincuenta y seis</td>
-                <td class="audio-col">
-                    <audio id="audio-56" src="assets/audio/unidad2/cincuenta y seis.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-56').play()">Oír</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">20</td><td style="padding: 10px; border: 1px solid #ddd;">veinte</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-20" src="assets/audio/unidad2/veinte.mp3"></audio><button onclick="document.getElementById('audio-20').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">21</td><td style="padding: 10px; border: 1px solid #ddd;">veintiuno</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-21" src="assets/audio/unidad2/veintiuno.mp3"></audio><button onclick="document.getElementById('audio-21').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">22</td><td style="padding: 10px; border: 1px solid #ddd;">veintidós</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-22" src="assets/audio/unidad2/veintidos.mp3"></audio><button onclick="document.getElementById('audio-22').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">23</td><td style="padding: 10px; border: 1px solid #ddd;">veintitrés</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-23" src="assets/audio/unidad2/veintitres.mp3"></audio><button onclick="document.getElementById('audio-23').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">24</td><td style="padding: 10px; border: 1px solid #ddd;">veinticuatro</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-24" src="assets/audio/unidad2/veinticuatro.mp3"></audio><button onclick="document.getElementById('audio-24').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">25</td><td style="padding: 10px; border: 1px solid #ddd;">veinticinco</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-25" src="assets/audio/unidad2/veinticinco.mp3"></audio><button onclick="document.getElementById('audio-25').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">26</td><td style="padding: 10px; border: 1px solid #ddd;">veintiséis</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-26" src="assets/audio/unidad2/veintiseis.mp3"></audio><button onclick="document.getElementById('audio-26').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">27</td><td style="padding: 10px; border: 1px solid #ddd;">veintisiete</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-27" src="assets/audio/unidad2/veintisiete.mp3"></audio><button onclick="document.getElementById('audio-27').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">28</td><td style="padding: 10px; border: 1px solid #ddd;">veintiocho</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-28" src="assets/audio/unidad2/veintiocho.mp3"></audio><button onclick="document.getElementById('audio-28').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">29</td><td style="padding: 10px; border: 1px solid #ddd;">veintinueve</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-29" src="assets/audio/unidad2/veintinueve.mp3"></audio><button onclick="document.getElementById('audio-29').play()">🔊</button></td></tr>
+            
+            <tr><td colspan="3" style="padding: 5px; background-color: #ddd; font-weight: bold; text-align: center;">--- Números del 30 al 99 (separados con "y") ---</td></tr>
 
-    <table class="cardinal-table">
-        <thead>
-            <tr>
-                <td colspan="3" style="background-color: #f2f2f2; font-weight: bold;">Bloque 3: 60s y 70s (escritos con 'y')</td>
-                <td colspan="3" style="background-color: #f2f2f2; font-weight: bold;">Bloque 4: 80s y 90s (escritos con 'y')</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="number-col">60</td>
-                <td>Sesenta</td>
-                <td class="audio-col">
-                    <audio id="audio-60" src="assets/audio/unidad2/sesenta.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-60').play()">Oír</button>
-                </td>
-                <td class="number-col">80</td>
-                <td>Ochenta</td>
-                <td class="audio-col">
-                    <audio id="audio-80" src="assets/audio/unidad2/ochenta.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-80').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">67</td>
-                <td>Sesenta y siete</td>
-                <td class="audio-col">
-                    <audio id="audio-67" src="assets/audio/unidad2/sesenta y siete.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-67').play()">Oír</button>
-                </td>
-                <td class="number-col">88</td>
-                <td>Ochenta y ocho</td>
-                <td class="audio-col">
-                    <audio id="audio-88" src="assets/audio/unidad2/ochenta y ocho.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-88').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">70</td>
-                <td>Setenta</td>
-                <td class="audio-col">
-                    <audio id="audio-70" src="assets/audio/unidad2/setenta.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-70').play()">Oír</button>
-                </td>
-                <td class="number-col">90</td>
-                <td>Noventa</td>
-                <td class="audio-col">
-                    <audio id="audio-90" src="assets/audio/unidad2/noventa.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-90').play()">Oír</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="number-col">79</td>
-                <td>Setenta y nueve</td>
-                <td class="audio-col">
-                    <audio id="audio-79" src="assets/audio/unidad2/setenta y nueve.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-79').play()">Oír</button>
-                </td>
-                <td class="number-col">99</td>
-                <td>Noventa y nueve</td>
-                <td class="audio-col">
-                    <audio id="audio-99" src="assets/audio/unidad2/noventa y nueve.mp3"></audio>
-                    <button class="play-button" style="background-color: #28a745;" onclick="document.getElementById('audio-99').play()">Oír</button>
-                </td>
-            </tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">30</td><td style="padding: 10px; border: 1px solid #ddd;">treinta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-30" src="assets/audio/unidad2/treinta.mp3"></audio><button onclick="document.getElementById('audio-30').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">31</td><td style="padding: 10px; border: 1px solid #ddd;">treinta y uno</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-31" src="assets/audio/unidad2/treintayuno.mp3"></audio><button onclick="document.getElementById('audio-31').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">32</td><td style="padding: 10px; border: 1px solid #ddd;">treinta y dos</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-32" src="assets/audio/unidad2/treintaydos.mp3"></audio><button onclick="document.getElementById('audio-32').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">40</td><td style="padding: 10px; border: 1px solid #ddd;">cuarenta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-40" src="assets/audio/unidad2/cuarenta.mp3"></audio><button onclick="document.getElementById('audio-40').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">43</td><td style="padding: 10px; border: 1px solid #ddd;">cuarenta y tres</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-43" src="assets/audio/unidad2/cuarentaytres.mp3"></audio><button onclick="document.getElementById('audio-43').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">44</td><td style="padding: 10px; border: 1px solid #ddd;">cuarenta y cuatro</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-44" src="assets/audio/unidad2/cuarentaycuatro.mp3"></audio><button onclick="document.getElementById('audio-44').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">50</td><td style="padding: 10px; border: 1px solid #ddd;">cincuenta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-50" src="assets/audio/unidad2/cincuenta.mp3"></audio><button onclick="document.getElementById('audio-50').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">55</td><td style="padding: 10px; border: 1px solid #ddd;">cincuenta y cinco</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-55" src="assets/audio/unidad2/cincuentaycinco.mp3"></audio><button onclick="document.getElementById('audio-55').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">56</td><td style="padding: 10px; border: 1px solid #ddd;">cincuenta y seis</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-56" src="assets/audio/unidad2/cincuentayseis.mp3"></audio><button onclick="document.getElementById('audio-56').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">60</td><td style="padding: 10px; border: 1px solid #ddd;">sesenta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-60" src="assets/audio/unidad2/sesenta.mp3"></audio><button onclick="document.getElementById('audio-60').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">67</td><td style="padding: 10px; border: 1px solid #ddd;">sesenta y siete</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-67" src="assets/audio/unidad2/sesentaysiete.mp3"></audio><button onclick="document.getElementById('audio-67').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">68</td><td style="padding: 10px; border: 1px solid #ddd;">sesenta y ocho</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-68" src="assets/audio/unidad2/sesentayocho.mp3"></audio><button onclick="document.getElementById('audio-68').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">70</td><td style="padding: 10px; border: 1px solid #ddd;">setenta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-70" src="assets/audio/unidad2/setenta.mp3"></audio><button onclick="document.getElementById('audio-70').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">79</td><td style="padding: 10px; border: 1px solid #ddd;">setenta y nueve</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-79" src="assets/audio/unidad2/setentaynueve.mp3"></audio><button onclick="document.getElementById('audio-79').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">80</td><td style="padding: 10px; border: 1px solid #ddd;">ochenta</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-80" src="assets/audio/unidad2/ochenta.mp3"></audio><button onclick="document.getElementById('audio-80').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">88</td><td style="padding: 10px; border: 1px solid #ddd;">ochenta y ocho</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-88" src="assets/audio/unidad2/ochentayocho.mp3"></audio><button onclick="document.getElementById('audio-88').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">89</td><td style="padding: 10px; border: 1px solid #ddd;">ochenta y nueve</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-89" src="assets/audio/unidad2/ochentaynueve.mp3"></audio><button onclick="document.getElementById('audio-89').play()">🔊</button></td></tr>
+
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">90</td><td style="padding: 10px; border: 1px solid #ddd;">noventa</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-90" src="assets/audio/unidad2/noventa.mp3"></audio><button onclick="document.getElementById('audio-90').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">91</td><td style="padding: 10px; border: 1px solid #ddd;">noventa y uno</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-91" src="assets/audio/unidad2/noventayuno.mp3"></audio><button onclick="document.getElementById('audio-91').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">92</td><td style="padding: 10px; border: 1px solid #ddd;">noventa y dos</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-92" src="assets/audio/unidad2/noventaydos.mp3"></audio><button onclick="document.getElementById('audio-92').play()">🔊</button></td></tr>
+            <tr><td style="padding: 10px; border: 1px solid #ddd;">99</td><td style="padding: 10px; border: 1px solid #ddd;">noventa y nueve</td><td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><audio id="audio-99" src="assets/audio/unidad2/noventaynueve.mp3"></audio><button onclick="document.getElementById('audio-99').play()">🔊</button></td></tr>
+
         </tbody>
     </table>
+</div>
     
 
     <h4>B. Números Ordinales (1º al 10º)</h4>
