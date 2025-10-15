@@ -721,7 +721,1075 @@
         
 </div>
       <div id="ejercicios-u2" class="tab-content">
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios | Unidad 2</title>
+    <style>
+    /* ESTILOS DE NAVEGACIÓN AÑADIDOS */
+    .header {
+        background-color: #007bff; /* Color azul para la barra de navegación */
+        padding: 15px 50px; 
+        text-align: center;
+    }
     
+    /* ESTILOS BÁSICOS PARA LA PÁGINA */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .lesson-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    h1 {
+        color: #333;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        color: #444;
+        margin-top: 30px;
+    }
+    p {
+        line-height: 1.6;
+    }
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #ddd;
+        margin: 30px 0;
+    }
+    
+    /* CLASE BASE: Solo define el padding, borde y transición. NO color de fondo. */
+    .play-button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        color: white; 
+        cursor: pointer;
+        font-weight: bold;
+        transition: opacity 0.3s;
+    }
+    .play-button:hover {
+        opacity: 0.9;
+    }
+
+    /* ESTILO VIBRANTE RE-APLICADO: Se usará en Ej. 2, 3, 4 y la fila "Yo" del Ej. 1 */
+    .yo-verify {
+        background-color: #007bff !important; /* Azul primario para Verificar */
+        color: white !important;
+    }
+
+    /* ESTILO VERDE RE-APLICADO: Se usará en la fila "Yo" del Ej. 1 */
+    .yo-listen {
+        background-color: #28a745 !important; /* Verde éxito para Oír */
+        color: white !important;
+    }
+    
+    /* ESTILOS ESPECÍFICOS DEL EJERCICIO 1: CONJUGACIÓN */
+    .conjugation-grid {
+        display: grid;
+        grid-template-columns: 100px 1fr 100px 1fr 80px; 
+        gap: 10px;
+        align-items: center;
+    }
+    .conjugation-grid input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header"> 
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Inicio</a>
+    <a href="unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 1</a>
+    <a href="ejercicios_unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Ejercicios U1</a>
+    <a href="unidad2.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 2</a>
+    <a href="ejercicios_unidad2.html" style="color: white; text-decoration: underline; font-size: 1.5em;">Ejercicios U2</a>
+</div>
+
+<div class="lesson-container">
+    <h1>Práctica Interactiva | Unidad 2: Presente y Artículos</h1>
+    <p>¡Bienvenido/a a la sección de ejercicios! Usa los campos de texto y el botón "Verificar" para comprobar tus respuestas.</p>
+    <hr>
+
+    <h3>1. Conjugación del Presente Regular (con Audio)</h3>
+    <p>Completa la conjugación de los verbos regulares. Una vez verificado, usa el botón "Oír" para escuchar la pronunciación correcta.</p>
+
+    <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+        <h4 style="color: #007bff;">A) HABLAR (-AR)</h4>
+        <div class="conjugation-grid">
+            
+            <span style="font-weight: bold;">Yo</span>
+            <input type="text" id="ej1-1-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-1-input', 'hablo', 'ej1-1-feedback')">Verificar</button>
+            <span id="ej1-1-feedback"></span>
+            <audio id="audio-hablo" src="assets/audio/unidad2/verbos/hablo.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-hablo').play()">Oír</button>
+
+            <span style="font-weight: bold;">Tú</span>
+            <input type="text" id="ej1-2-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-2-input', 'hablas', 'ej1-2-feedback')">Verificar</button>
+            <span id="ej1-2-feedback"></span>
+            <audio id="audio-hablas" src="assets/audio/unidad2/verbos/hablas.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-hablas').play()">Oír</button>
+            
+            <span style="font-weight: bold;">Él/Ella/Ud.</span>
+            <input type="text" id="ej1-3-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-3-input', 'habla', 'ej1-3-feedback')">Verificar</button>
+            <span id="ej1-3-feedback"></span>
+            <audio id="audio-habla" src="assets/audio/unidad2/verbos/habla.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-habla').play()">Oír</button>
+
+            <span style="font-weight: bold;">Nosotros/as</span>
+            <input type="text" id="ej1-4-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-4-input', 'hablamos', 'ej1-4-feedback')">Verificar</button>
+            <span id="ej1-4-feedback"></span>
+            <audio id="audio-hablamos" src="assets/audio/unidad2/verbos/hablamos.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-hablamos').play()">Oír</button>
+
+            <span style="font-weight: bold;">Vosotros/as</span>
+            <input type="text" id="ej1-5-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-5-input', 'habláis', 'ej1-5-feedback')">Verificar</button>
+            <span id="ej1-5-feedback"></span>
+            <audio id="audio-hablais" src="assets/audio/unidad2/verbos/hablais.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-hablais').play()">Oír</button>
+
+            <span style="font-weight: bold;">Ellos/as/Uds.</span>
+            <input type="text" id="ej1-6-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-6-input', 'hablan', 'ej1-6-feedback')">Verificar</button>
+            <span id="ej1-6-feedback"></span>
+            <audio id="audio-hablan" src="assets/audio/unidad2/verbos/hablan.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-hablan').play()">Oír</button>
+        </div>
+
+        <hr style="margin: 20px 0;">
+
+        <h4 style="color: #cc6600;">B) COMER (-ER)</h4>
+        <div class="conjugation-grid">
+            
+            <span style="font-weight: bold;">Yo</span>
+            <input type="text" id="ej1-7-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-7-input', 'como', 'ej1-7-feedback')">Verificar</button>
+            <span id="ej1-7-feedback"></span>
+            <audio id="audio-como" src="assets/audio/unidad2/verbos/como.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-como').play()">Oír</button>
+
+            <span style="font-weight: bold;">Tú</span>
+            <input type="text" id="ej1-8-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-8-input', 'comes', 'ej1-8-feedback')">Verificar</button>
+            <span id="ej1-8-feedback"></span>
+            <audio id="audio-comes" src="assets/audio/unidad2/verbos/comes.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-comes').play()">Oír</button>
+            
+            <span style="font-weight: bold;">Él/Ella/Ud.</span>
+            <input type="text" id="ej1-9-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-9-input', 'come', 'ej1-9-feedback')">Verificar</button>
+            <span id="ej1-9-feedback"></span>
+            <audio id="audio-come" src="assets/audio/unidad2/verbos/come.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-come').play()">Oír</button>
+
+            <span style="font-weight: bold;">Nosotros/as</span>
+            <input type="text" id="ej1-10-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-10-input', 'comemos', 'ej1-10-feedback')">Verificar</button>
+            <span id="ej1-10-feedback"></span>
+            <audio id="audio-comemos" src="assets/audio/unidad2/verbos/comemos.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-comemos').play()">Oír</button>
+
+            <span style="font-weight: bold;">Vosotros/as</span>
+            <input type="text" id="ej1-11-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-11-input', 'coméis', 'ej1-11-feedback')">Verificar</button>
+            <span id="ej1-11-feedback"></span>
+            <audio id="audio-comeis" src="assets/audio/unidad2/verbos/comeis.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-comeis').play()">Oír</button>
+
+            <span style="font-weight: bold;">Ellos/as/Uds.</span>
+            <input type="text" id="ej1-12-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-12-input', 'comen', 'ej1-12-feedback')">Verificar</button>
+            <span id="ej1-12-feedback"></span>
+            <audio id="audio-comen" src="assets/audio/unidad2/verbos/comen.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-comen').play()">Oír</button>
+        </div>
+
+        <hr style="margin: 20px 0;">
+
+        <h4 style="color: #28a745;">C) VIVIR (-IR)</h4>
+        <div class="conjugation-grid">
+            
+            <span style="font-weight: bold;">Yo</span>
+            <input type="text" id="ej1-13-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-13-input', 'vivo', 'ej1-13-feedback')">Verificar</button>
+            <span id="ej1-13-feedback"></span>
+            <audio id="audio-vivo" src="assets/audio/unidad2/verbos/vivo.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-vivo').play()">Oír</button>
+
+            <span style="font-weight: bold;">Tú</span>
+            <input type="text" id="ej1-14-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-14-input', 'vives', 'ej1-14-feedback')">Verificar</button>
+            <span id="ej1-14-feedback"></span>
+            <audio id="audio-vives" src="assets/audio/unidad2/verbos/vives.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-vives').play()">Oír</button>
+            
+            <span style="font-weight: bold;">Él/Ella/Ud.</span>
+            <input type="text" id="ej1-15-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-15-input', 'vive', 'ej1-15-feedback')">Verificar</button>
+            <span id="ej1-15-feedback"></span>
+            <audio id="audio-vive" src="assets/audio/unidad2/verbos/vive.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-vive').play()">Oír</button>
+
+            <span style="font-weight: bold;">Nosotros/as</span>
+            <input type="text" id="ej1-16-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-16-input', 'vivimos', 'ej1-16-feedback')">Verificar</button>
+            <span id="ej1-16-feedback"></span>
+            <audio id="audio-vivimos" src="assets/audio/unidad2/verbos/vivimos.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-vivimos').play()">Oír</button>
+
+            <span style="font-weight: bold;">Vosotros/as</span>
+            <input type="text" id="ej1-17-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-17-input', 'vivís', 'ej1-17-feedback')">Verificar</button>
+            <span id="ej1-17-feedback"></span>
+            <audio id="audio-vivis" src="assets/audio/unidad2/verbos/vivis.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-vivis').play()">Oír</button>
+
+            <span style="font-weight: bold;">Ellos/as/Uds.</span>
+            <input type="text" id="ej1-18-input" placeholder="Respuesta">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej1-18-input', 'viven', 'ej1-18-feedback')">Verificar</button>
+            <span id="ej1-18-feedback"></span>
+            <audio id="audio-viven" src="assets/audio/unidad2/verbos/viven.mp3"></audio>
+            <button class="play-button yo-listen" onclick="document.getElementById('audio-viven').play()">Oír</button>
+        </div>
+    </div>
+
+    <hr>
+    <h3>2. Completa las Frases (Presente Regular)</h3>
+    <p>Escribe la conjugación correcta del verbo entre paréntesis para completar la frase.</p>
+
+    <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+        
+        <p>1. Nosotros siempre **[COMER]** en casa. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej2-1-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej2-1-input', 'comemos', 'ej2-1-feedback')">Verificar</button>
+            <span id="ej2-1-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>2. Yo **[TRABAJAR]** mucho de lunes a viernes. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej2-2-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej2-2-input', 'trabajo', 'ej2-2-feedback')">Verificar</button>
+            <span id="ej2-2-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>3. ¿Tú **[VIVIR]** cerca de la universidad? </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej2-3-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej2-3-input', 'vives', 'ej2-3-feedback')">Verificar</button>
+            <span id="ej2-3-feedback" style="margin-left: 10px;"></span>
+        </div>
+        
+        <p>4. Mis amigos **[APRENDER]** español muy rápido. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej2-4-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej2-4-input', 'aprenden', 'ej2-4-feedback')">Verificar</button>
+            <span id="ej2-4-feedback" style="margin-left: 10px;"></span>
+        </div>
+        
+        <p>5. Ella **[ASISTIR]** a clases por la tarde. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej2-5-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej2-5-input', 'asiste', 'ej2-5-feedback')">Verificar</button>
+            <span id="ej2-5-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+    </div>
+
+    <hr>
+    <h3>3. Uso del Artículo (Definido / Indefinido)</h3>
+    <p>Completa las frases con el artículo más apropiado. No olvides aplicar la regla de la 'A' tónica si es necesario.</p>
+
+    <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+        
+        <p>1. ¿Dónde está **[Artículo]** casa de mi abuela? </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-1-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-1-input', 'la', 'ej3-1-feedback')">Verificar</button>
+            <span id="ej3-1-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>2. Necesito **[Artículo]** libro para estudiar. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-2-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-2-input', 'un', 'ej3-2-feedback')">Verificar</button>
+            <span id="ej3-2-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>3. **[Artículo]** agua es fundamental para vivir. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-3-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-3-input', 'el', 'ej3-3-feedback')">Verificar</button>
+            <span id="ej3-3-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>4. **[Artículo]** estudiantes están en la biblioteca. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-4-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-4-input', 'los', 'ej3-4-feedback')">Verificar</button>
+            <span id="ej3-4-feedback" style="margin-left: 10px;"></span>
+        </div>
+        
+        <p>5. Vimos **[Artículo]** águilas volar en el parque. </p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-5-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-5-input', 'unas', 'ej3-5-feedback')">Verificar</button>
+            <span id="ej3-5-feedback" style="margin-left: 10px;"></span>
+        </div>
+        
+        <p>6. Tengo _______ problema con mi móvil. (singular, masculino, indefinido)</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-6-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-6-input', 'un', 'ej3-6-feedback')">Verificar</button>
+            <span id="ej3-6-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>7. _______ estudiante (femenino, singular) es muy inteligente.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-7-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-7-input', 'la', 'ej3-7-feedback')">Verificar</button>
+            <span id="ej3-7-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>8. Necesito _______ (plural) sillas para la cena.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-8-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-8-input', 'unas', 'ej3-8-feedback')">Verificar</button>
+            <span id="ej3-8-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>9. Me gusta ir a _______ (plural) playas de la costa.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-9-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-9-input', 'las', 'ej3-9-feedback')">Verificar</button>
+            <span id="ej3-9-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>10. Compré _______ agua (femenino, singular, 'A' tónica) en la tienda.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-10-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-10-input', 'un', 'ej3-10-feedback')">Verificar</button>
+            <span id="ej3-10-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>11. _______ libros (plural, masculino) de la biblioteca son gratis.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-11-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-11-input', 'los', 'ej3-11-feedback')">Verificar</button>
+            <span id="ej3-11-feedback" style="margin-left: 10px;"></span>
+        </div>
+
+        <p>12. Busco _______ (singular, femenino, indefinido) buena solución.</p>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <input type="text" id="ej3-12-input" placeholder="Artículo" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+            <button class="play-button yo-verify" onclick="checkAnswer('ej3-12-input', 'una', 'ej3-12-feedback')">Verificar</button>
+            <span id="ej3-12-feedback" style="margin-left: 10px;"></span>
+        </div>
+    </div>
+
+        <hr>
+<h3>4. Apócope (Recorte) de Adjetivos y Adverbios</h3>
+<p>Transforma la palabra entre paréntesis a su forma apocopada (recortada) si es necesario, o déjala igual. **Recuerda las reglas para *grande, bueno, malo, primero, tercero, uno* y el adverbio *tanto***.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <p>1. Este es un **[Bueno]** momento para empezar. </p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-1-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-1-input', 'buen', 'ej4-1-feedback')">Verificar</button>
+        <span id="ej4-1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>2. No fue un **[Malo]** día, solo regular.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-2-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-2-input', 'mal', 'ej4-2-feedback')">Verificar</button>
+        <span id="ej4-2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>3. Necesito una **[Grande]** casa para mi familia.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-3-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-3-input', 'grande', 'ej4-3-feedback')">Verificar</button>
+        <span id="ej4-3-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <p>4. Es un **[Grande]** problema de matemáticas.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-4-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-4-input', 'gran', 'ej4-4-feedback')">Verificar</button>
+        <span id="ej4-4-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>5. Yo vivo en el **[Primero]** piso, no en el segundo.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-5-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-5-input', 'primer', 'ej4-5-feedback')">Verificar</button>
+        <span id="ej4-5-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>6. No debes trabajar **[Tanto]** si estás enfermo.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-6-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-6-input', 'tan', 'ej4-6-feedback')">Verificar</button>
+        <span id="ej4-6-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>7. La oficina de Juan está en el **[Tercero]** bloque.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-7-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-7-input', 'tercer', 'ej4-7-feedback')">Verificar</button>
+        <span id="ej4-7-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>8. Solo tengo **[Uno]** coche viejo.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-8-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-8-input', 'un', 'ej4-8-feedback')">Verificar</button>
+        <span id="ej4-8-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>9. No tengo **[Ninguno]** amigo en esta ciudad.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-9-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-9-input', 'ningún', 'ej4-9-feedback')">Verificar</button>
+        <span id="ej4-9-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>10. Me compré una **[Bueno]** camisa para la fiesta.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej4-10-input" placeholder="Respuesta" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej4-10-input', 'buena', 'ej4-10-feedback')">Verificar</button>
+        <span id="ej4-10-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+    <hr>
+<h3>5. Escribe una frase utilizando el sustantivo en su forma masculina</h3>
+<p>Transforma la frase femenina a su equivalente masculina, haciendo los cambios necesarios en artículos y adjetivos.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <p>Ejemplo: La camarera es pequeña. &rarr; **El camarero es pequeño.**</p>
+    <br>
+    <p>1. La mujer es grande.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej5-1-input" placeholder="El hombre es grande" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej5-1-input', 'El hombre es grande', 'ej5-1-feedback')">Verificar</button>
+        <span id="ej5-1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>2. La doctora es inteligente.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej5-2-input" placeholder="El doctor es inteligente" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej5-2-input', 'El doctor es inteligente', 'ej5-2-feedback')">Verificar</button>
+        <span id="ej5-2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>3. La estudiante es aplicada.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej5-3-input" placeholder="El estudiante es aplicado" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej5-3-input', 'El estudiante es aplicado', 'ej5-3-feedback')">Verificar</button>
+        <span id="ej5-3-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>4. La actriz es talentosa.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej5-4-input" placeholder="El actor es talentoso" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej5-4-input', 'El actor es talentoso', 'ej5-4-feedback')">Verificar</button>
+        <span id="ej5-4-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>5. La niña es rubia.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <input type="text" id="ej5-5-input" placeholder="El niño es rubio" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej5-5-input', 'El niño es rubio', 'ej5-5-feedback')">Verificar</button>
+        <span id="ej5-5-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+    <hr>
+<h3>6. Forma el Femenino</h3>
+<p>Escribe la forma femenina de los siguientes sustantivos masculinos. Presta atención a las terminaciones especiales.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <div style="display: flex; justify-content: space-between; gap: 20px;">
+        
+        <div style="flex: 1;">
+            <p>Ej. chico &rarr; **CHICA**</p>
+            
+            <p>1. cuñado</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-1-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-1-input', 'cuñada', 'ej6-1-feedback')">Verificar</button>
+                <span id="ej6-1-feedback" style="margin-left: 10px;"></span>
+            </div>
+
+            <p>2. gato</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-2-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-2-input', 'gata', 'ej6-2-feedback')">Verificar</button>
+                <span id="ej6-2-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>3. perro</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-3-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-3-input', 'perra', 'ej6-3-feedback')">Verificar</button>
+                <span id="ej6-3-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>4. abuelo</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-4-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-4-input', 'abuela', 'ej6-4-feedback')">Verificar</button>
+                <span id="ej6-4-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>5. padre</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-5-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-5-input', 'madre', 'ej6-5-feedback')">Verificar</button>
+                <span id="ej6-5-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>6. señor</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-6-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-6-input', 'señora', 'ej6-6-feedback')">Verificar</button>
+                <span id="ej6-6-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>7. estudiante</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-7-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-7-input', 'estudiante', 'ej6-7-feedback')">Verificar</button>
+                <span id="ej6-7-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>8. doctor</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-8-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-8-input', 'doctora', 'ej6-8-feedback')">Verificar</button>
+                <span id="ej6-8-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>9. marido</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-9-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-9-input', 'esposa', 'ej6-9-feedback')">Verificar</button>
+                <span id="ej6-9-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>10. pianista</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-10-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-10-input', 'pianista', 'ej6-10-feedback')">Verificar</button>
+                <span id="ej6-10-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+        </div>
+        
+        <div style="flex: 1;">
+            
+            <p>11. maestro</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-11-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-11-input', 'maestra', 'ej6-11-feedback')">Verificar</button>
+                <span id="ej6-11-feedback" style="margin-left: 10px;"></span>
+            </div>
+
+            <p>12. suegro</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-12-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-12-input', 'suegra', 'ej6-12-feedback')">Verificar</button>
+                <span id="ej6-12-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>13. niño</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-13-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-13-input', 'niña', 'ej6-13-feedback')">Verificar</button>
+                <span id="ej6-13-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>14. alumno</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-14-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-14-input', 'alumna', 'ej6-14-feedback')">Verificar</button>
+                <span id="ej6-14-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>15. obrero</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-15-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-15-input', 'obrera', 'ej6-15-feedback')">Verificar</button>
+                <span id="ej6-15-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>16. hombre</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-16-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-16-input', 'mujer', 'ej6-16-feedback')">Verificar</button>
+                <span id="ej6-16-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>17. amigo</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-17-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-17-input', 'amiga', 'ej6-17-feedback')">Verificar</button>
+                <span id="ej6-17-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>18. tío</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-18-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-18-input', 'tía', 'ej6-18-feedback')">Verificar</button>
+                <span id="ej6-18-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+            <p>19. profesor</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <input type="text" id="ej6-19-input" placeholder="Femenino" style="padding: 8px; margin-right: 10px; flex-grow: 1;">
+                <button class="play-button yo-verify" onclick="checkAnswer('ej6-19-input', 'profesora', 'ej6-19-feedback')">Verificar</button>
+                <span id="ej6-19-feedback" style="margin-left: 10px;"></span>
+            </div>
+            
+          </div>
+    </div>
+    </div>  
+                
+<hr>
+<hr>
+<h3>7. Números Ordinales (1º al 10º)</h3>
+<p>Escribe el número ordinal completo para cada posición (masculino/femenino). Luego, haz clic en **Oír** para escuchar la pronunciación correcta.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <p>1º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-1-input" placeholder="Ej: primero/primera" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-1-input', 'primero/primera', 'ej7-1-feedback', true)">Verificar</button>
+        <audio id="audio-primero-ej7" src="assets/audio/unidad2/primero.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-primero-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-1-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>2º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-2-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-2-input', 'segundo/segunda', 'ej7-2-feedback', true)">Verificar</button>
+        <audio id="audio-segundo-ej7" src="assets/audio/unidad2/segundo.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-segundo-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-2-feedback" style="display: block; margin-bottom: 15px;"></span>
+    
+    <p>3º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-3-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-3-input', 'tercero/tercera', 'ej7-3-feedback', true)">Verificar</button>
+        <audio id="audio-tercero-ej7" src="assets/audio/unidad2/tercero.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-tercero-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-3-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>4º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-4-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-4-input', 'cuarto/cuarta', 'ej7-4-feedback', true)">Verificar</button>
+        <audio id="audio-cuarto-ej7" src="assets/audio/unidad2/cuarto.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-cuarto-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-4-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>5º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-5-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-5-input', 'quinto/quinta', 'ej7-5-feedback', true)">Verificar</button>
+        <audio id="audio-quinto-ej7" src="assets/audio/unidad2/quinto.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-quinto-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-5-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>6º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-6-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-6-input', 'sexto/sexta', 'ej7-6-feedback', true)">Verificar</button>
+        <audio id="audio-sexto-ej7" src="assets/audio/unidad2/sexto.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-sexto-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-6-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>7º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-7-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-7-input', 'séptimo/séptima', 'ej7-7-feedback', true)">Verificar</button>
+        <audio id="audio-septimo-ej7" src="assets/audio/unidad2/septimo.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-septimo-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-7-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>8º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-8-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-8-input', 'octavo/octava', 'ej7-8-feedback', true)">Verificar</button>
+        <audio id="audio-octavo-ej7" src="assets/audio/unidad2/octavo.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-octavo-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-8-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>9º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-9-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-9-input', 'noveno/novena', 'ej7-9-feedback', true)">Verificar</button>
+        <audio id="audio-noveno-ej7" src="assets/audio/unidad2/noveno.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-noveno-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-9-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+    <p>10º</p>
+    <div style="display: flex; align-items: center; margin-bottom: 5px; gap: 10px;">
+        <input type="text" id="ej7-10-input" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej7-10-input', 'décimo/décima', 'ej7-10-feedback', true)">Verificar</button>
+        <audio id="audio-decimo-ej7" src="assets/audio/unidad2/decimo.mp3"></audio>
+        <button class="play-button yo-listen" onclick="document.getElementById('audio-decimo-ej7').play()">Oír</button>
+    </div>
+    <span id="ej7-10-feedback" style="display: block; margin-bottom: 15px;"></span>
+
+</div>
+<hr>
+    <hr>
+<h3>8. Interpretación de Texto</h3>
+<p>Lee atentamente los textos y selecciona la opción que mejor responda a cada pregunta.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <h4>A) eSports: Competencias Profesionales</h4>
+    <p style="font-style: italic; background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+        Los deportes electrónicos, también conocidos como **eSports**, han experimentado un **crecimiento exponencial** en los últimos años. Se trata de **competiciones de videojuegos organizadas a nivel profesional**, donde los jugadores compiten **individualmente o en equipos** por **premios en efectivo** y **reconocimiento**.
+    </p>
+
+    <p>1. ¿Cuál es el tema principal del texto?</p>
+    <form id="ej8a-q1">
+        <label><input type="radio" name="q1" value="a"> a) La historia de los videojuegos.</label><br>
+        <label><input type="radio" name="q1" value="b"> b) El crecimiento de los eSports.</label><br>
+        <label><input type="radio" name="q1" value="c"> c) Las competiciones de deportes tradicionales.</label><br>
+        <label><input type="radio" name="q1" value="d"> d) La tecnología en la educación.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q1', 'b', 'ej8a-q1-feedback')">Verificar</button>
+        <span id="ej8a-q1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>2. ¿Qué son los deportes electrónicos?</p>
+    <form id="ej8a-q2">
+        <label><input type="radio" name="q2" value="a"> a) Actividades físicas al aire libre.</label><br>
+        <label><input type="radio" name="q2" value="b"> b) Competiciones de videojuegos a nivel profesional.</label><br>
+        <label><input type="radio" name="q2" value="c"> c) Deportes tradicionales como el fútbol y el baloncesto.</label><br>
+        <label><input type="radio" name="q2" value="d"> d) Pruebas de habilidad mental.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q2', 'b', 'ej8a-q2-feedback')">Verificar</button>
+        <span id="ej8a-q2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>3. ¿Qué es característico de los eSports?</p>
+    <form id="ej8a-q3">
+        <label><input type="radio" name="q3" value="a"> a) La ausencia de premios en efectivo.</label><br>
+        <label><input type="radio" name="q3" value="b"> b) La organización por parte de federaciones deportivas.</label><br>
+        <label><input type="radio" name="q3" value="c"> c) La competencia en videojuegos a nivel profesional.</label><br>
+        <label><input type="radio" name="q3" value="d"> d) El uso exclusivo de consolas de videojuegos.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q3', 'c', 'ej8a-q3-feedback')">Verificar</button>
+        <span id="ej8a-q3-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>4. ¿Por qué han crecido tanto los deportes electrónicos en los últimos años?</p>
+    <form id="ej8a-q4">
+        <label><input type="radio" name="q4" value="a"> a) Por la falta de interés del público joven.</label><br>
+        <label><input type="radio" name="q4" value="b"> b) Por la facilidad de acceso a los videojuegos.</label><br>
+        <label><input type="radio" name="q4" value="c"> c) Por la falta de competencia en otras áreas.</label><br>
+        <label><input type="radio" name="q4" value="d"> d) Por el alto costo de participación.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q4', 'b', 'ej8a-q4-feedback')">Verificar</button>
+        <span id="ej8a-q4-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>5. ¿Cuál es uno de los principales atractivos de los eSports?</p>
+    <form id="ej8a-q5">
+        <label><input type="radio" name="q5" value="a"> a) La ausencia de competencia.</label><br>
+        <label><input type="radio" name="q5" value="b"> b) El reconocimiento a nivel mundial.</label><br>
+        <label><input type="radio" name="q5" value="c"> c) La falta de diversidad en los juegos.</label><br>
+        <label><input type="radio" name="q5" value="d"> d) La falta de desafíos para los jugadores.</label><br>
+    </form>
+    <div style="margin-bottom: 20px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q5', 'b', 'ej8a-q5-feedback')">Verificar</button>
+        <span id="ej8a-q5-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <hr>
+
+    <h4>B) Inteligencia Artificial: Sistemas Inteligentes</h4>
+    <p style="font-style: italic; background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+        La **inteligencia artificial (IA)** es un **área de la informática** que se dedica a crear **sistemas capaces de realizar tareas que requieren inteligencia humana**. Estos sistemas pueden **aprender de la experiencia**, **reconocer patrones** y **tomar decisiones autónomas**.
+    </p>
+
+    <p>1. ¿Cuál es el tema principal del texto?</p>
+    <form id="ej8b-q1">
+        <label><input type="radio" name="q1" value="a"> a) La historia de la informática.</label><br>
+        <label><input type="radio" name="q1" value="b"> b) Los sistemas operativos.</label><br>
+        <label><input type="radio" name="q1" value="c"> c) La inteligencia artificial.</label><br>
+        <label><input type="radio" name="q1" value="d"> d) La evolución de los ordenadores.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q1', 'c', 'ej8b-q1-feedback')">Verificar</button>
+        <span id="ej8b-q1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>2. ¿Qué es la inteligencia artificial?</p>
+    <form id="ej8b-q2">
+        <label><input type="radio" name="q2" value="a"> a) La capacidad de los ordenadores para aprender.</label><br>
+        <label><input type="radio" name="q2" value="b"> b) Un área de la informática que busca crear sistemas inteligentes.</label><br>
+        <label><input type="radio" name="q2" value="c"> c) Un tipo de software utilizado en teléfonos móviles.</label><br>
+        <label><input type="radio" name="q2" value="d"> d) Un tipo de juego de mesa.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q2', 'b', 'ej8b-q2-feedback')">Verificar</button>
+        <span id="ej8b-q2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>3. ¿Qué pueden hacer los sistemas de inteligencia artificial?</p>
+    <form id="ej8b-q3">
+        <label><input type="radio" name="q3" value="a"> a) Realizar tareas que requieren inteligencia humana.</label><br>
+        <label><input type="radio" name="q3" value="b"> b) Cocinar platos de comida.</label><br>
+        <label><input type="radio" name="q3" value="c"> c) Escribir novelas.</label><br>
+        <label><input type="radio" name="q3" value="d"> d) Conducir automóviles sin conductor.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q3', 'a', 'ej8b-q3-feedback')">Verificar</button>
+        <span id="ej8b-q3-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>4. ¿Cómo pueden aprender los sistemas de inteligencia artificial?</p>
+    <form id="ej8b-q4">
+        <label><input type="radio" name="q4" value="a"> a) Solo a través de libros de texto.</label><br>
+        <label><input type="radio" name="q4" value="b"> b) Observando la naturaleza.</label><br>
+        <label><input type="radio" name="q4" value="c"> c) A través de la experiencia y el reconocimiento de patrones.</label><br>
+        <label><input type="radio" name="q4" value="d"> d) Mediante la repetición de instrucciones.</label><br>
+    </form>
+    <div style="margin-bottom: 10px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q4', 'c', 'ej8b-q4-feedback')">Verificar</button>
+        <span id="ej8b-q4-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <p>5. ¿Por qué la inteligencia artificial es importante en la actualidad?</p>
+    <form id="ej8b-q5">
+        <label><input type="radio" name="q5" value="a"> a) Porque puede reemplazar a los humanos en todos los trabajos.</label><br>
+        <label><input type="radio" name="q5" value="b"> b) Porque puede realizar tareas de manera más rápida y eficiente que los humanos.</label><br>
+        <label><input type="radio" name="q5" value="c"> c) Porque puede tomar decisiones sin necesidad de supervisión humana.</label><br>
+        <label><input type="radio" name="q5" value="d"> d) Porque no tiene aplicaciones prácticas en la vida cotidiana.</label><br>
+    </form>
+    <div style="margin-bottom: 20px;">
+        <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q5', 'b', 'ej8b-q5-feedback')">Verificar</button>
+        <span id="ej8b-q5-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+</div>
+<hr>
+    <hr>
+<h3>9. Repaso General de la Unidad 2</h3>
+<p>Pon a prueba tus conocimientos de los temas principales de la unidad. Responde y verifica.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <h4>A) Verbos Ser o Estar (Escribe la conjugación correcta)</h4>
+    
+    <p>1. Nosotros (ser/estar) de Brasil, pero ahora (ser/estar) en Madrid.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q1-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q1-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q1-a', 'ej9-q1-b'], ['somos', 'estamos'], 'ej9-q1-feedback', true)">Verificar</button>
+        <span id="ej9-q1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>B) Artículos (Escribe el artículo indefinido correcto: un, una, unos, unas)</h4>
+    
+    <p>2. Compré ______ libro y ______ revista.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q2-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q2-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q2-a', 'ej9-q2-b'], ['un', 'una'], 'ej9-q2-feedback', true)">Verificar</button>
+        <span id="ej9-q2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>C) Completa la Frase (Género, Apócope, u Ordinal)</h4>
+
+    <p>3. El ______ doctor es un ______ amigo mío.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q3-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q3-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q3-a', 'ej9-q3-b'], ['buen', 'gran'], 'ej9-q3-feedback', true)">Verificar</button>
+        <span id="ej9-q3-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>4. Mi hermana es ______ (2º) en la lista de espera.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q4-a" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej9-q4-a', 'segunda', 'ej9-q4-feedback', true)">Verificar</button>
+        <span id="ej9-q4-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>5. ¿Cuál es el femenino de *actor*?</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q5-a" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej9-q5-a', 'actriz', 'ej9-q5-a-feedback', true)">Verificar</button>
+        <span id="ej9-q5-a-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>D) Contracción (Al o Del)</h4>
+
+    <p>6. Voy ______ gimnasio después ______ trabajo.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q6-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q6-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q6-a', 'ej9-q6-b'], ['al', 'del'], 'ej9-q6-feedback', true)">Verificar</button>
+        <span id="ej9-q6-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+</div>
+<hr>
+<script>
+    /**
+     * Función que verifica la respuesta del usuario en un ejercicio.
+     */
+    function checkAnswer(inputId, correctAnswer, feedbackId) {
+        // 1. Obtener el valor del input y limpiarlo
+        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+        
+        // 2. Limpiar la respuesta correcta
+        const correctLower = correctAnswer.trim().toLowerCase();
+        
+        // Función auxiliar para quitar acentos y ser más indulgente con la escritura
+        const removeAccents = (str) => {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+        
+        const userAnswerNoAccent = removeAccents(userAnswer);
+        const correctNoAccent = removeAccents(correctLower);
+        
+        // 3. Obtener el elemento de feedback
+        const feedbackElement = document.getElementById(feedbackId);
+        
+        // 4. Comparar (primero sin acentos, luego la forma exacta por si acaso)
+        if (userAnswerNoAccent === correctNoAccent || userAnswer === correctLower) {
+            feedbackElement.textContent = '¡Correcto! ✅';
+            feedbackElement.style.color = '#28a745'; // Verde
+        } else {
+            feedbackElement.textContent = `Incorrecto. La respuesta es: ${correctAnswer}`;
+            feedbackElement.style.color = '#dc3545'; // Rojo
+        }
+    }
+</script>
+
+    ...
+        </div>
+
+    <script>
+        // Aquí es donde ya tienes la función 'checkAnswer()'
+
+        // AÑADE AQUÍ LA NUEVA FUNCIÓN 'checkRadioAnswer()'
+        
+        /* Función para verificar respuestas de botones de radio (opción múltiple) */
+        function checkRadioAnswer(formId, correctAnswerValue, feedbackId) {
+            const form = document.getElementById(formId);
+            const feedback = document.getElementById(feedbackId);
+            
+            // Obtener la opción seleccionada dentro del formulario
+            const selected = form.querySelector('input[name="' + form.elements[0].name + '"]:checked');
+
+            // Limpiar feedback anterior
+            feedback.textContent = '';
+            feedback.style.color = '';
+
+            if (!selected) {
+                feedback.textContent = 'Selecciona una opción.';
+                feedback.style.color = '#FFA500'; // Naranja
+                return;
+            }
+
+            // Comparar el valor seleccionado con la respuesta correcta
+            if (selected.value === correctAnswerValue) {
+                feedback.textContent = '¡Correcto! ✅';
+                feedback.style.color = '#388E3C'; // Verde oscuro
+            } else {
+                feedback.textContent = 'Incorrecto. La respuesta correcta es (' + correctAnswerValue + '). ❌';
+                feedback.style.color = '#D32F2F'; // Rojo oscuro
+            }
+        }
+    /* Función para verificar múltiples campos de texto a la vez (Ejercicio 9) */
+function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
+    let allCorrect = true;
+    const feedback = document.getElementById(feedbackId);
+    let incorrectCount = 0;
+
+    for (let i = 0; i < inputIds.length; i++) {
+        const input = document.getElementById(inputIds[i]);
+        let inputValue = input.value.trim();
+        let correctAnswer = correctAnswers[i];
+
+        if (normalize) {
+            // Normaliza la respuesta del usuario y la correcta (minúsculas, sin acentos ni espacios extra)
+            inputValue = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        if (inputValue !== correctAnswer) {
+            allCorrect = false;
+            incorrectCount++;
+            input.style.border = '2px solid #D32F2F'; // Resaltar el campo incorrecto en rojo
+        } else {
+            input.style.border = '2px solid #388E3C'; // Resaltar el campo correcto en verde
+        }
+    }
+
+    // Mostrar feedback final
+    if (allCorrect) {
+        feedback.textContent = '¡Correcto! ✅';
+        feedback.style.color = '#388E3C';
+    } else {
+        feedback.textContent = `Tienes ${incorrectCount} respuesta(s) incorrecta(s). ❌`;
+        feedback.style.color = '#D32F2F';
+    }
+}
+   </script>
+    </body>
+</html>
+    
+</body>
+</html>
         </div>
         <script>
     function checkAnswer(inputId, correctAnswer, feedbackId) {
