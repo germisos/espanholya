@@ -1920,7 +1920,18 @@ function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
             feedback.style.color = '#D32F2F';
         }
     }
+    <script>
+    // PEGAR TODAS TUS FUNCIONES DE checkAnswer, checkAnswerNumbers, etc.
     
+    // AÑADIR LA FUNCIÓN DE CAMBIO DE PESTAÑAS:
+    function openUnit(unitId) {
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+        document.getElementById(unitId).classList.add("active");
+    }
+</script>
     // ==========================================================
     //  <<<--- FIN DEL CÓDIGO A PEGAR --->>>
     // ==========================================================
