@@ -896,7 +896,68 @@
 
 </div>
 <hr>
+    <hr>
+<h3>9. Repaso General de la Unidad 2</h3>
+<p>Pon a prueba tus conocimientos de los temas principales de la unidad. Responde y verifica.</p>
+
+<div class="exercise-section" style="padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <h4>A) Verbos Ser o Estar (Escribe la conjugación correcta)</h4>
     
+    <p>1. Nosotros (ser/estar) de Brasil, pero ahora (ser/estar) en Madrid.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q1-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q1-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q1-a', 'ej9-q1-b'], ['somos', 'estamos'], 'ej9-q1-feedback', true)">Verificar</button>
+        <span id="ej9-q1-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>B) Artículos (Escribe el artículo indefinido correcto: un, una, unos, unas)</h4>
+    
+    <p>2. Compré ______ libro y ______ revista.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q2-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q2-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q2-a', 'ej9-q2-b'], ['un', 'una'], 'ej9-q2-feedback', true)">Verificar</button>
+        <span id="ej9-q2-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>C) Completa la Frase (Género, Apócope, u Ordinal)</h4>
+
+    <p>3. El ______ doctor es un ______ amigo mío.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q3-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q3-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q3-a', 'ej9-q3-b'], ['buen', 'gran'], 'ej9-q3-feedback', true)">Verificar</button>
+        <span id="ej9-q3-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>4. Mi hermana es ______ (2º) en la lista de espera.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q4-a" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej9-q4-a', 'segunda', 'ej9-q4-feedback', true)">Verificar</button>
+        <span id="ej9-q4-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <p>5. ¿Cuál es el femenino de *actor*?</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q5-a" placeholder="Respuesta" style="padding: 8px; flex-grow: 1;">
+        <button class="play-button yo-verify" onclick="checkAnswer('ej9-q5-a', 'actriz', 'ej9-q5-feedback', true)">Verificar</button>
+        <span id="ej9-q5-a-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <h4>D) Contracción (Al o Del)</h4>
+
+    <p>6. Voy ______ gimnasio después ______ trabajo.</p>
+    <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+        <input type="text" id="ej9-q6-a" placeholder="1a Respuesta" style="padding: 8px; width: 150px;">
+        <input type="text" id="ej9-q6-b" placeholder="2a Respuesta" style="padding: 8px; width: 150px;">
+        <button class="play-button yo-verify" onclick="checkMultipleAnswers(['ej9-q6-a', 'ej9-q6-b'], ['al', 'del'], 'ej9-q6-feedback', true)">Verificar</button>
+        <span id="ej9-q6-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+</div>
+<hr>
 <script>
     /**
      * Función que verifica la respuesta del usuario en un ejercicio.
