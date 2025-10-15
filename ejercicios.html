@@ -1,1 +1,864 @@
-111
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Unidad 1 - Práctica</title>
+
+    <style>
+        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            padding: 25px; 
+            background-color: #f4f4f9; 
+            color: #333; 
+            line-height: 1.6;
+        }
+        
+        .header { 
+            background-color: #007bff; 
+            color: white; 
+            padding: 20px;
+            text-align: center; 
+            margin-bottom: 20px; 
+            border-radius: 8px;
+        }
+        
+        .lesson-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 25px; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+        }
+        
+        h2 { 
+            border-bottom: 3px solid #007bff; 
+            padding-bottom: 12px; 
+            color: #007bff; 
+            margin-top: 30px; 
+        }
+
+        /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
+        .audio-player { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 12px 0; 
+            border-bottom: 1px solid #eee; 
+        }
+        .audio-player:last-child { border-bottom: none; }
+        
+        .content-item { 
+            font-size: 1.1em; 
+            display: flex; 
+            align-items: center;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .content-item strong { 
+            font-size: 1.2em; 
+            color: #333; 
+            min-width: 100px; 
+        }
+        
+        /* 3. ESTILOS DE BOTONES E IMAGEN */
+        .play-button { 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            min-width: 70px;
+            margin-left: 20px;
+        }
+        .play-button:hover { background-color: #218838; }
+
+        .content-item img {
+            height: 50px; 
+            vertical-align: middle;
+            border-radius: 4px;
+            margin-left: 15px; 
+        }
+
+        /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
+        @media (max-width: 600px) {
+            .audio-player {
+                flex-wrap: wrap; 
+            }
+            .content-item {
+                flex-basis: 100%; 
+                margin-bottom: 10px;
+            }
+            .play-button {
+                width: 100%; 
+                margin-top: 5px;
+            }
+        }
+        /* Estilos necesarios para ocultar y mostrar las unidades como pestañas */
+.tab-content {
+    display: none; /* Oculta todas las unidades por defecto */
+}
+.tab-content.active {
+    display: block; /* Muestra solo la unidad marcada como 'active' */
+}
+    </style>
+</head>
+<body>
+
+    <div class="header"> 
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Inicio</a>
+    <a href="unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 1</a>
+    <a href="ejercicios_unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Ejercicios U1</a>
+    <a href="unidad2.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 2</a>
+    <a href="ejercicios_unidad2.html" style="color: white; text-decoration: none; font-size: 1.5em;">Ejercicios U2</a>
+</div>
+   
+    
+    <div class="lesson-container">
+    <div id="ejercicios-u1" class="tab-content active">
+      <h2>Ejercicios de la Unidad 1</h2>
+    <hr>
+<h3>1. Práctica de Nacionalidades (Género)</h3>
+<p>Transforma la nacionalidad Masculina a Femenina, o viceversa, según la tabla de la lección.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Italiano:</span>
+        <input type="text" id="ej1-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej1-input', 'italiana', 'ej1-feedback')">Verificar</button>
+        <span id="ej1-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Alemana:</span>
+        <input type="text" id="ej2-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej2-input', 'alemán', 'ej2-feedback')">Verificar</button>
+        <span id="ej2-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Sueco:</span>
+        <input type="text" id="ej3-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej3-input', 'sueca', 'ej3-feedback')">Verificar</button>
+        <span id="ej3-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Holandesa:</span>
+        <input type="text" id="ej4-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej4-input', 'holandés', 'ej4-feedback')">Verificar</button>
+        <span id="ej4-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+       <hr>
+<h3>2. Más Nacionalidades: Masculino y Femenino</h3>
+<p>Transforma la nacionalidad dada a su género opuesto.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Chino:</span>
+        <input type="text" id="ej5-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej5-input', 'china', 'ej5-feedback')">Verificar</button>
+        <span id="ej5-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Polaca:</span>
+        <input type="text" id="ej6-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej6-input', 'polaco', 'ej6-feedback')">Verificar</button>
+        <span id="ej6-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Japonés:</span>
+        <input type="text" id="ej7-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej7-input', 'japonesa', 'ej7-feedback')">Verificar</button>
+        <span id="ej7-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Inglesa:</span>
+        <input type="text" id="ej8-input" placeholder="Escribe aquí" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej8-input', 'inglés', 'ej8-feedback')">Verificar</button>
+        <span id="ej8-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+       <hr>
+<h3>3. Completa la conjugación del verbo SER</h3>
+<p>Escribe la forma correcta del verbo **SER** para cada pronombre personal.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Yo:</span>
+        <input type="text" id="ej9-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej9-input', 'soy', 'ej9-feedback')">Verificar</button>
+        <span id="ej9-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Tú:</span>
+        <input type="text" id="ej10-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej10-input', 'eres', 'ej10-feedback')">Verificar</button>
+        <span id="ej10-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Él / Ella / Ud.:</span>
+        <input type="text" id="ej11-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej11-input', 'es', 'ej11-feedback')">Verificar</button>
+        <span id="ej11-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Nosotros/as:</span>
+        <input type="text" id="ej12-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej12-input', 'somos', 'ej12-feedback')">Verificar</button>
+        <span id="ej12-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Vosotros/as:</span>
+        <input type="text" id="ej13-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej13-input', 'sois', 'ej13-feedback')">Verificar</button>
+        <span id="ej13-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Ellos / Ellas / Uds.:</span>
+        <input type="text" id="ej14-input" placeholder="ser" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej14-input', 'son', 'ej14-feedback')">Verificar</button>
+        <span id="ej14-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+</div>
+
+    <hr>
+<h3>4. Dictado de Números (15 Ejercicios)</h3>
+<p>Haz clic en el botón **Ouvir** y escribe el número que escuchas.</p>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">15.</span>
+        <input type="text" id="input-15" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-15').play()">Ouvir</button>
+        <audio id="audio-15" src="assets/audio/unidad1/numeros0a20/CATORCE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-15', 'catorce')">Verificar</button>
+        <span id="feedback-15" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">16.</span>
+        <input type="text" id="input-16" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-16').play()">Ouvir</button>
+        <audio id="audio-16" src="assets/audio/unidad1/numeros0a20/UNO.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-16', 'uno')">Verificar</button>
+        <span id="feedback-16" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">17.</span>
+        <input type="text" id="input-17" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-17').play()">Ouvir</button>
+        <audio id="audio-17" src="assets/audio/unidad1/numeros0a20/DIEZ.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-17', 'diez')">Verificar</button>
+        <span id="feedback-17" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">18.</span>
+        <input type="text" id="input-18" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-18').play()">Ouvir</button>
+        <audio id="audio-18" src="assets/audio/unidad1/numeros0a20/SEIS.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-18', 'seis')">Verificar</button>
+        <span id="feedback-18" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">19.</span>
+        <input type="text" id="input-19" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-19').play()">Ouvir</button>
+        <audio id="audio-19" src="assets/audio/unidad1/numeros0a20/DIECIOCHO.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-19', 'dieciocho')">Verificar</button>
+        <span id="feedback-19" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">20.</span>
+        <input type="text" id="input-20" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-20').play()">Ouvir</button>
+        <audio id="audio-20" src="assets/audio/unidad1/numeros0a20/DOS.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-20', 'dos')">Verificar</button>
+        <span id="feedback-20" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">21.</span>
+        <input type="text" id="input-21" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-21').play()">Ouvir</button>
+        <audio id="audio-21" src="assets/audio/unidad1/numeros0a20/TRECE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-21', 'trece')">Verificar</button>
+        <span id="feedback-21" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">22.</span>
+        <input type="text" id="input-22" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-22').play()">Ouvir</button>
+        <audio id="audio-22" src="assets/audio/unidad1/numeros0a20/VEINTE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-22', 'veinte')">Verificar</button>
+        <span id="feedback-22" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">23.</span>
+        <input type="text" id="input-23" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-23').play()">Ouvir</button>
+        <audio id="audio-23" src="assets/audio/unidad1/numeros0a20/CINCO.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-23', 'cinco')">Verificar</button>
+        <span id="feedback-23" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">24.</span>
+        <input type="text" id="input-24" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-24').play()">Ouvir</button>
+        <audio id="audio-24" src="assets/audio/unidad1/numeros0a20/NUEVE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-24', 'nueve')">Verificar</button>
+        <span id="feedback-24" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">25.</span>
+        <input type="text" id="input-25" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-25').play()">Ouvir</button>
+        <audio id="audio-25" src="assets/audio/unidad1/numeros0a20/CERO.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-25', 'cero')">Verificar</button>
+        <span id="feedback-25" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">26.</span>
+        <input type="text" id="input-26" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-26').play()">Ouvir</button>
+        <audio id="audio-26" src="assets/audio/unidad1/numeros0a20/SIETE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-26', 'siete')">Verificar</button>
+        <span id="feedback-26" style="margin-left: 10px;"></span>
+    </div>
+
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">27.</span>
+        <input type="text" id="input-27" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-27').play()">Ouvir</button>
+        <audio id="audio-27" src="assets/audio/unidad1/numeros0a20/CUATRO.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-27', 'cuatro')">Verificar</button>
+        <span id="feedback-27" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">28.</span>
+        <input type="text" id="input-28" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-28').play()">Ouvir</button>
+        <audio id="audio-28" src="assets/audio/unidad1/numeros0a20/QUINCE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-28', 'quince')">Verificar</button>
+        <span id="feedback-28" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div class="audio-player" style="flex-basis: 48%;">
+        <span class="content-item">29.</span>
+        <input type="text" id="input-29" placeholder="Escribe el número" style="width: 150px;">
+        <button class="play-button" onclick="document.getElementById('audio-29').play()">Ouvir</button>
+        <audio id="audio-29" src="assets/audio/unidad1/numeros0a20/ONCE.mp3"></audio>
+        <button onclick="checkAnswerNumbers('input-29', 'once')">Verificar</button>
+        <span id="feedback-29" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+        <hr>
+<h3>5. Contraccciones: Completa con "AL" o "DEL"</h3>
+<p>Escribe la contracción correcta (AL o DEL) para completar la oración. Recuerda que no todas las oraciones llevan contracción.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">1.</span>
+        <span style="flex-grow: 1;">Voy 
+            <input type="text" id="ej30-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> médico para mi revisión anual.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej30-input', 'al', 'ej30-feedback')">Verificar</button>
+        <span id="ej30-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">2.</span>
+        <span style="flex-grow: 1;">¿Has ido 
+            <input type="text" id="ej31-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> concierto de música clásica alguna vez?
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej31-input', 'al', 'ej31-feedback')">Verificar</button>
+        <span id="ej31-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">3.</span>
+        <span style="flex-grow: 1;">El perro se escapó 
+            <input type="text" id="ej32-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> parque mientras paseábamos.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej32-input', 'del', 'ej32-feedback')">Verificar</button>
+        <span id="ej32-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">4.</span>
+        <span style="flex-grow: 1;">Vamos 
+            <input type="text" id="ej33-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> restaurante italiano que está en la esquina.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej33-input', 'al', 'ej33-feedback')">Verificar</button>
+        <span id="ej33-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">5.</span>
+        <span style="flex-grow: 1;">Necesito comprar una botella 
+            <input type="text" id="ej34-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> aceite para cocinar.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej34-input', 'de', 'ej34-feedback')">Verificar</button>
+        <span id="ej34-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">6.</span>
+        <span style="flex-grow: 1;">Me gusta ir 
+            <input type="text" id="ej35-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> cine los fines de semana con mis amigos.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej35-input', 'al', 'ej35-feedback')">Verificar</button>
+        <span id="ej35-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">7.</span>
+        <span style="flex-grow: 1;">El libro que quiero leer está 
+            <input type="text" id="ej36a-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> lado 
+            <input type="text" id="ej36b-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> escritorio.
+        </span>
+        <button class="play-button" style="background-color: #cc6600;" onclick="checkDoubleContraction('ej36a-input', 'al', 'ej36b-input', 'del', 'ej36-feedback')">Verificar</button>
+        <span id="ej36-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">8.</span>
+        <span style="flex-grow: 1;">¿Podrías traerme un vaso 
+            <input type="text" id="ej37-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> agua, por favor?
+        </span>
+         <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej37-input', 'de', 'ej37-feedback')">Verificar</button>
+        <span id="ej37-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">9.</span>
+        <span style="flex-grow: 1;">Voy 
+            <input type="text" id="ej38-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> mercado a comprar frutas y verduras frescas.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej38-input', 'al', 'ej38-feedback')">Verificar</button>
+        <span id="ej38-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">10.</span>
+        <span style="flex-grow: 1;">El tren llegará 
+            <input type="text" id="ej39-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> estación principal en unos minutos.
+        </span>
+         <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej39-input', 'a la', 'ej39-feedback')">Verificar</button>
+        <span id="ej39-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">11.</span>
+        <span style="flex-grow: 1;">¿Puedes ir 
+            <input type="text" id="ej40-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> cine conmigo esta noche?
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej40-input', 'al', 'ej40-feedback')">Verificar</button>
+        <span id="ej40-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">12.</span>
+        <span style="flex-grow: 1;">Vamos 
+            <input type="text" id="ej41-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> gimnasio después del trabajo.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej41-input', 'al', 'ej41-feedback')">Verificar</button>
+        <span id="ej41-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">13.</span>
+        <span style="flex-grow: 1;">Nos encontramos en la puerta 
+            <input type="text" id="ej42-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> teatro.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej42-input', 'del', 'ej42-feedback')">Verificar</button>
+        <span id="ej42-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <hr style="width: 100%; margin: 20px 0;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">14.</span>
+        <span style="flex-grow: 1;">Vamos 
+            <input type="text" id="ej43-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> parque a jugar fútbol.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej43-input', 'al', 'ej43-feedback')">Verificar</button>
+        <span id="ej43-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">15.</span>
+        <span style="flex-grow: 1;">El gato se subió 
+            <input type="text" id="ej44-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> techo.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej44-input', 'al', 'ej44-feedback')">Verificar</button>
+        <span id="ej44-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">16.</span>
+        <span style="flex-grow: 1;">¿Qué llevaste 
+            <input type="text" id="ej45-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> cine?
+        </span>
+         <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej45-input', 'al', 'ej45-feedback')">Verificar</button>
+        <span id="ej45-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">17.</span>
+        <span style="flex-grow: 1;">Prefiero ir 
+            <input type="text" id="ej46-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> cine que quedarme en casa.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej46-input', 'al', 'ej46-feedback')">Verificar</button>
+        <span id="ej46-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">18.</span>
+        <span style="flex-grow: 1;">El libro está encima 
+            <input type="text" id="ej47-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> escritorio.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej47-input', 'del', 'ej47-feedback')">Verificar</button>
+        <span id="ej47-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">19.</span>
+        <span style="flex-grow: 1;">¿Vas 
+            <input type="text" id="ej48-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> supermercado después del trabajo?
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej48-input', 'al', 'ej48-feedback')">Verificar</button>
+        <span id="ej48-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">20.</span>
+        <span style="flex-grow: 1;">No me gusta ir 
+            <input type="text" id="ej49-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> médico.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej49-input', 'al', 'ej49-feedback')">Verificar</button>
+        <span id="ej49-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">21.</span>
+        <span style="flex-grow: 1;">Mi abuela vive en una casa al lado 
+            <input type="text" id="ej50-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> río.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej50-input', 'del', 'ej50-feedback')">Verificar</button>
+        <span id="ej50-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">22.</span>
+        <span style="flex-grow: 1;">Voy 
+            <input type="text" id="ej51-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> concierto con mis amigos.
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej51-input', 'al', 'ej51-feedback')">Verificar</button>
+        <span id="ej51-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 30px;">23.</span>
+        <span style="flex-grow: 1;">¿Has ido alguna vez 
+            <input type="text" id="ej52-input" placeholder="_____" style="width: 50px; text-align: center; margin: 0 5px;"> circo?
+        </span>
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej52-input', 'al', 'ej52-feedback')">Verificar</button>
+        <span id="ej52-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+</div>
+        <hr>
+<h3>6. Completa la conjugación del verbo LLAMARSE</h3>
+<p>Escribe la forma completa y correcta (pronombre + verbo) del verbo **LLAMARSE** para cada pronombre personal.</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Yo:</span>
+        <input type="text" id="ej53-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej53-input', 'me llamo', 'ej53-feedback')">Verificar</button>
+        <span id="ej53-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Tú:</span>
+        <input type="text" id="ej54-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej54-input', 'te llamas', 'ej54-feedback')">Verificar</button>
+        <span id="ej54-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Él / Ella / Ud.:</span>
+        <input type="text" id="ej55-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej55-input', 'se llama', 'ej55-feedback')">Verificar</button>
+        <span id="ej55-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Nosotros/as:</span>
+        <input type="text" id="ej56-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej56-input', 'nos llamamos', 'ej56-feedback')">Verificar</button>
+        <span id="ej56-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Vosotros/as:</span>
+        <input type="text" id="ej57-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej57-input', 'os llamáis', 'ej57-feedback')">Verificar</button>
+        <span id="ej57-feedback" style="margin-left: 10px;"></span>
+    </div>
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; width: 100px;">Ellos / Ellas / Uds.:</span>
+        <input type="text" id="ej58-input" placeholder="llamarse" style="padding: 5px; margin-right: 10px; flex-grow: 1;">
+        <button class="play-button" style="background-color: #007bff;" onclick="checkAnswer('ej58-input', 'se llaman', 'ej58-feedback')">Verificar</button>
+        <span id="ej58-feedback" style="margin-left: 10px;"></span>
+    </div>
+
+</div>
+        <hr>
+<h3>7. Interpretación de Texto y Comprensión Lectora</h3>
+<p>Lee atentamente los textos y responde a las preguntas con oraciones completas. ¡No olvides usar tu conocimiento de SER/LLAMARSE/Contracciones!</p>
+
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <h4 style="color: #007bff;">A) Historia de María</h4>
+    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 3px solid #007bff;">
+        <p style="font-style: italic;">María es una niña muy feliz. Vive en una casa grande con su mamá, su papá y su perro Max. A María le gusta jugar en el jardín con Max. También le encanta pintar cuadros de colores brillantes. Los fines de semana, María y su familia van al parque a comer helado y jugar juntos.</p>
+    </div>
+    
+    <p style="font-weight: bold;">1. ¿Quién es María y cómo es su vida?</p>
+    <textarea id="resp-A1" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">2. ¿Dónde vive María y con quién?</p>
+    <textarea id="resp-A2" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">3. ¿Qué le gusta hacer a María en su tiempo libre?</p>
+    <textarea id="resp-A3" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">4. ¿Cuál es la actividad favorita de María en el jardín?</p>
+    <textarea id="resp-A4" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">5. ¿Qué hacen María y su familia los fines de semana?</p>
+    <textarea id="resp-A5" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">6. ¿Quién es Max y qué hace con María?</p>
+    <textarea id="resp-A6" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">7. ¿Qué tipo de cuadros le gusta pintar a María?</p>
+    <textarea id="resp-A7" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">8. ¿Por qué crees que María es una niña feliz? (Respuesta Abierta)</p>
+    <textarea id="resp-A8" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <button class="play-button" style="background-color: green; margin-top: 15px;" onclick="showInterpretationAnswers('A')">Mostrar Respuestas (María)</button>
+    <div id="feedback-A" style="margin-top: 15px; padding: 10px; border: 1px dashed green; display: none;"></div>
+
+    <hr style="margin: 30px 0;">
+
+    <h4 style="color: #cc6600;">B) Historia de Pablo</h4>
+    <div style="background-color: #fff8f0; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 3px solid #cc6600;">
+        <p style="font-style: italic;">Pablo es un niño aventurero. Le gusta explorar el bosque cerca de su casa en busca de tesoros. Un día, mientras buscaba entre los árboles, encontró un antiguo mapa en el suelo. El mapa tenía una X marcada en él, indicando la ubicación de un tesoro escondido. Emocionado, Pablo decidió seguir el mapa y buscar el tesoro.</p>
+    </div>
+
+    <p style="font-weight: bold;">1. ¿Quién es Pablo y qué le gusta hacer?</p>
+    <textarea id="resp-B1" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">2. ¿Dónde encontró Pablo el mapa del tesoro?</p>
+    <textarea id="resp-B2" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">3. ¿Qué encontró Pablo en el bosque un día?</p>
+    <textarea id="resp-B3" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">4. ¿Qué indicaba el mapa que encontró Pablo?</p>
+    <textarea id="resp-B4" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+    
+    <p style="font-weight: bold;">5. ¿Qué decidió hacer Pablo después de encontrar el mapa?</p>
+    <textarea id="resp-B5" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <p style="font-weight: bold;">6. ¿Por qué crees que Pablo estaba emocionado después de encontrar el mapa? (Respuesta Abierta)</p>
+    <textarea id="resp-B6" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;"></textarea>
+
+    <button class="play-button" style="background-color: #cc6600; margin-top: 15px;" onclick="showInterpretationAnswers('B')">Mostrar Respuestas (Pablo)</button>
+    <div id="feedback-B" style="margin-top: 15px; padding: 10px; border: 1px dashed #cc6600; display: none;"></div>
+
+</div>
+        
+        <hr style="margin-top: 30px;">
+        
+</div>
+      <div id="ejercicios-u2" class="tab-content">
+    
+        </div>
+        <script>
+    function checkAnswer(inputId, correctAnswer, feedbackId) {
+        const inputElement = document.getElementById(inputId);
+        const feedbackElement = document.getElementById(feedbackId);
+        // Usamos .toLowerCase().trim() para hacer la comparación más tolerante
+        const userAnswer = inputElement.value.toLowerCase().trim();
+        const correctLower = correctAnswer.toLowerCase().trim();
+
+        if (userAnswer === correctLower) {
+            feedbackElement.textContent = "¡Correcto!";
+            feedbackElement.style.color = "green";
+        } else {
+            feedbackElement.textContent = `Incorrecto. La respuesta es: ${correctAnswer}`;
+            feedbackElement.style.color = "red";
+        }
+    }
+            function checkAnswerNumbers(inputId, correctAnswer) {
+        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+        
+        // Obtiene el ID del feedback del número (ej: input-15 -> feedback-15)
+        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
+        
+        if (userAnswer === correctAnswer) {
+            feedbackElement.textContent = '✅ ¡Correcto!';
+            feedbackElement.style.color = 'green';
+        } else {
+            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
+            feedbackElement.style.color = 'red';
+        }
+    }
+        function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
+        const input1 = document.getElementById(inputId1).value.toLowerCase().trim();
+        const input2 = document.getElementById(inputId2).value.toLowerCase().trim();
+        const feedbackElement = document.getElementById(feedbackId);
+
+        if (input1 === correct1 && input2 === correct2) {
+            feedbackElement.textContent = "¡Correcto!";
+            feedbackElement.style.color = "green";
+        } else {
+            feedbackElement.textContent = `Incorrecto. Respuestas: ${correct1.toUpperCase()} y ${correct2.toUpperCase()}`;
+            feedbackElement.style.color = "red";
+        }
+    }
+            function showInterpretationAnswers(blockId) {
+        const feedbackElement = document.getElementById(`feedback-${blockId}`);
+        
+        // Las respuestas posibles que proporcionaste:
+        const answers = {
+            A: [
+                "1. María es una niña feliz que vive en una casa grande con su mamá, su papá y su perro Max.",
+                "2. María vive en una casa grande con su mamá, su papá y su perro Max.",
+                "3. A María le gusta jugar en el jardín con Max y pintar cuadros de colores brillantes.",
+                "4. La actividad favorita de María en el jardín es jugar con Max.",
+                "5. Los fines de semana, María y su familia van al parque a comer helado y jugar juntos.",
+                "6. Max es el perro de María y juega con ella en el jardín.",
+                "7. A María le gusta pintar cuadros de colores brillantes.",
+                "8. (Respuesta Abierta) María es una niña feliz porque vive en una casa grande con su familia, tiene un perro con el que jugar y disfruta de actividades divertidas como pintar y comer helado en el parque con su familia."
+            ],
+            B: [
+                "1. Pablo es un niño aventurero a quien le gusta explorar el bosque en busca de tesoros.",
+                "2. Pablo encontró el mapa del tesoro en el suelo del bosque cerca de su casa.",
+                "3. Pablo encontró un antiguo mapa en el bosque un día.",
+                "4. El mapa tenía una X marcada en él, indicando la ubicación de un tesoro escondido.",
+                "5. Después de encontrar el mapa, Pablo decidió seguirlo y buscar el tesoro.",
+                "6. (Respuesta Abierta) Pablo estaba emocionado después de encontrar el mapa porque le ofrecía la oportunidad de buscar un tesoro escondido y vivir una emocionante aventura en el bosque."
+            ]
+        };
+
+        // Mostrar u ocultar las respuestas
+        if (feedbackElement.style.display === 'none') {
+            feedbackElement.innerHTML = `<h4>Respuestas Posibles:</h4><ul>${answers[blockId].map(a => `<li>${a}</li>`).join('')}</ul>`;
+            feedbackElement.style.display = 'block';
+        } else {
+            feedbackElement.style.display = 'none';
+        }
+    }
+            <script>
+    function checkAnswer(inputId, correctAnswer, feedbackId) {
+        // ... (código de checkAnswer) ...
+    }
+    function checkAnswerNumbers(inputId, correctAnswer) {
+        // ... (código de checkAnswerNumbers) ...
+    }
+    function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
+        // ... (código de checkDoubleContraction) ...
+    }
+    function showInterpretationAnswers(blockId) {
+        // ... (código de showInterpretationAnswers) ...
+    }
+    
+    // ==========================================================
+    //  <<<--- PEGA LA FUNCIÓN checkMultipleAnswers AQUÍ --->>>
+    // ==========================================================
+    
+    /* Función para verificar múltiples campos de texto a la vez (Ejercicio 9) */
+    function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
+        let allCorrect = true;
+        const feedback = document.getElementById(feedbackId);
+        let incorrectCount = 0;
+
+        for (let i = 0; i < inputIds.length; i++) {
+            const input = document.getElementById(inputIds[i]);
+            let inputValue = input.value.trim();
+            let correctAnswer = correctAnswers[i];
+
+            if (normalize) {
+                // Normaliza la respuesta del usuario y la correcta (minúsculas, sin acentos ni espacios extra)
+                inputValue = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+
+            if (inputValue !== correctAnswer) {
+                allCorrect = false;
+                incorrectCount++;
+                input.style.border = '2px solid #D32F2F'; // Resaltar el campo incorrecto en rojo
+            } else {
+                input.style.border = '2px solid #388E3C'; // Resaltar el campo correcto en verde
+            }
+        }
+
+        // Mostrar feedback final
+        if (allCorrect) {
+            feedback.textContent = '¡Correcto! ✅';
+            feedback.style.color = '#388E3C';
+        } else {
+            feedback.textContent = `Tienes ${incorrectCount} respuesta(s) incorrecta(s). ❌`;
+            feedback.style.color = '#D32F2F';
+        }
+    }
+    
+    // ==========================================================
+    //  <<<--- FIN DEL CÓDIGO A PEGAR --->>>
+    // ==========================================================
+    
+</script>
+        
+    </body>
+</html>
+</script>
