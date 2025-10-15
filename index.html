@@ -54,17 +54,104 @@
         .unit-link:hover {
             background-color: #1e7e34;
         }
+        /* 1. Estilos generales de la barra (HEADER) */
+.header {
+    background-color: #007bff; /* Color azul */
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+/* 2. Estilos del NAV y la lista principal */
+.header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mantiene los ítems en línea */
+}
+
+.header nav li {
+    position: relative;
+}
+
+/* 3. Estilos de los enlaces de la barra principal (simula tu font-size: 1.5em) */
+.header a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5em; /* Manteniendo tu tamaño de fuente */
+    font-weight: bold; /* Añadido para dar énfasis */
+}
+
+/* 4. Efecto Hover en la barra principal */
+.header a:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+}
+
+
+/* ************************************** */
+/* ESTILO DEL MENÚ DESPLEGABLE (DROPDOWN) */
+/* ************************************** */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #f9f9f9; /* Fondo claro para el submenú */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    /* Reseteamos los estilos de la lista para el submenú */
+    flex-direction: column; 
+    padding: 5px 0;
+}
+
+/* Estilo de los enlaces dentro del menú desplegable */
+.dropdown-content a {
+    color: #007bff; /* Texto azul */
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+    font-size: 1em; /* Más pequeño para el submenú */
+    font-weight: normal; 
+}
+
+.dropdown-content a:hover {
+    background-color: #e9e9e9; /* Gris claro al pasar el ratón */
+}
+
+/* Muestra el menú desplegable al pasar el ratón por la pestaña 'Curso' */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
     </style>
 </head>
 <body>
     
-    <div class="header"> 
-        <a href="index.html" style="color: white; text-decoration: underline; font-size: 1.5em; margin-right: 30px;">Inicio</a>
-        <a href="unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 1</a>
-        <a href="ejercicios_unidad1.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Ejercicios U1</a>
-        <a href="unidad2.html" style="color: white; text-decoration: none; font-size: 1.5em; margin-right: 30px;">Unidad 2</a>
-                <a href="ejercicios_unidad2.html" style="color: white; text-decoration: none; font-size: 1.5em;">Ejercicios U2</a>
-    </div>
+    <div class="header">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            
+            <li class="dropdown">
+                <a href="#">Curso ▼</a>
+                <ul class="dropdown-content">
+                    <li><a href="unidad1.html">Unidad 1</a></li>
+                    <li><a href="unidad2.html">Unidad 2</a></li>
+                    <li><a href="unidad3.html">Unidad 3</a></li>
+                    <li><a href="unidad4.html">Unidad 4</a></li>
+                    <li><a href="unidad5.html">Unidad 5</a></li>
+                    <li><a href="unidad6.html">Unidad 6</a></li>
+                    <li><a href="unidad7.html">Unidad 7</a></li>
+                    <li><a href="unidad8.html">Unidad 8</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="pago.html">Pago</a></li>
+            
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</div>
     
     <div class="container">
         <h1>¡Bienvenido a tu Curso de Español!</h1>
