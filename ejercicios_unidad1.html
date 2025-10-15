@@ -788,6 +788,68 @@
             feedbackElement.style.display = 'none';
         }
     }
+            <script>
+    function checkAnswer(inputId, correctAnswer, feedbackId) {
+        // ... (código de checkAnswer) ...
+    }
+    function checkAnswerNumbers(inputId, correctAnswer) {
+        // ... (código de checkAnswerNumbers) ...
+    }
+    function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
+        // ... (código de checkDoubleContraction) ...
+    }
+    function showInterpretationAnswers(blockId) {
+        // ... (código de showInterpretationAnswers) ...
+    }
+    
+    // ==========================================================
+    //  <<<--- PEGA LA FUNCIÓN checkMultipleAnswers AQUÍ --->>>
+    // ==========================================================
+    
+    /* Función para verificar múltiples campos de texto a la vez (Ejercicio 9) */
+    function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
+        let allCorrect = true;
+        const feedback = document.getElementById(feedbackId);
+        let incorrectCount = 0;
+
+        for (let i = 0; i < inputIds.length; i++) {
+            const input = document.getElementById(inputIds[i]);
+            let inputValue = input.value.trim();
+            let correctAnswer = correctAnswers[i];
+
+            if (normalize) {
+                // Normaliza la respuesta del usuario y la correcta (minúsculas, sin acentos ni espacios extra)
+                inputValue = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+
+            if (inputValue !== correctAnswer) {
+                allCorrect = false;
+                incorrectCount++;
+                input.style.border = '2px solid #D32F2F'; // Resaltar el campo incorrecto en rojo
+            } else {
+                input.style.border = '2px solid #388E3C'; // Resaltar el campo correcto en verde
+            }
+        }
+
+        // Mostrar feedback final
+        if (allCorrect) {
+            feedback.textContent = '¡Correcto! ✅';
+            feedback.style.color = '#388E3C';
+        } else {
+            feedback.textContent = `Tienes ${incorrectCount} respuesta(s) incorrecta(s). ❌`;
+            feedback.style.color = '#D32F2F';
+        }
+    }
+    
+    // ==========================================================
+    //  <<<--- FIN DEL CÓDIGO A PEGAR --->>>
+    // ==========================================================
+    
+</script>
+        
+    </body>
+</html>
 </script>
 
 
