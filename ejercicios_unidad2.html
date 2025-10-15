@@ -930,5 +930,44 @@
     }
 </script>
 
+    ...
+        </div>
+
+    <script>
+        // Aquí es donde ya tienes la función 'checkAnswer()'
+
+        // AÑADE AQUÍ LA NUEVA FUNCIÓN 'checkRadioAnswer()'
+        
+        /* Función para verificar respuestas de botones de radio (opción múltiple) */
+        function checkRadioAnswer(formId, correctAnswerValue, feedbackId) {
+            const form = document.getElementById(formId);
+            const feedback = document.getElementById(feedbackId);
+            
+            // Obtener la opción seleccionada dentro del formulario
+            const selected = form.querySelector('input[name="' + form.elements[0].name + '"]:checked');
+
+            // Limpiar feedback anterior
+            feedback.textContent = '';
+            feedback.style.color = '';
+
+            if (!selected) {
+                feedback.textContent = 'Selecciona una opción.';
+                feedback.style.color = '#FFA500'; // Naranja
+                return;
+            }
+
+            // Comparar el valor seleccionado con la respuesta correcta
+            if (selected.value === correctAnswerValue) {
+                feedback.textContent = '¡Correcto! ✅';
+                feedback.style.color = '#388E3C'; // Verde oscuro
+            } else {
+                feedback.textContent = 'Incorrecto. La respuesta correcta es (' + correctAnswerValue + '). ❌';
+                feedback.style.color = '#D32F2F'; // Rojo oscuro
+            }
+        }
+    </script>
+    </body>
+</html>
+    
 </body>
 </html>
