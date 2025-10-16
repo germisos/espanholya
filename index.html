@@ -45,10 +45,14 @@
     .unit-link:hover {
       background-color: #1e7e34;
     }
-    a:focus {
-  outline: none;
-  background: none !important;
+   /* Elimina el efecto blanco o resaltado al hacer clic o enfocar */
+a:focus, a:active {
+  outline: none !important;
+  background: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
 }
+
 
   </style>
 </head>
