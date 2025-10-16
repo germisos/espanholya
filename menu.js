@@ -165,15 +165,14 @@
       // ya prevenimos con e.preventDefault() en toggles
 
       
-// Cerrar menú al hacer clic en un enlace de unidad o ejercicio
-document.addEventListener('click', function (e) {
-    const isLink = e.target.closest('.dropdown-content a, .sub-dropdown-content a');
-    if (isLink) {
-      document.querySelectorAll('.dropdown-content, .sub-dropdown-content').forEach(el => {
-        el.style.display = 'none';
-      });
-    }
+// 🔹 Cierra los menús al hacer clic en cualquier enlace dentro del dropdown
+document.querySelectorAll('.dropdown-content a, .sub-dropdown-content a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-content, .sub-dropdown-content').forEach(el => {
+      el.style.display = 'none';
+    });
   });
+});
 
     }, 30); // pequeño delay para asegurar inserción DOM
   });
