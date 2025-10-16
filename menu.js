@@ -61,50 +61,47 @@ document.addEventListener("DOMContentLoaded", function () {
 `;
 
 
-  const container = document.querySelector(".header") || document.body;
-  container.insertAdjacentHTML("afterbegin", headerHtml);
+ // Inserta el header en el body
+const tmp = document.createElement("div");
+tmp.innerHTML = headerHtml;
+document.body.insertBefore(tmp.firstElementChild, document.body.firstChild);
 
-  // --- Funcionalidad del menú ---
-  const toggle = document.querySelector(".curso-toggle");
-  const dropdown = document.querySelector(".dropdown-content");
+// ==========================
+//  LÓGICA DE INTERACCIÓN
+// ==========================
 
-  toggle.addEventListener("click", (e) => {
-    e.preventDefault();
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  // Mostrar/Ocultar menú principal (Curso)
+  const mainDropdown = document.querySelector(".dropdown");
+  const mainMenu = mainDropdown?.querySelector(".dropdown-content");
 
-  // Cierra el menú al hacer clic en cualquier enlace dentro de él
-  dropdown.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => {
-      dropdown.style.display = "none";
+  if (mainDropdown && mainMenu) {
+    mainDropdown.addEventListener("mouseenter", () => {
+      mainMenu.style.display = "block";
+    });
+    mainDropdown.addEventListener("mouseleave", () => {
+      mainMenu.style.display = "none";
+    });
+  }
+
+  // Mostrar/Ocultar submenús de nivel (A1, A2, B1)
+  document.querySelectorAll(".sub-dropdown").forEach(sub => {
+    const subMenu = sub.querySelector(".sub-dropdown-content");
+    sub.addEventListener("mouseenter", () => {
+      subMenu.style.display = "block";
+    });
+    sub.addEventListener("mouseleave", () => {
+      subMenu.style.display = "none";
     });
   });
 
-  // Cierra el menú si se hace clic fuera
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".dropdown")) {
-      dropdown.style.display = "none";
-    }
+  // Cierra automáticamente los menús cuando haces clic en una unidad o ejercicio
+  document.querySelectorAll('.dropdown-content a, .sub-dropdown-content a').forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(el => {
+        el.style.display = "none";
+      });
+    });
   });
-
-  // Cerrar menú con tecla Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") dropdown.style.display = "none";
-  });
-
-  // Eliminar el color blanco del foco
-  const style = document.createElement("style");
-  style.textContent = `
-    a:focus, a:active {
-      outline: none !important;
-      background: transparent !important;
-      color: inherit !important;
-      box-shadow: none !important;
-    }
-    .menu-link:focus, .menu-link:active {
-      background: #007bff !important;
-      color: white !important;
-    }
-  `;
-  document.head.appendChild(style);
 });
+
