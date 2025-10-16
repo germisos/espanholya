@@ -125,8 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const tmp = document.createElement("div");
   tmp.innerHTML = headerHtml;
-  if (body.firstChild) body.insertBefore(tmp.firstChild, body.firstChild);
-  else body.appendChild(tmp.firstChild);
+  document.body.prepend(tmp.firstChild);
 
   // 3) lógica del dropdown
   const menuCurso = document.getElementById("menu-curso");
