@@ -45,13 +45,15 @@
     .unit-link:hover {
       background-color: #1e7e34;
     }
-   /* Elimina el efecto blanco o resaltado al hacer clic o enfocar */
-a:focus, a:active {
+   /* 🔹 Corrige el efecto blanco en el menú al hacer clic */
+a.menu-link:focus, a.menu-link:active,
+a.submenu-link:focus, a.submenu-link:active {
   outline: none !important;
   background: transparent !important;
-  color: inherit !important;
+  color: white !important;
   box-shadow: none !important;
 }
+
 
 
   </style>
