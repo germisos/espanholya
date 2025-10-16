@@ -164,6 +164,21 @@
       // evitar que los enlaces vacíos '#' aparezcan en historial (opcional)
       // ya prevenimos con e.preventDefault() en toggles
 
+      
+// Cerrar menú al hacer clic en un enlace de unidad o ejercicio
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("submenu-link")) {
+    // Cierra todo el menú después de un pequeño retardo
+    setTimeout(() => {
+      const dropdownContent = document.querySelector(".dropdown-content");
+      const subContents = document.querySelectorAll(".sub-dropdown-content");
+      if (dropdownContent) dropdownContent.style.display = "none";
+      subContents.forEach(sc => sc.style.display = "none");
+    }, 150);
+  }
+});
+
     }, 30); // pequeño delay para asegurar inserción DOM
   });
 })();
+
