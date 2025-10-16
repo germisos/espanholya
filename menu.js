@@ -128,21 +128,27 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.prepend(tmp.firstChild);
 
   // 3) lógica del dropdown
+ function openMenu() {
   const menuCurso = document.getElementById("menu-curso");
   const cursoToggle = document.getElementById("curso-toggle");
   const cursoList = document.getElementById("curso-list");
-
-  function openMenu() {
+  if (menuCurso && cursoToggle && cursoList) {
     menuCurso.classList.add("open");
     cursoToggle.setAttribute("aria-expanded", "true");
     cursoList.style.display = "flex";
   }
+}
 
-  function closeMenu() {
+function closeMenu() {
+  const menuCurso = document.getElementById("menu-curso");
+  const cursoToggle = document.getElementById("curso-toggle");
+  const cursoList = document.getElementById("curso-list");
+  if (menuCurso && cursoToggle && cursoList) {
     menuCurso.classList.remove("open");
     cursoToggle.setAttribute("aria-expanded", "false");
     cursoList.style.display = "none";
   }
+}
 
   closeMenu();
 
