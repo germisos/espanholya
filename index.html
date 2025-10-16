@@ -45,14 +45,19 @@
     .unit-link:hover {
       background-color: #1e7e34;
     }
-   /* 🔹 Corrige el efecto blanco en el menú al hacer clic */
-a.menu-link:focus, a.menu-link:active,
-a.submenu-link:focus, a.submenu-link:active {
+ /* 🔹 Elimina el fondo blanco y el foco visual del menú */
+a:focus, a:active {
   outline: none !important;
-  background: transparent !important;
-  color: white !important;
+  background-color: transparent !important;
+  color: inherit !important;
   box-shadow: none !important;
 }
+
+.menu-link:focus, .menu-link:active {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
 
 
 
