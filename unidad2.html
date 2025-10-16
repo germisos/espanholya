@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html>
 <head>
     <title>Unidad 2 - Mi Día a Día y Mi Entorno</title>
+    
+    <script src="menu.js" defer></script> 
+    
     <style>
-        <script src="menu.js" defer></script>
-
+        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            padding-top: 60px;
+            padding-top: 60px; /* Mantiene el espacio para el menú fijo */
         }
-        .header {
-            background-color: #007bff; /* Azul vibrante */
-            color: white;
-            padding: 15px 20px;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .header a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin-right: 30px;
-        }
-        /* Estilo para el contenedor de la lección */
+        /* He eliminado los estilos .header de aquí para evitar conflictos, 
+           ya que menu.js ahora maneja todos los estilos de la barra */
+        
         .lesson-container {
             width: 80%;
             margin: 30px auto;
@@ -34,102 +23,20 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        /* Estilos de la Unidad 1 que pueden ser útiles */
-        h2 { color: #333; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
-        h3 { color: #0056b3; margin-top: 25px; }
-        .audio-player { 
-            display: flex; 
-            align-items: center; 
-            margin: 10px 0; 
-            background-color: #f9f9f9; 
-            padding: 10px; 
-            border-radius: 5px; 
-            border: 1px solid #eee;
-        }
-        .play-button { 
-            background-color: #007bff; 
-            color: white; 
-            border: none; 
-            padding: 8px 15px; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            margin-left: 15px;
-        }
-        .play-button:hover { 
-            background-color: #0056b3; 
-        }
-        .content-item { 
-            margin-right: 15px; 
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-        /* Estilo para las tablas de conjugación de verbos en la lección */
-        .verb-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .verb-table th, .verb-table td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
-        .verb-table th {
-            background-color: #f0f0f0;
-        }
+        /* ... el resto de tus estilos (h2, h3, .audio-player, etc.) ... */
     </style>
 </head>
 <body>
-    <div class="header"></div>
-    
-    </body>
-    <div class="header">
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            
-            <li class="dropdown">
-                <a href="#">Curso ▼</a>
-                <ul class="dropdown-content">
-                    
-                    <li><a href="unidad1.html">Unidad 1 (Lección)</a></li>
-                    <li><a href="ejercicios.html">Ejercicios U1</a></li> 
-                    
-                    <li><a href="unidad2.html">Unidad 2 (Lección)</a></li>
-                    <li><a href="ejercicios.html">Ejercicios U2</a></li>
-                    
-                    <li><a href="unidad3.html">Unidad 3</a></li>
-                    <li><a href="unidad4.html">Unidad 4</a></li>
-                    <li><a href="unidad5.html">Unidad 5</a></li>
-                    <li><a href="unidad6.html">Unidad 6</a></li>
-                    <li><a href="unidad7.html">Unidad 7</a></li>
-                    <li><a href="unidad8.html">Unidad 8</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="pago.html">Pago</a></li>
-            
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-</div>
     
     <div class="lesson-container">
     
-    <h2>Unidad 2: Mi Día a Día y Mi Entorno</h2>
+        <h2>Unidad 2: Mi Día a Día y Mi Entorno</h2>
+        </div>
     
+    </body>
+</html>
+    
+           
     <h3>1. Género del Sustantivo y El Artículo</h3>
     <p>En español, todos los sustantivos son masculinos o femeninos. El artículo que los acompaña (definido o indefinido) debe concordar con este género.</p>
 
