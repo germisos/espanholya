@@ -55,10 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
       </header>
     `;
 
-    // Inserta el menú en la parte superior del <body>
+    // 1. Crea el elemento (nodo) HTML
     const tmp = document.createElement("div");
     tmp.innerHTML = headerHtml;
-    document.body.prepend(tmp.firstChild);
+    const headerElement = tmp.firstChild; // El elemento <header>
+
+    // 2. INSERTA la barra de navegación ANTES del primer hijo del body
+    // Esto es más confiable que .prepend() en algunos casos.
+    document.body.insertBefore(headerElement, document.body.firstChild);
+
 
     // Lógica para mostrar y ocultar los submenús al pasar el ratón (Hover)
     const dropdowns = document.querySelectorAll('.dropdown, .sub-dropdown');
