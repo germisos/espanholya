@@ -94,9 +94,9 @@
           <div class="dropdown-content" id="curso-list" role="menu" aria-label="Lista de unidades">
             <!-- Aquí están las unidades; puedes editar o generar más adelante -->
             <a href="unidad1.html" role="menuitem">Unidad 1 (Lección)</a>
-            <a href="ejercicios_unidad1.html#u1" role="menuitem">Ejercicios U1</a>
+            <a href="ejercicios_unidad1.html" role="menuitem">Ejercicios U1</a>
             <a href="unidad2.html" role="menuitem">Unidad 2 (Lección)</a>
-            <a href="ejercicios_unidad2.html#u2" role="menuitem">Ejercicios U2</a>
+            <a href="ejercicios_unidad2.html" role="menuitem">Ejercicios U2</a>
             <a href="unidad3.html" role="menuitem">Unidad 3</a>
             <a href="unidad4.html" role="menuitem">Unidad 4</a>
             <a href="unidad5.html" role="menuitem">Unidad 5</a>
