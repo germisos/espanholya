@@ -161,20 +161,34 @@
         });
       })();
 
-      // evitar que los enlaces vacíos '#' aparezcan en historial (opcional)
-      // ya prevenimos con e.preventDefault() en toggles
+     // evitar que los enlaces vacíos '#' aparezcan en historial (opcional)
+// ya prevenimos con e.preventDefault() en toggles
 
-      
-// 🔹 Cierra los menús al hacer clic en cualquier enlace dentro del dropdown
-document.querySelectorAll('.dropdown-content a, .sub-dropdown-content a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown-content, .sub-dropdown-content').forEach(el => {
-      el.style.display = 'none';
+// 🔹 CIERRA AUTOMÁTICAMENTE los menús al hacer clic en un enlace dentro del dropdown
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a");
+  if (link && (link.href.includes("unidad") || link.href.includes("ejercicios"))) {
+    // Oculta los submenús antes de navegar
+    document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(el => {
+      el.style.display = "none";
     });
-  });
+  }
 });
 
-    }, 30); // pequeño delay para asegurar inserción DOM
+// 🔹 EVITA QUE EL MENÚ “CURSO” SE OCUELTE INSTANTÁNEAMENTE
+const dropdown = document.querySelector(".dropdown");
+if (dropdown) {
+  dropdown.addEventListener("mouseenter", () => {
+    const menu = dropdown.querySelector(".dropdown-content");
+    if (menu) menu.style.display = "block";
   });
+  dropdown.addEventListener("mouseleave", () => {
+    const menu = dropdown.querySelector(".dropdown-content");
+    if (menu) menu.style.display = "none";
+  });
+}
+
+}, 30); // pequeño delay para asegurar inserción DOM
+});
 })();
 
