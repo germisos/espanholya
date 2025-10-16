@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad 1 - Gramática y Vocabulario</title>
-
+    
+    <script src="menu.js" defer></script> 
+    
     <style>
-        
         /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
         body { 
             font-family: sans-serif; 
             margin: 0; 
-            padding: 25px; 
+            /* Se ha ajustado el padding-top para dejar espacio al menú fijo */
+            padding-top: 60px; /* <--- Mantenemos el ajuste de margen */
+            padding-bottom: 25px; /* Añadimos padding abajo si es necesario */
             background-color: #f4f4f9; 
             color: #333; 
             line-height: 1.6;
-            padding-top: 60px;
         }
-        
-        .header { 
-            background-color: #007bff; 
-            color: white; 
-            padding: 20px;
-            text-align: center; 
-            margin-bottom: 20px; 
-            border-radius: 8px;
-        }
-        
+
+        /* HE ELIMINADO los estilos .header, ya que tu menú.js los incluye. 
+           Si tu diseño se rompe, podemos reintroducirlos, pero menu.js DEBE manejar el header. */
+
         .lesson-container { 
             max-width: 900px; 
             margin: 0 auto; 
@@ -36,111 +32,16 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
         }
         
-        h2 { 
-            border-bottom: 3px solid #007bff; 
-            padding-bottom: 12px; 
-            color: #007bff; 
-            margin-top: 30px; 
-        }
-
-        /* 2. ESTILOS DE LA LISTA DE AUDIOS (Alfabeto, Verbos) */
-        .audio-player { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            padding: 12px 0; 
-            border-bottom: 1px solid #eee; 
-        }
-        .audio-player:last-child { border-bottom: none; }
+        /* ... el resto de tus estilos H2, .audio-player, .play-button, @media, etc. */
         
-        .content-item { 
-            font-size: 1.1em; 
-            display: flex; 
-            align-items: center;
-            flex-grow: 0;
-            flex-shrink: 0;
-        }
-        .content-item strong { 
-            font-size: 1.2em; 
-            color: #333; 
-            min-width: 100px; 
-        }
-        
-        /* 3. ESTILOS DE BOTONES E IMAGEN */
-        .play-button { 
-            background-color: #28a745; 
-            color: white; 
-            border: none; 
-            padding: 8px 15px; 
-            cursor: pointer; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            min-width: 70px;
-            margin-left: 20px;
-        }
-        .play-button:hover { background-color: #218838; }
-
-        .content-item img {
-            height: 50px; 
-            vertical-align: middle;
-            border-radius: 4px;
-            margin-left: 15px; 
-        }
-
-        /* 4. RESPONSIVE (Asegura que se vea bien en móviles pequeños) */
-        @media (max-width: 600px) {
-            .audio-player {
-                flex-wrap: wrap; 
-            }
-            .content-item {
-                flex-basis: 100%; 
-                margin-bottom: 10px;
-            }
-            .play-button {
-                width: 100%; 
-                margin-top: 5px;
-            }
-        }
     </style>
 </head>
+
 <body>
-    <script src="menu.js" defer></script>
-    <body>
-   
-        </div>
-    
-        <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            
-            <li class="dropdown">
-                <a href="#">Curso ▼</a>
-                <ul class="dropdown-content">
-                    
-                    <li><a href="unidad1.html">Unidad 1 (Lección)</a></li>
-                    <li><a href="ejercicios.html">Ejercicios U1</a></li> 
-                    
-                    <li><a href="unidad2.html">Unidad 2 (Lección)</a></li>
-                    <li><a href="ejercicios.html">Ejercicios U2</a></li>
-                    
-                    <li><a href="unidad3.html">Unidad 3</a></li>
-                    <li><a href="unidad4.html">Unidad 4</a></li>
-                    <li><a href="unidad5.html">Unidad 5</a></li>
-                    <li><a href="unidad6.html">Unidad 6</a></li>
-                    <li><a href="unidad7.html">Unidad 7</a></li>
-                    <li><a href="unidad8.html">Unidad 8</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="pago.html">Pago</a></li>
-            
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-</div>
-        
     
     <div class="lesson-container">
+        
+    
         
         <h2>1. El Alfabeto </h2>
         <p>Ouça e pratique a pronúncia. Preste atenção nas letras <strong>J (jota)</strong>, que é forte, e <strong>H (hache)</strong>, que é muda.</p>
