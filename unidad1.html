@@ -8,44 +8,79 @@
     <script src="menu.js" defer></script> 
     
     <style>
-        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
-        body { 
-            font-family: sans-serif; 
-            margin: 0; 
-            /* Se ha ajustado el padding-top para dejar espacio al menú fijo */
-            padding-top: 60px; /* <--- Mantenemos el ajuste de margen */
-            padding-bottom: 25px; /* Añadimos padding abajo si es necesario */
-            background-color: #f4f4f9; 
-            color: #333; 
-            line-height: 1.6;
-        }
+/* =====================================
+   ESTILOS UNIDAD 1 (CORREGIDOS)
+   ===================================== */
 
-        /* HE ELIMINADO los estilos .header, ya que tu menú.js los incluye. 
-           Si tu diseño se rompe, podemos reintroducirlos, pero menu.js DEBE manejar el header. */
-
-        .lesson-container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 25px; 
-            background: white; 
-            border-radius: 12px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-        }
-        
-        /* ... el resto de tus estilos H2, .audio-player, .play-button, @media, etc. */
-        /* --- Ajusta el espacio bajo la barra fija --- */
-body {
+/* --- Configuración general --- */
+body { 
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  font-family: Arial, sans-serif;
-  padding-top: 70px; /* 🔹 Esto evita que la barra tape el contenido */
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* --- Corrige botones que cambian de color o no responden --- */
+/* --- Deja espacio bajo el header fijo --- */
+#mainHeader + * {
+  margin-top: 80px !important;
+}
+
+/* --- Contenedor de lección --- */
+.lesson-container { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 25px; 
+  background: white; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+}
+
+/* --- Títulos --- */
+h1, h2, h3 {
+  color: #007bff;
+  margin-top: 20px;
+}
+
+/* --- Audio player o botones de reproducción --- */
+.audio-player, .play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto;
+}
+
+.play-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+.play-button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Botones de interacción o verificación --- */
 button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  font-size: 1em;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #218838;
 }
 
 button:disabled {
@@ -53,7 +88,34 @@ button:disabled {
   cursor: not-allowed;
 }
 
-    </style>
+/* --- Tablas, listas, párrafos --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px 0;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .lesson-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h1 { font-size: 1.5em; }
+  button { width: 100%; }
+}
+</style>
+
 </head>
 
 <body>
