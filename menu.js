@@ -1,6 +1,7 @@
-// === menu.js versión estable (clic y cierre automático) ===
 document.addEventListener("DOMContentLoaded", function () {
-  /* Inserta el menú principal */
+  // =============================
+  // 1. ESTRUCTURA DEL MENÚ HTML
+  // =============================
   const headerHtml = `
   <header class="site-header" style="background:#007bff;color:white;padding:12px;position:fixed;width:100%;top:0;z-index:1000;">
     <div class="nav-wrap" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;">
@@ -58,20 +59,18 @@ document.addEventListener("DOMContentLoaded", function () {
       </nav>
     </div>
   </header>
-`;
+  `;
 
+  // Inserta el menú en el documento
+  const tmp = document.createElement("div");
+  tmp.innerHTML = headerHtml;
+  document.body.insertBefore(tmp.firstElementChild, document.body.firstChild);
 
- // Inserta el header en el body
-const tmp = document.createElement("div");
-tmp.innerHTML = headerHtml;
-document.body.insertBefore(tmp.firstElementChild, document.body.firstChild);
+  // =============================
+  // 2. INTERACCIÓN DEL MENÚ
+  // =============================
 
-// ==========================
-//  LÓGICA DE INTERACCIÓN
-// ==========================
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Mostrar/Ocultar menú principal (Curso)
+  // Mostrar / ocultar menú principal “Curso”
   const mainDropdown = document.querySelector(".dropdown");
   const mainMenu = mainDropdown?.querySelector(".dropdown-content");
 
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mostrar/Ocultar submenús de nivel (A1, A2, B1)
+  // Mostrar / ocultar submenús (A1, A2, B1)
   document.querySelectorAll(".sub-dropdown").forEach(sub => {
     const subMenu = sub.querySelector(".sub-dropdown-content");
     sub.addEventListener("mouseenter", () => {
@@ -95,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Cierra automáticamente los menús cuando haces clic en una unidad o ejercicio
+  // Cierra los menús al hacer clic en cualquier enlace
   document.querySelectorAll('.dropdown-content a, .sub-dropdown-content a').forEach(link => {
     link.addEventListener("click", () => {
       document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(el => {
@@ -104,4 +103,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
