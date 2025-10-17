@@ -1077,32 +1077,25 @@ ul, ol {
         
 
 
-        <script>
+      <script src="menu.js" defer></script>
+<script src="script_unidad1.js"></script>
 
-              <script src="menu.js" defer></script>
-  <script src="script_unidad1.js"></script>
+<script>
+function checkAnswer(inputId, correctAnswer) {
+  const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+  const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
+
+  if (!feedbackElement) return;
+
+  if (userAnswer === correctAnswer.toLowerCase()) {
+    feedbackElement.textContent = '✅ ¡Correcto!';
+    feedbackElement.style.color = 'green';
+  } else {
+    feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
+    feedbackElement.style.color = 'red';
+  }
+}
+</script>
 </body>
 </html>
-
-            
-    // Función para verificar la respuesta en los ejercicios de dictado
-    function checkAnswer(inputId, correctAnswer) {
-        // Obtiene el valor escrito por el usuario y lo convierte a minúsculas
-        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
-        
-        // Obtiene el elemento donde se mostrará la retroalimentación
-        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
-        
-        // Compara la respuesta
-        if (userAnswer === correctAnswer) {
-            feedbackElement.textContent = '✅ ¡Correcto!';
-            feedbackElement.style.color = 'green';
-        } else {
-            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
-            feedbackElement.style.color = 'red';
-        }
-    }
-</script>
-        ```
-
 
