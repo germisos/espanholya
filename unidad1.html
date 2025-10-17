@@ -33,7 +33,26 @@
         }
         
         /* ... el resto de tus estilos H2, .audio-player, .play-button, @media, etc. */
-        
+        /* --- Ajusta el espacio bajo la barra fija --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  padding-top: 70px; /* 🔹 Esto evita que la barra tape el contenido */
+}
+
+/* --- Corrige botones que cambian de color o no responden --- */
+button {
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+}
+
     </style>
 </head>
 
@@ -997,6 +1016,13 @@
 
 
         <script>
+
+              <script src="menu.js" defer></script>
+  <script src="script_unidad1.js"></script>
+</body>
+</html>
+
+            
     // Función para verificar la respuesta en los ejercicios de dictado
     function checkAnswer(inputId, correctAnswer) {
         // Obtiene el valor escrito por el usuario y lo convierte a minúsculas
