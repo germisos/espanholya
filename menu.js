@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 1. ESTRUCTURA DEL MENÚ HTML
   // =============================
   const headerHtml = `
-  <header class="site-header" style="background:#007bff;color:white;padding:12px;position:fixed;width:100%;top:0;z-index:1000;">
+  <header id="mainHeader" class="site-header" style="background:#007bff;color:white;padding:12px;position:fixed;width:100%;top:0;z-index:1000;">
     <div class="nav-wrap" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;">
       <nav>
         <ul class="main-menu" style="list-style:none;display:flex;gap:12px;padding:0;margin:0;">
