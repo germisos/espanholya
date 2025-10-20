@@ -183,6 +183,18 @@ ul, ol {
   background-color: #0056b3;
   transform: scale(1.05);
 }
+/* --- Ajuste visual del tamaño de las imágenes del alfabeto (+20%) --- */
+.audio-player img {
+  width: 54px;    /* antes 45px → 20 % más grande */
+  height: auto;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+/* Pequeño efecto visual opcional al pasar el mouse */
+.audio-player img:hover {
+  transform: scale(1.05);
+}
 
 </style>
 
