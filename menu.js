@@ -1,4 +1,4 @@
-ocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   // =============================
   // 1. ESTRUCTURA DEL MENÚ HTML
   // =============================
