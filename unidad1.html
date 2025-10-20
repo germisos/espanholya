@@ -9,7 +9,7 @@
     
     <style>
 /* =====================================
-   ESTILOS UNIDAD 1 (CORREGIDOS)
+   ESTILOS DE LA UNIDAD 1 (VERSIÓN FINAL)
    ===================================== */
 
 /* --- Configuración general --- */
@@ -22,36 +22,15 @@ body {
   line-height: 1.6;
 }
 
-
-
-/* --- Contenedor de lección --- */
-.lesson-container { 
-  max-width: 900px; 
-  padding: 25px; 
-  background: white; 
-  border-radius: 12px; 
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-  
-  /* CORRECCIÓN DEL MARGEN SUPERIOR: Empuja el contenido 80px hacia abajo */
-  margin: 80px auto 0 auto; 
-/* =====================================
-   CORRECCIÓN FINAL DE IMÁGENES
-   Fuerza un tamaño pequeño de 50px para íconos/letras.
-   ===================================== */
-.lesson-container img {
-  /* Tamaño deseado: Fuerza el ancho a 50px */
-  width: 50px !important; 
-  
-  /* Asegura que no exceda el 100% de la celda/contenedor (por si acaso) */
-  max-width: 100% !important; 
-  
-  /* Mantiene la proporción */
-  height: auto !important; 
-  
-  border-radius: 8px;
-  margin: 10px auto;
-  display: block;
-
+/* --- Contenedor de lección y Margen Superior (SOLUCIÓN DEFINITIVA) --- */
+.lesson-container { 
+  max-width: 900px; 
+  /* MARGEN CRÍTICO: 80px superior, centrado a los lados, 0px inferior */
+  margin: 80px auto 0 auto; 
+  padding: 25px; 
+  background: white; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
 }
 
 
@@ -60,6 +39,30 @@ h1, h2, h3 {
   color: #007bff;
   margin-top: 20px;
 }
+
+/* --- Imágenes (SOLUCIÓN DEFINITIVA PARA HACERLAS PEQUEÑAS) --- */
+/* Esta regla afecta a todas las imágenes dentro de la lección. */
+.lesson-container img {
+  /* No permite que la imagen sea más ancha que su contenedor */
+  max-width: 100% !important; 
+  /* Mantiene la proporción */
+  height: auto !important;
+  /* Fuerza el ancho pequeño, ideal para el abecedario */
+  width: 50px !important; 
+  
+  border-radius: 8px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Si tienes imágenes grandes (como mapas) que NO deben ser de 50px,
+   elimina la línea "width: 50px !important;" de arriba.
+   Luego, en tu HTML, agrega la clase "img-letra" a cada imagen del abecedario, así:
+   <img src="letra_a.png" class="img-letra">
+   Y añade esta regla al CSS:
+   .img-letra { width: 50px !important; }
+*/
+
 
 /* --- Audio player o botones de reproducción --- */
 .audio-player, .play-button {
@@ -132,24 +135,6 @@ ul, ol {
   h1 { font-size: 1.5em; }
   button { width: 100%; }
 }
-        /* 🔹 Control de tamaño de imágenes dentro de las unidades */
-.lesson-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin: 10px 0;
-  display: block;
-}
-
-/* 🔹 Si las imágenes están dentro de tablas o divs */
-img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 8px;
-  margin: 10px auto;
-  display: block;
-}
-
 </style>
 
 </head>
