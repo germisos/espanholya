@@ -27,24 +27,19 @@ body {
   margin-top: 80px !important;
 }
 
-/* 🔹 Control de tamaño de imágenes dentro de las unidades */
-/* Esta regla asegura que NINGUNA imagen exceda el ancho de su contenedor (.lesson-container) */
-.lesson-container img {
-  max-width: 100%; /* La imagen no será más ancha que su contenedor padre */
-  height: auto;    /* Mantiene la proporción de la imagen (evita que se estire) */
-  border-radius: 10px;
-  margin: 10px 0;
-  display: block; /* Ocupa su propia línea para centrarla mejor */
+/* --- Contenedor de lección --- */
+.lesson-container { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 25px; 
+  background: white; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+  /* CORRECCIÓN CRÍTICA: Añade el margen superior aquí (o en el body). */
+  /* El menú fijo tiene unos 50-60px de alto, 80px le da espacio. */
+  margin-top: 80px; 
 }
 
-/* 🔹 Si tienes imágenes fuera del lesson-container (lo cual no es ideal, pero por si acaso) */
-img {
-  max-width: 100%; /* Aplica la misma regla a todas las imágenes por defecto */
-  height: auto;
-  border-radius: 8px;
-  margin: 10px auto;
-  display: block;
-}
 
 /* --- Títulos --- */
 h1, h2, h3 {
