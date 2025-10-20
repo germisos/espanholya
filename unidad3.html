@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3 - Números, Saludos y Posesión</title>
+    
+    <script src="menu.js" defer></script> 
+    
+    <style>
+        /* =====================================
+           ESTILOS UNIDAD 3 (ADOPTANDO EL FORMATO UNIDAD 1/2)
+           ===================================== */
+
+        /* --- Configuración general --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; 
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* --- Contenedor de lección y Margen Superior --- */
+        .lesson-container {
+            max-width: 900px; 
+            margin: 80px auto 25px auto; 
+            padding: 25px; 
+            background: white;
+            border-radius: 12px; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+        }
+        
+        /* --- Títulos --- */
+        h1, h2, h3 {
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        /* --- Estilo de Tabla de Conjugación (Para verbos) --- */
+        .conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .conjugation-table th, .conjugation-table td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .conjugation-table th {
+            background-color: #f0f8ff;
+            color: #007bff;
+            width: 30%; /* Ancho fijo para el pronombre */
+        }
+
+        /* Estilos para ejemplos de NÚMEROS */
+        .number-list {
+            list-style: none;
+            padding: 0;
+            column-count: 2; /* Divide la lista de 100 a 1000 en dos columnas */
+            column-gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .number-list li {
+            margin-bottom: 5px;
+        }
+        
+        /* Estilos para reglas de PLURALES (Tablas) */
+        .plural-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .plural-table th, .plural-table td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .plural-table th {
+            background-color: #e0f7fa; /* Fondo azul claro para encabezados */
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="lesson-container">
+    
+        <h2>Unidad 3: Irregularidades, Saludos, Números Altos y Posesión</h2>
+        <hr>
+        
+        <h3>1. Presente de Algunos Verbos Irregulares</h3>
+
+        <h4>Verbo HACER (-ER)</h4>
+        <table class="conjugation-table">
+            <thead>
+                <tr>
+                    <th>Pronombre</th>
+                    <th>Conjugación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th>(yo)</th><td>hago</td></tr>
+                <tr><th>(tú)</th><td>haces</td></tr>
+                <tr><th>(él, ella, usted)</th><td>hace</td></tr>
+                <tr><th>(nosotros/as)</th><td>hacemos</td></tr>
+                <tr><th>(vosotros/as)</th><td>hacéis</td></tr>
+                <tr><th>(ellos/as, ustedes)</th><td>hacen</td></tr>
+            </tbody>
+        </table>
+        <p class="note">(Nota: Solo la 1ª persona del singular es irregular: yo **hago**.)</p>
+
+        <h4>Verbo SABER (-ER)</h4>
+        <table class="conjugation-table">
+            <thead>
+                <tr>
+                    <th>Pronombre</th>
+                    <th>Conjugación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th>(yo)</th><td>sé</td></tr>
+                <tr><th>(tú)</th><td>sabes</td></tr>
+                <tr><th>(él, ella, usted)</th><td>sabe</td></tr>
+                <tr><th>(nosotros/as)</th><td>sabemos</td></tr>
+                <tr><th>(vosotros/as)</th><td>sabéis</td></tr>
+                <tr><th>(ellos/as, ustedes)</th><td>saben</td></tr>
+            </tbody>
+        </table>
+        <p class="note">(Nota: Solo la 1ª persona del singular es irregular: yo **sé**.)</p>
+        
+        <hr>
+
+        <h3>2. Saludar y Despedirse</h3>
+        
+        <div style="display: flex; gap: 40px;">
+            <div style="flex: 1;">
+                <h4>Saludos Comunes</h4>
+                <ul>
+                    <li>¡Hola! ¿Qué tal?</li>
+                    <li>¡Hola! ¿Cómo estás?</li>
+                </ul>
+                <h4>Saludos por Horario</h4>
+                <ul>
+                    <li>¡Hola! ¡Buenos días! (antes del mediodía)</li>
+                    <li>¡Hola! ¡Buenas tardes! (después de almorzar)</li>
+                    <li>¡Hola! ¡Buenas noches! (después de cenar)</li>
+                </ul>
+            </div>
+            <div style="flex: 1;">
+                <h4>Despedidas</h4>
+                <ul>
+                    <li>¡Adiós! ¡Hasta luego! (se usa independiente de la inmediatez)</li>
+                    <li>¡Hasta mañana!</li>
+                    <li>¡Adiós! ¡Buenos días/tardes/noches!</li>
+                </ul>
+                <h4>Ejemplo de Conversación</h4>
+                <div style="background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                    <p>- ¡Hola! ¿Qué tal? </p>
+                    <p>- ¡Hola! ¿Cómo estás?</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3>3. Números del 100 al 1000</h3>
+
+        <ul class="number-list">
+            <li>100: cien</li>
+            <li>101: ciento uno</li>
+            <li>119: ciento diecinueve</li>
+            <li>120: ciento veinte</li>
+            <li>128: ciento veintiocho</li>
+            <li>130: ciento treinta</li>
+            <li>168: ciento sesenta y ocho</li>
+            <li>200: doscientos</li>
+            <li>300: trescientos</li>
+            <li>400: cuatrocientos</li>
+            <li>500: quinientos</li>
+            <li>600: seiscientos</li>
+            <li>700: setecientos</li>
+            <li>800: ochocientos</li>
+            <li>900: novecientos</li>
+            <li>999: novecientos noventa y nueve</li>
+            <li>1000: mil</li>
+        </ul>
+
+        <h4>Regla de Género en Cientos</h4>
+        <p>Los números entre **200** y **999** tienen una forma masculina y femenina según el sustantivo al que acompañan:</p>
+        <ul>
+            <li>**Masculino:** trescientos **barcos**, trescientos **amigos**</li>
+            <li>**Femenino:** trescientas **estancias**, trescientas **máquinas**</li>
+        </ul>
+        
+        <p>Ejemplos Combinados:</p>
+        <div style="background: #e9ecef; padding: 15px; border-radius: 5px;">
+            <p>550: quinientos cincuenta **coches** (el coche)</p>
+            <p>550: quinientas cincuenta **sucursales** (la sucursal)</p>
+            <p>610: seiscientos diez **perros**</p>
+            <p>610: seiscientas diez **momias**</p>
+        </div>
+
+        <hr>
+
+        <h3>4. Repaso: Presente de Algunos Verbos Regulares</h3>
+        
+        <h4>Verbo TRABAJAR (-AR)</h4>
+        <table class="conjugation-table">
+            <tr><th>(yo)</th><td>trabajo</td></tr>
+            <tr><th>(tú)</th><td>trabajas</td></tr>
+            <tr><th>(él, ella, usted)</th><td>trabaja</td></tr>
+            <tr><th>(nosotros/as)</th><td>trabajamos</td></tr>
+            <tr><th>(vosotros/as)</th><td>trabajáis</td></tr>
+            <tr><th>(ellos/as, ustedes)</th><td>trabajan</td></tr>
+        </table>
+        
+        <h4>Verbo VENDER (-ER)</h4>
+        <table class="conjugation-table">
+            <tr><th>(yo)</th><td>vendo</td></tr>
+            <tr><th>(tú)</th><td>vendes</td></tr>
+            <tr><th>(él, ella, usted)</th><td>vende</td></tr>
+            <tr><th>(nosotros/as)</th><td>vendemos</td></tr>
+            <tr><th>(vosotros/as)</th><td>vendéis</td></tr>
+            <tr><th>(ellos/as, ustedes)</th><td>venden</td></tr>
+        </table>
+        
+        <h4>Verbo FABRICAR (-AR)</h4>
+        <table class="conjugation-table">
+            <tr><th>(yo)</th><td>fabrico</td></tr>
+            <tr><th>(tú)</th><td>fabricas</td></tr>
+            <tr><th>(él, ella, usted)</th><td>fabrica</td></tr>
+            <tr><th>(nosotros/as)</th><td>fabricamos</td></tr>
+            <tr><th>(vosotros/as)</th><td>fabricáis</td></tr>
+            <tr><th>(ellos/as, ustedes)</th><td>fabrican</td></tr>
+        </table>
+
+        <hr>
+        
+        <h3>5. Número de los Sustantivos y Adjetivos (El Plural)</h3>
+        
+        <p>En español, los nombres y adjetivos tienen morfema de número y concuerdan. El morfema es la parte de la palabra que varía, indicando género y número.</p>
+        
+        <h4>Regla 1: Palabras terminadas en Vocal</h4>
+        <p>Los nombres y adjetivos terminados en **vocal** forman el plural agregando **"S"**.</p>
+        <table class="plural-table">
+            <thead>
+                <tr><th>SINGULAR</th><th>PLURAL (Vocal + S)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>fábrica</td><td>fábricas</td></tr>
+                <tr><td>sofá</td><td>sofás</td></tr>
+                <tr><td>libro</td><td>libros</td></tr>
+                <tr><td>auto</td><td>autos</td></tr>
+                <tr><td>tímido</td><td>tímidos</td></tr>
+                <tr><td>viejo</td><td>viejos</td></tr>
+                <tr><td>calle</td><td>calles</td></tr>
+                <tr><td>estudiante</td><td>estudiantes</td></tr>
+            </tbody>
+        </table>
+
+        <h4>Regla 2: Palabras terminadas en Consonante</h4>
+        <p>Los nombres y adjetivos terminados en **consonante** forman el plural agregando **"ES"**.</p>
+        <table class="plural-table">
+            <thead>
+                <tr><th>SINGULAR</th><th>PLURAL (Consonante + ES)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>hotel</td><td>hoteles</td></tr>
+                <tr><td>japonés</td><td>japoneses</td></tr>
+                <tr><td>reloj</td><td>relojes</td></tr>
+                <tr><td>azul</td><td>azules</td></tr>
+                <tr><td>mayor</td><td>mayores</td></tr>
+                <tr><td>trabajador</td><td>trabajadores</td></tr>
+                <tr><td>ley</td><td>leyes</td></tr>
+                <tr><td>ciudad</td><td>ciudades</td></tr>
+            </tbody>
+        </table>
+
+        <p><strong>⚠️ Atención a las Tildes:</strong> Las palabras acentuadas en la última sílaba (tónica) pierden el acento en el plural. Ejemplos: alemán $\rightarrow$ alemanes, autobús $\rightarrow$ autobuses, francés $\rightarrow$ franceses.</p>
+
+        <h4>Casos Especiales de Plural</h4>
+        <ul>
+            <li>**Sustantivos Usados en Plural:** Se utilizan más en plural (ej.: las tijeras, las gafas, los anteojos, los pantalones). La forma plural puede referirse a uno o más objetos.</li>
+            <li>**Sustantivos Invariables (Terminados en "S"):** Se identifican por el artículo. Ejemplos: el atlas $\rightarrow$ los atlas, la crisis $\rightarrow$ las crisis, el paraguas $\rightarrow$ los paraguas, el lunes $\rightarrow$ los lunes (sábado y domingo sí cambian).</li>
+            <li>**Terminados en "i" o "u" tónicas:** Se puede agregar **"S"** o **"ES"**. Ejemplos: el maní $\rightarrow$ los manís / maníes, hindú $\rightarrow$ hindús / hindúes, esquí $\rightarrow$ esquís / esquíes.</li>
+            <li>**Terminados en "Z":** La **"Z"** cambia por **"C"** y se agrega **"ES"**. Ejemplos: el lápiz $\rightarrow$ los lápices, la luz $\rightarrow$ las luces, la vez $\rightarrow$ las veces, la actriz $\rightarrow$ las actrices, el juez $\rightarrow$ los jueces.</li>
+        </ul>
+
+        <hr>
+
+        <h3>6. Adjetivos Posesivos y Pronombres Posesivos</h3>
+        
+        <p>Los adjetivos posesivos son palabras que indican a quién o a qué pertenece algo. Concuerdan en número con el sustantivo. En la 1ª y 2ª persona del plural (nuestro/vuestro), también concuerdan en género.</p>
+
+        <h4>Formas Átonas (Adjetivos)</h4>
+        <p>Van antes del sustantivo y concuerdan solo en número (o también en género para 'nuestro' y 'vuestro'):</p>
+        <div style="background: #e0f0f0; padding: 10px; border-radius: 5px;">
+            <p>Mi perro, mi mesa, **nuestro** perro, **nuestra** mesa, **vuestro** perro, **vuestra** mesa, su perro, su mesa.</p>
+        </div>
+
+        <h4>Formas Tónicas (Pronombres y Adjetivos Posesivos)</h4>
+        <p>Concuerdan en **género y número** con la **cosa poseída** (no con el poseedor). Expresan posesión.</p>
+        <div style="background: #e0f0f0; padding: 10px; border-radius: 5px;">
+            <p>Este perro es **mío**, esta mesa es **tuya**, este perro es **nuestro**, esta mesa es **suya**.</p>
+            <p>Estos perros son **míos**, estas mesas son **tuyas**, estos perros son **nuestros**, estas mesas son **suyas**.</p>
+        </div>
+        
+    </div> 
+    
+</body>
+</html>
