@@ -8,27 +8,31 @@
     <script src="menu.js" defer></script> 
 
     <style>
-        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
-        body { 
-            font-family: sans-serif; 
-            margin: 0; 
-            padding: 25px; 
-            background-color: #f4f4f9; 
-            color: #333; 
-            line-height: 1.6;
-            padding-top: 60px; /* Mantiene el espacio para el menú fijo */
-        }
-        
-        /* HE ELIMINADO los estilos .header, ya que tu menu.js los maneja. */
+        /* =====================================
+   ESTILOS DE EJERCICIOS (VERSIÓN LIMPIA)
+   ===================================== */
 
-        .lesson-container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 25px; 
-            background: white; 
-            border-radius: 12px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-        }
+/* --- Configuración general --- */
+body { 
+  font-family: sans-serif; 
+  margin: 0; 
+  padding: 0; /* ELIMINAR CUALQUIER PADDING-TOP AQUÍ */
+  background-color: #f4f4f9; 
+  color: #333; 
+  line-height: 1.6;
+}
+
+/* --- Contenedor de lección y Margen Superior (SOLUCIÓN DEFINITIVA) --- */
+.lesson-container { 
+  max-width: 900px; 
+  /* MARGEN CRÍTICO: 80px superior, centrado a los lados, 0px inferior. 
+     Esto empuja el contenido hacia abajo del menú fijo. */
+  margin: 80px auto 25px auto; /* 80px arriba, centrado a los lados, 25px abajo */
+  padding: 25px; 
+  background: white; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+}
         
         /* ... el resto de tus estilos (h2, .audio-player, etc.) ... */
     </style>
