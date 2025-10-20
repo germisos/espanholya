@@ -8,41 +8,60 @@
     <script src="menu.js" defer></script> 
     
     <style>
-        /* =====================================
-           ESTILOS UNIDAD 2 (ADOPTANDO EL FORMATO UNIDAD 1)
-           ===================================== */
+    /* =====================================
+       ESTILOS UNIDAD 2 (ADOPTANDO EL FORMATO UNIDAD 1)
+       ===================================== */
 
-        /* --- Configuración general --- */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9; 
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
-        .lesson-container {
-            max-width: 900px; 
-            /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
-            margin: 80px auto 25px auto; 
-            padding: 25px; 
-            background: white;
-            border-radius: 12px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-        }
-        
-        /* --- Títulos (Ajuste visual) --- */
-        h1, h2, h3 {
-            color: #007bff;
-            margin-top: 20px;
-        }
+    /* --- Configuración general --- */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
+    .lesson-container {
+        max-width: 900px; 
+        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+    
+    /* --- Títulos (Ajuste visual) --- */
+    h1, h2, h3 {
+        color: #007bff;
+        margin-top: 20px;
+    }
 
-        /* ⚠️ RECUERDA: Si Unidad 1 tiene más estilos (botones, imágenes, tablas), 
-           cópialos aquí para asegurar la consistencia del diseño. */
-           
-    </style>
+    /* =====================================
+       ESTILO DE BOTÓN DE AUDIO/VERIFICAR
+       ===================================== */
+    .play-button, 
+    button {
+        /* Estilos base del botón */
+        background-color: #007bff; /* Azul primario */
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s; /* Transición suave */
+    }
+
+    /* Estilo al pasar el ratón */
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3; /* Azul más oscuro al interactuar */
+    }
+</style>
 </head>
 <body>
    
