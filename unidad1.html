@@ -143,6 +143,46 @@ ul, ol {
   margin: 20px auto;
   border-radius: 10px;
 }
+/* --- Corrección automática de alineación para los bloques con imágenes y botón Ouvir --- */
+.audio-player {
+  display: flex;
+  align-items: center;           /* centra verticalmente texto, imagen y botón */
+  justify-content: space-between;
+  flex-wrap: wrap;               /* si no cabe, se baja bien */
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee; /* línea suave entre filas */
+}
+
+/* el texto y la imagen van juntos */
+.audio-player .content-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;                       /* ocupa todo el espacio posible */
+}
+
+.audio-player img {
+  width: 45px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.play-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.play-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
 
 </style>
 
