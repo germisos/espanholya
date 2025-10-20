@@ -22,22 +22,36 @@ body {
   line-height: 1.6;
 }
 
-/* --- Deja espacio bajo el header fijo --- */
-#mainHeader + * {
-  margin-top: 80px !important;
-}
+
 
 /* --- Contenedor de lección --- */
-.lesson-container { 
-  max-width: 900px; 
-  margin: 0 auto; 
-  padding: 25px; 
-  background: white; 
-  border-radius: 12px; 
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-  /* CORRECCIÓN CRÍTICA: Añade el margen superior aquí (o en el body). */
-  /* El menú fijo tiene unos 50-60px de alto, 80px le da espacio. */
-  margin-top: 80px; 
+.lesson-container { 
+  max-width: 900px; 
+  padding: 25px; 
+  background: white; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+  
+  /* CORRECCIÓN DEL MARGEN SUPERIOR: Empuja el contenido 80px hacia abajo */
+  margin: 80px auto 0 auto; 
+/* =====================================
+   CORRECCIÓN FINAL DE IMÁGENES
+   Fuerza un tamaño pequeño de 50px para íconos/letras.
+   ===================================== */
+.lesson-container img {
+  /* Tamaño deseado: Fuerza el ancho a 50px */
+  width: 50px !important; 
+  
+  /* Asegura que no exceda el 100% de la celda/contenedor (por si acaso) */
+  max-width: 100% !important; 
+  
+  /* Mantiene la proporción */
+  height: auto !important; 
+  
+  border-radius: 8px;
+  margin: 10px auto;
+  display: block;
+
 }
 
 
