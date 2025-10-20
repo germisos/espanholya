@@ -22,10 +22,9 @@
         line-height: 1.6;
     }
     
-    /* --- Contenedor principal (El que da el estilo de caja y el margen) --- */
+    /* --- Contenedor principal --- */
     .lesson-container {
         max-width: 900px; 
-        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
         margin: 80px auto 25px auto; 
         padding: 25px; 
         background: white;
@@ -33,16 +32,16 @@
         box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
     }
     
-    /* --- Títulos (Ajuste visual) --- */
+    /* --- Títulos --- */
     h1, h2, h3 {
-        color: #007bff; /* Azul primario */
+        color: #007bff; 
         margin-top: 20px;
     }
 
-    /* --- Estilo de Botón de Audio/Verificar (Consistencia con U1) --- */
+    /* --- Estilo de Botón de Audio/Verificar --- */
     .play-button, 
     button {
-        background-color: #007bff; /* Azul primario */
+        background-color: #007bff; 
         color: white;
         padding: 8px 15px;
         border: none;
@@ -51,7 +50,6 @@
         font-size: 14px;
         font-weight: bold;
         transition: background-color 0.2s;
-        /* Aseguramos que los botones no ocupen más espacio del necesario */
         white-space: nowrap; 
     }
 
@@ -61,22 +59,21 @@
     }
 
     /* =====================================
-       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (CORRECCIÓN FINAL)
+       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (SOLUCIÓN FINAL)
        ===================================== */
        
     /* 1. Definición del Grid */
     .conjugation-grid {
         display: grid;
-        /* Definimos 5 columnas:
-           1. Pronombre (70px fijo)
-           2. Input (200px fijo)
-           3. Botón Verificar (auto)
-           4. Feedback (180px fijo: ¡ESTO DETIENE EL SALTO!)
-           5. Botón Oír (auto) */
-        grid-template-columns: 70px 200px auto 180px auto; 
-        gap: 15px; /* Más espacio entre elementos */
-        align-items: center; /* Alineación vertical central */
+        /* CORRECCIÓN CRÍTICA: Usamos minmax para el pronombre, 
+           permitiendo que se expanda para caber "Ellos/as/Uds." (columna 1). */
+        grid-template-columns: minmax(70px, max-content) 200px auto 180px auto; 
+        /* Columnas: Pronombre (Ancho ajustado) | Input (200px) | Verificar (auto) | Feedback (180px) | Oír (auto) */
+        gap: 15px;
+        align-items: center; 
         margin-bottom: 20px;
+        /* Aseguramos que la cuadrícula se ajuste a su contenedor padre */
+        width: 100%; 
     }
 
     /* 2. Estilos para la entrada de texto */
@@ -84,37 +81,42 @@
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        width: 100%; /* Asegura que llene el 200px de la columna */
+        width: 100%; 
         box-sizing: border-box;
     }
+    
+    /* Estilo para los pronombres, asegurando que no se rompan en línea */
+    .conjugation-grid span:first-child {
+        white-space: nowrap;
+        font-weight: bold;
+    }
 
-    /* 3. Estabilización del Feedback (Crucial para detener el movimiento) */
+    /* 3. Estabilización del Feedback (Detiene el movimiento) */
     .conjugation-grid span[id$="-feedback"] {
-        min-width: 180px; /* Ancho FIJO para el espacio de feedback (Igual al de la columna) */
+        min-width: 180px; /* Ancho FIJO para el espacio de feedback */
         font-weight: bold;
         padding-left: 5px;
-        white-space: nowrap; /* Evita que el texto de feedback se rompa */
-        overflow: hidden; /* Oculta texto si excede el ancho (ej. "La respuesta es incorrecta") */
-        text-overflow: ellipsis;
-        color: #007bff; /* Color inicial del texto de feedback */
+        /* ELIMINAMOS white-space: nowrap; para permitir que el texto largo se rompa en dos líneas,
+           pero la caja de 180px se mantendrá FIJA, evitando el salto del botón "Oír" */
+        white-space: normal; 
+        color: #007bff; 
         border-left: 3px solid transparent; 
         box-sizing: border-box;
-        height: 100%; /* Asegura que no se mueva verticalmente */
-        display: flex; /* Ayuda a la alineación vertical */
-        align-items: center;
+        line-height: 1.3; /* Espaciado de línea para texto de feedback */
     }
 
-    /* Estilos para los mensajes de Correcto/Incorrecto (Deben ser aplicados con JavaScript) */
+    /* Estilos para los mensajes de Correcto/Incorrecto */
     .correct {
-        border-left-color: #28a745 !important; /* Verde */
+        border-left-color: #28a745 !important; 
         color: #28a745 !important;
     }
 
     .incorrect {
-        border-left-color: #dc3545 !important; /* Rojo */
+        border-left-color: #dc3545 !important; 
         color: #dc3545 !important;
     }
 </style>
+    
 </head>
 <body>
  
