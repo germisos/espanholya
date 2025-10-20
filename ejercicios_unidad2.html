@@ -92,6 +92,39 @@
         padding-left: 5px;
         white-space: nowrap; /* Evita que el texto de feedback se rompa en varias líneas */
     }   
+    /* =====================================
+       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (Para Ejercicio 1)
+       ===================================== */
+
+    .conjugation-grid {
+        /* Define la grilla de columnas */
+        display: grid;
+        /* Define 5 columnas: Pronombre (90px), Input (150px), Verificar (auto), Feedback (150px), Oír (auto) */
+        grid-template-columns: 90px 150px auto 150px auto; 
+        gap: 10px; /* Espacio entre los elementos de la grilla */
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .conjugation-grid input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    /* ESTABILIZACIÓN CRÍTICA DEL FEEDBACK */
+    .conjugation-grid span[id$="-feedback"] {
+        min-width: 150px; /* Ancho fijo para el espacio de feedback (Evita el movimiento) */
+        font-weight: bold;
+        padding-left: 5px;
+        white-space: nowrap; /* Evita que el mensaje se rompa en varias líneas */
+        /* Asegura que el texto largo se oculte si excede el ancho (opcional, pero útil) */
+        overflow: hidden; 
+        text-overflow: ellipsis;
+    }
+        
     </style>
 </head>
 <body>
@@ -105,7 +138,7 @@
     <h3>1. Conjugación del Presente Regular (con Audio)</h3>
     <p>Completa la conjugación de los verbos regulares. Una vez verificado, usa el botón "Oír" para escuchar la pronunciación correcta.</p>
     
-        <div class="conjugation-section-box"> <h4 style="color: #007bff;">A) HABLAR (-AR)</h4>
+        <h4 style="color: #007bff;">A) HABLAR (-AR)</h4>
         <div class="conjugation-grid">
             
             <span style="font-weight: bold;">Yo</span>
@@ -149,6 +182,7 @@
             <span id="ej1-6-feedback"></span>
             <audio id="audio-hablan" src="assets/audio/unidad2/verbos/hablan.mp3"></audio>
             <button class="play-button yo-listen" onclick="document.getElementById('audio-hablan').play()">Oír</button>
+       
         </div>
 
         <hr style="margin: 20px 0;">
@@ -197,6 +231,7 @@
             <span id="ej1-12-feedback"></span>
             <audio id="audio-comen" src="assets/audio/unidad2/verbos/comen.mp3"></audio>
             <button class="play-button yo-listen" onclick="document.getElementById('audio-comen').play()">Oír</button>
+       
         </div>
 
         <hr style="margin: 20px 0;">
@@ -245,9 +280,9 @@
             <span id="ej1-18-feedback"></span>
             <audio id="audio-viven" src="assets/audio/unidad2/verbos/viven.mp3"></audio>
             <button class="play-button yo-listen" onclick="document.getElementById('audio-viven').play()">Oír</button>
+        
         </div>
-    </div>
-
+   
     <hr>
     <h3>2. Completa las Frases (Presente Regular)</h3>
     <p>Escribe la conjugación correcta del verbo entre paréntesis para completar la frase.</p>
