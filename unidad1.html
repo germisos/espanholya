@@ -47,8 +47,7 @@ h1, h2, h3 {
   max-width: 100% !important; 
   /* Mantiene la proporción */
   height: auto !important;
-  /* Fuerza el ancho pequeño, ideal para el abecedario */
-  width: 50px !important; 
+  
   
   border-radius: 8px;
   margin: 10px auto;
@@ -183,18 +182,23 @@ ul, ol {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-/* --- Ajuste visual del tamaño de las imágenes del alfabeto (+20%) --- */
+/* --- Tamaño mejorado solo para las imágenes del alfabeto --- */
+#audiolist img,
+#alphabet-list img,
 .audio-player img {
-  width: 65px;    /* antes 45px → 20 % más grande */
-  height: auto;
+  width: 60px !important;   /* 🔹 ahora sí se aplica — 20% más grande */
+  height: auto !important;
   border-radius: 6px;
-  transition: transform 0.2s;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
-/* Pequeño efecto visual opcional al pasar el mouse */
+#audiolist img:hover,
+#alphabet-list img:hover,
 .audio-player img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
+
 
 </style>
 
