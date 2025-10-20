@@ -8,124 +8,113 @@
     <script src="menu.js" defer></script> 
     
     <style>
-        /* =====================================
-           ESTILOS UNIDAD 2 EJERCICIOS (ADOPTANDO EL FORMATO UNIDAD 1)
-           ===================================== */
-
-        /* --- Configuración general --- */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9; /* Fondo más claro y consistente */
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* --- Contenedor principal (El que da el estilo de caja y el margen) --- */
-        .lesson-container {
-            max-width: 900px; 
-            /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
-            margin: 80px auto 25px auto; 
-            padding: 25px; /* Padding de la Unidad 1 */
-            background: white;
-            border-radius: 12px; /* Bordes redondeados */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra clara */
-        }
-        
-        /* --- Títulos (Ajuste visual) --- */
-        h1, h2, h3 {
-            color: #007bff; /* Azul primario */
-            margin-top: 20px;
-        }
-
-        /* --- Estilo de Botón de Audio/Verificar (Consistencia con U1) --- */
-        .play-button, 
-        button {
-            background-color: #007bff; /* Azul primario */
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-
-        .play-button:hover,
-        button:hover {
-            background-color: #0056b3; 
-        }
-
-        /* ⚠️ Añade aquí CUALQUIER otro estilo específico (tablas, inputs, etc.) 
-           que hayas usado en ejercicios_unidad1.html para asegurar la consistencia. */
-        /* =====================================
-       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (Para Ejercicio 1)
-       ===================================== */
-
-    .conjugation-grid {
-        /* Define la grilla de columnas */
-        display: grid;
-        /* Define las 5 columnas: Pronombre, Input, Verificar, Feedback, Oír */
-        /* minmax(100px, 1fr) hace que las columnas flexibles tengan un mínimo de 100px. */
-        /* 150px fija el ancho del input. */
-        /* 150px fija el ancho para el feedback (ESTABILIZA EL SALTO). */
-        grid-template-columns: 100px 150px auto 150px auto; 
-        gap: 10px; /* Espacio entre los elementos de la grilla */
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .conjugation-grid input[type="text"] {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 100%; /* El 150px del templatecolumns se encarga del ancho, esto asegura que el input lo llene */
-        box-sizing: border-box;
-    }
-
-    /* Estabilizar el Feedback para evitar que la página se mueva */
-    .conjugation-grid span[id$="-feedback"] {
-        min-width: 150px; /* Ancho fijo para el espacio de feedback */
-        font-weight: bold;
-        padding-left: 5px;
-        white-space: nowrap; /* Evita que el texto de feedback se rompa en varias líneas */
-    }   
     /* =====================================
-       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (Para Ejercicio 1)
+       ESTILOS GENERALES (UNIDAD 2 EJERCICIOS)
        ===================================== */
 
-    .conjugation-grid {
-        /* Define la grilla de columnas */
-        display: grid;
-        /* Define 5 columnas: Pronombre (90px), Input (150px), Verificar (auto), Feedback (150px), Oír (auto) */
-        grid-template-columns: 90px 150px auto 150px auto; 
-        gap: 10px; /* Espacio entre los elementos de la grilla */
-        align-items: center;
-        margin-bottom: 15px;
+    /* --- Configuración general --- */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor principal (El que da el estilo de caja y el margen) --- */
+    .lesson-container {
+        max-width: 900px; 
+        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+    
+    /* --- Títulos (Ajuste visual) --- */
+    h1, h2, h3 {
+        color: #007bff; /* Azul primario */
+        margin-top: 20px;
     }
 
+    /* --- Estilo de Botón de Audio/Verificar (Consistencia con U1) --- */
+    .play-button, 
+    button {
+        background-color: #007bff; /* Azul primario */
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        /* Aseguramos que los botones no ocupen más espacio del necesario */
+        white-space: nowrap; 
+    }
+
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3; 
+    }
+
+    /* =====================================
+       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (CORRECCIÓN FINAL)
+       ===================================== */
+       
+    /* 1. Definición del Grid */
+    .conjugation-grid {
+        display: grid;
+        /* Definimos 5 columnas:
+           1. Pronombre (70px fijo)
+           2. Input (200px fijo)
+           3. Botón Verificar (auto)
+           4. Feedback (180px fijo: ¡ESTO DETIENE EL SALTO!)
+           5. Botón Oír (auto) */
+        grid-template-columns: 70px 200px auto 180px auto; 
+        gap: 15px; /* Más espacio entre elementos */
+        align-items: center; /* Alineación vertical central */
+        margin-bottom: 20px;
+    }
+
+    /* 2. Estilos para la entrada de texto */
     .conjugation-grid input[type="text"] {
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        width: 100%; 
+        width: 100%; /* Asegura que llene el 200px de la columna */
         box-sizing: border-box;
     }
 
-    /* ESTABILIZACIÓN CRÍTICA DEL FEEDBACK */
+    /* 3. Estabilización del Feedback (Crucial para detener el movimiento) */
     .conjugation-grid span[id$="-feedback"] {
-        min-width: 150px; /* Ancho fijo para el espacio de feedback (Evita el movimiento) */
+        min-width: 180px; /* Ancho FIJO para el espacio de feedback (Igual al de la columna) */
         font-weight: bold;
         padding-left: 5px;
-        white-space: nowrap; /* Evita que el mensaje se rompa en varias líneas */
-        /* Asegura que el texto largo se oculte si excede el ancho (opcional, pero útil) */
-        overflow: hidden; 
+        white-space: nowrap; /* Evita que el texto de feedback se rompa */
+        overflow: hidden; /* Oculta texto si excede el ancho (ej. "La respuesta es incorrecta") */
         text-overflow: ellipsis;
+        color: #007bff; /* Color inicial del texto de feedback */
+        border-left: 3px solid transparent; 
+        box-sizing: border-box;
+        height: 100%; /* Asegura que no se mueva verticalmente */
+        display: flex; /* Ayuda a la alineación vertical */
+        align-items: center;
     }
-        
-    </style>
+
+    /* Estilos para los mensajes de Correcto/Incorrecto (Deben ser aplicados con JavaScript) */
+    .correct {
+        border-left-color: #28a745 !important; /* Verde */
+        color: #28a745 !important;
+    }
+
+    .incorrect {
+        border-left-color: #dc3545 !important; /* Rojo */
+        color: #dc3545 !important;
+    }
+</style>
 </head>
 <body>
  
