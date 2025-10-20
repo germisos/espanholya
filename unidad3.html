@@ -99,23 +99,59 @@
         <h2>Unidad 3: Irregularidades, Saludos, Números Altos y Posesión</h2>
         <hr>
         
-        <h3>1. Presente de Algunos Verbos Irregulares</h3>
+        <h3>1. Conjugación del Presente Irregular (con Audio)</h3>
+<p>Completa la conjugación de los verbos irregulares. Una vez verificado, usa el botón "Oír" para escuchar la pronunciación correcta.</p>
 
-        <h4>Verbo HACER (-ER)</h4>
-        <table class="conjugation-table">
-            <thead>
-                <tr>
-                    <th>Pronombre</th>
-                    <th>Conjugación</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><th>(yo)</th><td>hago</td></tr>
-                <tr><th>(tú)</th><td>haces</td></tr>
-                <tr><th>(él, ella, usted)</th><td>hace</td></tr>
-                <tr><th>(nosotros/as)</th><td>hacemos</td></tr>
-                <tr><th>(vosotros/as)</th><td>hacéis</td></tr>
-                <tr><th>(ellos/as, ustedes)</th><td>hacen</td></tr>
+<div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <h4 style="color: #dc3545;">A) HACER (-ER)</h4>
+    <div class="conjugation-grid">
+        
+        <span style="font-weight: bold;">Yo</span>
+        <input type="text" id="ej3-1-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-1-input', 'hago', 'ej3-1-feedback')">Verificar</button>
+        <span id="ej3-1-feedback"></span>
+        <audio id="audio-hago" src="assets/audio/unidad3/verbos/hago.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-hago').play()">Oír</button>
+
+        <span style="font-weight: bold;">Tú</span>
+        <input type="text" id="ej3-2-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-2-input', 'haces', 'ej3-2-feedback')">Verificar</button>
+        <span id="ej3-2-feedback"></span>
+        <audio id="audio-haces" src="assets/audio/unidad3/verbos/haces.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-haces').play()">Oír</button>
+        
+        <span style="font-weight: bold;">Él/Ella/Ud.</span>
+        <input type="text" id="ej3-3-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-3-input', 'hace', 'ej3-3-feedback')">Verificar</button>
+        <span id="ej3-3-feedback"></span>
+        <audio id="audio-hace" src="assets/audio/unidad3/verbos/hace.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-hace').play()">Oír</button>
+
+        <span style="font-weight: bold;">Nosotros/as</span>
+        <input type="text" id="ej3-4-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-4-input', 'hacemos', 'ej3-4-feedback')">Verificar</button>
+        <span id="ej3-4-feedback"></span>
+        <audio id="audio-hacemos" src="assets/audio/unidad3/verbos/hacemos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-hacemos').play()">Oír</button>
+
+        <span style="font-weight: bold;">Vosotros/as</span>
+        <input type="text" id="ej3-5-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-5-input', 'hacéis', 'ej3-5-feedback')">Verificar</button>
+        <span id="ej3-5-feedback"></span>
+        <audio id="audio-haceis" src="assets/audio/unidad3/verbos/haceis.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-haceis').play()">Oír</button>
+
+        <span style="font-weight: bold;">Ellos/as/Uds.</span>
+        <input type="text" id="ej3-6-input" placeholder="Respuesta">
+        <button class="play-button" onclick="checkAnswer('ej3-6-input', 'hacen', 'ej3-6-feedback')">Verificar</button>
+        <span id="ej3-6-feedback"></span>
+        <audio id="audio-hacen" src="assets/audio/unidad3/verbos/hacen.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-hacen').play()">Oír</button>
+    </div>
+</div>
+
+<hr>
             </tbody>
         </table>
         <p class="note">(Nota: Solo la 1ª persona del singular es irregular: yo **hago**.)</p>
