@@ -641,54 +641,81 @@
         
 
         <script>
+
+            <script>
+    // ===========================================
+    // FUNCIONES DE VERIFICACIÓN DE EJERCICIOS
+    // ===========================================
+
+    // Función 1: General para verificar una sola respuesta (Texto)
     function checkAnswer(inputId, correctAnswer, feedbackId) {
-        const inputElement = document.getElementById(inputId);
-        const feedbackElement = document.getElementById(feedbackId);
-        // Usamos .toLowerCase().trim() para hacer la comparación más tolerante
-        const userAnswer = inputElement.value.toLowerCase().trim();
-        const correctLower = correctAnswer.toLowerCase().trim();
+        const input = document.getElementById(inputId);
+        const feedback = document.getElementById(feedbackId);
+        // Usamos .toLowerCase() y .trim() para ser más flexibles
+        const userAnswer = input.value.trim().toLowerCase();
+        const correct = correctAnswer.toLowerCase().trim();
 
-        if (userAnswer === correctLower) {
-            feedbackElement.textContent = "¡Correcto!";
-            feedbackElement.style.color = "green";
+        if (userAnswer === correct) {
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C"; // Verde oscuro
+            input.style.border = "2px solid #388E3C";
         } else {
-            feedbackElement.textContent = `Incorrecto. La respuesta es: ${correctAnswer}`;
-            feedbackElement.style.color = "red";
+            feedback.textContent = `❌ Incorrecto. La respuesta correcta es: "${correctAnswer}"`;
+            feedback.style.color = "#D32F2F"; // Rojo oscuro
+            input.style.border = "2px solid #D32F2F";
         }
     }
-            function checkAnswerNumbers(inputId, correctAnswer) {
-        const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
-        
-        // Obtiene el ID del feedback del número (ej: input-15 -> feedback-15)
-        const feedbackElement = document.getElementById('feedback-' + inputId.split('-')[1]);
-        
-        if (userAnswer === correctAnswer) {
-            feedbackElement.textContent = '✅ ¡Correcto!';
-            feedbackElement.style.color = 'green';
-        } else {
-            feedbackElement.textContent = `❌ Incorrecto. La respuesta es: ${correctAnswer.toUpperCase()}`;
-            feedbackElement.style.color = 'red';
-        }
-    }
-        function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
-        const input1 = document.getElementById(inputId1).value.toLowerCase().trim();
-        const input2 = document.getElementById(inputId2).value.toLowerCase().trim();
-        const feedbackElement = document.getElementById(feedbackId);
 
-        if (input1 === correct1 && input2 === correct2) {
-            feedbackElement.textContent = "¡Correcto!";
-            feedbackElement.style.color = "green";
+    // Función 2: Para verificar respuestas numéricas
+    function checkAnswerNumbers(inputId, correctAnswer) {
+        const input = document.getElementById(inputId);
+        // Asumiendo que el ID de feedback es "feedback-" + ID del input
+        const feedback = document.getElementById("feedback-" + inputId);
+        
+        // La comparación puede ser estricta para números (sin toLowerCase)
+        const userAnswer = input.value.trim();
+
+        if (userAnswer === correctAnswer.toString()) { // Aseguramos que la respuesta sea string para la comparación
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C";
+            input.style.border = "2px solid #388E3C";
         } else {
-            feedbackElement.textContent = `Incorrecto. Respuestas: ${correct1.toUpperCase()} y ${correct2.toUpperCase()}`;
-            feedbackElement.style.color = "red";
+            feedback.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
+            feedback.style.color = "#D32F2F";
+            input.style.border = "2px solid #D32F2F";
         }
     }
-            function showInterpretationAnswers(blockId) {
-        const feedbackElement = document.getElementById(`feedback-${blockId}`);
+
+    // Función 3: Para verificar dos respuestas al mismo tiempo (ej. Contracción o dos campos)
+    function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
+        const input1 = document.getElementById(inputId1);
+        const input2 = document.getElementById(inputId2);
+        const feedback = document.getElementById(feedbackId);
+
+        const resp1 = input1.value.trim().toLowerCase();
+        const resp2 = input2.value.trim().toLowerCase();
+
+        if (resp1 === correct1.toLowerCase().trim() && resp2 === correct2.toLowerCase().trim()) {
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C";
+            input1.style.border = "2px solid #388E3C";
+            input2.style.border = "2px solid #388E3C";
+        } else {
+            feedback.textContent = `❌ Revisa tus respuestas.`;
+            feedback.style.color = "#D32F2F";
+            // Resaltar solo el incorrecto si es posible, o ambos si es más simple
+             if (resp1 !== correct1.toLowerCase().trim()) input1.style.border = "2px solid #D32F2F";
+             if (resp2 !== correct2.toLowerCase().trim()) input2.style.border = "2px solid #D32F2F";
+        }
+    }
+
+    // Función 4: Para mostrar u ocultar respuestas abiertas (Interpretación)
+    function showInterpretationAnswers(blockId) {
+        const feedbackElement = document.getElementById("feedback-" + blockId);
         
-        // Las respuestas posibles que proporcionaste:
+        // Las respuestas posibles (Ajustadas para usar el formato que usaste en tu código)
         const answers = {
-            A: [
+            "interpretacionA": [ // Usar un ID único y consistente, ejemplo: "interpretacionA"
                 "1. María es una niña feliz que vive en una casa grande con su mamá, su papá y su perro Max.",
                 "2. María vive en una casa grande con su mamá, su papá y su perro Max.",
                 "3. A María le gusta jugar en el jardín con Max y pintar cuadros de colores brillantes.",
@@ -698,7 +725,7 @@
                 "7. A María le gusta pintar cuadros de colores brillantes.",
                 "8. (Respuesta Abierta) María es una niña feliz porque vive en una casa grande con su familia, tiene un perro con el que jugar y disfruta de actividades divertidas como pintar y comer helado en el parque con su familia."
             ],
-            B: [
+            "interpretacionB": [ // Usar un ID único y consistente, ejemplo: "interpretacionB"
                 "1. Pablo es un niño aventurero a quien le gusta explorar el bosque en busca de tesoros.",
                 "2. Pablo encontró el mapa del tesoro en el suelo del bosque cerca de su casa.",
                 "3. Pablo encontró un antiguo mapa en el bosque un día.",
@@ -707,90 +734,21 @@
                 "6. (Respuesta Abierta) Pablo estaba emocionado después de encontrar el mapa porque le ofrecía la oportunidad de buscar un tesoro escondido y vivir una emocionante aventura en el bosque."
             ]
         };
-
-        // Mostrar u ocultar las respuestas
-        if (feedbackElement.style.display === 'none') {
-            feedbackElement.innerHTML = `<h4>Respuestas Posibles:</h4><ul>${answers[blockId].map(a => `<li>${a}</li>`).join('')}</ul>`;
-            feedbackElement.style.display = 'block';
-        } else {
-            feedbackElement.style.display = 'none';
-        }
-    }
-             </div>
-    <script>
-    // Función general para verificar una sola respuesta
-    function checkAnswer(inputId, correctAnswer, feedbackId) {
-        const input = document.getElementById(inputId);
-        const feedback = document.getElementById(feedbackId);
-        const userAnswer = input.value.trim().toLowerCase();
-        const correct = correctAnswer.toLowerCase();
-
-        if (userAnswer === correct) {
-            feedback.textContent = "✅ ¡Correcto!";
-            feedback.style.color = "#388E3C";
-            input.style.border = "2px solid #388E3C";
-        } else {
-            feedback.textContent = `❌ Incorrecto. La respuesta correcta es: "${correctAnswer}"`;
-            feedback.style.color = "#D32F2F";
-            input.style.border = "2px solid #D32F2F";
-        }
-    }
-
-    // Función para verificar respuestas numéricas
-    function checkAnswerNumbers(inputId, correctAnswer) {
-        const input = document.getElementById(inputId);
-        const feedback = document.getElementById("feedback-" + inputId);
-        const userAnswer = input.value.trim();
-        if (userAnswer === correctAnswer) {
-            feedback.textContent = "✅ ¡Correcto!";
-            feedback.style.color = "#388E3C";
-        } else {
-            feedback.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
-            feedback.style.color = "#D32F2F";
-        }
-    }
-
-    // Función para verificar dos respuestas al mismo tiempo
-    function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
-        const input1 = document.getElementById(inputId1);
-        const input2 = document.getElementById(inputId2);
-        const feedback = document.getElementById(feedbackId);
-
-        const resp1 = input1.value.trim().toLowerCase();
-        const resp2 = input2.value.trim().toLowerCase();
-
-        if (resp1 === correct1.toLowerCase() && resp2 === correct2.toLowerCase()) {
-            feedback.textContent = "✅ ¡Correcto!";
-            feedback.style.color = "#388E3C";
-        } else {
-            feedback.textContent = `❌ Revisa tus respuestas.`;
-            feedback.style.color = "#D32F2F";
-        }
-    }
-
-    // Función para mostrar u ocultar respuestas abiertas (Interpretación)
-    function showInterpretationAnswers(blockId) {
-        const feedbackElement = document.getElementById("feedback-" + blockId);
-        const answers = {
-            "interpretacion1": [
-                "1. Porque quería encontrar el tesoro escondido.",
-                "2. Se sentía emocionado y curioso.",
-                "3. Porque era su primera gran aventura.",
-                "4. En el bosque, cerca del lago.",
-                "5. Encontró una pista importante.",
-                "6. Pablo estaba emocionado porque el mapa le ofrecía la oportunidad de una aventura."
-            ]
-        };
+        
+        // Usa el blockId para obtener las respuestas correctas
+        const blockKey = (blockId === "A") ? "interpretacionA" : (blockId === "B") ? "interpretacionB" : blockId;
+        const currentAnswers = answers[blockKey];
 
         if (feedbackElement.style.display === "none" || feedbackElement.style.display === "") {
-            feedbackElement.innerHTML = `<h4>Respuestas posibles:</h4><ul>${answers[blockId].map(a => `<li>${a}</li>`).join('')}</ul>`;
+            feedbackElement.innerHTML = `<h4>Respuestas posibles:</h4><ul>${currentAnswers.map(a => `<li>${a}</li>`).join('')}</ul>`;
             feedbackElement.style.display = "block";
         } else {
             feedbackElement.style.display = "none";
         }
     }
 
-    // Función para verificar múltiples campos de texto (Ejercicio 9)
+
+    // Función 5: Para verificar múltiples campos de texto (Ejercicio 9)
     function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
         let allCorrect = true;
         const feedback = document.getElementById(feedbackId);
@@ -802,6 +760,7 @@
             let correctValue = correctAnswers[i];
 
             if (normalize) {
+                // Normaliza para quitar acentos y hacer insensible a mayúsculas/minúsculas
                 userValue = userValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 correctValue = correctValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
@@ -823,7 +782,8 @@
             feedback.style.color = "#D32F2F";
         }
     }
-    </script>
+</script>
+            
 </body>
 </html>
 
