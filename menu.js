@@ -61,45 +61,33 @@ ocument.addEventListener("DOMContentLoaded", function () {
   </header>
   `;
 
-  // Inserta el menú en el documento
+  // Inserta la barra antes del contenido principal
   const tmp = document.createElement("div");
   tmp.innerHTML = headerHtml;
-  document.body.insertBefore(tmp.firstElementChild, document.body.firstChild);
+  document.body.insertBefore(tmp.firstChild, document.body.firstChild);
 
   // =============================
-  // 2. INTERACCIÓN DEL MENÚ
+  // 2. LÓGICA DE DESPLIEGUE
   // =============================
+  const dropdowns = document.querySelectorAll(".dropdown, .sub-dropdown");
 
-  // Mostrar / ocultar menú principal “Curso”
-  const mainDropdown = document.querySelector(".dropdown");
-  const mainMenu = mainDropdown?.querySelector(".dropdown-content");
-
-  if (mainDropdown && mainMenu) {
-    mainDropdown.addEventListener("mouseenter", () => {
-      mainMenu.style.display = "block";
-    });
-    mainDropdown.addEventListener("mouseleave", () => {
-      mainMenu.style.display = "none";
-    });
-  }
-
-  // Mostrar / ocultar submenús (A1, A2, B1)
-  document.querySelectorAll(".sub-dropdown").forEach(sub => {
-    const subMenu = sub.querySelector(".sub-dropdown-content");
-    sub.addEventListener("mouseenter", () => {
-      subMenu.style.display = "block";
-    });
-    sub.addEventListener("mouseleave", () => {
-      subMenu.style.display = "none";
-    });
+  dropdowns.forEach(dropdown => {
+    const content = dropdown.querySelector(".dropdown-content, .sub-dropdown-content");
+    if (content) {
+      dropdown.addEventListener("mouseenter", () => { content.style.display = "block"; });
+      dropdown.addEventListener("mouseleave", () => { content.style.display = "none"; });
+    }
   });
 
-  // Cierra los menús al hacer clic en cualquier enlace
-  document.querySelectorAll('.dropdown-content a, .sub-dropdown-content a').forEach(link => {
-    link.addEventListener("click", () => {
-      document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(el => {
-        el.style.display = "none";
+  // =============================
+  // 3. CIERRE AUTOMÁTICO DEL MENÚ
+  // =============================
+  document.addEventListener("click", (e) => {
+    const isClickInsideMenu = e.target.closest(".dropdown, .sub-dropdown");
+    if (!isClickInsideMenu) {
+      document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(menu => {
+        menu.style.display = "none";
       });
-    });
+    }
   });
 });
