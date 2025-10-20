@@ -60,7 +60,38 @@
 
         /* ⚠️ Añade aquí CUALQUIER otro estilo específico (tablas, inputs, etc.) 
            que hayas usado en ejercicios_unidad1.html para asegurar la consistencia. */
-           
+        /* =====================================
+       ESTILOS ESPECÍFICOS DE CONJUGACIÓN (Para Ejercicio 1)
+       ===================================== */
+
+    .conjugation-grid {
+        /* Define la grilla de columnas */
+        display: grid;
+        /* Define las 5 columnas: Pronombre, Input, Verificar, Feedback, Oír */
+        /* minmax(100px, 1fr) hace que las columnas flexibles tengan un mínimo de 100px. */
+        /* 150px fija el ancho del input. */
+        /* 150px fija el ancho para el feedback (ESTABILIZA EL SALTO). */
+        grid-template-columns: 100px 150px auto 150px auto; 
+        gap: 10px; /* Espacio entre los elementos de la grilla */
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .conjugation-grid input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%; /* El 150px del templatecolumns se encarga del ancho, esto asegura que el input lo llene */
+        box-sizing: border-box;
+    }
+
+    /* Estabilizar el Feedback para evitar que la página se mueva */
+    .conjugation-grid span[id$="-feedback"] {
+        min-width: 150px; /* Ancho fijo para el espacio de feedback */
+        font-weight: bold;
+        padding-left: 5px;
+        white-space: nowrap; /* Evita que el texto de feedback se rompa en varias líneas */
+    }   
     </style>
 </head>
 <body>
