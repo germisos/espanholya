@@ -9,7 +9,7 @@
     
     <style>
 /* =====================================
-   ESTILOS DE LA UNIDAD 1 (VERSIÓN FINAL)
+   ESTILOS DE LA UNIDAD 1 (VERSIÓN LIMPIA)
    ===================================== */
 
 /* --- Configuración general --- */
@@ -22,10 +22,9 @@ body {
   line-height: 1.6;
 }
 
-/* --- Contenedor de lección y Margen Superior (SOLUCIÓN DEFINITIVA) --- */
+/* --- Contenedor de lección --- */
 .lesson-container { 
   max-width: 900px; 
-  /* MARGEN CRÍTICO: 80px superior, centrado a los lados, 0px inferior */
   margin: 80px auto 0 auto; 
   padding: 25px; 
   background: white; 
@@ -33,44 +32,70 @@ body {
   box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
 }
 
-
 /* --- Títulos --- */
 h1, h2, h3 {
   color: #007bff;
   margin-top: 20px;
 }
 
-/* --- Imágenes (SOLUCIÓN DEFINITIVA PARA HACERLAS PEQUEÑAS) --- */
-/* Esta regla afecta a todas las imágenes dentro de la lección. */
+/* --- Imágenes generales --- */
 .lesson-container img {
-  /* No permite que la imagen sea más ancha que su contenedor */
-  max-width: 100% !important; 
-  /* Mantiene la proporción */
-  height: auto !important;
-  
-  
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   margin: 10px auto;
   display: block;
 }
 
-/* Si tienes imágenes grandes (como mapas) que NO deben ser de 50px,
-   elimina la línea "width: 50px !important;" de arriba.
-   Luego, en tu HTML, agrega la clase "img-letra" a cada imagen del abecedario, así:
-   <img src="letra_a.png" class="img-letra">
-   Y añade esta regla al CSS:
-   .img-letra { width: 50px !important; }
-*/
-
-
-/* --- Audio player o botones de reproducción --- */
-.audio-player, .play-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 15px auto;
+/* 🔹 Imagen especial: ciclismo.png más grande */
+.lesson-container img[src*="ciclismo.png"] {
+  width: 60% !important;
+  max-width: 600px !important;
+  margin: 20px auto;
 }
 
+/* --- Bloques del alfabeto con botón Ouvir --- */
+#alphabet-list, #audiolist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cada fila del alfabeto */
+.audio-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* Texto y mini imagen */
+.audio-player .content-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  font-size: 1.1em;
+}
+
+/* Imagen del alfabeto: 20% más grande que antes */
+.audio-player img {
+  width: 60px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.audio-player img:hover {
+  transform: scale(1.1);
+}
+
+/* Botón Ouvir */
 .play-button {
   background-color: #007bff;
   color: white;
@@ -78,15 +103,16 @@ h1, h2, h3 {
   padding: 8px 14px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
-  transition: background 0.3s;
+  font-size: 0.95em;
+  transition: background 0.3s, transform 0.1s;
 }
 
 .play-button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-/* --- Botones de interacción o verificación --- */
+/* --- Botones generales de la lección --- */
 button {
   background-color: #28a745;
   color: white;
@@ -120,9 +146,7 @@ table td, table th {
   padding: 8px;
 }
 
-ul, ol {
-  margin-left: 20px;
-}
+ul, ol { margin-left: 20px; }
 
 /* --- Responsivo --- */
 @media (max-width: 768px) {
@@ -131,76 +155,18 @@ ul, ol {
     padding: 15px;
   }
 
-  h1 { font-size: 1.5em; }
-  button { width: 100%; }
-}
-    /* 🔹 Imagen especial: ciclismo.png más grande */
-.lesson-container img[src*="ciclismo.png"] {
-  width: 60% !important; /* Ajusta el tamaño que prefieras: 60%, 70%, etc. */
-  max-width: 600px !important; /* evita que sea demasiado grande */
-  display: block;
-  margin: 20px auto;
-  border-radius: 10px;
-}
-/* --- Corrección automática de alineación para los bloques con imágenes y botón Ouvir --- */
-.audio-player {
-  display: flex;
-  align-items: center;           /* centra verticalmente texto, imagen y botón */
-  justify-content: space-between;
-  flex-wrap: wrap;               /* si no cabe, se baja bien */
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee; /* línea suave entre filas */
-}
+  .audio-player {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-/* el texto y la imagen van juntos */
-.audio-player .content-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;                       /* ocupa todo el espacio posible */
-}
+  .play-button { width: 100%; }
 
-.audio-player img {
-  width: 45px;
-  height: auto;
-  border-radius: 6px;
+  .audio-player img { width: 55px; }
 }
-
-.play-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.95em;
-  transition: background 0.3s, transform 0.1s;
-}
-
-.play-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-/* --- Tamaño mejorado solo para las imágenes del alfabeto --- */
-#audiolist img,
-#alphabet-list img,
-.audio-player img {
-  width: 60px !important;   /* 🔹 ahora sí se aplica — 20% más grande */
-  height: auto !important;
-  border-radius: 6px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
-
-#audiolist img:hover,
-#alphabet-list img:hover,
-.audio-player img:hover {
-  transform: scale(1.08);
-}
-
-
 </style>
+
 
 </head>
 
