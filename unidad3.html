@@ -89,6 +89,20 @@
             color: #007bff;
             font-weight: bold;
         }
+        * =====================================
+   ESTILOS ESPECÍFICOS DE CONJUGACIÓN (FORMATO 3 COLUMNAS: SOLO OÍR)
+   ===================================== */
+       
+.conjugation-grid {
+    display: grid;
+    /* 3 Columnas: Pronombre (ajustado) | Input (200px) | Oír (auto) */
+    grid-template-columns: minmax(70px, max-content) 200px auto; 
+    gap: 15px;
+    align-items: center; 
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
         
     </style>
 </head>
@@ -109,48 +123,35 @@
         
         <span style="font-weight: bold;">Yo</span>
         <input type="text" id="ej3-1-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-1-input', 'hago', 'ej3-1-feedback')">Verificar</button>
-        <span id="ej3-1-feedback"></span>
-        <audio id="audio-hago" src="assets/audio/unidad3/verbos/hago.mp3"></audio>
+        <audio id="audio-hago" src="assets/audio/unidad3/verbos/hacer/hago.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-hago').play()">Oír</button>
 
         <span style="font-weight: bold;">Tú</span>
         <input type="text" id="ej3-2-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-2-input', 'haces', 'ej3-2-feedback')">Verificar</button>
-        <span id="ej3-2-feedback"></span>
-        <audio id="audio-haces" src="assets/audio/unidad3/verbos/haces.mp3"></audio>
+        <audio id="audio-haces" src="assets/audio/unidad3/verbos/hacer/haces.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-haces').play()">Oír</button>
         
         <span style="font-weight: bold;">Él/Ella/Ud.</span>
         <input type="text" id="ej3-3-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-3-input', 'hace', 'ej3-3-feedback')">Verificar</button>
-        <span id="ej3-3-feedback"></span>
-        <audio id="audio-hace" src="assets/audio/unidad3/verbos/hace.mp3"></audio>
+        <audio id="audio-hace" src="assets/audio/unidad3/verbos/hacer/hace.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-hace').play()">Oír</button>
 
         <span style="font-weight: bold;">Nosotros/as</span>
         <input type="text" id="ej3-4-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-4-input', 'hacemos', 'ej3-4-feedback')">Verificar</button>
-        <span id="ej3-4-feedback"></span>
-        <audio id="audio-hacemos" src="assets/audio/unidad3/verbos/hacemos.mp3"></audio>
+        <audio id="audio-hacemos" src="assets/audio/unidad3/verbos/hacer/hacemos.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-hacemos').play()">Oír</button>
 
         <span style="font-weight: bold;">Vosotros/as</span>
         <input type="text" id="ej3-5-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-5-input', 'hacéis', 'ej3-5-feedback')">Verificar</button>
-        <span id="ej3-5-feedback"></span>
-        <audio id="audio-haceis" src="assets/audio/unidad3/verbos/haceis.mp3"></audio>
+        <audio id="audio-haceis" src="assets/audio/unidad3/verbos/hacer/haceis.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-haceis').play()">Oír</button>
 
         <span style="font-weight: bold;">Ellos/as/Uds.</span>
         <input type="text" id="ej3-6-input" placeholder="Respuesta">
-        <button class="play-button" onclick="checkAnswer('ej3-6-input', 'hacen', 'ej3-6-feedback')">Verificar</button>
-        <span id="ej3-6-feedback"></span>
-        <audio id="audio-hacen" src="assets/audio/unidad3/verbos/hacen.mp3"></audio>
+        <audio id="audio-hacen" src="assets/audio/unidad3/verbos/hacer/hacen.mp3"></audio>
         <button class="play-button" onclick="document.getElementById('audio-hacen').play()">Oír</button>
     </div>
 </div>
-
 <hr>
             </tbody>
         </table>
