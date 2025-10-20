@@ -6,30 +6,45 @@
     <script src="menu.js" defer></script> 
     
     <style>
-        /* 1. ESTILOS BASE Y CONTENEDOR PRINCIPAL */
+        /* =====================================
+           ESTILOS UNIDAD 2 (ADOPTANDO EL FORMATO UNIDAD 1)
+           ===================================== */
+
+        /* --- Configuración general --- */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            padding-top: 60px; /* Mantiene el espacio para el menú fijo */
+            padding: 0; /* ELIMINAR EL PADDING-TOP AQUÍ */
+            background-color: #f4f4f9; /* Usando el color más limpio de U1 */
+            color: #333;
+            line-height: 1.6;
         }
-        /* He eliminado los estilos .header de aquí para evitar conflictos, 
-           ya que menu.js ahora maneja todos los estilos de la barra */
         
+        /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
         .lesson-container {
-            width: 80%;
-            margin: 30px auto;
-            padding: 20px 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px; /* Ancho de la Unidad 1 */
+            /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
+            margin: 80px auto 25px auto; 
+            padding: 25px; /* Padding de la Unidad 1 */
+            background: white;
+            border-radius: 12px; /* Bordes de la Unidad 1 */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra más fuerte de la Unidad 1 */
         }
-        /* ... el resto de tus estilos (h2, h3, .audio-player, etc.) ... */
+        
+        /* --- Títulos (Ajuste visual) --- */
+        h1, h2, h3 {
+            color: #007bff; /* Color azul usado en U1 */
+            margin-top: 20px;
+        }
+
+        /* ⚠️ Añade aquí el resto de tus estilos de la Unidad 1 que necesites: 
+           .audio-player, .play-button, button, img, tablas, etc.
+           Esto asegura la consistencia completa del diseño. */
+        
     </style>
 </head>
 <body>
-     <div class="header"></div>
+   
     <div class="lesson-container">
     
         <h2>Unidad 2: Mi Día a Día y Mi Entorno</h2>
