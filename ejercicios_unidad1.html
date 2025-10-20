@@ -716,25 +716,84 @@
             feedbackElement.style.display = 'none';
         }
     }
-            <script>
+            
+    <!-- ============================= -->
+    <!-- ✅ BLOQUE DE SCRIPTS LIMPIO  -->
+    <!-- ============================= -->
+    <script>
+    // Función general para verificar una sola respuesta
     function checkAnswer(inputId, correctAnswer, feedbackId) {
-        // ... (código de checkAnswer) ...
+        const input = document.getElementById(inputId);
+        const feedback = document.getElementById(feedbackId);
+        const userAnswer = input.value.trim().toLowerCase();
+        const correct = correctAnswer.toLowerCase();
+
+        if (userAnswer === correct) {
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C";
+            input.style.border = "2px solid #388E3C";
+        } else {
+            feedback.textContent = `❌ Incorrecto. La respuesta correcta es: "${correctAnswer}"`;
+            feedback.style.color = "#D32F2F";
+            input.style.border = "2px solid #D32F2F";
+        }
     }
+
+    // Función para verificar respuestas numéricas
     function checkAnswerNumbers(inputId, correctAnswer) {
-        // ... (código de checkAnswerNumbers) ...
+        const input = document.getElementById(inputId);
+        const feedback = document.getElementById("feedback-" + inputId);
+        const userAnswer = input.value.trim();
+        if (userAnswer === correctAnswer) {
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C";
+        } else {
+            feedback.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
+            feedback.style.color = "#D32F2F";
+        }
     }
+
+    // Función para verificar dos respuestas al mismo tiempo
     function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
-        // ... (código de checkDoubleContraction) ...
+        const input1 = document.getElementById(inputId1);
+        const input2 = document.getElementById(inputId2);
+        const feedback = document.getElementById(feedbackId);
+
+        const resp1 = input1.value.trim().toLowerCase();
+        const resp2 = input2.value.trim().toLowerCase();
+
+        if (resp1 === correct1.toLowerCase() && resp2 === correct2.toLowerCase()) {
+            feedback.textContent = "✅ ¡Correcto!";
+            feedback.style.color = "#388E3C";
+        } else {
+            feedback.textContent = `❌ Revisa tus respuestas.`;
+            feedback.style.color = "#D32F2F";
+        }
     }
+
+    // Función para mostrar u ocultar respuestas abiertas (Interpretación)
     function showInterpretationAnswers(blockId) {
-        // ... (código de showInterpretationAnswers) ...
+        const feedbackElement = document.getElementById("feedback-" + blockId);
+        const answers = {
+            "interpretacion1": [
+                "1. Porque quería encontrar el tesoro escondido.",
+                "2. Se sentía emocionado y curioso.",
+                "3. Porque era su primera gran aventura.",
+                "4. En el bosque, cerca del lago.",
+                "5. Encontró una pista importante.",
+                "6. Pablo estaba emocionado porque el mapa le ofrecía la oportunidad de una aventura."
+            ]
+        };
+
+        if (feedbackElement.style.display === "none" || feedbackElement.style.display === "") {
+            feedbackElement.innerHTML = `<h4>Respuestas posibles:</h4><ul>${answers[blockId].map(a => `<li>${a}</li>`).join('')}</ul>`;
+            feedbackElement.style.display = "block";
+        } else {
+            feedbackElement.style.display = "none";
+        }
     }
-    
-    // ==========================================================
-    //  <<<--- PEGA LA FUNCIÓN checkMultipleAnswers AQUÍ --->>>
-    // ==========================================================
-    
-    /* Función para verificar múltiples campos de texto a la vez (Ejercicio 9) */
+
+    // Función para verificar múltiples campos de texto (Ejercicio 9)
     function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
         let allCorrect = true;
         const feedback = document.getElementById(feedbackId);
@@ -742,43 +801,35 @@
 
         for (let i = 0; i < inputIds.length; i++) {
             const input = document.getElementById(inputIds[i]);
-            let inputValue = input.value.trim();
-            let correctAnswer = correctAnswers[i];
+            let userValue = input.value.trim();
+            let correctValue = correctAnswers[i];
 
             if (normalize) {
-                // Normaliza la respuesta del usuario y la correcta (minúsculas, sin acentos ni espacios extra)
-                inputValue = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                userValue = userValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                correctValue = correctValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             }
 
-            if (inputValue !== correctAnswer) {
+            if (userValue !== correctValue) {
                 allCorrect = false;
                 incorrectCount++;
-                input.style.border = '2px solid #D32F2F'; // Resaltar el campo incorrecto en rojo
+                input.style.border = "2px solid #D32F2F";
             } else {
-                input.style.border = '2px solid #388E3C'; // Resaltar el campo correcto en verde
+                input.style.border = "2px solid #388E3C";
             }
         }
 
-        // Mostrar feedback final
         if (allCorrect) {
-            feedback.textContent = '¡Correcto! ✅';
-            feedback.style.color = '#388E3C';
+            feedback.textContent = "✅ ¡Todas las respuestas son correctas!";
+            feedback.style.color = "#388E3C";
         } else {
-            feedback.textContent = `Tienes ${incorrectCount} respuesta(s) incorrecta(s). ❌`;
-            feedback.style.color = '#D32F2F';
+            feedback.textContent = `❌ ${incorrectCount} respuesta(s) incorrecta(s).`;
+            feedback.style.color = "#D32F2F";
         }
     }
-    
-    // ==========================================================
-    //  <<<--- FIN DEL CÓDIGO A PEGAR --->>>
-    // ==========================================================
-    
-</script>
-        
-    </body>
+    </script>
+</body>
 </html>
-</script>
+
 
 
         
