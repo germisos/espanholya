@@ -666,25 +666,25 @@
         }
     }
 
-    // Función 2: Para verificar respuestas numéricas
-    function checkAnswerNumbers(inputId, correctAnswer) {
-        const input = document.getElementById(inputId);
-        // Asumiendo que el ID de feedback es "feedback-" + ID del input
-        const feedback = document.getElementById("feedback-" + inputId);
-        
-        // La comparación puede ser estricta para números (sin toLowerCase)
-        const userAnswer = input.value.trim();
+    // Función para verificar respuestas numéricas
+function checkAnswerNumbers(inputId, correctAnswer) {
+    const input = document.getElementById(inputId);
+    const userAnswer = input.value.trim().toLowerCase();
 
-        if (userAnswer === correctAnswer.toString()) { // Aseguramos que la respuesta sea string para la comparación
-            feedback.textContent = "✅ ¡Correcto!";
-            feedback.style.color = "#388E3C";
-            input.style.border = "2px solid #388E3C";
-        } else {
-            feedback.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
-            feedback.style.color = "#D32F2F";
-            input.style.border = "2px solid #D32F2F";
-        }
+    // EXTRAE EL NÚMERO (ej: '15') DEL ID (ej: 'input-15')
+    const numberPart = inputId.split('-')[1]; 
+    const feedback = document.getElementById("feedback-" + numberPart); // BUSCA 'feedback-15'
+
+    if (userAnswer === correctAnswer) {
+        feedback.textContent = "✅ ¡Correcto!";
+        feedback.style.color = "#388E3C";
+        input.style.border = "2px solid #388E3C";
+    } else {
+        feedback.textContent = `❌ Incorrecto. La respuesta correcta es ${correctAnswer}.`;
+        feedback.style.color = "#D32F2F";
+        input.style.border = "2px solid #D32F2F";
     }
+}
 
     // Función 3: Para verificar dos respuestas al mismo tiempo (ej. Contracción o dos campos)
     function checkDoubleContraction(inputId1, correct1, inputId2, correct2, feedbackId) {
