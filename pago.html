@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pago del curso completo</title>
-  <link rel="stylesheet" href="estilos.css" />
-  <script src="menu.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago - Curso de Español</title>
+
   <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="menu.js" defer></script>
+
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    padding-top: 60px;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      padding-top: 60px; /* espacio para el menú fijo */
+    }
 
-  .container {
-    width: 80%;
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+    .container {
+      width: 80%;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
 
-  h1 { color: #333; }
-  p { color: #555; line-height: 1.6; }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-  .unit-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-  }
+    p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-  .unit-link:hover {
-    background-color: #1e7e34;
-  }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
 
-  a:focus, a:active {
-    outline: none !important;
-    background-color: transparent !important;
-    color: inherit !important;
-    box-shadow: none !important;
-  }
+    /* 🔹 Ajustes del menú: sin borde ni foco */
+    a:focus, a:active {
+      outline: none !important;
+      background-color: transparent !important;
+      color: inherit !important;
+      box-shadow: none !important;
+    }
 
-  .menu-link:focus, .menu-link:active {
-    background-color: #007bff !important;
-    color: white !important;
-  }
-</style>
-
+    .menu-link:focus, .menu-link:active {
+      background-color: #007bff !important;
+      color: white !important;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Menú cargado desde menu.js -->
   <div id="menu"></div>
 
-  <main>
+  <main class="container">
     <h1>Accede al curso completo 🔓</h1>
     <p>
       La Unidad 1 es gratuita. Para desbloquear todas las demás unidades y ejercicios,
       realiza tu pago seguro a través de Mercado Pago.
     </p>
 
-    <div id="wallet_container"></div>
+    <div id="wallet_container" style="margin: 30px 0;"></div>
 
     <p class="footer">
       Tu pago es 100% seguro y te dará acceso inmediato al curso completo.
