@@ -133,7 +133,28 @@
     width: 80px; /* Ancho fijo para el botón 'Oír' */
     text-align: center;
 }
-</style>
+/* Estilos para ejemplos de NÚMEROS */
+.number-list {
+    list-style: none;
+    padding: 0;
+    column-count: 2; /* Divide la lista en dos columnas */
+    column-gap: 40px;
+    margin-bottom: 20px;
+}
+
+.number-list li {
+    /* Usamos flexbox para alinear el número y el botón de audio en la misma línea */
+    display: flex;
+    justify-content: space-between; /* Mueve el botón al final de la línea */
+    align-items: center;
+    margin-bottom: 10px;
+}
+/* Estilo del texto del número dentro de la lista para destacarlo */
+.number-list li span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+   </style>
 </head>
 <body>
     
@@ -300,46 +321,100 @@
 
 <hr>
 
-
-
         <h3>3. Números del 100 al 1000</h3>
 
-        <ul class="number-list">
-            <li>100: cien</li>
-            <li>101: ciento uno</li>
-            <li>119: ciento diecinueve</li>
-            <li>120: ciento veinte</li>
-            <li>128: ciento veintiocho</li>
-            <li>130: ciento treinta</li>
-            <li>168: ciento sesenta y ocho</li>
-            <li>200: doscientos</li>
-            <li>300: trescientos</li>
-            <li>400: cuatrocientos</li>
-            <li>500: quinientos</li>
-            <li>600: seiscientos</li>
-            <li>700: setecientos</li>
-            <li>800: ochocientos</li>
-            <li>900: novecientos</li>
-            <li>999: novecientos noventa y nueve</li>
-            <li>1000: mil</li>
-        </ul>
+<p>Escucha y repite la pronunciación de los números altos:</p>
 
-        <h4>Regla de Género en Cientos</h4>
-        <p>Los números entre **200** y **999** tienen una forma masculina y femenina según el sustantivo al que acompañan:</p>
-        <ul>
-            <li>**Masculino:** trescientos **barcos**, trescientos **amigos**</li>
-            <li>**Femenino:** trescientas **estancias**, trescientas **máquinas**</li>
-        </ul>
-        
-        <p>Ejemplos Combinados:</p>
-        <div style="background: #e9ecef; padding: 15px; border-radius: 5px;">
-            <p>550: quinientos cincuenta **coches** (el coche)</p>
-            <p>550: quinientas cincuenta **sucursales** (la sucursal)</p>
-            <p>610: seiscientos diez **perros**</p>
-            <p>610: seiscientas diez **momias**</p>
-        </div>
+<ul class="number-list">
+    <li>
+        <span>100: cien</span>
+        <audio id="audio-100" src="assets/audio/unidad3/numeros/cien.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-100').play()">Oír</button>
+    </li>
+    <li>
+        <span>101: ciento uno</span>
+        <audio id="audio-101" src="assets/audio/unidad3/numeros/ciento uno.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-101').play()">Oír</button>
+    </li>
+    <li>
+        <span>200: doscientos/as</span>
+        <audio id="audio-200" src="assets/audio/unidad3/numeros/doscientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-200').play()">Oír</button>
+    </li>
+    <li>
+        <span>300: trescientos/as</span>
+        <audio id="audio-300" src="assets/audio/unidad3/numeros/trescientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-300').play()">Oír</button>
+    </li>
+    <li>
+        <span>400: cuatrocientos/as</span>
+        <audio id="audio-400" src="assets/audio/unidad3/numeros/cuatrocientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-400').play()">Oír</button>
+    </li>
+    <li>
+        <span>500: quinientos/as</span>
+        <audio id="audio-500" src="assets/audio/unidad3/numeros/quinientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-500').play()">Oír</button>
+    </li>
+    <li>
+        <span>600: seiscientos/as</span>
+        <audio id="audio-600" src="assets/audio/unidad3/numeros/seiscientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-600').play()">Oír</button>
+    </li>
+    <li>
+        <span>700: setecientos/as</span>
+        <audio id="audio-700" src="assets/audio/unidad3/numeros/setecientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-700').play()">Oír</button>
+    </li>
+    <li>
+        <span>800: ochocientos/as</span>
+        <audio id="audio-800" src="assets/audio/unidad3/numeros/ochocientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-800').play()">Oír</button>
+    </li>
+    <li>
+        <span>900: novecientos/as</span>
+        <audio id="audio-900" src="assets/audio/unidad3/numeros/novecientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-900').play()">Oír</button>
+    </li>
+    <li>
+        <span>1000: mil</span>
+        <audio id="audio-1000" src="assets/audio/unidad3/numeros/mil.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-1000').play()">Oír</button>
+    </li>
+</ul>
 
-        <hr>
+<p>Nota: Las formas terminadas en **-os/as** cambian según el sustantivo que acompañan (ej: **doscientas** mujeres, **doscientos** hombres).</p>
+
+<hr>
+<h4>Ejemplos de uso (con audio)</h4>
+<div style="display: flex; flex-direction: column; gap: 15px;">
+    
+    <div style="background: #e9ecef; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+        <p style="margin: 0; font-weight: bold;">Trescientos setenta y cinco dólares.</p>
+        <audio id="audio-ejemplo-375" src="assets/audio/unidad3/numeros/trescientos setenta y cinco.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-ejemplo-375').play()">Oír</button>
+    </div>
+
+    <div style="background: #e9ecef; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+        <p style="margin: 0; font-weight: bold;">Quinientas veinte páginas.</p>
+        <audio id="audio-ejemplo-520" src="assets/audio/unidad3/numeros/quinientas veinte.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-ejemplo-520').play()">Oír</button>
+    </div>
+
+    <div style="background: #e9ecef; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+        <p style="margin: 0; font-weight: bold;">Novecientos noventa y nueve.</p>
+        <audio id="audio-ejemplo-999" src="assets/audio/unidad3/numeros/novecientos noventa y nueve.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-ejemplo-999').play()">Oír</button>
+    </div>
+
+    <div style="background: #e9ecef; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+        <p style="margin: 0; font-weight: bold;">Mil quinientos pesos.</p>
+        <audio id="audio-ejemplo-1500" src="assets/audio/unidad3/numeros/mil quinientos.mp3"></audio>
+        <button class="play-button" onclick="document.getElementById('audio-ejemplo-1500').play()">Oír</button>
+    </div>
+</div>
+
+<hr>
 
         <h3>4. Repaso: Presente de Algunos Verbos Regulares</h3>
         
