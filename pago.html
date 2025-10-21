@@ -80,12 +80,12 @@
 
   <script>
     // Inicializa Mercado Pago con tu clave pública
-    const mp = new MercadoPago('TU_PUBLIC_KEY_AQUI', { locale: 'es-AR' });
+    const mp = new MercadoPago('TEST-65ffdbc3-dfdf-4006-bb77-27d3392b9fe6', { locale: 'es-AR' });
 
     // Crea el botón de pago
     mp.bricks().create("wallet", "wallet_container", {
       initialization: {
-        preferenceId: "ID_DE_TU_PREFERENCIA", // reemplaza con el ID real
+        preferenceId: "126794509", // reemplaza con el ID real
       },
       callbacks: {
         onSubmit: () => {
