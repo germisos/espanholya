@@ -1121,11 +1121,12 @@
 </div>
         
 <hr>
-   <h3>8. Vocabulario</h3>
+  <h3>8. Vocabulario</h3>
 
 <p>Aprende las siguientes palabras comunes:</p>
 
 <style>
+    /* Mantenemos el estilo para la rejilla y los elementos de vocabulario */
     .vocab-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 3 o 4 columnas en pantalla grande */
@@ -1139,6 +1140,10 @@
         padding: 15px;
         background-color: #f9f9f9;
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        display: flex; /* Añadido para mejor control */
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
     .vocab-item img {
         max-width: 100%;
@@ -1152,6 +1157,19 @@
         color: #007bff;
         margin: 0;
         font-size: 1.1em;
+    }
+    .vocab-list {
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 0 0;
+        font-weight: bold;
+        color: #007bff;
+        text-align: left;
+        width: 100%; /* Ajuste para que la lista interna use el ancho completo */
+    }
+    .vocab-list li {
+        margin-bottom: 5px;
+        color: #007bff;
     }
 </style>
 
@@ -1167,29 +1185,20 @@
         <p>Lapicera</p>
     </div>
     
-    <div class="vocab-item">
-        <img src="assets/images/unidad3/regla.png" alt="Imagen de bolígrafo">
-        <p>Bolígrafo</p>
-    </div>
-    
-    <div class="vocab-item">
-        <img src="assets/images/unidad3/regla.png" alt="Imagen de cuaderno">
-        <p>Cuaderno</p>
-    </div>
-
-    <div class="vocab-item">
-        <img src="assets/images/unidad3/regla.png" alt="Imagen de lápiz">
-        <p>Lápiz</p>
-    </div>
-
-    <div class="vocab-item">
-        <img src="assets/images/unidad3/regla.png" alt="Imagen de regla">
-        <p>Regla</p>
+    <div class="vocab-item" style="grid-column: span 1;">
+        <img src="assets/images/unidad3/regla.png" alt="Imagen de útiles escolares (regla, lápiz, etc.)">
+        <p style="margin-bottom: 5px;">Útiles Escolares</p>
+        <ul class="vocab-list">
+            <li>Bolígrafo</li>
+            <li>Cuaderno</li>
+            <li>Lápiz</li>
+            <li>Regla</li>
+        </ul>
     </div>
     
 </div>
 
-<hr> 
+<hr>
     
 </body>
 </html>
