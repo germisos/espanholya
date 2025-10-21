@@ -7,104 +7,128 @@
     
     <script src="menu.js" defer></script> 
     
-    <style>
-        /* =====================================
-           ESTILOS UNIDAD 3 (ADOPTANDO EL FORMATO UNIDAD 1/2)
-           ===================================== */
+   <style>
+    /* =====================================
+       ESTILOS UNIDAD 3 (ADOPTANDO EL FORMATO UNIDAD 1/2) - LECCIÓN
+       ===================================== */
 
-        /* --- Configuración general --- */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9; 
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* --- Contenedor de lección y Margen Superior --- */
-        .lesson-container {
-            max-width: 900px; 
-            margin: 80px auto 25px auto; 
-            padding: 25px; 
-            background: white;
-            border-radius: 12px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-        }
-        
-        /* --- Títulos --- */
-        h1, h2, h3 {
-            color: #007bff;
-            margin-top: 20px;
-        }
+    /* --- Configuración general --- */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor de lección y Margen Superior --- */
+    .lesson-container {
+        max-width: 900px; 
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+    
+    /* --- Títulos --- */
+    h1, h2, h3 {
+        color: #007bff;
+        margin-top: 20px;
+    }
 
-        /* --- Estilo de Tabla de Conjugación (Para verbos) --- */
-        .conjugation-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+    /* --- Estilo de Botón de Audio/General (¡AÑADIDO AQUÍ!) --- */
+    .play-button, 
+    button {
+        background-color: #007bff; /* Azul primario */
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        white-space: nowrap; 
+    }
 
-        .conjugation-table th, .conjugation-table td {
-            border: 1px solid #ddd;
-            padding: 8px 12px;
-            text-align: left;
-        }
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3; 
+    }
 
-        .conjugation-table th {
-            background-color: #f0f8ff;
-            color: #007bff;
-            width: 30%; /* Ancho fijo para el pronombre */
-        }
+    /* --- Estilo de Tabla de Conjugación (Para verbos de la LECCIÓN) --- */
+    .conjugation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
 
-        /* Estilos para ejemplos de NÚMEROS */
-        .number-list {
-            list-style: none;
-            padding: 0;
-            column-count: 2; /* Divide la lista de 100 a 1000 en dos columnas */
-            column-gap: 40px;
-            margin-bottom: 20px;
-        }
+    .conjugation-table th, .conjugation-table td {
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        text-align: left;
+    }
 
-        .number-list li {
-            margin-bottom: 5px;
-        }
-        
-        /* Estilos para reglas de PLURALES (Tablas) */
-        .plural-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    .conjugation-table th {
+        background-color: #f0f8ff;
+        color: #007bff;
+        width: 30%; 
+    }
 
-        .plural-table th, .plural-table td {
-            border: 1px solid #e0e0e0;
-            padding: 10px;
-            text-align: center;
-        }
+    /* Estilos para ejemplos de NÚMEROS */
+    .number-list {
+        list-style: none;
+        padding: 0;
+        column-count: 2; 
+        column-gap: 40px;
+        margin-bottom: 20px;
+    }
 
-        .plural-table th {
-            background-color: #e0f7fa; /* Fondo azul claro para encabezados */
-            color: #007bff;
-            font-weight: bold;
-        }
-        * =====================================
-   ESTILOS ESPECÍFICOS DE CONJUGACIÓN (FORMATO 3 COLUMNAS: SOLO OÍR)
-   ===================================== */
-       
-.conjugation-grid {
-    display: grid;
-    /* 3 Columnas: Pronombre (ajustado) | Input (200px) | Oír (auto) */
-    grid-template-columns: minmax(70px, max-content) 200px auto; 
-    gap: 15px;
-    align-items: center; 
-    margin-bottom: 20px;
-    width: 100%; 
-}
+    .number-list li {
+        margin-bottom: 5px;
+    }
+    
+    /* Estilos para reglas de PLURALES (Tablas) */
+    .plural-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
 
-        
-    </style>
+    .plural-table th, .plural-table td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .plural-table th {
+        background-color: #e0f7fa; 
+        color: #007bff;
+        font-weight: bold;
+    }
+    
+    /* Nota: Se mantiene el estilo de .conjugation-grid si existe, 
+       pero no debería ser necesario en el archivo de LECCIÓN */
+    .conjugation-grid {
+        display: grid;
+        grid-template-columns: minmax(70px, max-content) 200px auto; 
+        gap: 15px;
+        align-items: center; 
+        margin-bottom: 20px;
+        width: 100%; 
+    }
+
+    .conjugation-grid input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%; 
+        box-sizing: border-box;
+    }
+</style>
 </head>
 <body>
     
