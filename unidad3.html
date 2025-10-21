@@ -128,6 +128,11 @@
         width: 100%; 
         box-sizing: border-box;
     }
+       /* Limita el ancho del botón Oír para que no ocupe todo el espacio de la columna 'auto' */
+.conjugation-grid .play-button {
+    width: 80px; /* Ancho fijo para el botón 'Oír' */
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -138,7 +143,7 @@
         <hr>
         
         <h3>1. Conjugación del Presente Irregular (con Audio)</h3>
-<p>Completa la conjugación de los verbos irregulares. Una vez verificado, usa el botón "Oír" para escuchar la pronunciación correcta.</p>
+<p>Escucha la pronunciación de la conjugación de los verbos.</p>
 
 <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
 
@@ -176,12 +181,11 @@
         <button class="play-button" onclick="document.getElementById('audio-hacen').play()">Oír</button>
     </div>
 </div>
+<p style="margin-top: -15px; margin-bottom: 20px;">Nota: Solo la 1ª persona del singular es irregular: yo **hago**.</p>
 <hr>
-            </tbody>
-        </table>
-        <p class="note">(Nota: Solo la 1ª persona del singular es irregular: yo **hago**.)</p>
 
-        <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <div style="margin-bottom: 25px; padding: 15px; border: 1px solid #ccc; border-radius: 8px;">
     <h4 style="color: #0099cc;">B) SABER (-ER)</h4>
     <div class="conjugation-grid">
         
@@ -216,11 +220,8 @@
         <button class="play-button" onclick="document.getElementById('audio-saben').play()">Oír</button>
     </div>
 </div>
-
+<p style="margin-top: -15px; margin-bottom: 20px;">Nota: Solo la 1ª persona del singular es irregular: yo **sé**.</p>
 <hr>
-        <p class="note">(Nota: Solo la 1ª persona del singular es irregular: yo **sé**.)</p>
-        
-        <hr>
 
         <h3>2. Saludar y Despedirse</h3>
         
