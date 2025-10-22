@@ -257,6 +257,22 @@
         background-color: #a71d2a;
     }
 
+        /* ========================================================= */
+/* CÓDIGO PARA REDUCIR ESPACIADO VERTICAL EN EL EJERCICIO 5 */
+/* ========================================================= */
+
+/* 1. Reducir el margen superior e inferior de los párrafos (las preguntas) */
+.exercise-section p {
+    margin-top: 5px;   
+    margin-bottom: 5px; 
+}
+
+/* 2. Reducir el espacio entre las opciones de respuesta (a, b, c, d) */
+.exercise-section form label {
+    display: block;    /* Para asegurar que cada opción vaya en su propia línea */
+    margin: 2px 0;     /* Margen muy pequeño arriba y abajo (lo que junta los renglones) */
+    padding: 2px 0;    /* Relleno muy pequeño arriba y abajo */
+}
     </style>
     
 </head>
