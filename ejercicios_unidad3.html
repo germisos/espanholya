@@ -51,6 +51,7 @@
         font-weight: bold;
         transition: background-color 0.2s;
         white-space: nowrap; 
+        flex-shrink: 0; /* Asegura que no se encoja */
     }
 
     .play-button:hover,
@@ -68,10 +69,9 @@
 
     /* =====================================
         ESTILOS ESPECÍFICOS DE CONJUGACIÓN 
-        (Mantenidos para referencia, aunque la Sección 2 usa .ejercicio-linea)
         ===================================== */
         
-    /* 1. Definición del Grid */
+    /* 1. Definición del Grid (Usado en Sección 1) */
     .conjugation-grid {
         display: grid;
         grid-template-columns: minmax(70px, max-content) 200px auto 180px auto; 
@@ -82,7 +82,6 @@
         width: 100%; 
     }
 
-    /* 2. Estilos para la entrada de texto */
     .conjugation-grid input[type="text"] {
         padding: 8px;
         border: 1px solid #ccc;
@@ -115,7 +114,7 @@
     }
     
     /* =====================================
-        ESTILOS ESPECÍFICOS DE EJERCICIO EN LÍNEA (SECCIONES 2 y 4)
+        ESTILOS ESPECÍFICOS DE EJERCICIO EN LÍNEA (SECCIONES 2, 3.1 y 4)
         ===================================== */
     .ejercicio-linea {
         display: flex;
@@ -130,7 +129,7 @@
     }
     .ejercicio-linea label {
         flex-grow: 1; 
-        min-width: 150px; /* Asegura que la label tenga espacio para el texto */
+        min-width: 150px; 
     }
     .ejercicio-linea input[type="text"] {
         padding: 8px;
@@ -139,26 +138,33 @@
         flex-grow: 1;
         max-width: 250px;
     }
-    .ejercicio-linea button {
-        margin-left: 5px;
+    
+    /* Estabilización del Feedback en Línea */
+    .ejercicio-linea .feedback-inline {
+        min-width: 150px; 
+        font-weight: bold;
+        padding-left: 5px;
         flex-shrink: 0;
     }
     
-    /* CORRECCIÓN: Estabilización del Feedback en Línea */
-    .ejercicio-linea .feedback-inline {
-        min-width: 150px; /* Ancho FIJO para evitar que otros elementos se muevan */
-        font-weight: bold;
-        padding-left: 5px;
-        flex-shrink: 0; /* Evita que se encoja */
-    }
-
-    /* Estilos específicos para Dictado de Números */
-    .dictado-numeros-grid {
-        display: grid;
-        grid-template-columns: 50px 180px 100px 180px; /* Número | Input | Botón | Feedback */
-        gap: 10px;
+    /* Estilos específicos para Dictado de Números (Sección 3.2 - ajustado a flex para verificación individual) */
+    .dictado-numeros-linea {
+        display: flex;
         align-items: center;
         margin-bottom: 10px;
+        gap: 10px;
+    }
+    .dictado-numeros-linea > span:first-child {
+        width: 40px; 
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+    .dictado-numeros-linea input[type="text"] {
+        flex-grow: 1;
+        max-width: 180px; 
+    }
+    .dictado-numeros-linea .feedback-inline {
+        min-width: 150px;
     }
     </style>
     
@@ -166,7 +172,7 @@
 <body>
     <script>
         /**
-         * Funciones de verificación (copiadas de la Unidad 2)
+         * Funciones de verificación
          */
 
         // Función auxiliar para quitar acentos
@@ -183,43 +189,36 @@
             const feedbackElement = document.getElementById(feedbackId);
             
             // Limpiar estilos anteriores
-            feedbackElement.className = 'feedback-inline'; // Mantener la clase de estilo de línea
+            feedbackElement.className = 'feedback-inline'; 
             document.getElementById(inputId).style.border = '1px solid #ccc';
             
             let isCorrect = false;
-            let displayAnswer = '';
+            // Para la sección 2.1, SOLO la primera respuesta es la "Correcta"
+            const expectedCorrect = answersArray[0].trim().toLowerCase(); 
 
-            for (const correct of answersArray) {
-                const correctLower = correct.trim().toLowerCase();
-                const userAnswerNoAccent = removeAccents(userAnswer);
-                const correctNoAccent = removeAccents(correctLower);
-                
-                if (userAnswerNoAccent === correctNoAccent || userAnswer === correctLower) {
-                    isCorrect = true;
-                    // Muestra la respuesta correcta tal como fue ingresada en el array de respuestas
-                    displayAnswer = correct; 
-                    break;
-                }
-                // Si no es correcto, guardamos la primera respuesta para mostrarla como solución
-                if (!displayAnswer) {
-                     displayAnswer = correct;
-                }
+            // **Lógica de Verificación (Ajustada para la Sección 2.1)**
+            // Compara la respuesta del usuario con la respuesta considerada *correcta* (el primer elemento del array)
+            const userAnswerNoAccent = removeAccents(userAnswer);
+            const expectedCorrectNoAccent = removeAccents(expectedCorrect);
+            
+            if (userAnswerNoAccent === expectedCorrectNoAccent || userAnswer === expectedCorrect) {
+                isCorrect = true;
             }
+            // Fin de Lógica de Verificación
 
             if (isCorrect) {
                 feedbackElement.textContent = '¡Correcto! ✅';
                 feedbackElement.classList.add('correct');
                 document.getElementById(inputId).style.border = '2px solid #388E3C';
             } else {
-                // Si hay múltiples respuestas posibles, muestra todas
-                const solutions = answersArray.join(' / ');
-                feedbackElement.textContent = `Incorrecto. Solución: ${solutions}`;
+                // Muestra solo la primera respuesta como solución (la correcta)
+                feedbackElement.textContent = `Incorrecto. Solución: ${answersArray[0]}`;
                 feedbackElement.classList.add('incorrect');
                 document.getElementById(inputId).style.border = '2px solid #D32F2F';
             }
         }
 
-        /* Función para verificar múltiples campos de texto a la vez */
+        /* Función para verificar múltiples campos de texto a la vez (Mantenida por si acaso, aunque ya no se usa en la sección 3) */
         function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize = true) {
             let allCorrect = true;
             const feedback = document.getElementById(feedbackId);
@@ -237,15 +236,7 @@
                     correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 }
 
-                // Ajuste para números altos (Permitir '1.000' o '1000')
-                if (!normalize) {
-                    // Limpiar puntos/comas del usuario para comparación numérica estricta
-                    let cleanInput = inputValue.replace(/[\.\,]/g, '');
-                    let cleanCorrect = correctAnswer.replace(/[\.\,]/g, '');
-                    if (cleanInput === cleanCorrect) {
-                        isCorrect = true;
-                    }
-                } else if (inputValue === correctAnswer) {
+                if (inputValue === correctAnswer) {
                     isCorrect = true;
                 }
 
@@ -287,37 +278,37 @@
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="hacer-yo-input">
-            <button onclick="checkAnswer('hacer-yo-input', 'Hago', 'hacer-yo-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-yo-input', ['Hago'], 'hacer-yo-feedback')">Verificar</button>
             <span id="hacer-yo-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/hago.mp3')">Oír</button>
 
             <span>Tú</span>
             <input type="text" id="hacer-tu-input">
-            <button onclick="checkAnswer('hacer-tu-input', 'Haces', 'hacer-tu-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-tu-input', ['Haces'], 'hacer-tu-feedback')">Verificar</button>
             <span id="hacer-tu-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/haces.mp3')">Oír</button>
 
             <span>Él/Ella/Ud.</span>
             <input type="text" id="hacer-el-input">
-            <button onclick="checkAnswer('hacer-el-input', 'Hace', 'hacer-el-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-el-input', ['Hace'], 'hacer-el-feedback')">Verificar</button>
             <span id="hacer-el-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/hace.mp3')">Oír</button>
 
             <span>Nosotros/as</span>
             <input type="text" id="hacer-nosotros-input">
-            <button onclick="checkAnswer('hacer-nosotros-input', 'Hacemos', 'hacer-nosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-nosotros-input', ['Hacemos'], 'hacer-nosotros-feedback')">Verificar</button>
             <span id="hacer-nosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/hacemos.mp3')">Oír</button>
 
             <span>Vosotros/as</span>
             <input type="text" id="hacer-vosotros-input">
-            <button onclick="checkAnswer('hacer-vosotros-input', 'Hacéis', 'hacer-vosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-vosotros-input', ['Hacéis'], 'hacer-vosotros-feedback')">Verificar</button>
             <span id="hacer-vosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/haceis.mp3')">Oír</button>
 
             <span>Ellos/as/Uds.</span>
             <input type="text" id="hacer-ellos-input">
-            <button onclick="checkAnswer('hacer-ellos-input', 'Hacen', 'hacer-ellos-feedback')">Verificar</button>
+            <button onclick="checkAnswer('hacer-ellos-input', ['Hacen'], 'hacer-ellos-feedback')">Verificar</button>
             <span id="hacer-ellos-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/hacer/hacen.mp3')">Oír</button>
         </div>
@@ -329,37 +320,37 @@
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="saber-yo-input">
-            <button onclick="checkAnswer('saber-yo-input', 'Sé', 'saber-yo-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-yo-input', ['Sé'], 'saber-yo-feedback')">Verificar</button>
             <span id="saber-yo-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/se.mp3')">Oír</button>
 
             <span>Tú</span>
             <input type="text" id="saber-tu-input">
-            <button onclick="checkAnswer('saber-tu-input', 'Sabes', 'saber-tu-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-tu-input', ['Sabes'], 'saber-tu-feedback')">Verificar</button>
             <span id="saber-tu-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/sabes.mp3')">Oír</button>
 
             <span>Él/Ella/Ud.</span>
             <input type="text" id="saber-el-input">
-            <button onclick="checkAnswer('saber-el-input', 'Sabe', 'saber-el-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-el-input', ['Sabe'], 'saber-el-feedback')">Verificar</button>
             <span id="saber-el-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/sabe.mp3')">Oír</button>
 
             <span>Nosotros/as</span>
             <input type="text" id="saber-nosotros-input">
-            <button onclick="checkAnswer('saber-nosotros-input', 'Sabemos', 'saber-nosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-nosotros-input', ['Sabemos'], 'saber-nosotros-feedback')">Verificar</button>
             <span id="saber-nosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/sabemos.mp3')">Oír</button>
 
             <span>Vosotros/as</span>
             <input type="text" id="saber-vosotros-input">
-            <button onclick="checkAnswer('saber-vosotros-input', 'Sabéis', 'saber-vosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-vosotros-input', ['Sabéis'], 'saber-vosotros-feedback')">Verificar</button>
             <span id="saber-vosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/sabeis.mp3')">Oír</button>
 
             <span>Ellos/as/Uds.</span>
             <input type="text" id="saber-ellos-input">
-            <button onclick="checkAnswer('saber-ellos-input', 'Saben', 'saber-ellos-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saber-ellos-input', ['Saben'], 'saber-ellos-feedback')">Verificar</button>
             <span id="saber-ellos-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/saber/saben.mp3')">Oír</button>
         </div>
@@ -371,37 +362,37 @@
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="trabajar-yo-input">
-            <button onclick="checkAnswer('trabajar-yo-input', 'Trabajo', 'trabajar-yo-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-yo-input', ['Trabajo'], 'trabajar-yo-feedback')">Verificar</button>
             <span id="trabajar-yo-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabajo.mp3')">Oír</button>
 
             <span>Tú</span>
             <input type="text" id="trabajar-tu-input">
-            <button onclick="checkAnswer('trabajar-tu-input', 'Trabajas', 'trabajar-tu-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-tu-input', ['Trabajas'], 'trabajar-tu-feedback')">Verificar</button>
             <span id="trabajar-tu-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabajas.mp3')">Oír</button>
 
             <span>Él/Ella/Ud.</span>
             <input type="text" id="trabajar-el-input">
-            <button onclick="checkAnswer('trabajar-el-input', 'Trabaja', 'trabajar-el-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-el-input', ['Trabaja'], 'trabajar-el-feedback')">Verificar</button>
             <span id="trabajar-el-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabaja.mp3')">Oír</button>
 
             <span>Nosotros/as</span>
             <input type="text" id="trabajar-nosotros-input">
-            <button onclick="checkAnswer('trabajar-nosotros-input', 'Trabajamos', 'trabajar-nosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-nosotros-input', ['Trabajamos'], 'trabajar-nosotros-feedback')">Verificar</button>
             <span id="trabajar-nosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabajamos.mp3')">Oír</button>
 
             <span>Vosotros/as</span>
             <input type="text" id="trabajar-vosotros-input">
-            <button onclick="checkAnswer('trabajar-vosotros-input', 'Trabajáis', 'trabajar-vosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-vosotros-input', ['Trabajáis'], 'trabajar-vosotros-feedback')">Verificar</button>
             <span id="trabajar-vosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabajais.mp3')">Oír</button>
 
             <span>Ellos/as/Uds.</span>
             <input type="text" id="trabajar-ellos-input">
-            <button onclick="checkAnswer('trabajar-ellos-input', 'Trabajan', 'trabajar-ellos-feedback')">Verificar</button>
+            <button onclick="checkAnswer('trabajar-ellos-input', ['Trabajan'], 'trabajar-ellos-feedback')">Verificar</button>
             <span id="trabajar-ellos-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/trabajar/trabajan.mp3')">Oír</button>
         </div>
@@ -413,37 +404,37 @@
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="vender-yo-input">
-            <button onclick="checkAnswer('vender-yo-input', 'Vendo', 'vender-yo-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-yo-input', ['Vendo'], 'vender-yo-feedback')">Verificar</button>
             <span id="vender-yo-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/vendo.mp3')">Oír</button>
 
             <span>Tú</span>
             <input type="text" id="vender-tu-input">
-            <button onclick="checkAnswer('vender-tu-input', 'Vendes', 'vender-tu-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-tu-input', ['Vendes'], 'vender-tu-feedback')">Verificar</button>
             <span id="vender-tu-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/vendes.mp3')">Oír</button>
 
             <span>Él/Ella/Ud.</span>
             <input type="text" id="vender-el-input">
-            <button onclick="checkAnswer('vender-el-input', 'Vende', 'vender-el-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-el-input', ['Vende'], 'vender-el-feedback')">Verificar</button>
             <span id="vender-el-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/vende.mp3')">Oír</button>
 
             <span>Nosotros/as</span>
             <input type="text" id="vender-nosotros-input">
-            <button onclick="checkAnswer('vender-nosotros-input', 'Vendemos', 'vender-nosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-nosotros-input', ['Vendemos'], 'vender-nosotros-feedback')">Verificar</button>
             <span id="vender-nosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/vendemos.mp3')">Oír</button>
 
             <span>Vosotros/as</span>
             <input type="text" id="vender-vosotros-input">
-            <button onclick="checkAnswer('vender-vosotros-input', 'Vendéis', 'vender-vosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-vosotros-input', ['Vendéis'], 'vender-vosotros-feedback')">Verificar</button>
             <span id="vender-vosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/vendeis.mp3')">Oír</button>
 
             <span>Ellos/as/Uds.</span>
             <input type="text" id="vender-ellos-input">
-            <button onclick="checkAnswer('vender-ellos-input', 'Venden', 'vender-ellos-feedback')">Verificar</button>
+            <button onclick="checkAnswer('vender-ellos-input', ['Venden'], 'vender-ellos-feedback')">Verificar</button>
             <span id="vender-ellos-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/vender/venden.mp3')">Oír</button>
         </div>
@@ -455,37 +446,37 @@
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="fabricar-yo-input">
-            <button onclick="checkAnswer('fabricar-yo-input', 'Fabrico', 'fabricar-yo-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-yo-input', ['Fabrico'], 'fabricar-yo-feedback')">Verificar</button>
             <span id="fabricar-yo-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabrico.mp3')">Oír</button>
 
             <span>Tú</span>
             <input type="text" id="fabricar-tu-input">
-            <button onclick="checkAnswer('fabricar-tu-input', 'Fabricas', 'fabricar-tu-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-tu-input', ['Fabricas'], 'fabricar-tu-feedback')">Verificar</button>
             <span id="fabricar-tu-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabricas.mp3')">Oír</button>
 
             <span>Él/Ella/Ud.</span>
             <input type="text" id="fabricar-el-input">
-            <button onclick="checkAnswer('fabricar-el-input', 'Fabrica', 'fabricar-el-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-el-input', ['Fabrica'], 'fabricar-el-feedback')">Verificar</button>
             <span id="fabricar-el-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabrica.mp3')">Oír</button>
 
             <span>Nosotros/as</span>
             <input type="text" id="fabricar-nosotros-input">
-            <button onclick="checkAnswer('fabricar-nosotros-input', 'Fabricamos', 'fabricar-nosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-nosotros-input', ['Fabricamos'], 'fabricar-nosotros-feedback')">Verificar</button>
             <span id="fabricar-nosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabricamos.mp3')">Oír</button>
 
             <span>Vosotros/as</span>
             <input type="text" id="fabricar-vosotros-input">
-            <button onclick="checkAnswer('fabricar-vosotros-input', 'Fabricáis', 'fabricar-vosotros-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-vosotros-input', ['Fabricáis'], 'fabricar-vosotros-feedback')">Verificar</button>
             <span id="fabricar-vosotros-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabricais.mp3')">Oír</button>
 
             <span>Ellos/as/Uds.</span>
             <input type="text" id="fabricar-ellos-input">
-            <button onclick="checkAnswer('fabricar-ellos-input', 'Fabrican', 'fabricar-ellos-feedback')">Verificar</button>
+            <button onclick="checkAnswer('fabricar-ellos-input', ['Fabrican'], 'fabricar-ellos-feedback')">Verificar</button>
             <span id="fabricar-ellos-feedback"></span>
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/verbos/fabricar/fabrican.mp3')">Oír</button>
         </div>
@@ -494,6 +485,7 @@
 
         <h2>2. Saludos y Despedidas</h2>
         <h3>2.1. Elige la opción correcta</h3>
+        <p>Escribe la respuesta correcta. La segunda opción es el distractor incorrecto.</p>
 
         <div class="ejercicio-linea">
             <span>1.</span>
@@ -594,148 +586,233 @@
         <div class="divider-bar"></div>
 
         <h2>3. Números del 100 al 1000</h2>
-        <h3>3.1. Escribe el número en cifras</h3>
+        <h3>3.1. Escribe el número por extensión. Luego verifica.</h3>
 
-        <p>Escribe en cifras los siguientes números. Usa el botón **Verificar Conjunto** para corregir todos a la vez. (Mínimo 12 ejercicios)</p>
+        <div class="ejercicio-linea">
+            <span>1. 101</span>
+            <input type="text" id="num-1-input" placeholder="Ciento uno">
+            <button onclick="checkAnswer('num-1-input', ['Ciento uno'], 'num-1-feedback')">Verificar</button>
+            <span id="num-1-feedback" class="feedback-inline"></span>
+        </div>
         
-        <div class="conjugation-grid" style="grid-template-columns: 200px 100px 200px 100px;">
-            <label for="num-1-input">1. Ciento uno</label>
-            <input type="text" id="num-1-input" placeholder="respuesta">
-            <label for="num-2-input">2. Doscientos cincuenta</label>
-            <input type="text" id="num-2-input" placeholder="respuesta">
-            
-            <label for="num-3-input">3. Novecientos noventa y nueve</label>
-            <input type="text" id="num-3-input" placeholder="respuesta">
-            <label for="num-4-input">4. Mil</label>
-            <input type="text" id="num-4-input" placeholder="respuesta">
-
-            <label for="num-5-input">5. Cuatrocientos treinta</label>
-            <input type="text" id="num-5-input" placeholder="respuesta">
-            <label for="num-6-input">6. Seiscientos setenta y siete</label>
-            <input type="text" id="num-6-input" placeholder="respuesta">
-
-            <label for="num-7-input">7. Trescientos ochenta y cinco</label>
-            <input type="text" id="num-7-input" placeholder="respuesta">
-            <label for="num-8-input">8. Ciento cincuenta</label>
-            <input type="text" id="num-8-input" placeholder="respuesta">
-
-            <label for="num-9-input">9. Ochocientos</label>
-            <input type="text" id="num-9-input" placeholder="respuesta">
-            <label for="num-10-input">10. Quinientos doce</label>
-            <input type="text" id="num-10-input" placeholder="respuesta">
-
-            <label for="num-11-input">11. Doscientos dos</label>
-            <input type="text" id="num-11-input" placeholder="respuesta">
-            <label for="num-12-input">12. Setecientos cuarenta y uno</label>
-            <input type="text" id="num-12-input" placeholder="respuesta">
+        <div class="ejercicio-linea">
+            <span>2. 250</span>
+            <input type="text" id="num-2-input" placeholder="Doscientos cincuenta">
+            <button onclick="checkAnswer('num-2-input', ['Doscientos cincuenta'], 'num-2-feedback')">Verificar</button>
+            <span id="num-2-feedback" class="feedback-inline"></span>
         </div>
 
-        <button onclick="checkMultipleAnswers(
-            ['num-1-input', 'num-2-input', 'num-3-input', 'num-4-input', 'num-5-input', 'num-6-input', 'num-7-input', 'num-8-input', 'num-9-input', 'num-10-input', 'num-11-input', 'num-12-input'],
-            ['101', '250', '999', '1000', '430', '677', '385', '150', '800', '512', '202', '741'],
-            'numeros-feedback',
-            false // No normalizar, ya que son números
-        )">Verificar Conjunto</button>
-        <span id="numeros-feedback" class="feedback-inline" style="min-width: 250px;"></span>
+        <div class="ejercicio-linea">
+            <span>3. 999</span>
+            <input type="text" id="num-3-input" placeholder="Novecientos noventa y nueve">
+            <button onclick="checkAnswer('num-3-input', ['Novecientos noventa y nueve'], 'num-3-feedback')">Verificar</button>
+            <span id="num-3-feedback" class="feedback-inline"></span>
+        </div>
+        
+        <div class="ejercicio-linea">
+            <span>4. 1000</span>
+            <input type="text" id="num-4-input" placeholder="Mil">
+            <button onclick="checkAnswer('num-4-input', ['Mil'], 'num-4-feedback')">Verificar</button>
+            <span id="num-4-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>5. 430</span>
+            <input type="text" id="num-5-input" placeholder="Cuatrocientos treinta">
+            <button onclick="checkAnswer('num-5-input', ['Cuatrocientos treinta'], 'num-5-feedback')">Verificar</button>
+            <span id="num-5-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>6. 677</span>
+            <input type="text" id="num-6-input" placeholder="Seiscientos setenta y siete">
+            <button onclick="checkAnswer('num-6-input', ['Seiscientos setenta y siete'], 'num-6-feedback')">Verificar</button>
+            <span id="num-6-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>7. 385</span>
+            <input type="text" id="num-7-input" placeholder="Trescientos ochenta y cinco">
+            <button onclick="checkAnswer('num-7-input', ['Trescientos ochenta y cinco'], 'num-7-feedback')">Verificar</button>
+            <span id="num-7-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>8. 150</span>
+            <input type="text" id="num-8-input" placeholder="Ciento cincuenta">
+            <button onclick="checkAnswer('num-8-input', ['Ciento cincuenta'], 'num-8-feedback')">Verificar</button>
+            <span id="num-8-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>9. 800</span>
+            <input type="text" id="num-9-input" placeholder="Ochocientos">
+            <button onclick="checkAnswer('num-9-input', ['Ochocientos'], 'num-9-feedback')">Verificar</button>
+            <span id="num-9-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>10. 512</span>
+            <input type="text" id="num-10-input" placeholder="Quinientos doce">
+            <button onclick="checkAnswer('num-10-input', ['Quinientos doce'], 'num-10-feedback')">Verificar</button>
+            <span id="num-10-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>11. 202</span>
+            <input type="text" id="num-11-input" placeholder="Doscientos dos">
+            <button onclick="checkAnswer('num-11-input', ['Doscientos dos'], 'num-11-feedback')">Verificar</button>
+            <span id="num-11-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>12. 741</span>
+            <input type="text" id="num-12-input" placeholder="Setecientos cuarenta y uno">
+            <button onclick="checkAnswer('num-12-input', ['Setecientos cuarenta y uno'], 'num-12-feedback')">Verificar</button>
+            <span id="num-12-feedback" class="feedback-inline"></span>
+        </div>
+
 
         <div class="divider-bar"></div>
 
         <h3>3.2. Dictado de Números (Con Audio)</h3>
-        <p>Escucha el número y escríbelo en **letras**. (17 ejercicios de audio)</p>
+        <p>Escucha el número y escríbelo en **letras**. </p>
 
-        <div class="dictado-numeros-grid">
+        <div class="dictado-numeros-linea">
             <span>1.</span>
             <input type="text" id="dictado-num-1-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/cien.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-1-input', ['cien'], 'dictado-num-1-feedback')">Verificar</button>
             <span id="dictado-num-1-feedback" class="feedback-inline"></span>
-            
+        </div>
+        
+        <div class="dictado-numeros-linea">
             <span>2.</span>
             <input type="text" id="dictado-num-2-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento uno.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-2-input', ['ciento uno'], 'dictado-num-2-feedback')">Verificar</button>
             <span id="dictado-num-2-feedback" class="feedback-inline"></span>
-            
+        </div>
+        
+        <div class="dictado-numeros-linea">
             <span>3.</span>
             <input type="text" id="dictado-num-3-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento diecinueve.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-3-input', ['ciento diecinueve'], 'dictado-num-3-feedback')">Verificar</button>
             <span id="dictado-num-3-feedback" class="feedback-inline"></span>
-            
+        </div>
+        
+        <div class="dictado-numeros-linea">
             <span>4.</span>
             <input type="text" id="dictado-num-4-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento veinte.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-4-input', ['ciento veinte'], 'dictado-num-4-feedback')">Verificar</button>
             <span id="dictado-num-4-feedback" class="feedback-inline"></span>
-            
+        </div>
+        
+        <div class="dictado-numeros-linea">
             <span>5.</span>
             <input type="text" id="dictado-num-5-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento veintiocho.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-5-input', ['ciento veintiocho'], 'dictado-num-5-feedback')">Verificar</button>
             <span id="dictado-num-5-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>6.</span>
             <input type="text" id="dictado-num-6-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento treinta.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-6-input', ['ciento treinta'], 'dictado-num-6-feedback')">Verificar</button>
             <span id="dictado-num-6-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>7.</span>
             <input type="text" id="dictado-num-7-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ciento sesenta y ocho.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-7-input', ['ciento sesenta y ocho'], 'dictado-num-7-feedback')">Verificar</button>
             <span id="dictado-num-7-feedback" class="feedback-inline"></span>
-            
+        </div>
+        
+        <div class="dictado-numeros-linea">
             <span>8.</span>
             <input type="text" id="dictado-num-8-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/doscientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-8-input', ['doscientos'], 'dictado-num-8-feedback')">Verificar</button>
             <span id="dictado-num-8-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>9.</span>
             <input type="text" id="dictado-num-9-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/trescientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-9-input', ['trescientos'], 'dictado-num-9-feedback')">Verificar</button>
             <span id="dictado-num-9-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>10.</span>
             <input type="text" id="dictado-num-10-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/cuatrocientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-10-input', ['cuatrocientos'], 'dictado-num-10-feedback')">Verificar</button>
             <span id="dictado-num-10-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>11.</span>
             <input type="text" id="dictado-num-11-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/quinientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-11-input', ['quinientos'], 'dictado-num-11-feedback')">Verificar</button>
             <span id="dictado-num-11-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>12.</span>
             <input type="text" id="dictado-num-12-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/seiscientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-12-input', ['seiscientos'], 'dictado-num-12-feedback')">Verificar</button>
             <span id="dictado-num-12-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>13.</span>
             <input type="text" id="dictado-num-13-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/setecientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-13-input', ['setecientos'], 'dictado-num-13-feedback')">Verificar</button>
             <span id="dictado-num-13-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>14.</span>
             <input type="text" id="dictado-num-14-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/ochocientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-14-input', ['ochocientos'], 'dictado-num-14-feedback')">Verificar</button>
             <span id="dictado-num-14-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>15.</span>
             <input type="text" id="dictado-num-15-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/novecientos.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-15-input', ['novecientos'], 'dictado-num-15-feedback')">Verificar</button>
             <span id="dictado-num-15-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>16.</span>
             <input type="text" id="dictado-num-16-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/novecientos noventa y nueve.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-16-input', ['novecientos noventa y nueve'], 'dictado-num-16-feedback')">Verificar</button>
             <span id="dictado-num-16-feedback" class="feedback-inline"></span>
+        </div>
 
+        <div class="dictado-numeros-linea">
             <span>17.</span>
             <input type="text" id="dictado-num-17-input" placeholder="respuesta">
             <button class="play-button" onclick="playAudio('assets/audio/unidad3/numeros/mil.mp3')">Oír</button>
+            <button onclick="checkAnswer('dictado-num-17-input', ['mil'], 'dictado-num-17-feedback')">Verificar</button>
             <span id="dictado-num-17-feedback" class="feedback-inline"></span>
         </div>
-
-        <button onclick="checkMultipleAnswers(
-            ['dictado-num-1-input', 'dictado-num-2-input', 'dictado-num-3-input', 'dictado-num-4-input', 'dictado-num-5-input', 'dictado-num-6-input', 'dictado-num-7-input', 'dictado-num-8-input', 'dictado-num-9-input', 'dictado-num-10-input', 'dictado-num-11-input', 'dictado-num-12-input', 'dictado-num-13-input', 'dictado-num-14-input', 'dictado-num-15-input', 'dictado-num-16-input', 'dictado-num-17-input'],
-            ['cien', 'ciento uno', 'ciento diecinueve', 'ciento veinte', 'ciento veintiocho', 'ciento treinta', 'ciento sesenta y ocho', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos', 'novecientos noventa y nueve', 'mil'],
-            'dictado-numeros-feedback'
-        )">Verificar Dictado</button>
-        <span id="dictado-numeros-feedback" class="feedback-inline" style="min-width: 250px;"></span>
         
         <div class="divider-bar"></div>
 
@@ -748,7 +825,7 @@
             <span>1.</span>
             <label>Esa es (**mi** / mío) casa.</label>
             <input type="text" id="posesion-1-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-1-input', 'Mi', 'posesion-1-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-1-input', ['Mi'], 'posesion-1-feedback')">Verificar</button>
             <span id="posesion-1-feedback" class="feedback-inline"></span>
         </div>
 
@@ -756,7 +833,7 @@
             <span>2.</span>
             <label>Este libro es (tu / **tuyo**).</label>
             <input type="text" id="posesion-2-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-2-input', 'Tuyo', 'posesion-2-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-2-input', ['Tuyo'], 'posesion-2-feedback')">Verificar</button>
             <span id="posesion-2-feedback" class="feedback-inline"></span>
         </div>
 
@@ -764,7 +841,7 @@
             <span>3.</span>
             <label>¿Dónde están (**nuestros** / nuestro) bolígrafos?</label>
             <input type="text" id="posesion-3-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-3-input', 'Nuestros', 'posesion-3-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-3-input', ['Nuestros'], 'posesion-3-feedback')">Verificar</button>
             <span id="posesion-3-feedback" class="feedback-inline"></span>
         </div>
 
@@ -772,7 +849,7 @@
             <span>4.</span>
             <label>El coche (su / **suyo**) es rojo.</label>
             <input type="text" id="posesion-4-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-4-input', 'Suyo', 'posesion-4-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-4-input', ['Suyo'], 'posesion-4-feedback')">Verificar</button>
             <span id="posesion-4-feedback" class="feedback-inline"></span>
         </div>
 
@@ -780,7 +857,7 @@
             <span>5.</span>
             <label>Las (**ciudad**) son grandes. (Plural)</label>
             <input type="text" id="posesion-5-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-5-input', 'Ciudades', 'posesion-5-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-5-input', ['Ciudades'], 'posesion-5-feedback')">Verificar</button>
             <span id="posesion-5-feedback" class="feedback-inline"></span>
         </div>
 
@@ -788,7 +865,7 @@
             <span>6.</span>
             <label>Los (**lápiz**) son azules. (Plural - Z $\to$ C)</label>
             <input type="text" id="posesion-6-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-6-input', 'Lápices', 'posesion-6-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-6-input', ['Lápices'], 'posesion-6-feedback')">Verificar</button>
             <span id="posesion-6-feedback" class="feedback-inline"></span>
         </div>
 
@@ -796,7 +873,7 @@
             <span>7.</span>
             <label>Esta es (**vuestra** / vuestro) oportunidad (femenino).</label>
             <input type="text" id="posesion-7-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-7-input', 'Vuestra', 'posesion-7-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-7-input', ['Vuestra'], 'posesion-7-feedback')">Verificar</button>
             <span id="posesion-7-feedback" class="feedback-inline"></span>
         </div>
 
@@ -804,7 +881,7 @@
             <span>8.</span>
             <label>Nuestra maleta es azul. ¿Y la (**nuestra**) que es el pronombre?</label>
             <input type="text" id="posesion-8-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-8-input', 'Nuestra', 'posesion-8-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-8-input', ['Nuestra'], 'posesion-8-feedback')">Verificar</button>
             <span id="posesion-8-feedback" class="feedback-inline"></span>
         </div>
         
@@ -812,7 +889,7 @@
             <span>9.</span>
             <label>¿Son (**sus**) estos <span style="font-style: italic;">relojes</span>?</label>
             <input type="text" id="posesion-9-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-9-input', 'Sus', 'posesion-9-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-9-input', ['Sus'], 'posesion-9-feedback')">Verificar</button>
             <span id="posesion-9-feedback" class="feedback-inline"></span>
         </div>
         
@@ -820,7 +897,7 @@
             <span>10.</span>
             <label>(**Mi** / Mío) hermana es profesora.</label>
             <input type="text" id="posesion-10-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-10-input', 'Mi', 'posesion-10-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-10-input', ['Mi'], 'posesion-10-feedback')">Verificar</button>
             <span id="posesion-10-feedback" class="feedback-inline"></span>
         </div>
 
@@ -828,7 +905,7 @@
             <span>11.</span>
             <label>(**Tu** / Tuyo) perro es muy ruidoso.</label>
             <input type="text" id="posesion-11-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-11-input', 'Tu', 'posesion-11-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-11-input', ['Tu'], 'posesion-11-feedback')">Verificar</button>
             <span id="posesion-11-feedback" class="feedback-inline"></span>
         </div>
 
@@ -836,7 +913,7 @@
             <span>12.</span>
             <label>El jersey es (sus / **suyo**).</label>
             <input type="text" id="posesion-12-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-12-input', 'Suyo', 'posesion-12-feedback')">Verificar</button>
+            <button onclick="checkAnswer('posesion-12-input', ['Suyo'], 'posesion-12-feedback')">Verificar</button>
             <span id="posesion-12-feedback" class="feedback-inline"></span>
         </div>
 
