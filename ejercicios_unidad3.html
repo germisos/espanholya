@@ -177,7 +177,7 @@
         min-width: 150px;
     }
 
-    /* Estilos específicos para la nueva sección 4.2 (unificada) */
+    /* Estilos específicos para la sección 4.2 (unificada) */
     .plural-group {
         margin-bottom: 25px;
         padding: 10px;
@@ -219,6 +219,42 @@
     .ejercicio-plural-inline input[type="text"] {
         max-width: 180px;
         flex-grow: 0;
+    }
+    
+    /* Estilos para la nueva Sección 8 de Interpretación de Texto (Radio Buttons) */
+    .exercise-section {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+    
+    .exercise-section h4 {
+        color: #dc3545; /* Nuevo color para subtítulos de texto */
+        border-bottom: 2px solid #dc3545;
+        padding-bottom: 5px;
+        margin-top: 0;
+    }
+    
+    .exercise-section form label {
+        display: block; /* Cada opción en una nueva línea */
+        margin-bottom: 5px;
+        padding: 5px 0;
+        transition: background-color 0.2s;
+        cursor: pointer;
+    }
+
+    .exercise-section form label:hover {
+        background-color: #e9ecef;
+    }
+
+    .exercise-section .yo-verify {
+        /* Estilo para los botones de verificar de opción múltiple */
+        background-color: #dc3545;
+    }
+
+    .exercise-section .yo-verify:hover {
+        background-color: #a71d2a;
     }
 
     </style>
@@ -283,6 +319,71 @@
             const audio = new Audio(audioPath);
             audio.play().catch(e => console.error("Error al reproducir el audio:", e));
         }
+
+        /* Función para verificar respuestas de botones de radio (opción múltiple) */
+        function checkRadioAnswer(formId, correctAnswerValue, feedbackId) {
+            const form = document.getElementById(formId);
+            const feedback = document.getElementById(feedbackId);
+            
+            // Obtener la opción seleccionada dentro del formulario
+            const selected = form.querySelector('input[name="' + form.elements[0].name + '"]:checked');
+
+            // Limpiar feedback anterior
+            feedback.textContent = '';
+            feedback.style.color = '';
+
+            if (!selected) {
+                feedback.textContent = 'Selecciona una opción.';
+                feedback.style.color = '#FFA500'; // Naranja
+                return;
+            }
+
+            // Comparar el valor seleccionado con la respuesta correcta
+            if (selected.value === correctAnswerValue) {
+                feedback.textContent = '¡Correcto! ✅';
+                feedback.style.color = '#388E3C'; // Verde oscuro
+            } else {
+                feedback.textContent = 'Incorrecto. La respuesta correcta es (' + correctAnswerValue + '). ❌';
+                feedback.style.color = '#D32F2F'; // Rojo oscuro
+            }
+        }
+
+        /* Función para verificar múltiples campos de texto a la vez (Ejercicio 9) */
+        function checkMultipleAnswers(inputIds, correctAnswers, feedbackId, normalize) {
+            let allCorrect = true;
+            const feedback = document.getElementById(feedbackId);
+            let incorrectCount = 0;
+
+            for (let i = 0; i < inputIds.length; i++) {
+                const input = document.getElementById(inputIds[i]);
+                let inputValue = input.value.trim();
+                let correctAnswer = correctAnswers[i];
+
+                if (normalize) {
+                    // Normaliza la respuesta del usuario y la correcta (minúsculas, sin acentos ni espacios extra)
+                    inputValue = inputValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    correctAnswer = correctAnswer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                }
+
+                if (inputValue !== correctAnswer) {
+                    allCorrect = false;
+                    incorrectCount++;
+                    input.style.border = '2px solid #D32F2F'; // Resaltar el campo incorrecto en rojo
+                } else {
+                    input.style.border = '2px solid #388E3C'; // Resaltar el campo correcto en verde
+                }
+            }
+
+            // Mostrar feedback final
+            if (allCorrect) {
+                feedback.textContent = '¡Correcto! ✅';
+                feedback.style.color = '#388E3C';
+            } else {
+                feedback.textContent = `Tienes ${incorrectCount} respuesta(s) incorrecta(s). ❌`;
+                feedback.style.color = '#D32F2F';
+            }
+        }
+
     </script>
     
     <div class="lesson-container">
@@ -510,7 +611,7 @@
             <span>1.</span>
             <label>Te encuentras con tu jefe a las 8:00 de la mañana:</label>
             <input type="text" id="saludo-1-input" placeholder="Buenos días / Buenas">
-            <button onclick="checkAnswer('saludo-1-input', ['Buenos días', 'Buenas'], 'saludo-1-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-1-input', ['Buenos días'], 'saludo-1-feedback')">Verificar</button>
             <span id="saludo-1-feedback" class="feedback-inline"></span>
         </div>
 
@@ -518,7 +619,7 @@
             <span>2.</span>
             <label>Te despides de un amigo a las 23:00:</label>
             <input type="text" id="saludo-2-input" placeholder="Buenas noches / Chao">
-            <button onclick="checkAnswer('saludo-2-input', ['Buenas noches', 'Chao'], 'saludo-2-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-2-input', ['Buenas noches'], 'saludo-2-feedback')">Verificar</button>
             <span id="saludo-2-feedback" class="feedback-inline"></span>
         </div>
         
@@ -526,7 +627,7 @@
             <span>3.</span>
             <label>Contestas el teléfono de casa:</label>
             <input type="text" id="saludo-3-input" placeholder="Diga / ¿Sí?">
-            <button onclick="checkAnswer('saludo-3-input', ['Diga', 'Sí'], 'saludo-3-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-3-input', ['Diga'], 'saludo-3-feedback')">Verificar</button>
             <span id="saludo-3-feedback" class="feedback-inline"></span>
         </div>
 
@@ -534,7 +635,7 @@
             <span>4.</span>
             <label>Te vas a mediodía para volver por la tarde:</label>
             <input type="text" id="saludo-4-input" placeholder="Hasta luego / Nos vemos">
-            <button onclick="checkAnswer('saludo-4-input', ['Hasta luego', 'Nos vemos'], 'saludo-4-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-4-input', ['Hasta luego'], 'saludo-4-feedback')">Verificar</button>
             <span id="saludo-4-feedback" class="feedback-inline"></span>
         </div>
         
@@ -542,7 +643,7 @@
             <span>5.</span>
             <label>Preguntas a tu amigo cómo está (informal):</label>
             <input type="text" id="saludo-5-input" placeholder="Qué tal / Cómo estás">
-            <button onclick="checkAnswer('saludo-5-input', ['Qué tal', 'Cómo estás'], 'saludo-5-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-5-input', ['Qué tal'], 'saludo-5-feedback')">Verificar</button>
             <span id="saludo-5-feedback" class="feedback-inline"></span>
         </div>
 
@@ -550,7 +651,7 @@
             <span>6.</span>
             <label>Te encuentras con un conocido a las 18:00:</label>
             <input type="text" id="saludo-6-input" placeholder="Buenas tardes / Hola">
-            <button onclick="checkAnswer('saludo-6-input', ['Buenas tardes', 'Hola'], 'saludo-6-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-6-input', ['Buenas tardes'], 'saludo-6-feedback')">Verificar</button>
             <span id="saludo-6-feedback" class="feedback-inline"></span>
         </div>
 
@@ -558,7 +659,7 @@
             <span>7.</span>
             <label>Llegas a una reunión de amigos:</label>
             <input type="text" id="saludo-7-input" placeholder="Hola a todos / Buenas">
-            <button onclick="checkAnswer('saludo-7-input', ['Hola a todos', 'Buenas'], 'saludo-7-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-7-input', ['Hola a todos'], 'saludo-7-feedback')">Verificar</button>
             <span id="saludo-7-feedback" class="feedback-inline"></span>
         </div>
 
@@ -566,7 +667,7 @@
             <span>8.</span>
             <label>Respondes a un "Gracias":</label>
             <input type="text" id="saludo-8-input" placeholder="De nada / No hay de qué">
-            <button onclick="checkAnswer('saludo-8-input', ['De nada', 'No hay de qué'], 'saludo-8-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-8-input', ['De nada'], 'saludo-8-feedback')">Verificar</button>
             <span id="saludo-8-feedback" class="feedback-inline"></span>
         </div>
         
@@ -574,7 +675,7 @@
             <span>9.</span>
             <label>Le deseas buen fin de semana a un compañero:</label>
             <input type="text" id="saludo-9-input" placeholder="Que disfrutes / Buen fin de semana">
-            <button onclick="checkAnswer('saludo-9-input', ['Que disfrutes', 'Buen fin de semana'], 'saludo-9-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-9-input', ['Que disfrutes'], 'saludo-9-feedback')">Verificar</button>
             <span id="saludo-9-feedback" class="feedback-inline"></span>
         </div>
         
@@ -582,7 +683,7 @@
             <span>10.</span>
             <label>Te despides de alguien que vas a ver al día siguiente:</label>
             <input type="text" id="saludo-10-input" placeholder="Hasta mañana / Nos vemos mañana">
-            <button onclick="checkAnswer('saludo-10-input', ['Hasta mañana', 'Nos vemos mañana'], 'saludo-10-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-10-input', ['Hasta mañana'], 'saludo-10-feedback')">Verificar</button>
             <span id="saludo-10-feedback" class="feedback-inline"></span>
         </div>
 
@@ -590,7 +691,7 @@
             <span>11.</span>
             <label>Quieres presentar a dos personas:</label>
             <input type="text" id="saludo-11-input" placeholder="Te presento a... / Ella es...">
-            <button onclick="checkAnswer('saludo-11-input', ['Te presento a...', 'Ella es...'], 'saludo-11-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-11-input', ['Te presento a...'], 'saludo-11-feedback')">Verificar</button>
             <span id="saludo-11-feedback" class="feedback-inline"></span>
         </div>
 
@@ -598,7 +699,7 @@
             <span>12.</span>
             <label>Te disculpas por un pequeño error:</label>
             <input type="text" id="saludo-12-input" placeholder="Lo siento / Perdón">
-            <button onclick="checkAnswer('saludo-12-input', ['Lo siento', 'Perdón'], 'saludo-12-feedback')">Verificar</button>
+            <button onclick="checkAnswer('saludo-12-input', ['Lo siento'], 'saludo-12-feedback')">Verificar</button>
             <span id="saludo-12-feedback" class="feedback-inline"></span>
         </div>
 
@@ -1059,6 +1160,145 @@
                 <span id="plural-c-7-feedback" class="feedback-inline"></span>
             </div>
             
+        </div> <div class="divider-bar"></div>
+
+        <h2>8. Interpretación de Texto</h2>
+        <p>Lee atentamente los textos y selecciona la opción que mejor responda a cada pregunta. Utiliza el botón **Verificar** para comprobar tu respuesta.</p>
+
+        <div class="exercise-section">
+                
+                <h4>A) eSports: Competencias Profesionales</h4>
+                <p style="font-style: italic; background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+                    Los deportes electrónicos, también conocidos como **eSports**, han experimentado un **crecimiento exponencial** en los últimos años. Se trata de **competiciones de videojuegos organizadas a nivel profesional**, donde los jugadores compiten **individualmente o en equipos** por **premios en efectivo** y **reconocimiento**.
+                </p>
+
+                <p>1. ¿Cuál es el tema principal del texto?</p>
+                <form id="ej8a-q1">
+                    <label><input type="radio" name="q1" value="a"> a) La historia de los videojuegos.</label><br>
+                    <label><input type="radio" name="q1" value="b"> b) El crecimiento de los eSports.</label><br>
+                    <label><input type="radio" name="q1" value="c"> c) Las competiciones de deportes tradicionales.</label><br>
+                    <label><input type="radio" name="q1" value="d"> d) La tecnología en la educación.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q1', 'b', 'ej8a-q1-feedback')">Verificar</button>
+                    <span id="ej8a-q1-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>2. ¿Qué son los deportes electrónicos?</p>
+                <form id="ej8a-q2">
+                    <label><input type="radio" name="q2" value="a"> a) Actividades físicas al aire libre.</label><br>
+                    <label><input type="radio" name="q2" value="b"> b) Competiciones de videojuegos a nivel profesional.</label><br>
+                    <label><input type="radio" name="q2" value="c"> c) Deportes tradicionales como el fútbol y el baloncesto.</label><br>
+                    <label><input type="radio" name="q2" value="d"> d) Pruebas de habilidad mental.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q2', 'b', 'ej8a-q2-feedback')">Verificar</button>
+                    <span id="ej8a-q2-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>3. ¿Qué es característico de los eSports?</p>
+                <form id="ej8a-q3">
+                    <label><input type="radio" name="q3" value="a"> a) La ausencia de premios en efectivo.</label><br>
+                    <label><input type="radio" name="q3" value="b"> b) La organización por parte de federaciones deportivas.</label><br>
+                    <label><input type="radio" name="q3" value="c"> c) La competencia en videojuegos a nivel profesional.</label><br>
+                    <label><input type="radio" name="q3" value="d"> d) El uso exclusivo de consolas de videojuegos.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q3', 'c', 'ej8a-q3-feedback')">Verificar</button>
+                    <span id="ej8a-q3-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>4. ¿Por qué han crecido tanto los deportes electrónicos en los últimos años?</p>
+                <form id="ej8a-q4">
+                    <label><input type="radio" name="q4" value="a"> a) Por la falta de interés del público joven.</label><br>
+                    <label><input type="radio" name="q4" value="b"> b) Por la facilidad de acceso a los videojuegos.</label><br>
+                    <label><input type="radio" name="q4" value="c"> c) Por la falta de competencia en otras áreas.</label><br>
+                    <label><input type="radio" name="q4" value="d"> d) Por el alto costo de participación.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q4', 'b', 'ej8a-q4-feedback')">Verificar</button>
+                    <span id="ej8a-q4-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>5. ¿Cuál es uno de los principales atractivos de los eSports?</p>
+                <form id="ej8a-q5">
+                    <label><input type="radio" name="q5" value="a"> a) La ausencia de competencia.</label><br>
+                    <label><input type="radio" name="q5" value="b"> b) El reconocimiento a nivel mundial.</label><br>
+                    <label><input type="radio" name="q5" value="c"> c) La falta de diversidad en los juegos.</label><br>
+                    <label><input type="radio" name="q5" value="d"> d) La falta de desafíos para los jugadores.</label><br>
+                </form>
+                <div style="margin-bottom: 20px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8a-q5', 'b', 'ej8a-q5-feedback')">Verificar</button>
+                    <span id="ej8a-q5-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <hr>
+
+                <h4>B) Inteligencia Artificial: Sistemas Inteligentes</h4>
+                <p style="font-style: italic; background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+                    La **inteligencia artificial (IA)** es un **área de la informática** que se dedica a crear **sistemas capaces de realizar tareas que requieren inteligencia humana**. Estos sistemas pueden **aprender de la experiencia**, **reconocer patrones** y **tomar decisiones autónomas**.
+                </p>
+
+                <p>1. ¿Cuál es el tema principal del texto?</p>
+                <form id="ej8b-q1">
+                    <label><input type="radio" name="q1" value="a"> a) La historia de la informática.</label><br>
+                    <label><input type="radio" name="q1" value="b"> b) Los sistemas operativos.</label><br>
+                    <label><input type="radio" name="q1" value="c"> c) La inteligencia artificial.</label><br>
+                    <label><input type="radio" name="q1" value="d"> d) La evolución de los ordenadores.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q1', 'c', 'ej8b-q1-feedback')">Verificar</button>
+                    <span id="ej8b-q1-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>2. ¿Qué es la inteligencia artificial?</p>
+                <form id="ej8b-q2">
+                    <label><input type="radio" name="q2" value="a"> a) La capacidad de los ordenadores para aprender.</label><br>
+                    <label><input type="radio" name="q2" value="b"> b) Un área de la informática que busca crear sistemas inteligentes.</label><br>
+                    <label><input type="radio" name="q2" value="c"> c) Un tipo de software utilizado en teléfonos móviles.</label><br>
+                    <label><input type="radio" name="q2" value="d"> d) Un tipo de juego de mesa.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q2', 'b', 'ej8b-q2-feedback')">Verificar</button>
+                    <span id="ej8b-q2-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>3. ¿Qué pueden hacer los sistemas de inteligencia artificial?</p>
+                <form id="ej8b-q3">
+                    <label><input type="radio" name="q3" value="a"> a) Realizar tareas que requieren inteligencia humana.</label><br>
+                    <label><input type="radio" name="q3" value="b"> b) Cocinar platos de comida.</label><br>
+                    <label><input type="radio" name="q3" value="c"> c) Escribir novelas.</label><br>
+                    <label><input type="radio" name="q3" value="d"> d) Conducir automóviles sin conductor.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q3', 'a', 'ej8b-q3-feedback')">Verificar</button>
+                    <span id="ej8b-q3-feedback" style="margin-left: 10px;"></span>
+                </div>
+
+                <p>4. ¿Cómo pueden aprender los sistemas de inteligencia artificial?</p>
+                <form id="ej8b-q4">
+                    <label><input type="radio" name="q4" value="a"> a) Solo a través de libros de texto.</label><br>
+                    <label><input type="radio" name="q4" value="b"> b) Observando la naturaleza.</label><br>
+                    <label><input type="radio" name="q4" value="c"> c) A través de la experiencia y el reconocimiento de patrones.</label><br>
+                    <label><input type="radio" name="q4" value="d"> d) Mediante la repetición de instrucciones.</label><br>
+                </form>
+                <div style="margin-bottom: 10px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q4', 'c', 'ej8b-q4-feedback')">Verificar</button>
+                    <span id="ej8b-q4-feedback" style="margin-left: 10px;"></span>
+                </div>
+                
+                <p>5. ¿Por qué la inteligencia artificial es importante en la actualidad?</p>
+                <form id="ej8b-q5">
+                    <label><input type="radio" name="q5" value="a"> a) Porque puede reemplazar a los humanos en todos los trabajos.</label><br>
+                    <label><input type="radio" name="q5" value="b"> b) Porque puede realizar tareas de manera más rápida y eficiente que los humanos.</label><br>
+                    <label><input type="radio" name="q5" value="c"> c) Porque puede tomar decisiones sin necesidad de supervisión humana.</label><br>
+                    <label><input type="radio" name="q5" value="d"> d) Porque no tiene aplicaciones prácticas en la vida cotidiana.</label><br>
+                </form>
+                <div style="margin-bottom: 20px;">
+                    <button class="play-button yo-verify" onclick="checkRadioAnswer('ej8b-q5', 'b', 'ej8b-q5-feedback')">Verificar</button>
+                    <span id="ej8b-q5-feedback" style="margin-left: 10px;"></span>
+                </div>
+
         </div> <div class="divider-bar"></div>
 
     </div>
