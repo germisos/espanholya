@@ -257,21 +257,28 @@
         background-color: #a71d2a;
     }
 
-        /* ========================================================= */
-/* CÓDIGO PARA REDUCIR ESPACIADO VERTICAL EN EL EJERCICIO 5 */
+/* ========================================================= */
+/* CÓDIGO FORZADO PARA MINIMIZAR ESPACIO EN EJERCICIO 5 */
 /* ========================================================= */
 
-/* 1. Reducir el margen superior e inferior de los párrafos (las preguntas) */
+/* 1. Ajuste de los párrafos de preguntas (si siguen separados) */
 .exercise-section p {
-    margin-top: 5px;   
-    margin-bottom: 5px; 
+    margin-top: 5px !important;    /* Forzar margen superior pequeño */
+    margin-bottom: 5px !important; /* Forzar margen inferior pequeño */
 }
 
-/* 2. Reducir el espacio entre las opciones de respuesta (a, b, c, d) */
+/* 2. Ajuste forzado de las opciones de radio (a, b, c, d) */
 .exercise-section form label {
-    display: block;    /* Para asegurar que cada opción vaya en su propia línea */
-    margin: 2px 0;     /* Margen muy pequeño arriba y abajo (lo que junta los renglones) */
-    padding: 2px 0;    /* Relleno muy pequeño arriba y abajo */
+    display: block !important;     /* Asegura que ocupen toda la línea */
+    margin: 1px 0 !important;      /* Margen mínimo forzado */
+    padding: 1px 0 !important;     /* Relleno mínimo forzado */
+    line-height: 1.1 !important;   /* Reduce la altura de la línea de texto */
+}
+
+/* 3. Ajuste del div contenedor del botón 'Verificar' */
+/* Esto reduce el espacio entre las opciones y el botón */
+.exercise-section div {
+    margin-bottom: 5px !important;
 }
     </style>
     
