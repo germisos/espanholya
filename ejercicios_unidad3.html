@@ -173,25 +173,45 @@
         }
         
         // Función principal para verificar una respuesta de texto (input simple)
-        function checkAnswer(inputId, correctAnswer, feedbackId) {
+        function checkAnswer(inputId, correctAnswers, feedbackId) {
+            // Permitir que 'correctAnswers' sea un string (para un solo valor) o un array
+            const answersArray = Array.isArray(correctAnswers) ? correctAnswers : [correctAnswers];
+            
             const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
-            const correctLower = correctAnswer.trim().toLowerCase();
-            
-            const userAnswerNoAccent = removeAccents(userAnswer);
-            const correctNoAccent = removeAccents(correctLower);
-            
             const feedbackElement = document.getElementById(feedbackId);
             
             // Limpiar estilos anteriores
             feedbackElement.className = '';
             document.getElementById(inputId).style.border = '1px solid #ccc';
             
-            if (userAnswerNoAccent === correctNoAccent || userAnswer === correctLower) {
+            let isCorrect = false;
+            let displayAnswer = '';
+
+            for (const correct of answersArray) {
+                const correctLower = correct.trim().toLowerCase();
+                const userAnswerNoAccent = removeAccents(userAnswer);
+                const correctNoAccent = removeAccents(correctLower);
+                
+                if (userAnswerNoAccent === correctNoAccent || userAnswer === correctLower) {
+                    isCorrect = true;
+                    // Muestra la respuesta correcta tal como fue ingresada en el array de respuestas
+                    displayAnswer = correct; 
+                    break;
+                }
+                // Si no es correcto, guardamos la primera respuesta para mostrarla como solución
+                if (!displayAnswer) {
+                     displayAnswer = correct;
+                }
+            }
+
+            if (isCorrect) {
                 feedbackElement.textContent = '¡Correcto! ✅';
                 feedbackElement.className = 'correct';
                 document.getElementById(inputId).style.border = '2px solid #388E3C';
             } else {
-                feedbackElement.textContent = `Incorrecto. Solución: ${correctAnswer}`;
+                // Si hay múltiples respuestas posibles, muestra todas
+                const solutions = answersArray.join(' / ');
+                feedbackElement.textContent = `Incorrecto. Solución: ${solutions}`;
                 feedbackElement.className = 'incorrect';
                 document.getElementById(inputId).style.border = '2px solid #D32F2F';
             }
@@ -260,7 +280,8 @@
         <h2>1. Escucha y completa las cajas con la conjugación adecuada. Luego verifica si está bien.</h2>
         
         <h3>1.1. Verbo HACER (-ER)</h3>
-      
+        <p>Completa la conjugación en Presente de Indicativo del verbo **HACER**.</p>
+
         <div class="conjugation-grid">
             <span>Yo</span>
             <input type="text" id="hacer-yo-input">
@@ -470,101 +491,101 @@
         <div class="divider-bar"></div>
 
         <h2>2. Saludos y Despedidas</h2>
-        <h3>2.1. Elige la opción correcta (Mínimo 12 ejercicios)</h3>
+        <h3>2.1. Elige la opción correcta</h3>
 
         <div class="ejercicio-linea">
             <span>1.</span>
             <label>Te encuentras con tu jefe a las 8:00 de la mañana:</label>
-            <input type="text" id="saludo-1-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-1-input', 'Buenos días', 'saludo-1-feedback')">Verificar</button>
+            <input type="text" id="saludo-1-input" placeholder="Buenos días / Buenas">
+            <button onclick="checkAnswer('saludo-1-input', ['Buenos días', 'Buenas'], 'saludo-1-feedback')">Verificar</button>
             <span id="saludo-1-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>2.</span>
             <label>Te despides de un amigo a las 23:00:</label>
-            <input type="text" id="saludo-2-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-2-input', 'Buenas noches', 'saludo-2-feedback')">Verificar</button>
+            <input type="text" id="saludo-2-input" placeholder="Buenas noches / Chao">
+            <button onclick="checkAnswer('saludo-2-input', ['Buenas noches', 'Chao'], 'saludo-2-feedback')">Verificar</button>
             <span id="saludo-2-feedback" class="feedback-inline"></span>
         </div>
         
         <div class="ejercicio-linea">
             <span>3.</span>
             <label>Contestas el teléfono de casa:</label>
-            <input type="text" id="saludo-3-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-3-input', 'Diga', 'saludo-3-feedback')">Verificar</button>
+            <input type="text" id="saludo-3-input" placeholder="Diga / ¿Sí?">
+            <button onclick="checkAnswer('saludo-3-input', ['Diga', 'Sí'], 'saludo-3-feedback')">Verificar</button>
             <span id="saludo-3-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>4.</span>
             <label>Te vas a mediodía para volver por la tarde:</label>
-            <input type="text" id="saludo-4-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-4-input', 'Hasta luego', 'saludo-4-feedback')">Verificar</button>
+            <input type="text" id="saludo-4-input" placeholder="Hasta luego / Nos vemos">
+            <button onclick="checkAnswer('saludo-4-input', ['Hasta luego', 'Nos vemos'], 'saludo-4-feedback')">Verificar</button>
             <span id="saludo-4-feedback" class="feedback-inline"></span>
         </div>
         
         <div class="ejercicio-linea">
             <span>5.</span>
             <label>Preguntas a tu amigo cómo está (informal):</label>
-            <input type="text" id="saludo-5-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-5-input', 'Qué tal', 'saludo-5-feedback')">Verificar</button>
+            <input type="text" id="saludo-5-input" placeholder="Qué tal / Cómo estás">
+            <button onclick="checkAnswer('saludo-5-input', ['Qué tal', 'Cómo estás'], 'saludo-5-feedback')">Verificar</button>
             <span id="saludo-5-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>6.</span>
             <label>Te encuentras con un conocido a las 18:00:</label>
-            <input type="text" id="saludo-6-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-6-input', 'Buenas tardes', 'saludo-6-feedback')">Verificar</button>
+            <input type="text" id="saludo-6-input" placeholder="Buenas tardes / Hola">
+            <button onclick="checkAnswer('saludo-6-input', ['Buenas tardes', 'Hola'], 'saludo-6-feedback')">Verificar</button>
             <span id="saludo-6-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>7.</span>
             <label>Llegas a una reunión de amigos:</label>
-            <input type="text" id="saludo-7-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-7-input', 'Hola a todos', 'saludo-7-feedback')">Verificar</button>
+            <input type="text" id="saludo-7-input" placeholder="Hola a todos / Buenas">
+            <button onclick="checkAnswer('saludo-7-input', ['Hola a todos', 'Buenas'], 'saludo-7-feedback')">Verificar</button>
             <span id="saludo-7-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>8.</span>
             <label>Respondes a un "Gracias":</label>
-            <input type="text" id="saludo-8-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-8-input', 'De nada', 'saludo-8-feedback')">Verificar</button>
+            <input type="text" id="saludo-8-input" placeholder="De nada / No hay de qué">
+            <button onclick="checkAnswer('saludo-8-input', ['De nada', 'No hay de qué'], 'saludo-8-feedback')">Verificar</button>
             <span id="saludo-8-feedback" class="feedback-inline"></span>
         </div>
         
         <div class="ejercicio-linea">
             <span>9.</span>
             <label>Le deseas buen fin de semana a un compañero:</label>
-            <input type="text" id="saludo-9-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-9-input', 'Que disfrutes', 'saludo-9-feedback')">Verificar</button>
+            <input type="text" id="saludo-9-input" placeholder="Que disfrutes / Buen fin de semana">
+            <button onclick="checkAnswer('saludo-9-input', ['Que disfrutes', 'Buen fin de semana'], 'saludo-9-feedback')">Verificar</button>
             <span id="saludo-9-feedback" class="feedback-inline"></span>
         </div>
         
         <div class="ejercicio-linea">
             <span>10.</span>
             <label>Te despides de alguien que vas a ver al día siguiente:</label>
-            <input type="text" id="saludo-10-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-10-input', 'Hasta mañana', 'saludo-10-feedback')">Verificar</button>
+            <input type="text" id="saludo-10-input" placeholder="Hasta mañana / Nos vemos mañana">
+            <button onclick="checkAnswer('saludo-10-input', ['Hasta mañana', 'Nos vemos mañana'], 'saludo-10-feedback')">Verificar</button>
             <span id="saludo-10-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>11.</span>
             <label>Quieres presentar a dos personas:</label>
-            <input type="text" id="saludo-11-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-11-input', 'Te presento a...', 'saludo-11-feedback')">Verificar</button>
+            <input type="text" id="saludo-11-input" placeholder="Te presento a... / Ella es...">
+            <button onclick="checkAnswer('saludo-11-input', ['Te presento a...', 'Ella es...'], 'saludo-11-feedback')">Verificar</button>
             <span id="saludo-11-feedback" class="feedback-inline"></span>
         </div>
 
         <div class="ejercicio-linea">
             <span>12.</span>
             <label>Te disculpas por un pequeño error:</label>
-            <input type="text" id="saludo-12-input" placeholder="respuesta">
-            <button onclick="checkAnswer('saludo-12-input', 'Lo siento', 'saludo-12-feedback')">Verificar</button>
+            <input type="text" id="saludo-12-input" placeholder="Lo siento / Perdón">
+            <button onclick="checkAnswer('saludo-12-input', ['Lo siento', 'Perdón'], 'saludo-12-feedback')">Verificar</button>
             <span id="saludo-12-feedback" class="feedback-inline"></span>
         </div>
 
@@ -787,36 +808,3 @@
         
         <div class="ejercicio-linea">
             <span>9.</span>
-            <label>¿Son (**sus**) estos <span style="font-style: italic;">relojes</span>?</label>
-            <input type="text" id="posesion-9-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-9-input', 'Sus', 'posesion-9-feedback')">Verificar</button>
-            <span id="posesion-9-feedback" class="feedback-inline"></span>
-        </div>
-        
-        <div class="ejercicio-linea">
-            <span>10.</span>
-            <label>(**Mi** / Mío) hermana es profesora.</label>
-            <input type="text" id="posesion-10-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-10-input', 'Mi', 'posesion-10-feedback')">Verificar</button>
-            <span id="posesion-10-feedback" class="feedback-inline"></span>
-        </div>
-
-        <div class="ejercicio-linea">
-            <span>11.</span>
-            <label>(**Tu** / Tuyo) perro es muy ruidoso.</label>
-            <input type="text" id="posesion-11-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-11-input', 'Tu', 'posesion-11-feedback')">Verificar</button>
-            <span id="posesion-11-feedback" class="feedback-inline"></span>
-        </div>
-
-        <div class="ejercicio-linea">
-            <span>12.</span>
-            <label>El jersey es (sus / **suyo**).</label>
-            <input type="text" id="posesion-12-input" placeholder="respuesta">
-            <button onclick="checkAnswer('posesion-12-input', 'Suyo', 'posesion-12-feedback')">Verificar</button>
-            <span id="posesion-12-feedback" class="feedback-inline"></span>
-        </div>
-
-    </div>
-</body>
-</html>
