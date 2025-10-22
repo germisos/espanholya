@@ -67,7 +67,8 @@
     }
 
     /* =====================================
-        ESTILOS ESPECÍFICOS DE CONJUGACIÓN (SOLUCIÓN FINAL)
+        ESTILOS ESPECÍFICOS DE CONJUGACIÓN 
+        (Mantenidos para referencia, aunque la Sección 2 usa .ejercicio-linea)
         ===================================== */
         
     /* 1. Definición del Grid */
@@ -90,13 +91,7 @@
         box-sizing: border-box;
     }
     
-    /* Estilo para los pronombres, asegurando que no se rompan en línea */
-    .conjugation-grid span:first-child {
-        white-space: nowrap;
-        font-weight: bold;
-    }
-
-    /* 3. Estabilización del Feedback (Detiene el movimiento) */
+    /* 3. Estabilización del Feedback para Conjugación */
     .conjugation-grid span[id$="-feedback"] {
         min-width: 180px; /* Ancho FIJO para el espacio de feedback */
         font-weight: bold;
@@ -105,7 +100,7 @@
         color: #007bff; 
         border-left: 3px solid transparent; 
         box-sizing: border-box;
-        line-height: 1.3; /* Espaciado de línea para texto de feedback */
+        line-height: 1.3; 
     }
 
     /* Estilos para los mensajes de Correcto/Incorrecto */
@@ -119,20 +114,23 @@
         color: #dc3545 !important;
     }
     
-    /* Estilos para el ejercicio de Saludos y Posesión */
+    /* =====================================
+        ESTILOS ESPECÍFICOS DE EJERCICIO EN LÍNEA (SECCIONES 2 y 4)
+        ===================================== */
     .ejercicio-linea {
         display: flex;
         align-items: center;
         margin-bottom: 15px;
         gap: 10px;
     }
-    .ejercicio-linea span {
+    .ejercicio-linea span:first-child {
         flex-shrink: 0;
         font-weight: bold;
         width: 40px; /* Para la numeración */
     }
     .ejercicio-linea label {
-        flex-grow: 1; /* Permite que la etiqueta ocupe el espacio */
+        flex-grow: 1; 
+        min-width: 150px; /* Asegura que la label tenga espacio para el texto */
     }
     .ejercicio-linea input[type="text"] {
         padding: 8px;
@@ -142,12 +140,16 @@
         max-width: 250px;
     }
     .ejercicio-linea button {
-        margin-left: 10px;
+        margin-left: 5px;
+        flex-shrink: 0;
     }
+    
+    /* CORRECCIÓN: Estabilización del Feedback en Línea */
     .ejercicio-linea .feedback-inline {
-        min-width: 150px;
+        min-width: 150px; /* Ancho FIJO para evitar que otros elementos se muevan */
         font-weight: bold;
         padding-left: 5px;
+        flex-shrink: 0; /* Evita que se encoja */
     }
 
     /* Estilos específicos para Dictado de Números */
@@ -181,7 +183,7 @@
             const feedbackElement = document.getElementById(feedbackId);
             
             // Limpiar estilos anteriores
-            feedbackElement.className = '';
+            feedbackElement.className = 'feedback-inline'; // Mantener la clase de estilo de línea
             document.getElementById(inputId).style.border = '1px solid #ccc';
             
             let isCorrect = false;
@@ -206,13 +208,13 @@
 
             if (isCorrect) {
                 feedbackElement.textContent = '¡Correcto! ✅';
-                feedbackElement.className = 'correct';
+                feedbackElement.classList.add('correct');
                 document.getElementById(inputId).style.border = '2px solid #388E3C';
             } else {
                 // Si hay múltiples respuestas posibles, muestra todas
                 const solutions = answersArray.join(' / ');
                 feedbackElement.textContent = `Incorrecto. Solución: ${solutions}`;
-                feedbackElement.className = 'incorrect';
+                feedbackElement.classList.add('incorrect');
                 document.getElementById(inputId).style.border = '2px solid #D32F2F';
             }
         }
@@ -808,3 +810,36 @@
         
         <div class="ejercicio-linea">
             <span>9.</span>
+            <label>¿Son (**sus**) estos <span style="font-style: italic;">relojes</span>?</label>
+            <input type="text" id="posesion-9-input" placeholder="respuesta">
+            <button onclick="checkAnswer('posesion-9-input', 'Sus', 'posesion-9-feedback')">Verificar</button>
+            <span id="posesion-9-feedback" class="feedback-inline"></span>
+        </div>
+        
+        <div class="ejercicio-linea">
+            <span>10.</span>
+            <label>(**Mi** / Mío) hermana es profesora.</label>
+            <input type="text" id="posesion-10-input" placeholder="respuesta">
+            <button onclick="checkAnswer('posesion-10-input', 'Mi', 'posesion-10-feedback')">Verificar</button>
+            <span id="posesion-10-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>11.</span>
+            <label>(**Tu** / Tuyo) perro es muy ruidoso.</label>
+            <input type="text" id="posesion-11-input" placeholder="respuesta">
+            <button onclick="checkAnswer('posesion-11-input', 'Tu', 'posesion-11-feedback')">Verificar</button>
+            <span id="posesion-11-feedback" class="feedback-inline"></span>
+        </div>
+
+        <div class="ejercicio-linea">
+            <span>12.</span>
+            <label>El jersey es (sus / **suyo**).</label>
+            <input type="text" id="posesion-12-input" placeholder="respuesta">
+            <button onclick="checkAnswer('posesion-12-input', 'Suyo', 'posesion-12-feedback')">Verificar</button>
+            <span id="posesion-12-feedback" class="feedback-inline"></span>
+        </div>
+
+    </div>
+</body>
+</html>
