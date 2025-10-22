@@ -221,7 +221,9 @@
         flex-grow: 0;
     }
     
-    /* Estilos para la nueva Sección 8 de Interpretación de Texto (Radio Buttons) */
+    /* =====================================
+        ESTILOS SECCIÓN 5: INTERPRETACIÓN DE TEXTO (CORREGIDOS)
+        ===================================== */
     .exercise-section {
         margin-top: 20px;
         padding: 15px;
@@ -235,17 +237,30 @@
         padding-bottom: 5px;
         margin-top: 0;
     }
-    
+
+    /* 1. AJUSTE DE PÁRRAFOS (PREGUNTAS) - ESPACIO MÍNIMO */
+    .exercise-section p {
+        margin-top: 5px !important; 
+        margin-bottom: 5px !important;
+    }
+
+    /* 2. AJUSTE DE OPCIONES (LABEL) - REGLA DEFINITIVA PARA JUNTAR RENGLONES */
     .exercise-section form label {
         display: block; /* Cada opción en una nueva línea */
-        margin-bottom: 5px;
-        padding: 5px 0;
+        margin: 1px 0 !important; /* Margen superior e inferior mínimo forzado */
+        padding: 1px 0 !important; /* Relleno superior e inferior mínimo forzado */
+        line-height: 1.1 !important; /* Altura de línea compacta forzada */
         transition: background-color 0.2s;
         cursor: pointer;
     }
 
     .exercise-section form label:hover {
         background-color: #e9ecef;
+    }
+    
+    /* 3. AJUSTE DEL DIV CONTENEDOR DEL BOTÓN 'VERIFICAR' */
+    .exercise-section div {
+        margin-bottom: 5px !important;
     }
 
     .exercise-section .yo-verify {
@@ -256,31 +271,7 @@
     .exercise-section .yo-verify:hover {
         background-color: #a71d2a;
     }
-
-/* ========================================================= */
-/* CÓDIGO FORZADO PARA MINIMIZAR ESPACIO EN EJERCICIO 5 */
-/* ========================================================= */
-
-/* 1. Ajuste de los párrafos de preguntas (si siguen separados) */
-.exercise-section p {
-    margin-top: 5px !important;    /* Forzar margen superior pequeño */
-    margin-bottom: 5px !important; /* Forzar margen inferior pequeño */
-}
-
-/* 2. Ajuste forzado de las opciones de radio (a, b, c, d) */
-.exercise-section form label {
-    display: block !important;     /* Asegura que ocupen toda la línea */
-    margin: 1px 0 !important;      /* Margen mínimo forzado */
-    padding: 1px 0 !important;     /* Relleno mínimo forzado */
-    line-height: 1.1 !important;   /* Reduce la altura de la línea de texto */
-}
-
-/* 3. Ajuste del div contenedor del botón 'Verificar' */
-/* Esto reduce el espacio entre las opciones y el botón */
-.exercise-section div {
-    margin-bottom: 5px !important;
-}
-    </style>
+</style>
     
 </head>
 <body>
