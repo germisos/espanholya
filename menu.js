@@ -1,4 +1,4 @@
-// menu.js - versión robusta y defensiva
+// menu.js - versión robusta, con estilos inyectados para consistencia visual
 (function () {
   if (window.__MENU_JS_LOADED) return;
   window.__MENU_JS_LOADED = true;
@@ -13,45 +13,45 @@
           <nav>
             <ul class="main-menu" style="list-style:none;display:flex;gap:12px;padding:0;margin:0;">
               <li><a href="index.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Inicio</a></li>
-              
+
               <li class="dropdown" style="position:relative;">
                 <a href="#" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Curso ▾</a>
-                <ul class="dropdown-content" style="position:absolute;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 4px 8px rgba(0,0,0,0.1);z-index:1000;min-width:180px;display:none;">
+                <ul class="dropdown-content" style="position:absolute;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1000;min-width:180px;display:none;">
 
                   <!-- NIVEL A1 -->
                   <li class="sub-dropdown" style="position:relative;">
                     <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Nivel A1 ►</a>
-                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 4px 8px rgba(0,0,0,0.1);z-index:1001;min-width:220px;display:none;">
-                      <li><a href="unidad1.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 1 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad1.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U1</a></li>
-                      <li><a href="unidad2.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 2 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad2.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U2</a></li>
-                      <li><a href="unidad3.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 3 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad3.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U3</a></li>
+                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
+                      <li><a href="unidad1.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 1 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad1.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U1</a></li>
+                      <li><a href="unidad2.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 2 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad2.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U2</a></li>
+                      <li><a href="unidad3.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 3 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad3.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U3</a></li>
                     </ul>
                   </li>
 
                   <!-- NIVEL A2 -->
                   <li class="sub-dropdown" style="position:relative;">
                     <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Nivel A2 ►</a>
-                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 4px 8px rgba(0,0,0,0.1);z-index:1001;min-width:220px;display:none;">
-                      <li><a href="unidad4.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 4 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad4.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U4</a></li>
-                      <li><a href="unidad5.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 5 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad5.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U5</a></li>
-                      <li><a href="unidad6.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 6 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad6.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U6</a></li>
+                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
+                      <li><a href="unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 4 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U4</a></li>
+                      <li><a href="unidad5.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 5 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad5.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U5</a></li>
+                      <li><a href="unidad6.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 6 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad6.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U6</a></li>
                     </ul>
                   </li>
 
                   <!-- NIVEL B1 -->
                   <li class="sub-dropdown" style="position:relative;">
                     <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Nivel B1 ►</a>
-                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 4px 8px rgba(0,0,0,0.1);z-index:1001;min-width:220px;display:none;">
-                      <li><a href="unidad7.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 7 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad7.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U7</a></li>
-                      <li><a href="unidad8.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Unidad 8 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad8.html" style="color:#333;text-decoration:none;padding:5px 15px;display:block;">Ejercicios U8</a></li>
+                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
+                      <li><a href="unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 7 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U7</a></li>
+                      <li><a href="unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 8 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U8</a></li>
                     </ul>
                   </li>
 
@@ -78,7 +78,8 @@
         console.error("menu.js: headerNode no creado");
         return;
       }
-      document.body.insertBefore(headerNode, document.body.firstChild);
+      // use firstElementChild to avoid text nodes
+      document.body.insertBefore(headerNode, document.body.firstElementChild);
       console.log("menu.js: header insertado");
 
       // attach interactions
@@ -108,53 +109,32 @@
         }
       });
 
+      // === UNIFICAR ESTILO VISUAL DEL MENÚ (inyección segura) ===
+      const style = document.createElement("style");
+      style.textContent = `
+        #mainHeader, #mainHeader * {
+          font-family: Arial, sans-serif !important;
+          font-size: 15px !important;
+          line-height: 1.4 !important;
+          box-sizing: border-box;
+        }
+        #mainHeader .menu-link { color: white !important; text-decoration: none !important; font-weight: bold !important; }
+        #mainHeader .dropdown-content a, #mainHeader .sub-dropdown-content a {
+          color: #333 !important;
+          background: white !important;
+          padding: 8px 15px !important;
+          display: block !important;
+        }
+        #mainHeader .dropdown-content a:hover, #mainHeader .sub-dropdown-content a:hover {
+          background: #007bff !important;
+          color: white !important;
+        }
+      `;
+      document.head.appendChild(style);
+
       console.log("menu.js: listo");
     } catch (err) {
       console.error("menu.js error:", err);
     }
   });
-  // === UNIFICAR ESTILO VISUAL DEL MENÚ ===
-const style = document.createElement("style");
-style.textContent = `
-  #mainHeader, 
-  #mainHeader * {
-    font-family: Arial, sans-serif !important;
-    font-size: 15px !important;
-    line-height: 1.4 !important;
-    box-sizing: border-box;
-  }
-
-  #mainHeader a.menu-link {
-    color: white !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-  }
-
-  #mainHeader ul {
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  #mainHeader li {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Corrige color en submenús */
-  #mainHeader .dropdown-content a,
-  #mainHeader .sub-dropdown-content a {
-    color: #333 !important;
-    background: white !important;
-  }
-
-  /* Efecto hover consistente */
-  #mainHeader .dropdown-content a:hover,
-  #mainHeader .sub-dropdown-content a:hover {
-    background: #007bff !important;
-    color: white !important;
-  }
-`;
-document.head.appendChild(style);
-
 })();
