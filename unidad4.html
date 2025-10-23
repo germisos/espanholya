@@ -9,10 +9,9 @@
     
     <style>
     /* =====================================
-       ESTILOS UNIDAD 4 (ADOPTANDO EL FORMATO UNIDAD 1/2)
+       ESTILOS GENERALES Y LAYOUT
        ===================================== */
 
-    /* --- Configuración general --- */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -22,10 +21,8 @@
         line-height: 1.6;
     }
     
-    /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
     .lesson-container {
         max-width: 900px; 
-        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
         margin: 80px auto 25px auto; 
         padding: 25px; 
         background: white;
@@ -33,18 +30,15 @@
         box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
     }
     
-    /* --- Títulos (Ajuste visual) --- */
     h1, h2, h3 {
         color: #007bff;
         margin-top: 20px;
     }
 
     /* =====================================
-       ESTILO DE BOTÓN DE AUDIO/VERIFICAR
+       ESTILO DE BOTÓN DE AUDIO (UNIFICADO)
        ===================================== */
-    .play-button, 
-    button {
-        /* Estilos base del botón */
+    .play-button {
         background-color: #007bff; /* Azul primario */
         color: white;
         padding: 8px 15px;
@@ -53,19 +47,17 @@
         cursor: pointer;
         font-size: 14px;
         font-weight: bold;
-        transition: background-color 0.2s; /* Transición suave */
+        transition: background-color 0.2s;
     }
 
-    /* Estilo al pasar el ratón */
-    .play-button:hover,
-    button:hover {
+    .play-button:hover {
         background-color: #0056b3; /* Azul más oscuro al interactuar */
     }
 
     /* =====================================
-       ESTILOS DE TABLAS Y CONTENIDO ESPECÍFICO (COPIADO DE UNIDAD 3)
+       ESTILOS DE TABLAS Y CONTENIDO (CONSISTENTE CON UNIDAD 3)
        ===================================== */
-
+    
     /* Estilo para tablas de conjugación (Compacta) */
     .conjugation-table {
         width: 100%;
@@ -89,6 +81,15 @@
     .conjugation-table td .play-button {
         padding: 5px 10px;
         font-size: 13px;
+    }
+    /* Estilo para la nota explicativa */
+    .note {
+        font-style: italic;
+        color: #6c757d;
+        margin-top: 10px;
+        padding: 5px;
+        border-left: 3px solid #6c757d;
+        background-color: #f1f1f1;
     }
 </style>
 </head>
@@ -162,64 +163,64 @@
         </div>
 
                 <h4>Usos de ESTAR</h4>
-        <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
             
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
-                <p style="margin: 0;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: flex-start;">
+                <p style="margin: 0; flex-grow: 1;">
                     **Localización o Posición:** Describe la ubicación o posición de personas, objetos o lugares.<br>
                     <em style="font-weight: bold;">Ejemplo: el libro está en la mesa.</em>
                 </p>
-                <div>
+                <div style="margin-left: 15px;">
                     <audio id="audio-estar-uso1" src="assets/audio/unidad4/verbos/estar/1.mp3"></audio>
                     <button class="play-button" onclick="document.getElementById('audio-estar-uso1').play()">Oír</button>
                 </div>
             </div>
             
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
-                <p style="margin: 0;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: flex-start;">
+                <p style="margin: 0; flex-grow: 1;">
                     **Estado Temporal o de Ánimo:** Expresa estados temporales o de ánimo.<br>
                     <em style="font-weight: bold;">Ejemplo: estoy cansado. Ella está feliz.</em>
                 </p>
-                <div>
+                <div style="margin-left: 15px;">
                     <audio id="audio-estar-uso2" src="assets/audio/unidad4/verbos/estar/2.mp3"></audio>
                     <button class="play-button" onclick="document.getElementById('audio-estar-uso2').play()">Oír</button>
                 </div>
             </div>
 
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
-                <p style="margin: 0;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: flex-start;">
+                <p style="margin: 0; flex-grow: 1;">
                     **Condiciones Físicas o de Salud:** Se emplea para hablar de condiciones físicas o de salud.<br>
                     <em style="font-weight: bold;">Ejemplo: mi abuela está enferma.</em>
                 </p>
-                <div>
+                <div style="margin-left: 15px;">
                     <audio id="audio-estar-uso3" src="assets/audio/unidad4/verbos/estar/3.mp3"></audio>
                     <button class="play-button" onclick="document.getElementById('audio-estar-uso3').play()">Oír</button>
                 </div>
             </div>
 
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
-                <p style="margin: 0;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: flex-start;">
+                <p style="margin: 0; flex-grow: 1;">
                     **Condiciones Atmosféricas:** Se utiliza para describir el clima o las condiciones atmosféricas.<br>
                     <em style="font-weight: bold;">Ejemplo: hoy está soleado.</em>
                 </p>
-                <div>
+                <div style="margin-left: 15px;">
                     <audio id="audio-estar-uso4" src="assets/audio/unidad4/verbos/estar/4.mp3"></audio>
                     <button class="play-button" onclick="document.getElementById('audio-estar-uso4').play()">Oír</button>
                 </div>
             </div>
 
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
-                <p style="margin: 0;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: flex-start;">
+                <p style="margin: 0; flex-grow: 1;">
                     **Resultados de Acciones:** Se usa para expresar el resultado de una acción.<br>
                     <em style="font-weight: bold;">Ejemplo: el pastel está hecho.</em>
                 </p>
-                <div>
+                <div style="margin-left: 15px;">
                     <audio id="audio-estar-uso5" src="assets/audio/unidad4/verbos/estar/5.mp3"></audio>
                     <button class="play-button" onclick="document.getElementById('audio-estar-uso5').play()">Oír</button>
                 </div>
             </div>
             
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff;">
+            <div class="usage-item" style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff;">
                 <p style="margin: 0 0 10px 0;">
                     **Preguntar por alguien o saludar a alguien:** Se usa para preguntar por la presencia de alguien o si nos interesamos por alguien.
                 </p>
