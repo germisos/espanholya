@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4 - Lección</title>
+    
+    <script src="menu.js" defer></script> 
+    
+    <style>
+    /* =====================================
+       ESTILOS UNIDAD 4 (ADOPTANDO EL FORMATO UNIDAD 1/2)
+       ===================================== */
+
+    /* --- Configuración general --- */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
+    .lesson-container {
+        max-width: 900px; 
+        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+    
+    /* --- Títulos (Ajuste visual) --- */
+    h1, h2, h3 {
+        color: #007bff;
+        margin-top: 20px;
+    }
+
+    /* =====================================
+       ESTILO DE BOTÓN DE AUDIO/VERIFICAR
+       ===================================== */
+    .play-button, 
+    button {
+        /* Estilos base del botón */
+        background-color: #007bff; /* Azul primario */
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s; /* Transición suave */
+    }
+
+    /* Estilo al pasar el ratón */
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3; /* Azul más oscuro al interactuar */
+    }
+
+    /* =====================================
+       ESTILOS DE TABLAS Y CONTENIDO ESPECÍFICO (COPIADO DE UNIDAD 3)
+       ===================================== */
+
+    /* Estilo para tablas de conjugación (Compacta) */
+    .conjugation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+    .conjugation-table th, .conjugation-table td {
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        text-align: left;
+    }
+    .conjugation-table th {
+        background-color: #e9ecef;
+        width: 50%;
+    }
+    .conjugation-table td {
+        text-align: center;
+        width: 50%;
+    }
+    /* Alineación del botón en la celda de audio */
+    .conjugation-table td .play-button {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+</style>
+</head>
+<body>
+    
+    <div id="lesson-menu-placeholder"></div>
+    
+    <div class="lesson-container">
+        
+        <h2>UNIDAD 4</h2>
+        <hr>
+
+                                
+        <h3>1. Forma y Usos del Verbo ESTAR</h3>
+
+                <div style="margin-bottom: 30px;">
+            <h4>Conjugación del Verbo ESTAR (-AR)</h4>
+            <table class="conjugation-table">
+                <thead>
+                    <tr>
+                        <th>Pronombre + Conjugación</th>
+                        <th>Oír</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>(yo) estoy</th>
+                        <td>
+                            <audio id="audio-estar-estoy" src="assets/audio/unidad4/verbos/estar/estoy.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-estoy').play()">Oír</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>(tú) estás</th>
+                        <td>
+                            <audio id="audio-estar-estas" src="assets/audio/unidad4/verbos/estar/estas.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-estas').play()">Oír</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>(él, ella, usted) está</th>
+                        <td>
+                            <audio id="audio-estar-esta" src="assets/audio/unidad4/verbos/estar/esta.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-esta').play()">Oír</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>(nosotros/as) estamos</th>
+                        <td>
+                            <audio id="audio-estar-estamos" src="assets/audio/unidad4/verbos/estar/estamos.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-estamos').play()">Oír</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>(vosotros/as) estáis</th>
+                        <td>
+                            <audio id="audio-estar-estáis" src="assets/audio/unidad4/verbos/estar/estáis.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-estáis').play()">Oír</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>(ellos/as, ustedes) están</th>
+                        <td>
+                            <audio id="audio-estar-estan" src="assets/audio/unidad4/verbos/estar/estan.mp3"></audio>
+                            <button class="play-button" onclick="document.getElementById('audio-estar-estan').play()">Oír</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="note">El verbo **estar** es irregular en casi todas sus formas y se diferencia del verbo **ser** por su significado.</p>
+        </div>
+
+                <h4>Usos de ESTAR</h4>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    **Localización o Posición:** Describe la ubicación o posición de personas, objetos o lugares.<br>
+                    <em style="font-weight: bold;">Ejemplo: el libro está en la mesa.</em>
+                </p>
+                <div>
+                    <audio id="audio-estar-uso1" src="assets/audio/unidad4/verbos/estar/1.mp3"></audio>
+                    <button class="play-button" onclick="document.getElementById('audio-estar-uso1').play()">Oír</button>
+                </div>
+            </div>
+            
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    **Estado Temporal o de Ánimo:** Expresa estados temporales o de ánimo.<br>
+                    <em style="font-weight: bold;">Ejemplo: estoy cansado. Ella está feliz.</em>
+                </p>
+                <div>
+                    <audio id="audio-estar-uso2" src="assets/audio/unidad4/verbos/estar/2.mp3"></audio>
+                    <button class="play-button" onclick="document.getElementById('audio-estar-uso2').play()">Oír</button>
+                </div>
+            </div>
+
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    **Condiciones Físicas o de Salud:** Se emplea para hablar de condiciones físicas o de salud.<br>
+                    <em style="font-weight: bold;">Ejemplo: mi abuela está enferma.</em>
+                </p>
+                <div>
+                    <audio id="audio-estar-uso3" src="assets/audio/unidad4/verbos/estar/3.mp3"></audio>
+                    <button class="play-button" onclick="document.getElementById('audio-estar-uso3').play()">Oír</button>
+                </div>
+            </div>
+
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    **Condiciones Atmosféricas:** Se utiliza para describir el clima o las condiciones atmosféricas.<br>
+                    <em style="font-weight: bold;">Ejemplo: hoy está soleado.</em>
+                </p>
+                <div>
+                    <audio id="audio-estar-uso4" src="assets/audio/unidad4/verbos/estar/4.mp3"></audio>
+                    <button class="play-button" onclick="document.getElementById('audio-estar-uso4').play()">Oír</button>
+                </div>
+            </div>
+
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff; display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    **Resultados de Acciones:** Se usa para expresar el resultado de una acción.<br>
+                    <em style="font-weight: bold;">Ejemplo: el pastel está hecho.</em>
+                </p>
+                <div>
+                    <audio id="audio-estar-uso5" src="assets/audio/unidad4/verbos/estar/5.mp3"></audio>
+                    <button class="play-button" onclick="document.getElementById('audio-estar-uso5').play()">Oír</button>
+                </div>
+            </div>
+            
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff;">
+                <p style="margin: 0 0 10px 0;">
+                    **Preguntar por alguien o saludar a alguien:** Se usa para preguntar por la presencia de alguien o si nos interesamos por alguien.
+                </p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <em style="font-weight: bold;">Ejemplo 1: ¡Hola! ¿Cómo estás?</em>
+                    <div>
+                        <audio id="audio-estar-uso6a" src="assets/audio/unidad4/verbos/estar/6a.mp3"></audio>
+                        <button class="play-button" onclick="document.getElementById('audio-estar-uso6a').play()">Oír</button>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <em style="font-weight: bold;">Ejemplo 2: Buenos días, ¿está Pedro ahí? - No, está trabajando.</em>
+                    <div>
+                        <audio id="audio-estar-uso6b" src="assets/audio/unidad4/verbos/estar/6b.mp3"></audio>
+                        <button class="play-button" onclick="document.getElementById('audio-estar-uso6b').play()">Oír</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+                
+    </div>
+</body>
+</html>
