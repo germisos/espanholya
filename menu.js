@@ -113,4 +113,48 @@
       console.error("menu.js error:", err);
     }
   });
+  // === UNIFICAR ESTILO VISUAL DEL MENÚ ===
+const style = document.createElement("style");
+style.textContent = `
+  #mainHeader, 
+  #mainHeader * {
+    font-family: Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box;
+  }
+
+  #mainHeader a.menu-link {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+  }
+
+  #mainHeader ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #mainHeader li {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Corrige color en submenús */
+  #mainHeader .dropdown-content a,
+  #mainHeader .sub-dropdown-content a {
+    color: #333 !important;
+    background: white !important;
+  }
+
+  /* Efecto hover consistente */
+  #mainHeader .dropdown-content a:hover,
+  #mainHeader .sub-dropdown-content a:hover {
+    background: #007bff !important;
+    color: white !important;
+  }
+`;
+document.head.appendChild(style);
+
 })();
