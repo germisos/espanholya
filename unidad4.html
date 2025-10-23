@@ -1,197 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unidad 4 - Lección</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4 - Lección</title>
 
-  <!-- Menú -->
-  <script src="menu.js" defer></script>
+    <script src="menu.js" defer></script>
 
-  <style>
-  /* Estilos unificados para las unidades */
-  :root {
-    --primary: #007bff;
-    --muted-bg: #f8f9fa;
-    --card-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    --container-width: 900px;
-  }
+    <style>
+    /* =====================================
+       ESTILOS GENERALES — FORMATO UNIFICADO
+       ===================================== */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+    }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-  }
+    .lesson-container {
+        max-width: 900px;
+        margin: 80px auto 25px auto; /* deja espacio para el menú fijo */
+        padding: 25px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
 
-  /* espacio para header fijo */
-  .page-wrap { padding-top: 80px; }
+    h2, h3, h4 {
+        color: #007bff;
+        margin-top: 20px;
+    }
 
-  .lesson-container {
-    max-width: var(--container-width);
-    margin: 0 auto 25px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-  }
+    /* ===========================
+       BOTONES (PLAY / VERIFICAR)
+       =========================== */
+    .play-button, button {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
 
-  h2 { color: var(--primary); margin-top: 0; }
-  h3 { color: var(--primary); margin-top: 20px; }
-  h4 { margin: 12px 0; }
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3;
+    }
 
-  /* Botones consistentes */
-  .play-button,
-  button {
-    background-color: var(--primary);
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px;
-    transition: background .18s, transform .08s;
-  }
-  .play-button:hover,
-  button:hover { background: #0056b3; transform: translateY(-1px); }
+    /* ===========================
+       TABLAS DE CONJUGACIÓN
+       =========================== */
+    .conjugation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px auto;
+    }
+    .conjugation-table th, .conjugation-table td {
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        text-align: left;
+    }
+    .conjugation-table th {
+        background-color: #e9ecef;
+        width: 50%;
+    }
+    .conjugation-table td {
+        text-align: center;
+        width: 50%;
+    }
 
-  /* Tablas */
-  .conjugation-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-  }
-  .conjugation-table th,
-  .conjugation-table td {
-    border: 1px solid #e6e9ef;
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .conjugation-table th { background: #eef3fb; color: #111; }
+    .conjugation-table td .play-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
 
-  .note { font-style: italic; color: #6c757d; margin-top: 10px; padding: 6px; border-left: 3px solid #6c757d; background: #f7f7f7; }
+    .note {
+        font-style: italic;
+        color: #6c757d;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-left: 3px solid #6c757d;
+        background-color: #f1f1f1;
+    }
 
-  /* Uso items */
-  .usage-item {
-    background: var(--muted-bg);
-    padding: 14px;
-    border-radius: 8px;
-    border-left: 5px solid var(--primary);
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
+    /* ===========================
+       BLOQUES DE USOS / EJEMPLOS
+       =========================== */
+    .usage-item {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 5px solid #007bff;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
 
-  .usage-item p { margin: 0; flex: 1; }
+    .usage-item p {
+        margin: 0;
+        flex-grow: 1;
+    }
 
-  /* responsive */
-  @media (max-width: 700px) {
-    .usage-item { flex-direction: column; align-items: stretch; }
-    .play-button { width: 100%; }
-  }
+    .usage-item audio {
+        display: none;
+    }
 
-  /* asegura que encabezado use font consistente (precaución) */
-  #mainHeader, #mainHeader * { font-family: Arial, sans-serif !important; font-size: 15px !important; }
-  </style>
+    hr {
+        margin: 30px 0;
+    }
+    </style>
 </head>
 <body>
-  <div class="page-wrap">
+
     <div class="lesson-container">
-      <h2>UNIDAD 4</h2>
-      <hr>
+        <h2>UNIDAD 4</h2>
+        <hr>
 
-      <h3>1. Forma y Usos del Verbo ESTAR</h3>
+        <h3>1. Forma y Usos del Verbo ESTAR</h3>
 
-      <div style="margin-bottom: 30px;">
-        <h4>Conjugación del Verbo ESTAR</h4>
-        <table class="conjugation-table" aria-label="Conjugación estar">
-          <thead>
-            <tr>
-              <th>Pronombre + Conjugación</th>
-              <th>Oír</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>(yo) estoy</th>
-              <td>
-                <audio id="audio-estar-estoy" src="assets/audio/unidad4/verbos/estar/estoy.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-estoy').play()">Oír</button>
-              </td>
-            </tr>
-            <tr>
-              <th>(tú) estás</th>
-              <td>
-                <audio id="audio-estar-estas" src="assets/audio/unidad4/verbos/estar/estas.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-estas').play()">Oír</button>
-              </td>
-            </tr>
-            <tr>
-              <th>(él/ella/usted) está</th>
-              <td>
-                <audio id="audio-estar-esta" src="assets/audio/unidad4/verbos/estar/esta.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-esta').play()">Oír</button>
-              </td>
-            </tr>
-            <tr>
-              <th>(nosotros/as) estamos</th>
-              <td>
-                <audio id="audio-estar-estamos" src="assets/audio/unidad4/verbos/estar/estamos.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-estamos').play()">Oír</button>
-              </td>
-            </tr>
-            <tr>
-              <th>(vosotros/as) estais</th>
-              <td>
-                <audio id="audio-estar-estais" src="assets/audio/unidad4/verbos/estar/estais.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-estais').play()">Oír</button>
-              </td>
-            </tr>
-            <tr>
-              <th>(ellos/as, ustedes) están</th>
-              <td>
-                <audio id="audio-estar-estan" src="assets/audio/unidad4/verbos/estar/estan.mp3"></audio>
-                <button class="play-button" onclick="document.getElementById('audio-estar-estan').play()">Oír</button>
-              </td>
-            </tr>
-          </tbody>
+        <h4>Conjugación del Verbo ESTAR (-AR)</h4>
+        <table class="conjugation-table">
+            <thead>
+                <tr>
+                    <th>Pronombre + Conjugación</th>
+                    <th>Oír</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th>(yo) estoy</th><td><audio id="audio-estar-estoy" src="assets/audio/unidad4/verbos/estar/estoy.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-estoy').play()">Oír</button></td></tr>
+                <tr><th>(tú) estás</th><td><audio id="audio-estar-estas" src="assets/audio/unidad4/verbos/estar/estas.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-estas').play()">Oír</button></td></tr>
+                <tr><th>(él, ella, usted) está</th><td><audio id="audio-estar-esta" src="assets/audio/unidad4/verbos/estar/esta.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-esta').play()">Oír</button></td></tr>
+                <tr><th>(nosotros/as) estamos</th><td><audio id="audio-estar-estamos" src="assets/audio/unidad4/verbos/estar/estamos.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-estamos').play()">Oír</button></td></tr>
+                <tr><th>(vosotros/as) estáis</th><td><audio id="audio-estar-estais" src="assets/audio/unidad4/verbos/estar/estais.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-estais').play()">Oír</button></td></tr>
+                <tr><th>(ellos/as, ustedes) están</th><td><audio id="audio-estar-estan" src="assets/audio/unidad4/verbos/estar/estan.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-estan').play()">Oír</button></td></tr>
+            </tbody>
         </table>
 
-        <p class="note">El verbo <strong>estar</strong> se usa para localización, estados y condiciones temporales; se diferencia de <strong>ser</strong> en varios usos.</p>
-      </div>
+        <p class="note">El verbo <b>estar</b> es irregular y se diferencia de <b>ser</b> por su uso en estados y ubicaciones.</p>
 
-      <h4>Usos de ESTAR</h4>
-      <div style="display:flex; flex-direction:column; gap:12px;">
+        <h4>Usos de ESTAR</h4>
+
         <div class="usage-item">
-          <p><strong>Localización o Posición:</strong> Describe la ubicación o posición. <em>Ejemplo: el libro está en la mesa.</em></p>
-          <div><audio id="audio-estar-uso1" src="assets/audio/unidad4/verbos/estar/1.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso1').play()">Oír</button></div>
+            <p><b>Localización o posición:</b> Describe dónde están personas o cosas. <em>Ejemplo: El libro está en la mesa.</em></p>
+            <div><audio id="audio-estar-uso1" src="assets/audio/unidad4/verbos/estar/1.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso1').play()">Oír</button></div>
         </div>
 
         <div class="usage-item">
-          <p><strong>Estado temporal o ánimo:</strong> Expresa estados temporales. <em>Ejemplo: estoy cansado.</em></p>
-          <div><audio id="audio-estar-uso2" src="assets/audio/unidad4/verbos/estar/2.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso2').play()">Oír</button></div>
+            <p><b>Estado temporal o de ánimo:</b> Expresa estados o sentimientos. <em>Ejemplo: Estoy cansado. Ella está feliz.</em></p>
+            <div><audio id="audio-estar-uso2" src="assets/audio/unidad4/verbos/estar/2.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso2').play()">Oír</button></div>
         </div>
 
         <div class="usage-item">
-          <p><strong>Condiciones físicas o de salud:</strong> <em>Ejemplo: mi abuela está enferma.</em></p>
-          <div><audio id="audio-estar-uso3" src="assets/audio/unidad4/verbos/estar/3.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso3').play()">Oír</button></div>
+            <p><b>Condiciones físicas o de salud:</b> Habla de la salud o condición. <em>Ejemplo: Mi abuela está enferma.</em></p>
+            <div><audio id="audio-estar-uso3" src="assets/audio/unidad4/verbos/estar/3.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso3').play()">Oír</button></div>
         </div>
 
         <div class="usage-item">
-          <p><strong>Condiciones atmosféricas:</strong> <em>Ejemplo: hoy está soleado.</em></p>
-          <div><audio id="audio-estar-uso4" src="assets/audio/unidad4/verbos/estar/4.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso4').play()">Oír</button></div>
+            <p><b>Condiciones atmosféricas:</b> Describe el clima. <em>Ejemplo: Hoy está soleado.</em></p>
+            <div><audio id="audio-estar-uso4" src="assets/audio/unidad4/verbos/estar/4.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso4').play()">Oír</button></div>
         </div>
 
         <div class="usage-item">
-          <p><strong>Resultados de acciones:</strong> <em>Ejemplo: el pastel está hecho.</em></p>
-          <div><audio id="audio-estar-uso5" src="assets/audio/unidad4/verbos/estar/5.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso5').play()">Oír</button></div>
+            <p><b>Resultado de acciones:</b> Expresa el resultado de algo. <em>Ejemplo: El pastel está hecho.</em></p>
+            <div><audio id="audio-estar-uso5" src="assets/audio/unidad4/verbos/estar/5.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-estar-uso5').play()">Oír</button></div>
         </div>
-
-        <div class="usage-item" style="flex-direction:column; align-items:flex-start;">
+         
+         <div class="usage-item" style="flex-direction:column; align-items:flex-start;">
           <p style="margin-bottom:10px;"><strong>Preguntar por alguien / saludar:</strong></p>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <div style="display:flex; align-items:center; gap:8px;">
@@ -207,43 +189,37 @@
           </div>
         </div>
       </div>
+        <hr>
 
-      <hr>
+        <h3>2. Forma y Usos del Verbo IR</h3>
 
-      <h3>2. Forma y Usos del Verbo IR</h3>
-      <div style="margin-bottom:30px;">
-        <h4>Conjugación del Verbo IR</h4>
-        <table class="conjugation-table" aria-label="Conjugación ir">
-          <thead>
-            <tr><th>Pronombre + Conjugación</th><th>Oír</th></tr>
-          </thead>
-          <tbody>
-            <tr><th>(yo) voy</th><td><audio id="audio-ir-voy" src="assets/audio/unidad4/verbos/ir/voy.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-voy').play()">Oír</button></td></tr>
-            <tr><th>(tú) vas</th><td><audio id="audio-ir-vas" src="assets/audio/unidad4/verbos/ir/vas.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vas').play()">Oír</button></td></tr>
-            <tr><th>(él/ella/usted) va</th><td><audio id="audio-ir-va" src="assets/audio/unidad4/verbos/ir/va.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-va').play()">Oír</button></td></tr>
-            <tr><th>(nosotros/as) vamos</th><td><audio id="audio-ir-vamos" src="assets/audio/unidad4/verbos/ir/vamos.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vamos').play()">Oír</button></td></tr>
-            <tr><th>(vosotros/as) vais</th><td><audio id="audio-ir-vais" src="assets/audio/unidad4/verbos/ir/vais.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vais').play()">Oír</button></td></tr>
-            <tr><th>(ellos/as, ustedes) van</th><td><audio id="audio-ir-van" src="assets/audio/unidad4/verbos/ir/van.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-van').play()">Oír</button></td></tr>
-          </tbody>
+        <h4>Conjugación del Verbo IR (Irregular)</h4>
+        <table class="conjugation-table">
+            <thead>
+                <tr>
+                    <th>Pronombre + Conjugación</th>
+                    <th>Oír</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th>(yo) voy</th><td><audio id="audio-ir-voy" src="assets/audio/unidad4/verbos/ir/voy.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-voy').play()">Oír</button></td></tr>
+                <tr><th>(tú) vas</th><td><audio id="audio-ir-vas" src="assets/audio/unidad4/verbos/ir/vas.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vas').play()">Oír</button></td></tr>
+                <tr><th>(él, ella, usted) va</th><td><audio id="audio-ir-va" src="assets/audio/unidad4/verbos/ir/va.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-va').play()">Oír</button></td></tr>
+                <tr><th>(nosotros/as) vamos</th><td><audio id="audio-ir-vamos" src="assets/audio/unidad4/verbos/ir/vamos.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vamos').play()">Oír</button></td></tr>
+                <tr><th>(vosotros/as) vais</th><td><audio id="audio-ir-vais" src="assets/audio/unidad4/verbos/ir/vais.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-vais').play()">Oír</button></td></tr>
+                <tr><th>(ellos/as, ustedes) van</th><td><audio id="audio-ir-van" src="assets/audio/unidad4/verbos/ir/van.mp3"></audio><button class="play-button" onclick="document.getElementById('audio-ir-van').play()">Oír</button></td></tr>
+            </tbody>
         </table>
 
-        <div style="background:#e0f7fa;padding:12px;border-radius:6px;border-left:5px solid #00bcd4;">
-          <p style="margin:0;font-weight:700;">Uso principal:</p>
-          <p style="margin:6px 0 0 8px;">El verbo "<strong>ir</strong>" indica movimiento hacia un lugar. <br>Ejemplos: Yo <strong>voy</strong> al cine. Él <strong>va</strong> al quinto piso.</p>
+        <div style="background: #e0f7fa; padding: 15px; border-radius: 5px; border-left: 5px solid #00bcd4;">
+            <p><b>Uso principal:</b> El verbo <b>ir</b> se usa para indicar <b>movimiento hacia un lugar</b>.</p>
+            <ul style="margin: 5px 0 0 20px; padding: 0;">
+                <li>Yo <b>voy</b> al cine.</li>
+                <li>Él <b>va</b> al quinto piso.</li>
+                <li>Ustedes <b>van</b> al fondo.</li>
+            </ul>
         </div>
-      </div>
+    </div>
 
-    </div> <!-- .lesson-container -->
-  </div> <!-- .page-wrap -->
-
-  <!-- (Opcional) pequeño script para prevenir reproducción simultánea de varios audios -->
-  <script>
-    (function(){
-      const audios = document.querySelectorAll('audio');
-      audios.forEach(a => a.addEventListener('play', () => {
-        audios.forEach(x => { if (x !== a) x.pause(); });
-      }));
-    })();
-  </script>
 </body>
 </html>
