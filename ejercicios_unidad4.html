@@ -1,81 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios - Unidad 4</title>
-
-    <script src="menu.js" defer></script>
-
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-        color: #333;
-        line-height: 1.6;
-    }
-
-    .lesson-container {
-        max-width: 900px;
-        margin: 80px auto 25px auto;
-        padding: 25px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    h2, h3 {
-        color: #007bff;
-        margin-top: 20px;
-    }
-
-    .exercise-section {
-        margin-top: 25px;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        border-left: 5px solid #007bff;
-    }
-
-    .play-button, button {
-        background-color: #007bff;
-        color: white;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: bold;
-        transition: background-color 0.2s;
-    }
-
-    .play-button:hover, button:hover {
-        background-color: #0056b3;
-    }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios Unidad 4</title>
+<script src="menu.js" defer></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; padding: 0;
+  background-color: #f4f4f9; color: #333;
+}
+.lesson-container {
+  max-width: 900px;
+  margin: 80px auto 25px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+h2, h3 { color: #007bff; }
+button {
+  background-color: #007bff; color: white;
+  border: none; border-radius: 5px;
+  padding: 6px 12px; margin-top: 6px;
+  cursor: pointer; font-weight: bold;
+}
+button:hover { background-color: #0056b3; }
+.answer-box {
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 8px;
+  display: none;
+  color: #555;
+  font-style: italic;
+}
+</style>
+<script>
+function toggleAnswer(id){
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "none" ? "block" : "none";
+}
+</script>
 </head>
 <body>
 
 <div class="lesson-container">
-    <h2>Ejercicios - Unidad 4</h2>
-    <hr>
+  <h2>Unidad 4 – Ejercicios</h2>
+  <hr>
 
-    <div class="exercise-section">
-        <h3>1. Completa con la forma correcta de <em>estar</em>:</h3>
-        <p>Yo ______ cansado. / Tú ______ feliz. / Ellos ______ en casa.</p>
-        <button class="verify-btn">Verificar</button>
-    </div>
+  <!-- I) VERBO ESTAR -->
+  <h3>I) Forma y Usos del Verbo ESTAR</h3>
 
-    <div class="exercise-section">
-        <h3>2. Escucha y marca la respuesta correcta:</h3>
-        <audio src="assets/audio/unidad4/ejercicios/e1.mp3" controls></audio>
-        <p>a) Estoy en la escuela <br> b) Estoy en casa</p>
-        <button class="verify-btn">Verificar</button>
-    </div>
+  <p><b>1. Completa.</b></p>
+  <p>Verbo ESTAR</p>
+  <ul>
+    <li>(yo) ______________________</li>
+    <li>(tú) ______________________</li>
+    <li>(él, ella, usted) ______________________</li>
+    <li>(nosotros, nosotras) ______________________</li>
+    <li>(vosotros, vosotras) ______________________</li>
+    <li>(ellos, ellas, ustedes) ______________________</li>
+  </ul>
+  <button onclick="toggleAnswer('a1')">Verificar</button>
+  <div id="a1" class="answer-box">
+    (yo) estoy, (tú) estás, (él/ella/usted) está, (nosotros/as) estamos, (vosotros/as) estáis, (ellos/as/ustedes) están.
+  </div>
 
+  <p><b>2.</b> Completa las oraciones con la forma adecuada del verbo <b>estar</b>:</p>
+  <ul>
+    <li>Yo __________________ cansado después de trabajar todo el día.</li>
+    <li>Tú __________________ en la casa de Juan.</li>
+    <li>Ella __________________ feliz con su nuevo trabajo.</li>
+    <li>Nosotros __________________ en el parque disfrutando del buen clima.</li>
+    <li>Ellos __________________ preocupados por el examen de mañana.</li>
+  </ul>
+  <button onclick="toggleAnswer('a2')">Verificar</button>
+  <div id="a2" class="answer-box">
+    estoy, estás, está, estamos, están.
+  </div>
+
+  <p><b>3.</b> Transforma las siguientes afirmaciones en preguntas:</p>
+  <ul>
+    <li>Mi hermana está en la universidad. → ¿Está mi hermana en la universidad?</li>
+    <li>Estamos contentos con los resultados. → ¿Estamos contentos con los resultados?</li>
+    <li>La comida está lista en la cocina. → ¿Está la comida lista en la cocina?</li>
+  </ul>
+  <button onclick="toggleAnswer('a3')">Verificar</button>
+  <div id="a3" class="answer-box">
+    Correctas como en el ejemplo anterior.
+  </div>
+
+  <p><b>4.</b> Escribe 5 oraciones con <b>estar + adjetivo</b>:</p>
+  <button onclick="toggleAnswer('a4')">Verificar</button>
+  <div id="a4" class="answer-box">
+    - El gato está tranquilo.<br>
+    - Mi hermano está enfermo.<br>
+    - Los estudiantes están emocionados.<br>
+    - El coche está limpio.<br>
+    - Yo estoy cansado.
+  </div>
+
+  <p><b>5.</b> Completa los diálogos:</p>
+  <button onclick="toggleAnswer('a5')">Verificar</button>
+  <div id="a5" class="answer-box">
+    estás / estoy / estoy / estamos.
+  </div>
+
+  <hr>
+
+  <!-- II) VERBO IR -->
+  <h3>II) Verbo IR</h3>
+  <p><b>1. Completa.</b></p>
+  <ul>
+    <li>(yo) ______________________</li>
+    <li>(tú) ______________________</li>
+    <li>(él, ella, usted) ______________________</li>
+    <li>(nosotros, nosotras) ______________________</li>
+    <li>(vosotros, vosotras) ______________________</li>
+    <li>(ellos, ellas, ustedes) ______________________</li>
+  </ul>
+  <button onclick="toggleAnswer('b1')">Verificar</button>
+  <div id="b1" class="answer-box">
+    voy, vas, va, vamos, vais, van.
+  </div>
+
+  <p><b>2.</b> Completa:</p>
+  <ul>
+    <li>Yo __________________ al supermercado todos los días.</li>
+    <li>Tú __________________ al parque los fines de semana.</li>
+    <li>Ella __________________ a la escuela en autobús.</li>
+    <li>Nosotros __________________ al cine esta noche.</li>
+    <li>Ellos __________________ a la playa el próximo verano.</li>
+  </ul>
+  <button onclick="toggleAnswer('b2')">Verificar</button>
+  <div id="b2" class="answer-box">
+    voy, vas, va, vamos, van.
+  </div>
+
+  <p><b>3.</b> Forma preguntas:</p>
+  <ul>
+    <li>¿Vas tú al concierto esta noche?</li>
+    <li>¿A qué hora van ustedes a la fiesta?</li>
+    <li>¿Dónde va él durante las vacaciones?</li>
+    <li>¿Cuándo vais vosotros al parque?</li>
+    <li>¿Por qué va ella al médico tan seguido?</li>
+  </ul>
+  <button onclick="toggleAnswer('b3')">Verificar</button>
+  <div id="b3" class="answer-box">
+    Correctas como en el ejemplo.
+  </div>
+
+  <hr>
+
+  <!-- III) IR A + INFINITIVO -->
+  <h3>III) IR A + Verbo en Infinitivo</h3>
+  <p><b>1.</b> Completa las oraciones:</p>
+  <ul>
+    <li>El fin de semana ellos _______________ a _______________ a sus abuelos.</li>
+    <li>¿Tú ______________ a ______________ la tarea esta tarde?</li>
+    <li>Nosotros ______________ a ______________ a un restaurante nuevo esta noche.</li>
+    <li>Ella ______________ a ______________ un regalo para su madre.</li>
+  </ul>
+  <button onclick="toggleAnswer('c1')">Verificar</button>
+  <div id="c1" class="answer-box">
+    van a visitar, vas a hacer, vamos a cenar, va a comprar.
+  </div>
+
+  <p><b>2.</b> Forma preguntas:</p>
+  <ul>
+    <li>¿Tú vas a salir con tus amigos esta noche?</li>
+    <li>¿A qué hora van a llegar al aeropuerto?</li>
+    <li>¿Vais a estudiar para el examen mañana?</li>
+    <li>¿Qué va a hacer después del trabajo?</li>
+    <li>¿Van a visitar el museo el fin de semana?</li>
+  </ul>
+  <button onclick="toggleAnswer('c2')">Verificar</button>
+  <div id="c2" class="answer-box">
+    Correctas según el modelo.
+  </div>
+
+  <p><b>3.</b> Completa los diálogos:</p>
+  <button onclick="toggleAnswer('c3')">Verificar</button>
+  <div id="c3" class="answer-box">
+    voy a ir, voy a comprar, vamos a empezar.
+  </div>
+
+  <hr>
+
+  <!-- IV) HAY -->
+  <h3>IV) HAY</h3>
+  <p><b>1.</b> Completa las oraciones:</p>
+  <ul>
+    <li>¿________________ muchos libros en la biblioteca?</li>
+    <li>________________ un parque cerca de mi casa.</li>
+    <li>En el supermercado ________________ frutas y verduras frescas.</li>
+    <li>¿________________ un restaurante italiano en esta calle?</li>
+  </ul>
+  <button onclick="toggleAnswer('d1')">Verificar</button>
+  <div id="d1" class="answer-box">
+    ¿Hay...? Hay, hay, ¿Hay...?
+  </div>
+
+  <p><b>2.</b> Transforma en preguntas:</p>
+  <ul>
+    <li>¿Cuántos estudiantes hay en la clase?</li>
+    <li>¿Cuántos perros hay en el parque?</li>
+    <li>¿Qué problema hay con la computadora?</li>
+    <li>¿Qué película interesante hay en el cine?</li>
+    <li>¿Qué hay al lado de la panadería?</li>
+  </ul>
+  <button onclick="toggleAnswer('d2')">Verificar</button>
+  <div id="d2" class="answer-box">
+    Correctas según modelo.
+  </div>
 </div>
 
-</body>
-</html>
+<!-- FIN PARTE 1 - PEGA ABAJO PARTE 2 -->
+
