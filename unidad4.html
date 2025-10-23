@@ -12,6 +12,7 @@
        ESTILOS GENERALES Y LAYOUT
        ===================================== */
 
+    /* --- Configuración general --- */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -21,8 +22,10 @@
         line-height: 1.6;
     }
     
+    /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
     .lesson-container {
         max-width: 900px; 
+        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
         margin: 80px auto 25px auto; 
         padding: 25px; 
         background: white;
@@ -30,15 +33,18 @@
         box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
     }
     
+    /* --- Títulos (Ajuste visual) --- */
     h1, h2, h3 {
         color: #007bff;
         margin-top: 20px;
     }
 
     /* =====================================
-       ESTILO DE BOTÓN DE AUDIO (UNIFICADO)
+       ESTILO DE BOTÓN DE AUDIO/VERIFICAR
        ===================================== */
-    .play-button {
+    .play-button, 
+    button {
+        /* Estilos base del botón */
         background-color: #007bff; /* Azul primario */
         color: white;
         padding: 8px 15px;
@@ -47,22 +53,24 @@
         cursor: pointer;
         font-size: 14px;
         font-weight: bold;
-        transition: background-color 0.2s;
+        transition: background-color 0.2s; /* Transición suave */
     }
 
-    .play-button:hover {
+    /* Estilo al pasar el ratón */
+    .play-button:hover,
+    button:hover {
         background-color: #0056b3; /* Azul más oscuro al interactuar */
     }
 
     /* =====================================
-       ESTILOS DE TABLAS Y CONTENIDO (CONSISTENTE CON UNIDAD 3)
+       ESTILOS DE TABLAS Y CONTENIDO (INYECCIÓN DE ESTILOS NECESARIOS)
        ===================================== */
     
     /* Estilo para tablas de conjugación (Compacta) */
     .conjugation-table {
         width: 100%;
         border-collapse: collapse;
-        margin: 15px 0;
+        margin: 15px auto; /* Centrado */
     }
     .conjugation-table th, .conjugation-table td {
         border: 1px solid #dee2e6;
@@ -77,8 +85,8 @@
         text-align: center;
         width: 50%;
     }
-    /* Alineación del botón en la celda de audio */
-    .conjugation-table td .play-button {
+    /* ESTILO CRÍTICO: Asegura que el botón dentro de la tabla sea pequeño y consistente */
+    .conjugation-table td .play-button { 
         padding: 5px 10px;
         font-size: 13px;
     }
@@ -140,7 +148,6 @@
                         <th>(nosotros/as) estamos</th>
                         <td>
                             <audio id="audio-estar-estamos" src="assets/audio/unidad4/verbos/estar/estamos.mp3"></audio>
-                            <button class="play-button" onclick="document.getElementById('audio-estar-estamos').play()">Oír</button>
                         </td>
                     </tr>
                     <tr>
@@ -245,7 +252,8 @@
         </div>
 
         <hr>
-      <h3>2. Forma y Usos del Verbo IR</h3>
+
+    <h3>2. Forma y Usos del Verbo IR</h3>
 
     <div style="margin-bottom: 30px;">
         <h4>Conjugación del Verbo IR (Irregular)</h4>
@@ -261,42 +269,42 @@
                     <th>(yo) voy</th>
                     <td>
                         <audio id="audio-ir-voy" src="assets/audio/unidad4/verbos/ir/voy.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-voy').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-voy').play()">Oír</button>
                     </td>
                 </tr>
                 <tr>
                     <th>(tú) vas</th>
                     <td>
                         <audio id="audio-ir-vas" src="assets/audio/unidad4/verbos/ir/vas.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-vas').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-vas').play()">Oír</button>
                     </td>
                 </tr>
                 <tr>
                     <th>(él, ella, usted) va</th>
                     <td>
                         <audio id="audio-ir-va" src="assets/audio/unidad4/verbos/ir/va.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-va').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-va').play()">Oír</button>
                     </td>
                 </tr>
                 <tr>
                     <th>(nosotros/as) vamos</th>
                     <td>
                         <audio id="audio-ir-vamos" src="assets/audio/unidad4/verbos/ir/vamos.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-vamos').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-vamos').play()">Oír</button>
                     </td>
                 </tr>
                 <tr>
                     <th>(vosotros/as) vais</th>
                     <td>
                         <audio id="audio-ir-vais" src="assets/audio/unidad4/verbos/ir/vais.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-vais').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-vais').play()">Oír</button>
                     </td>
                 </tr>
                 <tr>
                     <th>(ellos/as, ustedes) van</th>
                     <td>
                         <audio id="audio-ir-van" src="assets/audio/unidad4/verbos/ir/van.mp3"></audio>
-                        <button class="play-button" onclick="document.getElementById('audio-ir-van').play()" style="padding: 5px 10px; font-size: 13px;">Oír</button>
+                        <button class="play-button" onclick="document.getElementById('audio-ir-van').play()">Oír</button>
                     </td>
                 </tr>
             </tbody>
@@ -304,7 +312,7 @@
 
         <div style="background: #e0f7fa; padding: 15px; border-radius: 5px; border-left: 5px solid #00bcd4;">
             <p style="margin: 0; font-weight: bold;">Uso principal:</p>
-            <p style="margin: 5px 0 0 10px;">El verbo "ir" se usa para indicar **movimiento hacia un lugar**.</p>
+            <p style="margin: 5px 0 0 10px;">El verbo "**ir**" se usa para indicar **movimiento hacia un lugar**.</p>
             <p style="margin: 15px 0 0 0; font-weight: bold;">Ejemplos:</p>
             <ul style="margin: 5px 0 0 20px; padding: 0;">
                 <li>Yo **voy** al cine.</li>
@@ -315,9 +323,7 @@
     </div>
 
     <hr>
-   
-
-         
+            
     </div>
 </body>
 </html>
