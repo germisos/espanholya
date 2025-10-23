@@ -1,106 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 4 - Lección</title>
-    
-    <script src="menu.js" defer></script> 
-    
-    <style>
-    /* =====================================
-       ESTILOS GENERALES Y LAYOUT
-       ===================================== */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 4 - Lección</title>
 
-    /* --- Configuración general --- */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9; 
-        color: #333;
-        line-height: 1.6;
-    }
-    
-    /* --- Contenedor de lección y Margen Superior (FORMATO UNIDAD 1) --- */
-    .lesson-container {
-        max-width: 900px; 
-        /* MARGEN CRÍTICO: 80px superior para dejar espacio al menú fijo */
-        margin: 80px auto 25px auto; 
-        padding: 25px; 
-        background: white;
-        border-radius: 12px; 
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
-    }
-    
-    /* --- Títulos (Ajuste visual) --- */
-    h1, h2, h3 {
-        color: #007bff;
-        margin-top: 20px;
-    }
+  <!-- 🔹 Barra superior -->
+  <script src="menu.js" defer></script>
 
-    /* =====================================
-       ESTILO DE BOTÓN DE AUDIO/VERIFICAR
-       ===================================== */
-    .play-button, 
-    button {
-        /* Estilos base del botón */
-        background-color: #007bff; /* Azul primario */
-        color: white;
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: bold;
-        transition: background-color 0.2s; /* Transición suave */
-    }
+  <style>
+  /* =====================================
+     ESTILOS GENERALES (COHERENTES CON UNIDAD 1)
+     ===================================== */
 
-    /* Estilo al pasar el ratón */
-    .play-button:hover,
-    button:hover {
-        background-color: #0056b3; /* Azul más oscuro al interactuar */
-    }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+  }
 
-    /* =====================================
-       ESTILOS DE TABLAS Y CONTENIDO (INYECCIÓN DE ESTILOS NECESARIOS)
-       ===================================== */
-    
-    /* Estilo para tablas de conjugación (Compacta) */
-    .conjugation-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px auto; /* Centrado */
-    }
-    .conjugation-table th, .conjugation-table td {
-        border: 1px solid #dee2e6;
-        padding: 10px;
-        text-align: left;
-    }
-    .conjugation-table th {
-        background-color: #e9ecef;
-        width: 50%;
-    }
-    .conjugation-table td {
-        text-align: center;
-        width: 50%;
-    }
-    /* ESTILO CRÍTICO: Asegura que el botón dentro de la tabla sea pequeño y consistente */
-    .conjugation-table td .play-button { 
-        padding: 5px 10px;
-        font-size: 13px;
-    }
-    /* Estilo para la nota explicativa */
-    .note {
-        font-style: italic;
-        color: #6c757d;
-        margin-top: 10px;
-        padding: 5px;
-        border-left: 3px solid #6c757d;
-        background-color: #f1f1f1;
-    }
-</style>
+  /* 🔹 Asegura espacio bajo la barra fija */
+  .lesson-container {
+    max-width: 900px;
+    margin: 80px auto 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+
+  h1, h2, h3 {
+    color: #007bff;
+    margin-top: 20px;
+  }
+
+  /* =====================================
+     BOTONES (ESTILO UNIFICADO)
+     ===================================== */
+  .play-button,
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  .play-button:hover,
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+  }
+
+  /* =====================================
+     TABLAS Y BLOQUES
+     ===================================== */
+  .conjugation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px auto;
+  }
+
+  .conjugation-table th,
+  .conjugation-table td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .conjugation-table th {
+    background-color: #e9ecef;
+  }
+
+  .note {
+    font-style: italic;
+    color: #6c757d;
+    margin-top: 10px;
+    padding: 5px;
+    border-left: 3px solid #6c757d;
+    background-color: #f1f1f1;
+  }
+
+  /* =====================================
+     BLOQUES DE USO (UNIFICADOS)
+     ===================================== */
+  .usage-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* =====================================
+     CORRECCIÓN CRÍTICA DE FUENTE DEL MENÚ
+     ===================================== */
+  header.site-header,
+  header.site-header * {
+    font-family: Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+  </style>
 </head>
+
+
 <body>
     
     <div id="lesson-menu-placeholder"></div>
