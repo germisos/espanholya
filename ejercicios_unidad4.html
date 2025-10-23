@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ejercicios Unidad 4</title>
 <script src="menu.js" defer></script>
+
 <style>
 body {
   font-family: Arial, sans-serif;
   margin: 0; padding: 0;
   background-color: #f4f4f9; color: #333;
 }
+
 .lesson-container {
   max-width: 900px;
   margin: 80px auto 25px auto;
@@ -19,14 +21,25 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-h2, h3 { color: #007bff; }
-button {
-  background-color: #007bff; color: white;
-  border: none; border-radius: 5px;
-  padding: 6px 12px; margin-top: 6px;
-  cursor: pointer; font-weight: bold;
+
+h2, h3 {
+  color: #007bff;
+  margin-top: 20px;
 }
+
+button {
+  background-color: #007bff; 
+  color: white;
+  border: none; 
+  border-radius: 5px;
+  padding: 6px 12px; 
+  margin-top: 6px;
+  cursor: pointer; 
+  font-weight: bold;
+}
+
 button:hover { background-color: #0056b3; }
+
 .answer-box {
   background: #f1f1f1;
   border-radius: 6px;
@@ -36,25 +49,27 @@ button:hover { background-color: #0056b3; }
   color: #555;
   font-style: italic;
 }
+
+hr { margin: 30px 0; }
 </style>
+
 <script>
-function toggleAnswer(id){
+function toggleAnswer(id) {
   const box = document.getElementById(id);
+  if (!box) return;
   box.style.display = box.style.display === "none" ? "block" : "none";
 }
 </script>
 </head>
-<body>
 
+<body>
 <div class="lesson-container">
   <h2>Unidad 4 – Ejercicios</h2>
   <hr>
 
   <!-- I) VERBO ESTAR -->
   <h3>I) Forma y Usos del Verbo ESTAR</h3>
-
   <p><b>1. Completa.</b></p>
-  <p>Verbo ESTAR</p>
   <ul>
     <li>(yo) ______________________</li>
     <li>(tú) ______________________</li>
@@ -64,11 +79,9 @@ function toggleAnswer(id){
     <li>(ellos, ellas, ustedes) ______________________</li>
   </ul>
   <button onclick="toggleAnswer('a1')">Verificar</button>
-  <div id="a1" class="answer-box">
-    (yo) estoy, (tú) estás, (él/ella/usted) está, (nosotros/as) estamos, (vosotros/as) estáis, (ellos/as/ustedes) están.
-  </div>
+  <div id="a1" class="answer-box">(yo) estoy, (tú) estás, (él/ella/usted) está, (nosotros/as) estamos, (vosotros/as) estáis, (ellos/as/ustedes) están.</div>
 
-  <p><b>2.</b> Completa las oraciones con la forma adecuada del verbo <b>estar</b>:</p>
+  <p><b>2.</b> Completa con la forma adecuada de <b>estar</b>:</p>
   <ul>
     <li>Yo __________________ cansado después de trabajar todo el día.</li>
     <li>Tú __________________ en la casa de Juan.</li>
@@ -77,9 +90,7 @@ function toggleAnswer(id){
     <li>Ellos __________________ preocupados por el examen de mañana.</li>
   </ul>
   <button onclick="toggleAnswer('a2')">Verificar</button>
-  <div id="a2" class="answer-box">
-    estoy, estás, está, estamos, están.
-  </div>
+  <div id="a2" class="answer-box">estoy, estás, está, estamos, están.</div>
 
   <p><b>3.</b> Transforma las siguientes afirmaciones en preguntas:</p>
   <ul>
@@ -87,10 +98,6 @@ function toggleAnswer(id){
     <li>Estamos contentos con los resultados. → ¿Estamos contentos con los resultados?</li>
     <li>La comida está lista en la cocina. → ¿Está la comida lista en la cocina?</li>
   </ul>
-  <button onclick="toggleAnswer('a3')">Verificar</button>
-  <div id="a3" class="answer-box">
-    Correctas como en el ejemplo anterior.
-  </div>
 
   <p><b>4.</b> Escribe 5 oraciones con <b>estar + adjetivo</b>:</p>
   <button onclick="toggleAnswer('a4')">Verificar</button>
@@ -104,15 +111,13 @@ function toggleAnswer(id){
 
   <p><b>5.</b> Completa los diálogos:</p>
   <button onclick="toggleAnswer('a5')">Verificar</button>
-  <div id="a5" class="answer-box">
-    estás / estoy / estoy / estamos.
-  </div>
+  <div id="a5" class="answer-box">estás / estoy / estoy / estamos.</div>
 
   <hr>
 
   <!-- II) VERBO IR -->
   <h3>II) Verbo IR</h3>
-  <p><b>1. Completa.</b></p>
+  <p><b>1.</b> Completa.</p>
   <ul>
     <li>(yo) ______________________</li>
     <li>(tú) ______________________</li>
@@ -122,9 +127,7 @@ function toggleAnswer(id){
     <li>(ellos, ellas, ustedes) ______________________</li>
   </ul>
   <button onclick="toggleAnswer('b1')">Verificar</button>
-  <div id="b1" class="answer-box">
-    voy, vas, va, vamos, vais, van.
-  </div>
+  <div id="b1" class="answer-box">voy, vas, va, vamos, vais, van.</div>
 
   <p><b>2.</b> Completa:</p>
   <ul>
@@ -135,28 +138,12 @@ function toggleAnswer(id){
     <li>Ellos __________________ a la playa el próximo verano.</li>
   </ul>
   <button onclick="toggleAnswer('b2')">Verificar</button>
-  <div id="b2" class="answer-box">
-    voy, vas, va, vamos, van.
-  </div>
-
-  <p><b>3.</b> Forma preguntas:</p>
-  <ul>
-    <li>¿Vas tú al concierto esta noche?</li>
-    <li>¿A qué hora van ustedes a la fiesta?</li>
-    <li>¿Dónde va él durante las vacaciones?</li>
-    <li>¿Cuándo vais vosotros al parque?</li>
-    <li>¿Por qué va ella al médico tan seguido?</li>
-  </ul>
-  <button onclick="toggleAnswer('b3')">Verificar</button>
-  <div id="b3" class="answer-box">
-    Correctas como en el ejemplo.
-  </div>
+  <div id="b2" class="answer-box">voy, vas, va, vamos, van.</div>
 
   <hr>
 
   <!-- III) IR A + INFINITIVO -->
   <h3>III) IR A + Verbo en Infinitivo</h3>
-  <p><b>1.</b> Completa las oraciones:</p>
   <ul>
     <li>El fin de semana ellos _______________ a _______________ a sus abuelos.</li>
     <li>¿Tú ______________ a ______________ la tarea esta tarde?</li>
@@ -164,34 +151,12 @@ function toggleAnswer(id){
     <li>Ella ______________ a ______________ un regalo para su madre.</li>
   </ul>
   <button onclick="toggleAnswer('c1')">Verificar</button>
-  <div id="c1" class="answer-box">
-    van a visitar, vas a hacer, vamos a cenar, va a comprar.
-  </div>
-
-  <p><b>2.</b> Forma preguntas:</p>
-  <ul>
-    <li>¿Tú vas a salir con tus amigos esta noche?</li>
-    <li>¿A qué hora van a llegar al aeropuerto?</li>
-    <li>¿Vais a estudiar para el examen mañana?</li>
-    <li>¿Qué va a hacer después del trabajo?</li>
-    <li>¿Van a visitar el museo el fin de semana?</li>
-  </ul>
-  <button onclick="toggleAnswer('c2')">Verificar</button>
-  <div id="c2" class="answer-box">
-    Correctas según el modelo.
-  </div>
-
-  <p><b>3.</b> Completa los diálogos:</p>
-  <button onclick="toggleAnswer('c3')">Verificar</button>
-  <div id="c3" class="answer-box">
-    voy a ir, voy a comprar, vamos a empezar.
-  </div>
+  <div id="c1" class="answer-box">van a visitar, vas a hacer, vamos a cenar, va a comprar.</div>
 
   <hr>
 
   <!-- IV) HAY -->
   <h3>IV) HAY</h3>
-  <p><b>1.</b> Completa las oraciones:</p>
   <ul>
     <li>¿________________ muchos libros en la biblioteca?</li>
     <li>________________ un parque cerca de mi casa.</li>
@@ -199,35 +164,12 @@ function toggleAnswer(id){
     <li>¿________________ un restaurante italiano en esta calle?</li>
   </ul>
   <button onclick="toggleAnswer('d1')">Verificar</button>
-  <div id="d1" class="answer-box">
-    ¿Hay...? Hay, hay, ¿Hay...?
-  </div>
+  <div id="d1" class="answer-box">¿Hay...? Hay, hay, ¿Hay...?</div>
 
-  <p><b>2.</b> Transforma en preguntas:</p>
-  <ul>
-    <li>¿Cuántos estudiantes hay en la clase?</li>
-    <li>¿Cuántos perros hay en el parque?</li>
-    <li>¿Qué problema hay con la computadora?</li>
-    <li>¿Qué película interesante hay en el cine?</li>
-    <li>¿Qué hay al lado de la panadería?</li>
-  </ul>
-  <button onclick="toggleAnswer('d2')">Verificar</button>
-  <div id="d2" class="answer-box">
-    Correctas según modelo.
-  </div>
-</div>
-
-<!-- FIN PARTE 1 - PEGA ABAJO PARTE 2 -->
-<!-- ==============================
-     PARTE 2 - UNIDAD 4 (V a VIII)
-     ============================== -->
-
-<div class="lesson-container">
+  <hr>
 
   <!-- V) TENER QUE -->
   <h3>V) Tener que + Verbo en Infinitivo</h3>
-
-  <p><b>1.</b> Completa las frases:</p>
   <ul>
     <li>Ellos _____________________ limpiar la casa antes de la fiesta.</li>
     <li>Tú _______________________ llegar temprano a la reunión.</li>
@@ -235,140 +177,33 @@ function toggleAnswer(id){
     <li>Ella ____________________ hacer ejercicio todos los días.</li>
   </ul>
   <button onclick="toggleAnswer('e1')">Verificar</button>
-  <div id="e1" class="answer-box">
-    tienen que, tienes que, tenemos que, tiene que.
-  </div>
-
-  <p><b>2.</b> Escribe oraciones con “tener que + verbo”:</p>
-  <button onclick="toggleAnswer('e2')">Verificar</button>
-  <div id="e2" class="answer-box">
-    - Mi hermano tiene que ir al supermercado.<br>
-    - Nosotros tenemos que preparar la comida.<br>
-    - María tiene que estudiar mucho.<br>
-    - Ellos tienen que terminar el proyecto.<br>
-    - Tú tienes que llamar al médico.
-  </div>
+  <div id="e1" class="answer-box">tienen que, tienes que, tenemos que, tiene que.</div>
 
   <hr>
 
   <!-- VI) COMPARACIÓN -->
   <h3>VI) Comparación entre HAY QUE y TENER QUE</h3>
-
-  <p><b>1.</b> Completa las frases con la opción correcta:</p>
   <button onclick="toggleAnswer('f1')">Verificar</button>
   <div id="f1" class="answer-box">
-    1) coraje<br>
-    2) lugar<br>
-    3) razón<br>
-    4) temor<br>
-    5) suerte<br>
-    6) en cuenta<br>
-    7) calor<br>
-    8) vergüenza<br>
-    9) apuro<br>
-    10) sed<br>
-    11) ganas<br>
-    12) dolor<br>
-    13) la culpa<br>
-    14) 18 años
+    1) coraje<br>2) lugar<br>3) razón<br>4) temor<br>5) suerte<br>6) en cuenta<br>7) calor<br>8) vergüenza<br>9) apuro<br>10) sed<br>11) ganas<br>12) dolor<br>13) la culpa<br>14) 18 años.
   </div>
 
   <hr>
 
   <!-- VII) GÉNERO DE LOS ADJETIVOS -->
   <h3>VII) Género de los Adjetivos</h3>
-
-  <p><b>1.</b> Completa la tabla:</p>
   <button onclick="toggleAnswer('g1')">Verificar</button>
   <div id="g1" class="answer-box">
-    1. Una gata blanca<br>
-    2. Un actor bueno<br>
-    3. Una mujer alta<br>
-    4. Un rey simpático<br>
-    5. Un hombre elegante<br>
-    6. Una estudiante inteligente<br>
-    7. Un estudiante brasileño<br>
-    8. Un pintor español<br>
-    9. Una torera famosa<br>
-    10. Una escritora importante<br>
-    11. Un dependiente amable<br>
-    12. Una cantante famosa
-  </div>
-
-  <p><b>2.</b> Completa las frases teniendo en cuenta el género y número:</p>
-  <button onclick="toggleAnswer('g2')">Verificar</button>
-  <div id="g2" class="answer-box">
-    - La casa es pequeña.<br>
-    - Los niños son inteligentes.<br>
-    - La silla es cómoda.<br>
-    - El árbol tiene hojas verdes.<br>
-    - La película fue interesante.<br>
-    - Mis amigos son divertidos.<br>
-    - El gato está tranquilo.<br>
-    - Las flores son hermosas.<br>
-    - Mi abuela es vieja.<br>
-    - Mi hermana tiene ojos azules.<br>
-    - Los pájaros son pequeños.<br>
-    - Las montañas son altas.<br>
-    - La comida está deliciosa.<br>
-    - La ciudad es bonita.<br>
-    - El coche es rápido.<br>
-    - Las vacaciones fueron relajantes.
+    1. Una gata blanca<br>2. Un actor bueno<br>3. Una mujer alta<br>4. Un rey simpático<br>5. Un hombre elegante<br>6. Una estudiante inteligente<br>7. Un estudiante brasileño<br>8. Un pintor español<br>9. Una torera famosa<br>10. Una escritora importante<br>11. Un dependiente amable<br>12. Una cantante famosa.
   </div>
 
   <hr>
 
   <!-- VIII) PREPOSICIONES -->
   <h3>VIII) Preposiciones de Lugar</h3>
-
-  <p><b>1.</b> Completa con las preposiciones correctas:</p>
-  <button onclick="toggleAnswer('h1')">Verificar</button>
-  <div id="h1" class="answer-box">
-    a) en, en<br>
-    b) de, a<br>
-    c) a<br>
-    d) con<br>
-    e) por<br>
-    f) a, en<br>
-    g) hasta<br>
-    h) en<br>
-    i) por<br>
-    j) por
-  </div>
-
-  <p><b>2.</b> Completa las frases:</p>
   <button onclick="toggleAnswer('h2')">Verificar</button>
   <div id="h2" class="answer-box">
-    1. encima de<br>
-    2. debajo de<br>
-    3. en<br>
-    4. en<br>
-    5. debajo de<br>
-    6. sobre<br>
-    7. en<br>
-    8. en<br>
-    9. en<br>
-    10. junto a<br>
-    11. en<br>
-    12. junto al<br>
-    13. sobre<br>
-    14. dentro de<br>
-    15. al lado de<br>
-    16. cerca de<br>
-    17. detrás de<br>
-    18. en<br>
-    19. encima de<br>
-    20. afuera de<br>
-    21. delante de<br>
-    22. entre<br>
-    23. entre<br>
-    24. entre<br>
-    25. entre<br>
-    26. al lado de<br>
-    27. debajo de<br>
-    28. sobre<br>
-    29. entre<br>
-    30. en
+    encima de, debajo de, en, sobre, al lado de, dentro de, detrás de, entre, junto a, frente a...
   </div>
 
   <hr>
@@ -377,33 +212,23 @@ function toggleAnswer(id){
   <h3>Interpretación de Texto</h3>
 
   <h4>A) Lucía y la botella</h4>
-  <p>Lee el texto y responde con frases completas.</p>
   <button onclick="toggleAnswer('text1')">Verificar</button>
   <div id="text1" class="answer-box">
-    1. Lucía es una niña curiosa que vive en un pequeño pueblo junto al mar.<br>
-    2. Le gusta correr a la playa y buscar conchas y piedras.<br>
-    3. Encontró una botella con un mensaje adentro.<br>
-    4. El mensaje decía: “Soy Tomás y estoy atrapado en una isla desierta.”<br>
-    5. Lucía se sorprendió y emocionó.<br>
-    6. Decidió llevar la botella a su casa y mostrarla a sus padres.<br>
-    7. Porque creyó que era importante y quería ayudar a Tomás.
+    1. Lucía vive en un pequeño pueblo junto al mar.<br>
+    2. Le gusta ir a la playa y buscar conchas.<br>
+    3. Encontró una botella con un mensaje de ayuda.<br>
+    4. Decidió mostrarla a sus padres para ayudar a Tomás.
   </div>
 
   <h4>B) Sofía y el diario</h4>
-  <p>Lee el texto y responde con frases completas.</p>
   <button onclick="toggleAnswer('text2')">Verificar</button>
   <div id="text2" class="answer-box">
-    1. Sofía es una niña que vive en una gran ciudad.<br>
-    2. Le gusta ir al parque después de la escuela.<br>
-    3. Encontró un libro viejo debajo de un árbol.<br>
-    4. El libro tenía cubierta de cuero y páginas amarillentas.<br>
-    5. Descubrió que era un diario escrito por Ana.<br>
-    6. Contenía historias de aventuras y viajes.<br>
-    7. Lo llevó a su casa porque quería leerlo con más detalle.
+    1. Sofía vive en una gran ciudad.<br>
+    2. Le gusta ir al parque.<br>
+    3. Encontró un libro viejo.<br>
+    4. Era un diario con historias de viajes.<br>
+    5. Lo llevó a casa para leerlo con más detalle.
   </div>
-
-
-
+</div>
 </body>
 </html>
-
