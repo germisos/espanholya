@@ -938,192 +938,151 @@
     <h3 style="color: #17a2b8;">6. COMPARACIÓN ENTRE HAY QUE Y TENER QUE (Expresiones con TENER)</h3>
 
     <h4>6.1. Completa las frases con la opción correcta.</h4>
-    <p style="font-style: italic;">Haz clic en la opción que mejor completa la frase. Luego, verifica.</p>
+    <p style="font-style: italic;">Haz clic en la opción correcta para ver el resultado de inmediato.</p>
 
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">1. Para escalar el Aconcagua hay que tener ___________________________.</p>
         <div id="q6-1-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-1')">lástima</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-1')">coraje</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-1')">miedo</button>
+            <button class="choice-button" data-answer="lástima" onclick="selectAndVerify(this, 'q6-1', 'coraje')">lástima</button>
+            <button class="choice-button" data-answer="coraje" onclick="selectAndVerify(this, 'q6-1', 'coraje')">coraje</button>
+            <button class="choice-button" data-answer="miedo" onclick="selectAndVerify(this, 'q6-1', 'coraje')">miedo</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-1')">Verificar</button>
-        <div id="respuesta-6-1-1" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: coraje</p>
-        </div>
+        <div id="feedback-q6-1" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">2. El Carnaval de Gualeguaychú tiene __________________________ en la provincia de Entre Ríos, en Argentina. </p>
         <div id="q6-2-options">
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-2')">lugar</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-2')">razón</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-2')">ganas</button>
+            <button class="choice-button" data-answer="lugar" onclick="selectAndVerify(this, 'q6-2', 'lugar')">lugar</button>
+            <button class="choice-button" data-answer="razón" onclick="selectAndVerify(this, 'q6-2', 'lugar')">razón</button>
+            <button class="choice-button" data-answer="ganas" onclick="selectAndVerify(this, 'q6-2', 'lugar')">ganas</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-2')">Verificar</button>
-        <div id="respuesta-6-1-2" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: lugar (Tener lugar = Ocurrir)</p>
-        </div>
+        <div id="feedback-q6-2" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
 
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">3. El cliente siempre tiene la ____________________________.</p>
         <div id="q6-3-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-3')">sueño</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-3')">razón</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-3')">21 años</button>
+            <button class="choice-button" data-answer="sueño" onclick="selectAndVerify(this, 'q6-3', 'razón')">sueño</button>
+            <button class="choice-button" data-answer="razón" onclick="selectAndVerify(this, 'q6-3', 'razón')">razón</button>
+            <button class="choice-button" data-answer="21 años" onclick="selectAndVerify(this, 'q6-3', 'razón')">21 años</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-3')">Verificar</button>
-        <div id="respuesta-6-1-3" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: razón (Tener la razón)</p>
-        </div>
+        <div id="feedback-q6-3" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">4. Los médicos tienen _________________________ de una epidemia de Dengue.</p>
         <div id="q6-4-options">
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-4')">temor</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-4')">razón</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-4')">paciencia</button>
+            <button class="choice-button" data-answer="temor" onclick="selectAndVerify(this, 'q6-4', 'temor')">temor</button>
+            <button class="choice-button" data-answer="razón" onclick="selectAndVerify(this, 'q6-4', 'temor')">razón</button>
+            <button class="choice-button" data-answer="paciencia" onclick="selectAndVerify(this, 'q6-4', 'temor')">paciencia</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-4')">Verificar</button>
-        <div id="respuesta-6-1-4" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: temor (Tener temor)</p>
-        </div>
+        <div id="feedback-q6-4" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">5. Tengo ________________________ en el juego. Siempre gano.</p>
         <div id="q6-5-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-5')">ganas</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-5')">celos</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-5')">suerte</button>
+            <button class="choice-button" data-answer="ganas" onclick="selectAndVerify(this, 'q6-5', 'suerte')">ganas</button>
+            <button class="choice-button" data-answer="celos" onclick="selectAndVerify(this, 'q6-5', 'suerte')">celos</button>
+            <button class="choice-button" data-answer="suerte" onclick="selectAndVerify(this, 'q6-5', 'suerte')">suerte</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-5')">Verificar</button>
-        <div id="respuesta-6-1-5" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: suerte (Tener suerte)</p>
-        </div>
+        <div id="feedback-q6-5" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">6. Para comprar un auto usado hay que tener __________________________ el kilometraje. </p>
         <div id="q6-6-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-6')">paciencia</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-6')">en cuenta</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-6')">éxito</button>
+            <button class="choice-button" data-answer="paciencia" onclick="selectAndVerify(this, 'q6-6', 'en cuenta')">paciencia</button>
+            <button class="choice-button" data-answer="en cuenta" onclick="selectAndVerify(this, 'q6-6', 'en cuenta')">en cuenta</button>
+            <button class="choice-button" data-answer="éxito" onclick="selectAndVerify(this, 'q6-6', 'en cuenta')">éxito</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-6')">Verificar</button>
-        <div id="respuesta-6-1-6" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: en cuenta (Tener en cuenta)</p>
-        </div>
+        <div id="feedback-q6-6" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">7. ¿Tienes __________________________? ¿Quieres que prenda el aire acondicionado?</p>
         <div id="q6-7-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-7')">hambre</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-7')">sueño</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-7')">calor</button>
+            <button class="choice-button" data-answer="hambre" onclick="selectAndVerify(this, 'q6-7', 'calor')">hambre</button>
+            <button class="choice-button" data-answer="sueño" onclick="selectAndVerify(this, 'q6-7', 'calor')">sueño</button>
+            <button class="choice-button" data-answer="calor" onclick="selectAndVerify(this, 'q6-7', 'calor')">calor</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-7')">Verificar</button>
-        <div id="respuesta-6-1-7" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: calor (Tener calor)</p>
-        </div>
+        <div id="feedback-q6-7" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">8. A veces tengo ______________________ de hablar en español porque mi pronunciación no es muy buena. </p>
         <div id="q6-8-options">
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-8')">vergüenza</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-8')">la culpa</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-8')">lástima</button>
+            <button class="choice-button" data-answer="vergüenza" onclick="selectAndVerify(this, 'q6-8', 'vergüenza')">vergüenza</button>
+            <button class="choice-button" data-answer="la culpa" onclick="selectAndVerify(this, 'q6-8', 'vergüenza')">la culpa</button>
+            <button class="choice-button" data-answer="lástima" onclick="selectAndVerify(this, 'q6-8', 'vergüenza')">lástima</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-8')">Verificar</button>
-        <div id="respuesta-6-1-8" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: vergüenza (Tener vergüenza)</p>
-        </div>
+        <div id="feedback-q6-8" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">9. Te espero. No tengo ______________________________ hoy. </p>
         <div id="q6-9-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-9')">razón</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-9')">apuro</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-9')">cuidado</button>
+            <button class="choice-button" data-answer="razón" onclick="selectAndVerify(this, 'q6-9', 'apuro')">razón</button>
+            <button class="choice-button" data-answer="apuro" onclick="selectAndVerify(this, 'q6-9', 'apuro')">apuro</button>
+            <button class="choice-button" data-answer="cuidado" onclick="selectAndVerify(this, 'q6-9', 'apuro')">cuidado</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-9')">Verificar</button>
-        <div id="respuesta-6-1-9" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: apuro (Tener apuro)</p>
-        </div>
+        <div id="feedback-q6-9" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">10. ¿Quieres un jugo de naranja? Yo tengo _____________________ después de caminar tanto. </p>
         <div id="q6-10-options">
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-10')">sed</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-10')">frío</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-10')">en cuenta</button>
+            <button class="choice-button" data-answer="sed" onclick="selectAndVerify(this, 'q6-10', 'sed')">sed</button>
+            <button class="choice-button" data-answer="frío" onclick="selectAndVerify(this, 'q6-10', 'sed')">frío</button>
+            <button class="choice-button" data-answer="en cuenta" onclick="selectAndVerify(this, 'q6-10', 'sed')">en cuenta</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-10')">Verificar</button>
-        <div id="respuesta-6-1-10" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: sed (Tener sed)</p>
-        </div>
+        <div id="feedback-q6-10" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">11. Estoy un poco cansada y no tengo ___________________________ de estudiar </p>
         <div id="q6-11-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-11')">paciencia</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-11')">suerte</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-11')">ganas</button>
+            <button class="choice-button" data-answer="paciencia" onclick="selectAndVerify(this, 'q6-11', 'ganas')">paciencia</button>
+            <button class="choice-button" data-answer="suerte" onclick="selectAndVerify(this, 'q6-11', 'ganas')">suerte</button>
+            <button class="choice-button" data-answer="ganas" onclick="selectAndVerify(this, 'q6-11', 'ganas')">ganas</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-11')">Verificar</button>
-        <div id="respuesta-6-1-11" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: ganas (Tener ganas)</p>
-        </div>
+        <div id="feedback-q6-11" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">12. Si tienes ________________________ de cabeza, puedes tomar una aspirina.</p>
         <div id="q6-12-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-12')">razón</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-12')">dolor</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-12')">la culpa</button>
+            <button class="choice-button" data-answer="razón" onclick="selectAndVerify(this, 'q6-12', 'dolor')">razón</button>
+            <button class="choice-button" data-answer="dolor" onclick="selectAndVerify(this, 'q6-12', 'dolor')">dolor</button>
+            <button class="choice-button" data-answer="la culpa" onclick="selectAndVerify(this, 'q6-12', 'dolor')">la culpa</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-12')">Verificar</button>
-        <div id="respuesta-6-1-12" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: dolor (Tener dolor de...)</p>
-        </div>
+        <div id="feedback-q6-12" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">13. ¿Quién tiene ______________________________ de los problemas ecológicos? ¿Los gobiernos?</p>
         <div id="q6-13-options">
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-13')">la culpa</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-13')">confianza</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-13')">coraje</button>
+            <button class="choice-button" data-answer="la culpa" onclick="selectAndVerify(this, 'q6-13', 'la culpa')">la culpa</button>
+            <button class="choice-button" data-answer="confianza" onclick="selectAndVerify(this, 'q6-13', 'la culpa')">confianza</button>
+            <button class="choice-button" data-answer="coraje" onclick="selectAndVerify(this, 'q6-13', 'la culpa')">coraje</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-13')">Verificar</button>
-        <div id="respuesta-6-1-13" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: la culpa (Tener la culpa)</p>
-        </div>
+        <div id="feedback-q6-13" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <div class="question-container" style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
         <p style="margin: 5px 0 10px 0;">14. Hay que tener ____________________________ para poder votar en la elección para presidente.</p>
         <div id="q6-14-options">
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-14')">apuro</button>
-            <button class="choice-button" data-correct="true" onclick="checkChoice(this, 'q6-14')">18 años</button>
-            <button class="choice-button" data-correct="false" onclick="checkChoice(this, 'q6-14')">lugar</button>
+            <button class="choice-button" data-answer="apuro" onclick="selectAndVerify(this, 'q6-14', '18 años')">apuro</button>
+            <button class="choice-button" data-answer="18 años" onclick="selectAndVerify(this, 'q6-14', '18 años')">18 años</button>
+            <button class="choice-button" data-answer="lugar" onclick="selectAndVerify(this, 'q6-14', '18 años')">lugar</button>
         </div>
-        <button class="verify-button-small" onclick="showAnswer('respuesta-6-1-14')">Verificar</button>
-        <div id="respuesta-6-1-14" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold; margin: 0;">Respuesta: 18 años (Tener ... años)</p>
-        </div>
+        <div id="feedback-q6-14" class="feedback-box" style="margin-top: 10px; display: none;"></div>
     </div>
     
     <hr style="margin-top: 30px;">
     
+        
     <h3 style="color: #007bff;">9. Ejercicios de Comprensión Lectora</h3>
     
     <hr>
