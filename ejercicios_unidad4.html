@@ -93,10 +93,6 @@
 
     <div id="lesson-menu-placeholder"></div>
     
-    <div class="lesson-container">
-        
-        <h2>Unidad 4 – Ejercicios</h2>
-
     <div class="lesson-exercises">
     <h2 style="color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 30px;">
         Unidad 4: Ejercicios
@@ -105,139 +101,173 @@
     <h3 style="color: #17a2b8;">1. Forma y Usos del Verbo ESTAR</h3>
 
     <h4>1.1. Completa la conjugación.</h4>
-    <form id="ejercicio-estar-1">
-        <p>Verbo ESTAR (Presente de Indicativo)</p>
-        <div style="margin-left: 20px;">
-            (yo) ________________________
-            <input type="text" id="estar-yo" style="width: 150px; margin-bottom: 5px;">
-        </div>
-        <div style="margin-left: 20px;">
-            (tú) ________________________
-            <input type="text" id="estar-tu" style="width: 150px; margin-bottom: 5px;">
-        </div>
-        <div style="margin-left: 20px;">
-            (él, ella, usted) ________________________
-            <input type="text" id="estar-el" style="width: 150px; margin-bottom: 5px;">
-        </div>
-        <div style="margin-left: 20px;">
-            (nosotros, nosotras) ________________________
-            <input type="text" id="estar-nosotros" style="width: 150px; margin-bottom: 5px;">
-        </div>
-        <div style="margin-left: 20px;">
-            (vosotros, vosotras) ________________________
-            <input type="text" id="estar-vosotros" style="width: 150px; margin-bottom: 5px;">
-        </div>
-        <div style="margin-left: 20px;">
-            (ellos, ellas, ustedes) ________________________
-            <input type="text" id="estar-ellos" style="width: 150px; margin-bottom: 5px;">
-        </div>
-    </form>
+    <p>Verbo ESTAR (Presente de Indicativo)</p>
     
-    <button class="verify-button" onclick="showAnswer('respuesta-estar-1')">Verificar 1.1</button>
-    <div id="respuesta-estar-1" class="answer-box" style="display: none;">
-        <p style="font-weight: bold;">Respuestas 1.1:</p>
-        <ul style="list-style: none; padding-left: 0;">
-            <li>(yo) **ESTOY**</li>
-            <li>(tú) **ESTÁS**</li>
-            <li>(él, ella, usted) **ESTÁ**</li>
-            <li>(nosotros, nosotras) **ESTAMOS**</li>
-            <li>(vosotros, vosotras) **ESTÁIS**</li>
-            <li>(ellos, ellas, ustedes) **ESTÁN**</li>
-        </ul>
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (yo) ________________________
+        <input type="text" id="estar-yo" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-yo')">Verificar</button>
+        <div id="respuesta-1-1-yo" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTOY</p>
+        </div>
     </div>
     
-    <br><br>
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (tú) ________________________
+        <input type="text" id="estar-tu" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-tu')">Verificar</button>
+        <div id="respuesta-1-1-tu" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTÁS</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (él, ella, usted) ________________________
+        <input type="text" id="estar-el" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-el')">Verificar</button>
+        <div id="respuesta-1-1-el" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTÁ</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (nosotros, nosotras) ________________________
+        <input type="text" id="estar-nosotros" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-nosotros')">Verificar</button>
+        <div id="respuesta-1-1-nosotros" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTAMOS</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (vosotros, vosotras) ________________________
+        <input type="text" id="estar-vosotros" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-vosotros')">Verificar</button>
+        <div id="respuesta-1-1-vosotros" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTÁIS</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
+        (ellos, ellas, ustedes) ________________________
+        <input type="text" id="estar-ellos" style="width: 150px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-ellos')">Verificar</button>
+        <div id="respuesta-1-1-ellos" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ESTÁN</p>
+        </div>
+    </div>
+    
+    <br>
 
     <h4>1.2. Completa las siguientes oraciones con la forma adecuada del verbo *estar*.</h4>
-    <form id="ejercicio-estar-2">
-        <ol>
-            <li>Yo ____________________ cansado después de trabajar todo el día.
-                <input type="text" id="estar-ej2-1" style="width: 80px;">
-            </li>
-            <li>Tú ___________________ en la casa de Juan, ¿verdad?
-                <input type="text" id="estar-ej2-2" style="width: 80px;">
-            </li>
-            <li>Ella ___________________ feliz con su nuevo trabajo.
-                <input type="text" id="estar-ej2-3" style="width: 80px;">
-            </li>
-            <li>Nosotros ____________________ en el parque disfrutando del buen clima.
-                <input type="text" id="estar-ej2-4" style="width: 80px;">
-            </li>
-            <li>Ellos ____________________ preocupados por el examen de mañana.
-                <input type="text" id="estar-ej2-5" style="width: 80px;">
-            </li>
-        </ol>
-    </form>
     
-    <button class="verify-button" onclick="showAnswer('respuesta-estar-2')">Verificar 1.2</button>
-    <div id="respuesta-estar-2" class="answer-box" style="display: none;">
-        <p style="font-weight: bold;">Respuestas 1.2:</p>
-        <ol>
-            <li>Yo **estoy** cansado después de trabajar todo el día.</li>
-            <li>Tú **estás** en la casa de Juan, ¿verdad?</li>
-            <li>Ella **está** feliz con su nuevo trabajo.</li>
-            <li>Nosotros **estamos** en el parque disfrutando del buen clima.</li>
-            <li>Ellos **están** preocupados por el examen de mañana.</li>
-        </ol>
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">1. Yo ____________________ cansado después de trabajar todo el día.</p>
+        <input type="text" id="estar-ej2-1" style="width: 80px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-1')">Verificar</button>
+        <div id="respuesta-1-2-1" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: estoy</p>
+        </div>
     </div>
     
-    <br><br>
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">2. Tú ___________________ en la casa de Juan, ¿verdad?</p>
+        <input type="text" id="estar-ej2-2" style="width: 80px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-2')">Verificar</button>
+        <div id="respuesta-1-2-2" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: estás</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">3. Ella ___________________ feliz con su nuevo trabajo.</p>
+        <input type="text" id="estar-ej2-3" style="width: 80px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-3')">Verificar</button>
+        <div id="respuesta-1-2-3" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: está</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">4. Nosotros ____________________ en el parque disfrutando del buen clima.</p>
+        <input type="text" id="estar-ej2-4" style="width: 80px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-4')">Verificar</button>
+        <div id="respuesta-1-2-4" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: estamos</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">5. Ellos ____________________ preocupados por el examen de mañana.</p>
+        <input type="text" id="estar-ej2-5" style="width: 80px; margin-right: 10px;">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-5')">Verificar</button>
+        <div id="respuesta-1-2-5" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: están</p>
+        </div>
+    </div>
+    
+    <br>
 
     <h4>1.3. Transforma las siguientes afirmaciones en preguntas.</h4>
     <p style="font-style: italic;">Ejemplo: El perro está en el jardín. → ¿Está el perro en el jardín?</p>
-    <form id="ejercicio-estar-3">
-        <p>Mi hermana está en la universidad.</p>
-        <p style="font-weight: bold;">¿
+    
+    <div style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">Afirmación: Mi hermana está en la universidad.</p>
+        <p style="font-weight: bold; margin: 5px 0 5px 0;">¿
             <input type="text" id="estar-ej3-1" style="width: 300px;" placeholder="Escribe la pregunta completa aquí.">?
         </p>
-        <p>Estamos contentos con los resultados.</p>
-        <p style="font-weight: bold;">¿
-            <input type="text" id="estar-ej3-2" style="width: 300px;" placeholder="Escribe la pregunta completa aquí.">?
-        </p>
-        <p>La comida está lista en la cocina.</p>
-        <p style="font-weight: bold;">¿
-            <input type="text" id="estar-ej3-3" style="width: 300px;" placeholder="Escribe la pregunta completa aquí.">?
-        </p>
-    </form>
-    
-    <button class="verify-button" onclick="showAnswer('respuesta-estar-3')">Verificar 1.3</button>
-    <div id="respuesta-estar-3" class="answer-box" style="display: none;">
-        <p style="font-weight: bold;">Respuestas 1.3:</p>
-        <ul style="list-style: none; padding-left: 0;">
-            <li>¿**Está** mi hermana en la universidad?</li>
-            <li>¿**Estamos** contentos con los resultados?</li>
-            <li>¿**Está** la comida lista en la cocina?</li>
-        </ul>
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-1')">Verificar</button>
+        <div id="respuesta-1-3-1" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ¿Está mi hermana en la universidad?</p>
+        </div>
     </div>
     
-    <br><br>
+    <div style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">Afirmación: Estamos contentos con los resultados.</p>
+        <p style="font-weight: bold; margin: 5px 0 5px 0;">¿
+            <input type="text" id="estar-ej3-2" style="width: 300px;" placeholder="Escribe la pregunta completa aquí.">?
+        </p>
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-2')">Verificar</button>
+        <div id="respuesta-1-3-2" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ¿Estamos contentos con los resultados?</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">Afirmación: La comida está lista en la cocina.</p>
+        <p style="font-weight: bold; margin: 5px 0 5px 0;">¿
+            <input type="text" id="estar-ej3-3" style="width: 300px;" placeholder="Escribe la pregunta completa aquí.">?
+        </p>
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-3')">Verificar</button>
+        <div id="respuesta-1-3-3" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: ¿Está la comida lista en la cocina?</p>
+        </div>
+    </div>
+    
+    <br>
     
     <h4>1.4. Completa los siguientes diálogos.</h4>
-    <form id="ejercicio-estar-4">
-        <p style="font-weight: bold;">Diálogo A:</p>
-        <p>Persona 1: ¿Cómo ________________?
-            <input type="text" id="estar-ej4-a1" style="width: 80px;">
-        </p>
-        <p>Persona 2: ________________ bien, gracias. ¿Y tú?
-            <input type="text" id="estar-ej4-a2" style="width: 80px;">
-        </p>
-        
-        <p style="font-weight: bold; margin-top: 15px;">Diálogo B:</p>
-        <p>Persona 1: _________________ emocionada por la fiesta de esta noche.
-            <input type="text" id="estar-ej4-b1" style="width: 80px;">
-        </p>
-        <p>Persona 2: Sí, ___________________ ansiosos por ver a nuestros amigos.
-            <input type="text" id="estar-ej4-b2" style="width: 80px;">
-        </p>
-    </form>
 
-    <button class="verify-button" onclick="showAnswer('respuesta-estar-4')">Verificar 1.4</button>
-    <div id="respuesta-estar-4" class="answer-box" style="display: none;">
-        <p style="font-weight: bold;">Respuestas 1.4:</p>
-        <ul style="list-style: none; padding-left: 0;">
-            <li>Diálogo A: estás, estoy</li>
-            <li>Diálogo B: estoy, estamos</li>
-        </ul>
+    <div style="margin-bottom: 15px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="font-weight: bold; margin-top: 0; margin-bottom: 5px;">Diálogo A:</p>
+        <p style="margin: 0;">Persona 1: ¿Cómo ________________? <input type="text" id="estar-ej4-a1" style="width: 80px;"></p>
+        <p style="margin-top: 5px; margin-bottom: 5px;">Persona 2: ________________ bien, gracias. ¿Y tú? <input type="text" id="estar-ej4-a2" style="width: 80px;"></p>
+        
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-4-a')">Verificar Diálogo A</button>
+        <div id="respuesta-1-4-a" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: estás, estoy</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="font-weight: bold; margin-top: 0; margin-bottom: 5px;">Diálogo B:</p>
+        <p style="margin: 0;">Persona 1: _________________ emocionada por la fiesta de esta noche. <input type="text" id="estar-ej4-b1" style="width: 80px;"></p>
+        <p style="margin-top: 5px; margin-bottom: 5px;">Persona 2: Sí, ___________________ ansiosos por ver a nuestros amigos. <input type="text" id="estar-ej4-b2" style="width: 80px;"></p>
+        
+        <button class="verify-button-small" onclick="showAnswer('respuesta-1-4-b')">Verificar Diálogo B</button>
+        <div id="respuesta-1-4-b" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold;">Respuesta: estoy, estamos</p>
+        </div>
     </div>
 
     <hr style="margin-top: 30px;">
