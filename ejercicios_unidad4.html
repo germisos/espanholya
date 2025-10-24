@@ -9,8 +9,8 @@
     
     <style>
         /* =====================================
-           ESTILOS GENERALES
-           ===================================== */
+            ESTILOS GENERALES
+            ===================================== */
         body {
             font-family: Arial, sans-serif;
             margin: 0; 
@@ -19,7 +19,7 @@
             color: #333;
             line-height: 1.6;
         }
-        .lesson-container {
+        .lesson-exercises {
             max-width: 900px;
             /* MARGEN SUPERIOR para el menú fijo */
             margin: 80px auto 25px auto;
@@ -32,19 +32,26 @@
             color: #007bff; 
             margin-top: 25px;
         }
+        h4 {
+            color: #28a745;
+            margin-top: 30px;
+        }
         hr {
             border: 0;
             border-top: 1px solid #ddd;
             margin: 20px 0;
         }
-        /* Estilos de botones de Verificar */
+        
+        /* =====================================
+            ESTILOS BOTONES Y RESPUESTAS
+            ===================================== */
         button {
             background-color: #007bff; 
             color: white;
             border: none; 
             border-radius: 5px;
-            padding: 8px 15px; /* Ajuste un poco el padding para mejor visualización */
-            margin-top: 10px; /* Ajuste el margen superior */
+            padding: 8px 15px;
+            margin-top: 10px;
             cursor: pointer; 
             font-weight: bold;
             transition: background-color 0.2s;
@@ -52,40 +59,61 @@
         button:hover { 
             background-color: #0056b3; 
         }
-        /* Estilo para la caja de respuestas */
+        /* Botón más pequeño para verificación individual */
+        .verify-button-small {
+            padding: 4px 10px;
+            margin-top: 0;
+            font-size: 0.85em;
+        }
+
+        /* Estilo para la caja de respuestas (bloque, para lectura) */
         .answer-box {
             background: #f1f1f1;
             border: 1px solid #ddd;
             border-radius: 6px;
-            padding: 15px; /* Aumentado padding para legibilidad */
-            margin-top: 10px; /* Consistencia con el botón */
+            padding: 15px;
+            margin-top: 10px;
             display: none;
-            color: #555; /* Color de texto más oscuro para legibilidad */
-            font-style: italic;
-            white-space: pre-wrap; /* Mantiene saltos de línea dentro de la caja */
+            color: #555;
+            white-space: pre-wrap;
+            /* Se usa la función showAnswer/toggleAnswer */
         }
-        /* Estilo para las listas de ejercicios */
+        
+        /* Estilo para la caja de respuestas en línea (inline, para verbos) */
+        .answer-box-inline {
+            background: #e9ffed;
+            border: 1px solid #28a745;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-top: 5px;
+            display: inline-block; /* Aparece al lado o debajo del botón, no en un bloque grande */
+            color: #28a745;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        /* Estilos de lista base para consistencia */
         ul {
-            list-style: none; /* Quitamos los puntos por defecto */
+            list-style: none;
             padding-left: 0;
         }
-        ul li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
+        ol li {
+            margin-bottom: 10px;
         }
-        /* Para textos de interpretación */
-        h4 {
-            color: #28a745;
-            margin-top: 30px;
+        textarea {
+            resize: vertical;
         }
     </style>
 
     <script>
-        function toggleAnswer(id){
-            const box = document.getElementById(id);
-            // Toggle entre "none" y "block"
-            box.style.display = box.style.display === "block" ? "none" : "block";
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            // Función genérica para mostrar/ocultar las respuestas
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+            } else {
+                answer.style.display = 'none';
+            }
         }
     </script>
 </head>
@@ -108,7 +136,7 @@
         <input type="text" id="estar-yo" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-yo')">Verificar</button>
         <div id="respuesta-1-1-yo" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTOY</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTOY</p>
         </div>
     </div>
     
@@ -117,7 +145,7 @@
         <input type="text" id="estar-tu" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-tu')">Verificar</button>
         <div id="respuesta-1-1-tu" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTÁS</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTÁS</p>
         </div>
     </div>
     
@@ -126,7 +154,7 @@
         <input type="text" id="estar-el" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-el')">Verificar</button>
         <div id="respuesta-1-1-el" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTÁ</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTÁ</p>
         </div>
     </div>
     
@@ -135,7 +163,7 @@
         <input type="text" id="estar-nosotros" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-nosotros')">Verificar</button>
         <div id="respuesta-1-1-nosotros" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTAMOS</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTAMOS</p>
         </div>
     </div>
     
@@ -144,7 +172,7 @@
         <input type="text" id="estar-vosotros" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-vosotros')">Verificar</button>
         <div id="respuesta-1-1-vosotros" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTÁIS</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTÁIS</p>
         </div>
     </div>
     
@@ -153,7 +181,7 @@
         <input type="text" id="estar-ellos" style="width: 150px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-1-ellos')">Verificar</button>
         <div id="respuesta-1-1-ellos" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ESTÁN</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ESTÁN</p>
         </div>
     </div>
     
@@ -166,7 +194,7 @@
         <input type="text" id="estar-ej2-1" style="width: 80px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-1')">Verificar</button>
         <div id="respuesta-1-2-1" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: estoy</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: estoy</p>
         </div>
     </div>
     
@@ -175,7 +203,7 @@
         <input type="text" id="estar-ej2-2" style="width: 80px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-2')">Verificar</button>
         <div id="respuesta-1-2-2" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: estás</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: estás</p>
         </div>
     </div>
 
@@ -184,7 +212,7 @@
         <input type="text" id="estar-ej2-3" style="width: 80px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-3')">Verificar</button>
         <div id="respuesta-1-2-3" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: está</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: está</p>
         </div>
     </div>
 
@@ -193,7 +221,7 @@
         <input type="text" id="estar-ej2-4" style="width: 80px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-4')">Verificar</button>
         <div id="respuesta-1-2-4" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: estamos</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: estamos</p>
         </div>
     </div>
 
@@ -202,7 +230,7 @@
         <input type="text" id="estar-ej2-5" style="width: 80px; margin-right: 10px;">
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-2-5')">Verificar</button>
         <div id="respuesta-1-2-5" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: están</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: están</p>
         </div>
     </div>
     
@@ -218,7 +246,7 @@
         </p>
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-1')">Verificar</button>
         <div id="respuesta-1-3-1" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ¿Está mi hermana en la universidad?</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ¿Está mi hermana en la universidad?</p>
         </div>
     </div>
     
@@ -229,7 +257,7 @@
         </p>
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-2')">Verificar</button>
         <div id="respuesta-1-3-2" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ¿Estamos contentos con los resultados?</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ¿Estamos contentos con los resultados?</p>
         </div>
     </div>
     
@@ -240,7 +268,7 @@
         </p>
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-3-3')">Verificar</button>
         <div id="respuesta-1-3-3" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: ¿Está la comida lista en la cocina?</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: ¿Está la comida lista en la cocina?</p>
         </div>
     </div>
     
@@ -255,7 +283,7 @@
         
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-4-a')">Verificar Diálogo A</button>
         <div id="respuesta-1-4-a" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: estás, estoy</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: estás, estoy</p>
         </div>
     </div>
     
@@ -266,113 +294,111 @@
         
         <button class="verify-button-small" onclick="showAnswer('respuesta-1-4-b')">Verificar Diálogo B</button>
         <div id="respuesta-1-4-b" class="answer-box-inline" style="display: none;">
-            <p style="font-weight: bold;">Respuesta: estoy, estamos</p>
+            <p style="font-weight: bold; margin: 0;">Respuesta: estoy, estamos</p>
         </div>
     </div>
 
     <hr style="margin-top: 30px;">
-    <script>
-        // Función genérica para mostrar/ocultar las respuestas
-        function showAnswer(id) {
-            const answer = document.getElementById(id);
-            if (answer.style.display === 'none') {
-                answer.style.display = 'block';
-            } else {
-                answer.style.display = 'none';
-            }
-        }
-    </script>
-</div>
 
-        <hr>
+    <h3 style="color: #007bff;">9. Ejercicios de Comprensión Lectora</h3>
+    
+    <hr>
+    
+    <h4>A) Lucía y la botella</h4>
+    <p>Lee el siguiente texto y contesta a las preguntas con respuestas completas:</p>
 
-<h3>VIII) Interpretación de Texto</h3>
+    <div style="background: #e6f7ff; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-bottom: 15px;">
+        <p style="font-style: italic; margin-top: 0;">
+            Lucía era una niña **curiosa** que vivía en un pequeño **pueblo junto al mar**. Todos los días, después de la escuela, **corría hacia la playa** para observar las olas y buscar **conchas y piedras brillantes** en la orilla. Un día, mientras paseaba, encontró una **botella de cristal con un mensaje adentro**. El mensaje decía: "**¡Hola! Soy Tomás y estoy atrapado en una isla desierta. Por favor, ayúdame**". Lucía **se sorprendió y emocionó** al leer el mensaje. Sin dudarlo, decidió **llevar la botella a su casa y mostrarle el mensaje a sus padres**. Juntos, decidieron contactar a las autoridades para que enviaran ayuda a Tomás.
+        </p>
+    </div>
 
-<h4>A) Lucía y la botella</h4>
-<p>Lee el siguiente texto y contesta a las preguntas con respuestas completas:</p>
+    <ol>
+        <li>¿Quién es Lucía y dónde vive?</li>
+        <textarea id="lucia-q1" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans1')">Verificar</button>
+        <div id="lucia-ans1" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Lucía es una niña curiosa que vive en un pequeño pueblo junto al mar.</p></div>
 
-<div style="background: #e6f7ff; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-bottom: 15px;">
-    <p style="font-style: italic; margin-top: 0;">
-        Lucía era una niña **curiosa** que vivía en un pequeño **pueblo junto al mar**. Todos los días, después de la escuela, **corría hacia la playa** para observar las olas y buscar **conchas y piedras brillantes** en la orilla. Un día, mientras paseaba, encontró una **botella de cristal con un mensaje adentro**. El mensaje decía: "**¡Hola! Soy Tomás y estoy atrapado en una isla desierta. Por favor, ayúdame**". Lucía **se sorprendió y emocionó** al leer el mensaje. Sin dudarlo, decidió **llevar la botella a su casa y mostrarle el mensaje a sus padres**. Juntos, decidieron contactar a las autoridades para que enviaran ayuda a Tomás.
-    </p>
-</div>
+        <li>¿Qué le gusta hacer a Lucía después de la escuela?</li>
+        <textarea id="lucia-q2" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans2')">Verificar</button>
+        <div id="lucia-ans2" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: A Lucía le gusta correr hacia la playa para observar las olas y buscar conchas y piedras brillantes en la orilla.</p></div>
+        
+        <li>¿Qué encontró Lucía un día mientras paseaba por la playa?</li>
+        <textarea id="lucia-q3" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans3')">Verificar</button>
+        <div id="lucia-ans3" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Encontró una botella de cristal con un mensaje adentro.</p></div>
+        
+        <li>¿Qué decía el mensaje dentro de la botella que encontró Lucía?</li>
+        <textarea id="lucia-q4" rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans4')">Verificar</button>
+        <div id="lucia-ans4" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Decía: "¡Hola! Soy Tomás y estoy atrapado en una isla desierta. Por favor, ayúdame".</p></div>
+        
+        <li>¿Cómo reaccionó Lucía al leer el mensaje?</li>
+        <textarea id="lucia-q5" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans5')">Verificar</button>
+        <div id="lucia-ans5" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Lucía se sorprendió y se emocionó al leer el mensaje.</p></div>
+        
+        <li>¿Qué decisión tomó Lucía después de encontrar la botella con el mensaje?</li>
+        <textarea id="lucia-q6" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans6')">Verificar</button>
+        <div id="lucia-ans6" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Decidió llevar la botella a su casa y mostrarle el mensaje a sus padres para contactar a las autoridades.</p></div>
+        
+        <li>¿Por qué crees que Lucía decidió llevar la botella a su casa y mostrarle el mensaje a sus padres?</li>
+        <textarea id="lucia-q7" rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('lucia-ans7')">Verificar</button>
+        <div id="lucia-ans7" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Porque creyó que era importante y necesitaba ayuda de sus padres para contactar a las autoridades.</p></div>
+    </ol>
 
-<ol>
-    <li>¿Quién es Lucía y dónde vive?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué le gusta hacer a Lucía después de la escuela?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué encontró Lucía un día mientras paseaba por la playa?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué decía el mensaje dentro de la botella que encontró Lucía?</li>
-    <textarea rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Cómo reaccionó Lucía al leer el mensaje?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué decisión tomó Lucía después de encontrar la botella con el mensaje?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Por qué crees que Lucía decidió llevar la botella a su casa y mostrarle el mensaje a sus padres?</li>
-    <textarea rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-</ol>
-<button onclick="toggleAnswer('text1')">Verificar Respuestas</button>
-<div id="text1" class="answer-box">
-1. Lucía es una niña curiosa que vive en un pequeño pueblo junto al mar.
-2. Después de la escuela, a Lucía le gusta correr hacia la playa para observar las olas y buscar conchas y piedras brillantes en la orilla.
-3. Un día, mientras paseaba por la playa, Lucía encontró una botella de cristal con un mensaje adentro.
-4. El mensaje dentro de la botella decía: "¡Hola! Soy Tomás y estoy atrapado en una isla desierta. Por favor, ayúdame".
-5. Lucía se sorprendió y emocionó al leer el mensaje.
-6. Después de encontrar la botella con el mensaje, Lucía decidió llevarla a su casa y mostrarle el mensaje a sus padres.
-7. Lucía decidió llevar la botella a su casa y mostrarle el mensaje a sus padres porque creyó que era importante y necesitaba ayuda. También podría haberse sentido preocupada por Tomás y quería hacer todo lo posible para ayudarlo.
-</div>
+    <hr>
 
-<hr>
+    <h4>B) Sofía y el diario</h4>
+    <p>Lee el siguiente texto y contesta a las preguntas con respuestas completas:</p>
 
-<h4>B) Sofía y el diario</h4>
-<p>Lee el siguiente texto y contesta a las preguntas con respuestas completas:</p>
+    <div style="background: #e6f7ff; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-bottom: 15px;">
+        <p style="font-style: italic; margin-top: 0;">
+            Sofía era una niña que vivía en una **ciudad muy grande**. Todos los días, después de la escuela, **iba al parque** cercano a su casa. Le encantaba columpiarse en los columpios altos y correr por el césped verde. Un día, mientras jugaba, **encontró un libro viejo debajo de un árbol**. El libro tenía una **cubierta de cuero gastado y páginas amarillentas**. Intrigada, Sofía lo abrió y descubrió que era un **diario escrito por alguien llamado Ana**. El diario contaba **historias de aventuras y viajes emocionantes** por todo el mundo. Fascinada por las historias de Ana, Sofía decidió **llevar el diario a casa y leerlo con más detalle**.
+        </p>
+    </div>
 
-<div style="background: #e6f7ff; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-bottom: 15px;">
-    <p style="font-style: italic; margin-top: 0;">
-        Sofía era una niña que vivía en una **ciudad muy grande**. Todos los días, después de la escuela, **iba al parque** cercano a su casa. Le encantaba columpiarse en los columpios altos y correr por el césped verde. Un día, mientras jugaba, **encontró un libro viejo debajo de un árbol**. El libro tenía una **cubierta de cuero gastado y páginas amarillentas**. Intrigada, Sofía lo abrió y descubrió que era un **diario escrito por alguien llamado Ana**. El diario contaba **historias de aventuras y viajes emocionantes** por todo el mundo. Fascinada por las historias de Ana, Sofía decidió **llevar el diario a casa y leerlo con más detalle**.
-    </p>
-</div>
+    <ol>
+        <li>¿Quién es Sofía y dónde vive?</li>
+        <textarea id="sofia-q1" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans1')">Verificar</button>
+        <div id="sofia-ans1" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Sofía es una niña que vivía en una ciudad muy grande.</p></div>
+        
+        <li>¿Qué le gustaba hacer a Sofía después de la escuela?</li>
+        <textarea id="sofia-q2" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans2')">Verificar</button>
+        <div id="sofia-ans2" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Le gustaba ir al parque cercano a su casa, columpiarse y correr por el césped verde.</p></div>
+        
+        <li>¿Qué encontró Sofía un día mientras jugaba en el parque?</li>
+        <textarea id="sofia-q3" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans3')">Verificar</button>
+        <div id="sofia-ans3" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Encontró un libro viejo debajo de un árbol.</p></div>
+        
+        <li>¿Cómo era el libro que encontró Sofía debajo del árbol?</li>
+        <textarea id="sofia-q4" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans4')">Verificar</button>
+        <div id="sofia-ans4" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Tenía una cubierta de cuero gastado y páginas amarillentas.</p></div>
+        
+        <li>¿Qué descubrió Sofía al abrir el libro?</li>
+        <textarea id="sofia-q5" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans5')">Verificar</button>
+        <div id="sofia-ans5" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Descubrió que era un diario escrito por alguien llamado Ana.</p></div>
+        
+        <li>¿Qué contenía el diario que encontró Sofía?</li>
+        <textarea id="sofia-q6" rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans6')">Verificar</button>
+        <div id="sofia-ans6" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Contenía historias de aventuras y viajes emocionantes por todo el mundo.</p></div>
+        
+        <li>¿Por qué crees que Sofía decidió llevar el diario a casa y leerlo con más detalle?</li>
+        <textarea id="sofia-q7" rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
+        <button class="verify-button-small" onclick="showAnswer('sofia-ans7')">Verificar</button>
+        <div id="sofia-ans7" class="answer-box-inline" style="display: none;"><p style="font-weight: bold; margin: 0;">Respuesta: Porque estaba fascinada por las historias de aventuras y viajes emocionantes de Ana.</p></div>
+    </ol>
 
-<ol>
-    <li>¿Quién es Sofía y dónde vive?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué le gustaba hacer a Sofía después de la escuela?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué encontró Sofía un día mientras jugaba en el parque?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Cómo era el libro que encontró Sofía debajo del árbol?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué descubrió Sofía al abrir el libro?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Qué contenía el diario que encontró Sofía?</li>
-    <textarea rows="2" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-    
-    <li>¿Por qué crees que Sofía decidió llevar el diario a casa y leerlo con más detalle?</li>
-    <textarea rows="3" style="width: 98%; padding: 5px; border: 1px solid #ccc;" placeholder="Respuesta..."></textarea>
-</ol>
-<button onclick="toggleAnswer('text2')">Verificar Respuestas</button>
-<div id="text2" class="answer-box">
-1. Sofía es una niña que vivía en una ciudad muy grande.
-2. Después de la escuela, a Sofía le gustaba ir al parque cercano a su casa.
-3. Mientras jugaba en el parque, Sofía encontró un libro viejo debajo de un árbol.
-4. El libro tenía una cubierta de cuero gastado y páginas amarillentas.
-5. Sofía descubrió que el libro era un diario escrito por alguien, llamada Ana.
-6. El diario contenía historias de aventuras y viajes emocionantes por todo el mundo.
-7. Sofía decidió llevar el diario a casa y leerlo con más detalle porque estaba fascinada por las historias de aventuras y viajes emocionantes de Ana. Quería saber más sobre la vida de Ana y las aventuras que había experimentado.
-</div>
+    <hr style="margin-top: 30px;">
     </div>
 
 </body>
