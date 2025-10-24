@@ -1120,7 +1120,263 @@ function showAnswer(id) {
     </div>
     
     <hr style="margin-top: 30px;">
+
+    <h3 style="color: #17a2b8;">7. GÉNERO DE LOS ADJETIVOS</h3>
+
+    <h4>7.1. Completa la tabla transformando las frases al género opuesto.</h4>
     
+    <style>
+        .gender-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .gender-table th, .gender-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .gender-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .gender-table input[type="text"] {
+            width: 90%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    
+    <table class="gender-table">
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Masculino Singular</th>
+                <th>Femenino Singular</th>
+                <th style="width: 100px;">Verificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>un gato blanco</td>
+                <td>Una gata blanca</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td><input type="text" id="genero-ej1-2-m" placeholder="Ej: Un actor bueno"></td>
+                <td>Una actriz buena</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-2')">Verificar</button>
+                    <div id="respuesta-7-1-2" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un actor bueno</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>un hombre alto</td>
+                <td><input type="text" id="genero-ej1-3-f" placeholder="Ej: Una mujer alta"></td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-3')">Verificar</button>
+                    <div id="respuesta-7-1-3" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Una mujer alta</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td><input type="text" id="genero-ej1-4-m" placeholder="Ej: Un rey simpático"></td>
+                <td>Una reina simpática</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-4')">Verificar</button>
+                    <div id="respuesta-7-1-4" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un rey simpático</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td><input type="text" id="genero-ej1-5-m" placeholder="Ej: Un hombre elegante"></td>
+                <td>Una mujer elegante</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-5')">Verificar</button>
+                    <div id="respuesta-7-1-5" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un hombre elegante</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>un estudiante inteligente</td>
+                <td><input type="text" id="genero-ej1-6-f" placeholder="Ej: Una estudiante inteligente"></td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-6')">Verificar</button>
+                    <div id="respuesta-7-1-6" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Una estudiante inteligente</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td><input type="text" id="genero-ej1-7-m" placeholder="Ej: Un estudiante brasileño"></td>
+                <td>Una estudiante brasileña</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-7')">Verificar</button>
+                    <div id="respuesta-7-1-7" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un estudiante brasileño</p>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td><input type="text" id="genero-ej1-8-m" placeholder="Ej: Un pintor español"></td>
+                <td>Una pintora española</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-8')">Verificar</button>
+                    <div id="respuesta-7-1-8" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un pintor español</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>9</td>
+                <td>un torero famoso</td>
+                <td><input type="text" id="genero-ej1-9-f" placeholder="Ej: Una torera famosa"></td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-9')">Verificar</button>
+                    <div id="respuesta-7-1-9" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Una torera famosa</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>un escritor importante</td>
+                <td><input type="text" id="genero-ej1-10-f" placeholder="Ej: Una escritora importante"></td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-10')">Verificar</button>
+                    <div id="respuesta-7-1-10" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Una escritora importante</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>11</td>
+                <td><input type="text" id="genero-ej1-11-m" placeholder="Ej: Un dependiente amable"></td>
+                <td>Una dependienta amable</td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-11')">Verificar</button>
+                    <div id="respuesta-7-1-11" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Un dependiente amable</p>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>12</td>
+                <td>un cantante famoso</td>
+                <td><input type="text" id="genero-ej1-12-f" placeholder="Ej: Una cantante famosa"></td>
+                <td>
+                    <button class="verify-button-small" onclick="showAnswer('respuesta-7-1-12')">Verificar</button>
+                    <div id="respuesta-7-1-12" class="answer-box-inline" style="display: none;">
+                        <p style="font-weight: bold; margin: 0;">Respuesta: Una cantante famosa</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <h4>7.2. Ejercicios Extra: Transforma las frases al género y/o número indicado.</h4>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">1. Transforma a Femenino Plural: **Un perro negro**</p>
+        <input type="text" id="genero-ej2-1" style="width: 300px; margin-right: 10px;" placeholder="Ej: Unas perras negras">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-1')">Verificar</button>
+        <div id="respuesta-7-2-1" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Unas perras negras</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">2. Transforma a Masculino Singular: **Una mesa pequeña**</p>
+        <input type="text" id="genero-ej2-2" style="width: 300px; margin-right: 10px;" placeholder="Ej: Un escritorio pequeño">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-2')">Verificar</button>
+        <div id="respuesta-7-2-2" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Un escritorio pequeño (o Un coche pequeño)</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">3. Transforma a Femenino Singular: **Un profesor joven**</p>
+        <input type="text" id="genero-ej2-3" style="width: 300px; margin-right: 10px;" placeholder="Ej: Una profesora joven">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-3')">Verificar</button>
+        <div id="respuesta-7-2-3" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Una profesora joven</p>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">4. Transforma a Masculino Plural: **Una amiga leal**</p>
+        <input type="text" id="genero-ej2-4" style="width: 300px; margin-right: 10px;" placeholder="Ej: Unos amigos leales">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-4')">Verificar</button>
+        <div id="respuesta-7-2-4" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Unos amigos leales</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">5. Transforma a Femenino Singular: **Un actor malo**</p>
+        <input type="text" id="genero-ej2-5" style="width: 300px; margin-right: 10px;" placeholder="Ej: Una actriz mala">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-5')">Verificar</button>
+        <div id="respuesta-7-2-5" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Una actriz mala</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">6. Transforma a Masculino Plural: **Una casa grande**</p>
+        <input type="text" id="genero-ej2-6" style="width: 300px; margin-right: 10px;" placeholder="Ej: Unos edificios grandes">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-6')">Verificar</button>
+        <div id="respuesta-7-2-6" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: Unos edificios grandes (o Unos coches grandes)</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 10px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">7. Transforma a Femenino Singular: **El hombre trabajador**</p>
+        <input type="text" id="genero-ej2-7" style="width: 300px; margin-right: 10px;" placeholder="Ej: La mujer trabajadora">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-7')">Verificar</button>
+        <div id="respuesta-7-2-7" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: La mujer trabajadora</p>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px;">
+        <p style="margin: 0;">8. Transforma a Masculino Singular: **Las flores azules**</p>
+        <input type="text" id="genero-ej2-8" style="width: 300px; margin-right: 10px;" placeholder="Ej: El cielo azul">
+        <button class="verify-button-small" onclick="showAnswer('respuesta-7-2-8')">Verificar</button>
+        <div id="respuesta-7-2-8" class="answer-box-inline" style="display: none;">
+            <p style="font-weight: bold; margin: 0;">Respuesta: El cielo azul (o Un coche azul)</p>
+        </div>
+    </div>
+
+    <hr style="margin-top: 30px;">
+    
+  
         
     <h3 style="color: #007bff;">9. Ejercicios de Comprensión Lectora</h3>
     
