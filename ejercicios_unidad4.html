@@ -115,6 +115,45 @@
                 answer.style.display = 'none';
             }
         }
+        function selectAndVerify(element, questionId, correctAnswer) {
+    var container = document.getElementById(questionId + '-options');
+    var feedbackBox = document.getElementById('feedback-' + questionId);
+    var selectedAnswer = element.getAttribute('data-answer');
+    
+    // 1. Limpiar las clases de todos los botones de la misma pregunta
+    var buttons = container.querySelectorAll('.choice-button');
+    buttons.forEach(function(btn) {
+        btn.classList.remove('selected-choice', 'correct-choice', 'incorrect-choice');
+    });
+
+    // 2. Marcar el botón seleccionado y verificar
+    element.classList.add('selected-choice');
+
+    // 3. Mostrar retroalimentación
+    feedbackBox.style.display = 'block';
+    if (selectedAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+        element.classList.add('correct-choice');
+        feedbackBox.innerHTML = '<span style="color: green; font-weight: bold;">✅ ¡Correcto!</span>';
+    } else {
+        element.classList.add('incorrect-choice');
+        feedbackBox.innerHTML = '<span style="color: red; font-weight: bold;">❌ ¡Incorrecto!</span> La respuesta correcta es: ' + correctAnswer;
+        // Opcional: Resaltar la respuesta correcta si se ha elegido una incorrecta
+        buttons.forEach(function(btn) {
+            if (btn.getAttribute('data-answer').toLowerCase() === correctAnswer.toLowerCase()) {
+                btn.classList.add('correct-choice');
+            }
+        });
+    }
+}
+// Mantenemos la función showAnswer por si la quieres usar en otros ejercicios
+function showAnswer(id) {
+    var answerBox = document.getElementById(id);
+    if (answerBox.style.display === 'none' || answerBox.style.display === '') {
+        answerBox.style.display = 'block';
+    } else {
+        answerBox.style.display = 'none';
+    }
+}
     </script>
 </head>
 <body>
