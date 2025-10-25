@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección Interactiva de Español</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Base */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #007bff;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+            margin: 20px 0;
+        }
+
+        /* Estilos de Ejercicios y Verificación */
+        .question-container {
+            margin-bottom: 15px;
+            border-left: 3px solid #ccc; 
+            padding-left: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .verify-button-small {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
+        .answer-box-inline {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 5px;
+            border-radius: 4px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        /* Estilos del audio */
+        .audio-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .audio-button:hover {
+            background-color: #218838;
+        }
+        
+        /* Estilos de Botones de Opción Múltiple (del Ejercicio 6) */
+        .choice-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 15px;
+            margin: 0 5px 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .choice-button.correct-choice {
+            background-color: #c8e6c9 !important; /* Verde claro */
+            border-color: #4caf50 !important; /* Verde oscuro */
+            font-weight: bold;
+        }
+        .choice-button.incorrect-choice {
+            background-color: #ffcdd2 !important; /* Rojo claro */
+            border-color: #f44336 !important; /* Rojo oscuro */
+            font-weight: bold;
+        }
+        .feedback-box {
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+        }
+
+        /* Estilos para Tablas (Ejercicio 7) */
+        .gender-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .gender-table th, .gender-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .gender-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .gender-table input[type="text"] {
+            width: 90%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        /* Estilos para Conjugación (Unidad 5) */
+        .conjugation-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            width: 300px; 
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+        .verb-title {
+            text-align: center;
+            color: #007bff;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .conjugation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 2.2;
+        }
+        .conjugation-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        .conjugation-list li:last-child {
+            border-bottom: none;
+        }
+        .unchanged-form {
+            font-style: italic;
+            color: #6c757d; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Curso de Español - Nivel Básico</h1>
+        
+        <h2 style="color: #007bff; margin-top: 40px; border-bottom: 2px solid #007bff; padding-bottom: 5px;">UNIDAD 5.1: VERBOS CON CAMBIO VOCÁLICO (O>UE / E>IE)</h2>
+        
+        <p style="font-style: italic; margin-bottom: 20px;">Los verbos con cambio vocálico modifican la vocal de su raíz en todas las personas, excepto en nosotros/as y vosotros/as, donde la vocal es átona.</p>
+        
+        <h3 style="color: #17a2b8; margin-top: 25px;">VERBOS O > UE: PODER y DORMIR</h3>
+        
+        <p style="font-weight: bold;">Regla: Algunos verbos cambian la O de la raíz por UE si la sílaba es tónica.</p>
+
+        <div style="display: flex; justify-content: space-around; margin-top: 15px;">
+            <div class="conjugation-box">
+                <h4 class="verb-title">VERBO: PODER (O &gt; UE)</h4>
+                <ul class="conjugation-list">
+                    <li>(yo) puedo <button class="audio-button" onclick="playAudio('assets/audio/unidad5/poder/puedo.mp3')">🔊</button></li>
+                    <li>(tú) puedes <button class="audio-button" onclick="playAudio('assets/audio/unidad5/poder/puedes.mp3')">🔊</button></li>
+                    <li>(él, ella, usted) puede</li>
+                    <li class="unchanged-form">(nosotros/as) podemos</li>
+                    <li class="unchanged-form">(vosotros/as) podéis</li>
+                    <li>(ellos/as, ustedes) pueden</li>
+                </ul>
+            </div>
+            
+            <div class="conjugation-box">
+                <h4 class="verb-title">VERBO: DORMIR (O &gt; UE)</h4>
+                <ul class="conjugation-list">
+                    <li>(yo) duermo <button class="audio-button" onclick="playAudio('assets/audio/unidad5/dormir/duermo.mp3')">🔊</button></li>
+                    <li>(tú) duermes <button class="audio-button" onclick="playAudio('assets/audio/unidad5/dormir/duermes.mp3')">🔊</button></li>
+                    <li>(él, ella, usted) duerme</li>
+                    <li class="unchanged-form">(nosotros/as) dormimos</li>
+                    <li class="unchanged-form">(vosotros/as) dormís</li>
+                    <li>(ellos/as, ustedes) duermen</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr style="margin: 30px 0;">
+        
+        <h3 style="color: #17a2b8;">VERBOS E > IE: CERRAR, QUERER y PREFERIR</h3>
+        
+        <p style="font-weight: bold;">Regla: Algunos verbos cambian la E de la raíz por IE si la sílaba es tónica.</p>
+
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 15px;">
+            <div class="conjugation-box">
+                <h4 class="verb-title">VERBO: CERRAR (E &gt; IE)</h4>
+                <ul class="conjugation-list">
+                    <li>(yo) cierro <button class="audio-button" onclick="playAudio('assets/audio/unidad5/cerrar/cierro.mp3')">🔊</button></li>
+                    <li>(tú) cierras <button class="audio-button" onclick="playAudio('assets/audio/unidad5/cerrar/cierras.mp3')">🔊</button></li>
+                    <li>(él, ella, usted) cierra</li>
+                    <li class="unchanged-form">(nosotros/as) cerramos</li>
+                    <li class="unchanged-form">(vosotros/as) cerráis</li>
+                    <li>(ellos/as, ustedes) cierran</li>
+                </ul>
+            </div>
+            
+            <div class="conjugation-box">
+                <h4 class="verb-title">VERBO: QUERER (E &gt; IE)</h4>
+                <ul class="conjugation-list">
+                    <li>(yo) quiero <button class="audio-button" onclick="playAudio('assets/audio/unidad5/querer/quiero.mp3')">🔊</button></li>
+                    <li>(tú) quieres <button class="audio-button" onclick="playAudio('assets/audio/unidad5/querer/quieres.mp3')">🔊</button></li>
+                    <li>(él, ella, usted) quiere</li>
+                    <li class="unchanged-form">(nosotros/as) queremos</li>
+                    <li class="unchanged-form">(vosotros/as) queréis</li>
+                    <li>(ellos/as, ustedes) quieren</li>
+                </ul>
+            </div>
+            
+            <div class="conjugation-box">
+                <h4 class="verb-title">VERBO: PREFERIR (E &gt; IE)</h4>
+                <ul class="conjugation-list">
+                    <li>(yo) prefiero <button class="audio-button" onclick="playAudio('assets/audio/unidad5/preferir/prefiero.mp3')">🔊</button></li>
+                    <li>(tú) prefieres <button class="audio-button" onclick="playAudio('assets/audio/unidad5/preferir/prefieres.mp3')">🔊</button></li>
+                    <li>(él, ella, usted) prefiere</li>
+                    <li class="unchanged-form">(nosotros/as) preferimos</li>
+                    <li class="unchanged-form">(vosotros/as) preferís</li>
+                    <li>(ellos/as, ustedes) prefieren</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="margin-top: 30px;">
+        </div>
+
+    <script>
+        // Función para reproducir audio
+        function playAudio(url) {
+            var audio = new Audio(url);
+            audio.play();
+        }
+
+        // Función para mostrar/ocultar respuestas (botón "Verificar" en campos de texto)
+        function showAnswer(id) {
+            var answerBox = document.getElementById(id);
+            if (answerBox.style.display === 'none' || answerBox.style.display === '') {
+                answerBox.style.display = 'block';
+            } else {
+                answerBox.style.display = 'none';
+            }
+        }
+        
+        // Función para seleccionar y verificar opciones (botón "Elegir" instantáneo)
+        function selectAndVerify(element, questionId, correctAnswer) {
+            var container = document.getElementById(questionId + '-options');
+            var feedbackBox = document.getElementById('feedback-' + questionId);
+            var selectedAnswer = element.getAttribute('data-answer');
+            
+            // 1. Limpiar las clases de todos los botones de la misma pregunta
+            var buttons = container.querySelectorAll('.choice-button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('selected-choice', 'correct-choice', 'incorrect-choice');
+            });
+
+            // 2. Marcar el botón seleccionado y verificar
+            element.classList.add('selected-choice');
+
+            // 3. Mostrar retroalimentación
+            feedbackBox.style.display = 'block';
+            if (selectedAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                element.classList.add('correct-choice');
+                feedbackBox.innerHTML = '<span style="color: green; font-weight: bold;">✅ ¡Correcto!</span>';
+            } else {
+                element.classList.add('incorrect-choice');
+                feedbackBox.innerHTML = '<span style="color: red; font-weight: bold;">❌ ¡Incorrecto!</span> La respuesta correcta es: ' + correctAnswer;
+                // Opcional: Resaltar la respuesta correcta si se ha elegido una incorrecta
+                buttons.forEach(function(btn) {
+                    if (btn.getAttribute('data-answer').toLowerCase() === correctAnswer.toLowerCase()) {
+                        btn.classList.add('correct-choice');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
