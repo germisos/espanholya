@@ -14,7 +14,7 @@
         color: #333;
     }
 
-    /* Contenedor principal para centrar el contenido */
+    /* Contenedor principal */
     .lesson-container {
         max-width: 900px;
         margin: 80px auto 25px auto;
@@ -28,35 +28,25 @@
         color: #007bff;
         border-bottom: 2px solid #007bff;
         padding-bottom: 4px;
+        margin-top: 30px;
     }
 
-    /* Estilos para las listas de ejercicios */
-    .exercise-list {
+    /* Lista de conjugación */
+    .verb-conjugation-list {
         list-style: none;
         padding: 0;
     }
 
-    .exercise-list li {
-        margin: 15px 0;
+    .verb-conjugation-list li {
+        margin: 10px 0;
         display: flex;
         align-items: center;
-        gap: 15px; /* Espacio entre la frase y los botones */
-    }
-
-    p.explanation {
-        font-style: italic;
-        color: #555;
-        margin-bottom: 15px;
-    }
-
-    hr {
-        margin: 30px 0;
-        border: none;
-        border-top: 2px solid #ddd;
+        gap: 15px;
+        font-size: 1.1em;
     }
 
     /* Botones de audio (Oír - AZUL) */
-    .play-button, .audio-btn { 
+    .play-button { 
         border: none;
         border-radius: 5px;
         padding: 8px 12px;
@@ -65,9 +55,10 @@
         font-weight: bold;
         background-color: #007bff; /* Azul */
         font-size: 1em;
+        flex-shrink: 0;
     }
-    .play-button:hover, .audio-btn:hover {
-        background-color: #0056b3; /* Azul más oscuro */
+    .play-button:hover {
+        background-color: #0056b3; 
     }
 
     /* Botón de Micrófono (Grabar - VERDE) */
@@ -80,16 +71,17 @@
         color: white;
         font-weight: bold;
         font-size: 1em;
+        flex-shrink: 0;
     }
     .mic-button:hover {
-        background-color: #218838; /* Verde más oscuro */
+        background-color: #218838; 
     }
 
     /* Retroalimentación de voz */
     .feedback {
         font-size: 0.9em;
         margin-left: 6px;
-        flex-grow: 1; /* Permite que el feedback ocupe el espacio restante */
+        flex-grow: 1; 
     }
 
     .feedback.ok {
@@ -99,6 +91,12 @@
     .feedback.retry {
         color: red;
     }
+    
+    .explanation {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+    }
 </style>
 </head>
 
@@ -106,130 +104,189 @@
 
 <div class="lesson-container">
 
-    <h2>EJERCICIOS UNIDAD 5 – VERBOS CON CAMBIO VOCÁLICO</h2>
+    <h2>EJERCICIOS – VERBOS CON CAMBIO VOCÁLICO</h2>
 
-    <p class="explanation">En los siguientes ejercicios, haz clic en **Oír** (azul) para escuchar la frase. Luego, haz clic en **🎤 Grabar** (verde) y repite la frase. El sistema te dará una retroalimentación sobre tu pronunciación.</p>
+    <p class="explanation">Practica la conjugación de los siguientes verbos. Primero, haz clic en **Oír** para escuchar la pronunciación. Luego, haz clic en **🎤 Grabar** y repite la palabra para verificar tu pronunciación.</p>
 
-    <section class="exercise-section">
-        <h3>EJERCICIO 1: Escucha y Repite (Introducción)</h3>
+    <div class="verb-section">
+        <h3>Verbo PODER (O → UE)</h3>
+        <ul class="verb-conjugation-list">
+            <li>(yo) puedo 
+                <button class="play-button" data-text="puedo" data-audio="assets/audio/unidad5/poder/puedo.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(tú) puedes 
+                <button class="play-button" data-text="puedes" data-audio="assets/audio/unidad5/poder/puedes.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(él, ella, usted) puede 
+                <button class="play-button" data-text="puede" data-audio="assets/audio/unidad5/poder/puede.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(nosotros/as) podemos 
+                <button class="play-button" data-text="podemos" data-audio="assets/audio/unidad5/poder/podemos.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(vosotros/as) podéis 
+                <button class="play-button" data-text="podéis" data-audio="assets/audio/unidad5/poder/podeis.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(ellos/as, ustedes) pueden 
+                <button class="play-button" data-text="pueden" data-audio="assets/audio/unidad5/poder/pueden.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+        </ul>
+    </div>
 
-        <ol class="exercise-list">
-            <li>
-                Ellos no pueden ir al cine.
-                <button class="play-button" data-text="Ellos no pueden ir al cine" data-audio="assets/audio/unidad5/ejercicios/e1-1.mp3">Oír</button>
+    <div class="verb-section">
+        <h3>Verbo DORMIR (O → UE)</h3>
+        <ul class="verb-conjugation-list">
+            <li>(yo) duermo 
+                <button class="play-button" data-text="duermo" data-audio="assets/audio/unidad5/dormir/duermo.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                ¿Tú quieres un café o prefieres té?
-                <button class="play-button" data-text="Tú quieres un café o prefieres té" data-audio="assets/audio/unidad5/ejercicios/e1-2.mp3">Oír</button>
+            <li>(tú) duermes 
+                <button class="play-button" data-text="duermes" data-audio="assets/audio/unidad5/dormir/duermes.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Nosotras cerramos la tienda a las nueve.
-                <button class="play-button" data-text="Nosotras cerramos la tienda a las nueve" data-audio="assets/audio/unidad5/ejercicios/e1-3.mp3">Oír</button>
+            <li>(él, ella, usted) duerme 
+                <button class="play-button" data-text="duerme" data-audio="assets/audio/unidad5/dormir/duerme.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Mi hermano duerme mucho los domingos.
-                <button class="play-button" data-text="Mi hermano duerme mucho los domingos" data-audio="assets/audio/unidad5/ejercicios/e1-4.mp3">Oír</button>
+            <li>(nosotros/as) dormimos 
+                <button class="play-button" data-text="dormimos" data-audio="assets/audio/unidad5/dormir/dormimos.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                (Ustedes) ¿Pueden llamarnos más tarde?
-                <button class="play-button" data-text="Pueden llamarnos más tarde" data-audio="assets/audio/unidad5/ejercicios/e1-5.mp3">Oír</button>
+            <li>(vosotros/as) dormís 
+                <button class="play-button" data-text="dormís" data-audio="assets/audio/unidad5/dormir/dormis.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-        </ol>
-    </section>
+            <li>(ellos/as, ustedes) duermen 
+                <button class="play-button" data-text="duermen" data-audio="assets/audio/unidad5/dormir/duermen.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+        </ul>
+    </div>
 
-    <hr>
-
-    <section class="exercise-section">
-        <h3>EJERCICIO 2: Escucha y Repite (Verbos E → IE)</h3>
-
-        <p class="explanation">Practica la diptongación E → IE de los verbos **CERRAR**, **QUERER** y **PREFERIR**.</p>
-
-        <ol class="exercise-list">
-            <li>
-                Tú cierras la puerta de la sala.
-                <button class="play-button" data-text="Tú cierras la puerta de la sala" data-audio="assets/audio/unidad5/ejercicios/e2-1.mp3">Oír</button>
+    <div class="verb-section">
+        <h3>Verbo CERRAR (E → IE)</h3>
+        <ul class="verb-conjugation-list">
+            <li>(yo) cierro 
+                <button class="play-button" data-text="cierro" data-audio="assets/audio/unidad5/cerrar/cierro.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Él quiere irse a las seis.
-                <button class="play-button" data-text="Él quiere irse a las seis" data-audio="assets/audio/unidad5/ejercicios/e2-2.mp3">Oír</button>
+            <li>(tú) cierras 
+                <button class="play-button" data-text="cierras" data-audio="assets/audio/unidad5/cerrar/cierras.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                (Ustedes) Prefieren el té verde.
-                <button class="play-button" data-text="Prefieren el té verde" data-audio="assets/audio/unidad5/ejercicios/e2-3.mp3">Oír</button>
+            <li>(él, ella, usted) cierra 
+                <button class="play-button" data-text="cierra" data-audio="assets/audio/unidad5/cerrar/cierra.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Yo prefiero quedarme en casa.
-                <button class="play-button" data-text="Yo prefiero quedarme en casa" data-audio="assets/audio/unidad5/ejercicios/e2-4.mp3">Oír</button>
+            <li>(nosotros/as) cerramos 
+                <button class="play-button" data-text="cerramos" data-audio="assets/audio/unidad5/cerrar/cerramos.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Nosotros cerramos la boca.
-                <button class="play-button" data-text="Nosotros cerramos la boca" data-audio="assets/audio/unidad5/ejercicios/e2-5.mp3">Oír</button>
+            <li>(vosotros/as) cerráis 
+                <button class="play-button" data-text="cerráis" data-audio="assets/audio/unidad5/cerrar/cerrais.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-        </ol>
-    </section>
-
-    <hr>
-
-    <section class="exercise-section">
-        <h3>EJERCICIO 3: Escucha y Repite (Verbos O→UE y E→IE)</h3>
-
-        <p class="explanation">Practica frases que mezclan verbos con diptongación, como **PODER** y **DORMIR** (O→UE) con **QUERER** y **CERRAR** (E→IE).</p>
-
-        <ol class="exercise-list">
-            <li>
-                Yo no puedo, pero tú puedes ayudar.
-                <button class="play-button" data-text="Yo no puedo, pero tú puedes ayudar" data-audio="assets/audio/unidad5/ejercicios/e3-1.mp3">Oír</button>
+            <li>(ellos/as, ustedes) cierran 
+                <button class="play-button" data-text="cierran" data-audio="assets/audio/unidad5/cerrar/cierran.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Ellos no duermen si no quieren.
-                <button class="play-button" data-text="Ellos no duermen si no quieren" data-audio="assets/audio/unidad5/ejercicios/e3-2.mp3">Oír</button>
+        </ul>
+    </div>
+    
+    <div class="verb-section">
+        <h3>Verbo QUERER (E → IE)</h3>
+        <ul class="verb-conjugation-list">
+            <li>(yo) quiero 
+                <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                ¿Vosotros podéis preferir otra opción?
-                <button class="play-button" data-text="Vosotros podéis preferir otra opción" data-audio="assets/audio/unidad5/ejercicios/e3-3.mp3">Oír</button>
+            <li>(tú) quieres 
+                <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                Yo cierro la puerta y me duermo.
-                <button class="play-button" data-text="Yo cierro la puerta y me duermo" data-audio="assets/audio/unidad5/ejercicios/e3-4.mp3">Oír</button>
+            <li>(él, ella, usted) quiere 
+                <button class="play-button" data-text="quiere" data-audio="assets/audio/unidad5/querer/quiere.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-            <li>
-                ¿Por qué él no quiere ir a dormir?
-                <button class="play-button" data-text="Por qué él no quiere ir a dormir" data-audio="assets/audio/unidad5/ejercicios/e3-5.mp3">Oír</button>
+            <li>(nosotros/as) queremos 
+                <button class="play-button" data-text="queremos" data-audio="assets/audio/unidad5/querer/queremos.mp3">Oír</button>
                 <button class="mic-button">🎤 Grabar</button>
                 <span class="feedback"></span>
             </li>
-        </ol>
-    </section>
-
-    <hr>
+            <li>(vosotros/as) queréis 
+                <button class="play-button" data-text="queréis" data-audio="assets/audio/unidad5/querer/quereis.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(ellos/as, ustedes) quieren 
+                <button class="play-button" data-text="quieren" data-audio="assets/audio/unidad5/querer/quieren.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="verb-section">
+        <h3>Verbo PREFERIR (E → IE)</h3>
+        <ul class="verb-conjugation-list">
+            <li>(yo) prefiero 
+                <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(tú) prefieres 
+                <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(él, ella, usted) prefiere 
+                <button class="play-button" data-text="prefiere" data-audio="assets/audio/unidad5/preferir/prefiere.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(nosotros/as) preferimos 
+                <button class="play-button" data-text="preferimos" data-audio="assets/audio/unidad5/preferir/preferimos.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(vosotros/as) preferís 
+                <button class="play-button" data-text="preferís" data-audio="assets/audio/unidad5/preferir/preferis.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>(ellos/as, ustedes) prefieren 
+                <button class="play-button" data-text="prefieren" data-audio="assets/audio/unidad5/preferir/prefieren.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+        </ul>
+    </div>
 
 </div>
 
@@ -243,17 +300,14 @@
         });
     }
 
-    // 2. Escuchadores para los botones de audio y micro
-    
-    // Configuración del Reconocimiento de Voz
-    // Se usa el prefijo webkit para mayor compatibilidad con navegadores Chromium
+    // 2. Configuración e inicialización del Reconocimiento de Voz
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'es-ES'; // Idioma español
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
     // Listener unificado para todos los botones de audio (Oír)
-    document.querySelectorAll('.play-button, .audio-btn').forEach(btn => {
+    document.querySelectorAll('.play-button').forEach(btn => {
         const audioSrc = btn.dataset.audio;
         if (audioSrc) {
             btn.addEventListener('click', () => {
@@ -268,9 +322,10 @@
             const parent = micBtn.closest('li');
             const playBtn = parent.querySelector('.play-button');
             
-            // Texto que el alumno debe decir (se obtiene del botón Oír)
+            // Texto esperado (se obtiene del data-text del botón Oír)
             let expectedText = playBtn ? playBtn.dataset.text : '';
-            expectedText = expectedText.toLowerCase().trim().replace(/[¿?¡!]/g, ''); // Limpieza de signos
+            // Limpieza de texto para una mejor comparación
+            expectedText = expectedText.toLowerCase().trim().replace(/[¿?¡!.,]/g, ''); 
             
             const feedback = parent.querySelector('.feedback');
             
@@ -280,30 +335,23 @@
                 return;
             }
             
-            feedback.textContent = "🎙️ Escuchando... Habla ahora.";
+            feedback.textContent = "🎙️ Escuchando... Di: " + expectedText;
             feedback.className = "feedback";
             micBtn.disabled = true;
 
             recognition.start();
 
             recognition.onresult = (event) => {
-                const said = event.results[0][0].transcript.toLowerCase().trim().replace(/[¿?¡!]/g, '');
+                const said = event.results[0][0].transcript.toLowerCase().trim().replace(/[¿?¡!.,]/g, '');
                 
-                // Función de verificación de palabras clave (70% de coincidencia)
-                const expectedWords = expectedText.split(/\s+/);
-                const saidWords = said.split(/\s+/);
-                
-                const commonWords = saidWords.filter(word => expectedWords.includes(word)).length;
-                const matchRatio = commonWords / expectedWords.length;
-                
-                // Criterio de éxito: al menos el 70% de las palabras clave deben coincidir.
-                const isCorrect = matchRatio >= 0.7; 
+                // Verificación simple para palabras individuales (conjugaciones)
+                const isCorrect = said === expectedText;
 
                 if (isCorrect) {
-                    feedback.textContent = "✅ ¡Bien! Dijiste: '" + said + "'";
+                    feedback.textContent = "✅ ¡Correcto! (" + said + ")";
                     feedback.className = "feedback ok";
                 } else {
-                    feedback.textContent = "🔁 Cerca: Dijiste: '" + said + "'. Intenta de nuevo. (Necesitas: '" + expectedText + "')";
+                    feedback.textContent = "🔁 Incorrecto: Dijiste: '" + said + "'. Intenta de nuevo. (Esperado: '" + expectedText + "')";
                     feedback.className = "feedback retry";
                 }
             };
@@ -319,9 +367,9 @@
             };
 
             recognition.onerror = (event) => {
-                let errorMsg = "⚠️ Error: El micrófono no funciona o el navegador no lo soporta.";
+                let errorMsg = "⚠️ Error al usar el micrófono.";
                 if (event.error === 'not-allowed') {
-                    errorMsg = "⚠️ Acceso denegado: Debes permitir el uso del micrófono en la configuración del navegador.";
+                    errorMsg = "⚠️ Acceso denegado: Debes permitir el uso del micrófono.";
                 } else if (event.error === 'no-speech') {
                     errorMsg = "⚠️ No se detectó voz. Intenta de nuevo.";
                 }
