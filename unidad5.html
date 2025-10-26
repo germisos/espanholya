@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unidad 5 - Verbos con cambio vocálico y números</title>
-<script src="menu.js" defer></script>
-  
+<script src="menu.js" defer></script>  
 <style>
   body {
       font-family: Arial, sans-serif;
@@ -15,6 +14,7 @@
       color: #333;
     }
 
+    /* ESTILO CORREGIDO: Define el contenedor principal con el formato de las unidades anteriores */
     .lesson-container {
       max-width: 900px;
       margin: 80px auto 25px auto;
@@ -42,7 +42,8 @@
       gap: 6px;
     }
 
-    .play-button, .mic-button {
+    /* Botones de audio (Play Button) */
+    .play-button, .audio-btn { /* He añadido .audio-btn para los audios de los números */
       border: none;
       border-radius: 5px;
       padding: 6px 10px;
@@ -51,10 +52,10 @@
       font-weight: bold;
     }
 
-    .play-button {
+    .play-button, .audio-btn {
       background-color: #28a745;
     }
-    .play-button:hover {
+    .play-button:hover, .audio-btn:hover {
       background-color: #218838;
     }
 
@@ -90,10 +91,12 @@
     border-top: 2px solid #ddd;
   }
 
+  /* Estilos para las tablas de números y conjugación */
   .numbers-table {
     border-collapse: collapse;
     width: 100%;
     max-width: 600px;
+    margin: 15px 0; /* Espacio para que no se pegue al texto */
   }
 
   .numbers-table td {
@@ -110,102 +113,100 @@
 
 <body>
 
-<h2>UNIDAD 5 – VERBOS CON CAMBIO VOCÁLICO</h2>
+  <div class="lesson-container">
 
-<!-- ====================== PUNTO 1 ====================== -->
+    <h2>UNIDAD 5 – VERBOS CON CAMBIO VOCÁLICO</h2>
 
-<div class="verb-section">
-  <h3>Verbo PODER (O → UE)</h3>
-  <ul>
-    <li>(yo) puedo <button class="play-button" data-text="puedo" data-audio="assets/audio/unidad5/poder/puedo.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(tú) puedes <button class="play-button" data-text="puedes" data-audio="assets/audio/unidad5/poder/puedes.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) puede <button class="play-button" data-text="puede" data-audio="assets/audio/unidad5/poder/puede.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(nosotros/as) podemos <button class="play-button" data-text="podemos" data-audio="assets/audio/unidad5/poder/podemos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(vosotros/as) podéis <button class="play-button" data-text="podéis" data-audio="assets/audio/unidad5/poder/podeis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(ellos/as, ustedes) pueden <button class="play-button" data-text="pueden" data-audio="assets/audio/unidad5/poder/pueden.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-  </ul>
+    <div class="verb-section">
+      <h3>Verbo PODER (O → UE)</h3>
+      <ul>
+        <li>(yo) puedo <button class="play-button" data-text="puedo" data-audio="assets/audio/unidad5/poder/puedo.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(tú) puedes <button class="play-button" data-text="puedes" data-audio="assets/audio/unidad5/poder/puedes.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(él, ella, usted) puede <button class="play-button" data-text="puede" data-audio="assets/audio/unidad5/poder/puede.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(nosotros/as) podemos <button class="play-button" data-text="podemos" data-audio="assets/audio/unidad5/poder/podemos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(vosotros/as) podéis <button class="play-button" data-text="podéis" data-audio="assets/audio/unidad5/poder/podeis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(ellos/as, ustedes) pueden <button class="play-button" data-text="pueden" data-audio="assets/audio/unidad5/poder/pueden.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+      </ul>
 
-  <h3>Verbo DORMIR (O → UE)</h3>
-  <ul>
-    <li>(yo) duermo <button class="play-button" data-text="duermo" data-audio="assets/audio/unidad5/dormir/duermo.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(tú) duermes <button class="play-button" data-text="duermes" data-audio="assets/audio/unidad5/dormir/duermes.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) duerme <button class="play-button" data-text="duerme" data-audio="assets/audio/unidad5/dormir/duerme.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(nosotros/as) dormimos <button class="play-button" data-text="dormimos" data-audio="assets/audio/unidad5/dormir/dormimos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(vosotros/as) dormís <button class="play-button" data-text="dormís" data-audio="assets/audio/unidad5/dormir/dormis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(ellos/as, ustedes) duermen <button class="play-button" data-text="duermen" data-audio="assets/audio/unidad5/dormir/duermen.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-  </ul>
+      <h3>Verbo DORMIR (O → UE)</h3>
+      <ul>
+        <li>(yo) duermo <button class="play-button" data-text="duermo" data-audio="assets/audio/unidad5/dormir/duermo.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(tú) duermes <button class="play-button" data-text="duermes" data-audio="assets/audio/unidad5/dormir/duermes.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(él, ella, usted) duerme <button class="play-button" data-text="duerme" data-audio="assets/audio/unidad5/dormir/duerme.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(nosotros/as) dormimos <button class="play-button" data-text="dormimos" data-audio="assets/audio/unidad5/dormir/dormimos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(vosotros/as) dormís <button class="play-button" data-text="dormís" data-audio="assets/audio/unidad5/dormir/dormis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(ellos/as, ustedes) duermen <button class="play-button" data-text="duermen" data-audio="assets/audio/unidad5/dormir/duermen.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+      </ul>
 
-  <h3>Verbo CERRAR (E → IE)</h3>
-  <ul>
-    <li>(yo) cierro <button class="play-button" data-text="cierro" data-audio="assets/audio/unidad5/cerrar/cierro.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(tú) cierras <button class="play-button" data-text="cierras" data-audio="assets/audio/unidad5/cerrar/cierras.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) cierra <button class="play-button" data-text="cierra" data-audio="assets/audio/unidad5/cerrar/cierra.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(nosotros/as) cerramos <button class="play-button" data-text="cerramos" data-audio="assets/audio/unidad5/cerrar/cerramos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(vosotros/as) cerráis <button class="play-button" data-text="cerráis" data-audio="assets/audio/unidad5/cerrar/cerrais.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(ellos/as, ustedes) cierran <button class="play-button" data-text="cierran" data-audio="assets/audio/unidad5/cerrar/cierran.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-  </ul>
+      <h3>Verbo CERRAR (E → IE)</h3>
+      <ul>
+        <li>(yo) cierro <button class="play-button" data-text="cierro" data-audio="assets/audio/unidad5/cerrar/cierro.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(tú) cierras <button class="play-button" data-text="cierras" data-audio="assets/audio/unidad5/cerrar/cierras.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(él, ella, usted) cierra <button class="play-button" data-text="cierra" data-audio="assets/audio/unidad5/cerrar/cierra.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(nosotros/as) cerramos <button class="play-button" data-text="cerramos" data-audio="assets/audio/unidad5/cerrar/cerramos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(vosotros/as) cerráis <button class="play-button" data-text="cerráis" data-audio="assets/audio/unidad5/cerrar/cerrais.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(ellos/as, ustedes) cierran <button class="play-button" data-text="cierran" data-audio="assets/audio/unidad5/cerrar/cierran.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+      </ul>
 
-  <h3>Verbo QUERER (E → IE)</h3>
-  <ul>
-    <li>(yo) quiero <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(tú) quieres <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) quiere <button class="play-button" data-text="quiere" data-audio="assets/audio/unidad5/querer/quiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(nosotros/as) queremos <button class="play-button" data-text="queremos" data-audio="assets/audio/unidad5/querer/queremos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(vosotros/as) queréis <button class="play-button" data-text="queréis" data-audio="assets/audio/unidad5/querer/quereis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(ellos/as, ustedes) quieren <button class="play-button" data-text="quieren" data-audio="assets/audio/unidad5/querer/quieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-  </ul>
+      <h3>Verbo QUERER (E → IE)</h3>
+      <ul>
+        <li>(yo) quiero <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(tú) quieres <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(él, ella, usted) quiere <button class="play-button" data-text="quiere" data-audio="assets/audio/unidad5/querer/quiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(nosotros/as) queremos <button class="play-button" data-text="queremos" data-audio="assets/audio/unidad5/querer/queremos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(vosotros/as) queréis <button class="play-button" data-text="queréis" data-audio="assets/audio/unidad5/querer/quereis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(ellos/as, ustedes) quieren <button class="play-button" data-text="quieren" data-audio="assets/audio/unidad5/querer/quieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+      </ul>
 
-  <h3>Verbo PREFERIR (E → IE)</h3>
-  <ul>
-    <li>(yo) prefiero <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(tú) prefieres <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) prefiere <button class="play-button" data-text="prefiere" data-audio="assets/audio/unidad5/preferir/prefiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(nosotros/as) preferimos <button class="play-button" data-text="preferimos" data-audio="assets/audio/unidad5/preferir/preferimos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(vosotros/as) preferís <button class="play-button" data-text="preferís" data-audio="assets/audio/unidad5/preferir/preferis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(ellos/as, ustedes) prefieren <button class="play-button" data-text="prefieren" data-audio="assets/audio/unidad5/preferir/prefieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-  </ul>
-</div>
+      <h3>Verbo PREFERIR (E → IE)</h3>
+      <ul>
+        <li>(yo) prefiero <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(tú) prefieres <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(él, ella, usted) prefiere <button class="play-button" data-text="prefiere" data-audio="assets/audio/unidad5/preferir/prefiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(nosotros/as) preferimos <button class="play-button" data-text="preferimos" data-audio="assets/audio/unidad5/preferir/preferimos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(vosotros/as) preferís <button class="play-button" data-text="preferís" data-audio="assets/audio/unidad5/preferir/preferis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+        <li>(ellos/as, ustedes) prefieren <button class="play-button" data-text="prefieren" data-audio="assets/audio/unidad5/preferir/prefieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+      </ul>
+    </div>
 
-<hr>
+    <hr>
 
-<!-- ====================== PUNTO 2 ====================== -->
+    <section class="exercise-section">
+      <h3>2. PORCENTAJES Y NÚMEROS A PARTIR DE 1000</h3>
 
-<section class="exercise-section">
-  <h3>2. PORCENTAJES Y NÚMEROS A PARTIR DE 1000</h3>
+      <p>
+        Se usa:
+        <button class="audio-btn" onclick="playAudio('assets/audio/unidad5/porcentajes.mp3')">🔊 Escuchar</button>
+      </p>
 
-  <p>
-    Se usa:
-    <button class="audio-btn" onclick="playAudio('assets/audio/unidad5/porcentajes.mp3')">🔊 Escuchar</button>
-  </p>
+      <ul>
+        <li>diez por ciento (10%)</li>
+        <li>cuarenta y cinco por ciento (45%)</li>
+        <li>noventa coma cinco por ciento (90,5%)</li>
+      </ul>
 
-  <ul>
-    <li>diez por ciento (10%)</li>
-    <li>cuarenta y cinco por ciento (45%)</li>
-    <li>noventa coma cinco por ciento (90,5%)</li>
-  </ul>
 
-  <br>
+      <table class="numbers-table">
+        <tr><td>1000</td><td>mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/mil.mp3')">🔊</button></td></tr>
+        <tr><td>1500</td><td>mil quinientos</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milqui.mp3')">🔊</button></td></tr>
+        <tr><td>2000</td><td>dos mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/dosmil.mp3')">🔊</button></td></tr>
+        <tr><td>50550</td><td>cincuenta mil quinientos cincuenta</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cincuenta.mp3')">🔊</button></td></tr>
+        <tr><td>100000</td><td>cien mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cien.mp3')">🔊</button></td></tr>
+        <tr><td>800000</td><td>ochocientos mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/ocho.mp3')">🔊</button></td></tr>
+        <tr><td>999999</td><td>novecientos noventa y nueve mil novecientos noventa y nueve</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/novevento.mp3')">🔊</button></td></tr>
+        <tr><td>1000000</td><td>un millón</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/unmi.mp3')">🔊</button></td></tr>
+        <tr><td>10000000</td><td>diez millones</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/diezmi.mp3')">🔊</button></td></tr>
+        <tr><td>1000000000</td><td>mil millones</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milmillones.mp3')">🔊</button></td></tr>
+      </table>
+    </section>
 
-  <table class="numbers-table">
-    <tr><td>1000</td><td>mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/mil.mp3')">🔊</button></td></tr>
-    <tr><td>1500</td><td>mil quinientos</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milqui.mp3')">🔊</button></td></tr>
-    <tr><td>2000</td><td>dos mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/dosmil.mp3')">🔊</button></td></tr>
-    <tr><td>50550</td><td>cincuenta mil quinientos cincuenta</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cincuenta.mp3')">🔊</button></td></tr>
-    <tr><td>100000</td><td>cien mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cien.mp3')">🔊</button></td></tr>
-    <tr><td>800000</td><td>ochocientos mil</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/ocho.mp3')">🔊</button></td></tr>
-    <tr><td>999999</td><td>novecientos noventa y nueve mil novecientos noventa y nueve</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/novevento.mp3')">🔊</button></td></tr>
-    <tr><td>1000000</td><td>un millón</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/unmi.mp3')">🔊</button></td></tr>
-    <tr><td>10000000</td><td>diez millones</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/diezmi.mp3')">🔊</button></td></tr>
-    <tr><td>1000000000</td><td>mil millones</td><td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milmillones.mp3')">🔊</button></td></tr>
-  </table>
-</section>
+    <hr>
 
-<hr>
+    </div>
 
-<!-- AQUÍ PEGA EL PUNTO 3 👇 -->
-<!-- ===================================================== -->
 
 <script>
+// El resto de tu código JavaScript que ya tenías:
 function playAudio(src) {
   const audio = new Audio(src);
   audio.play();
@@ -240,7 +241,7 @@ document.querySelectorAll('.mic-button').forEach(micBtn => {
       } else {
         feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
         feedback.className = "feedback retry";
-      }
+      }<
     };
 
     recognition.onerror = () => {
