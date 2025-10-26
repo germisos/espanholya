@@ -125,4 +125,65 @@
   <ul>
     <li>(yo) quiero <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
     <li>(tú) quieres <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
-    <li>(él, ella, usted) quiere <button class="play-button" data-text="qu
+    <li>(él, ella, usted) quiere <button class="play-button" data-text="quiere" data-audio="assets/audio/unidad5/querer/quiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(nosotros/as) queremos <button class="play-button" data-text="queremos" data-audio="assets/audio/unidad5/querer/queremos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(vosotros/as) queréis <button class="play-button" data-text="queréis" data-audio="assets/audio/unidad5/querer/queréis.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(ellos/as, ustedes) quieren <button class="play-button" data-text="quieren" data-audio="assets/audio/unidad5/querer/quieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+  </ul>
+
+  <h3>Verbo PREFERIR (E → IE)</h3>
+  <ul>
+    <li>(yo) prefiero <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(tú) prefieres <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(él, ella, usted) prefiere <button class="play-button" data-text="prefiere" data-audio="assets/audio/unidad5/preferir/prefiere.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(nosotros/as) preferimos <button class="play-button" data-text="preferimos" data-audio="assets/audio/unidad5/preferir/preferimos.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(vosotros/as) preferís <button class="play-button" data-text="preferís" data-audio="assets/audio/unidad5/preferir/preferís.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+    <li>(ellos/as, ustedes) prefieren <button class="play-button" data-text="prefieren" data-audio="assets/audio/unidad5/preferir/prefieren.mp3">🔊</button><button class="mic-button">🎤</button><span class="feedback"></span></li>
+  </ul>
+</div>
+
+<script>
+// Reproducir audio
+document.querySelectorAll('.play-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audio = new Audio(btn.dataset.audio);
+    audio.play();
+  });
+});
+
+// Reconocimiento de voz
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'es-ES';
+recognition.interimResults = false;
+
+document.querySelectorAll('.mic-button').forEach(micBtn => {
+  micBtn.addEventListener('click', () => {
+    const parent = micBtn.closest('li');
+    const expectedText = parent.querySelector('.play-button').dataset.text.toLowerCase();
+    const feedback = parent.querySelector('.feedback');
+    feedback.textContent = "🎙️ Escuchando...";
+    feedback.className = "feedback";
+
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const said = event.results[0][0].transcript.toLowerCase();
+      if (said.includes(expectedText)) {
+        feedback.textContent = "✅ Bien hecho (" + said + ")";
+        feedback.className = "feedback ok";
+      } else {
+        feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
+        feedback.className = "feedback retry";
+      }
+    };
+
+    recognition.onerror = () => {
+      feedback.textContent = "⚠️ Error al usar el micrófono";
+      feedback.className = "feedback retry";
+    };
+  });
+});
+</script>
+
+</body>
+</html>
