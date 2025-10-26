@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unidad 5 - Pronunciación</title>
+  <title>Unidad 5.1 – Verbos con cambio vocálico</title>
   <script src="menu.js" defer></script>
 
   <style>
@@ -77,6 +77,12 @@
     .feedback.retry {
       color: red;
     }
+
+    p.explanation {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
@@ -96,7 +102,12 @@
       <button class="mic-button">🎤</button>
       <span class="feedback"></span>
     </li>
+    <li>(él, ella, usted) puede</li>
+    <li>(nosotros/as) podemos</li>
+    <li>(vosotros/as) podéis</li>
+    <li>(ellos/as, ustedes) pueden</li>
   </ul>
+  <p class="explanation">Algunos verbos cambian la <b>O</b> de la raíz por <b>UE</b> si es tónica.</p>
 
   <h3>Verbo DORMIR (O → UE)</h3>
   <ul>
@@ -110,6 +121,66 @@
       <button class="mic-button">🎤</button>
       <span class="feedback"></span>
     </li>
+    <li>(él, ella, usted) duerme</li>
+    <li>(nosotros/as) dormimos</li>
+    <li>(vosotros/as) dormís</li>
+    <li>(ellos/as, ustedes) duermen</li>
+  </ul>
+  <p class="explanation">Algunos verbos cambian la <b>O</b> de la raíz por <b>UE</b> si es tónica.</p>
+
+  <h3>Verbo CERRAR (E → IE)</h3>
+  <ul>
+    <li>(yo) cierro 
+      <button class="play-button" data-text="cierro" data-audio="assets/audio/unidad5/cerrar/cierro.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(tú) cierras 
+      <button class="play-button" data-text="cierras" data-audio="assets/audio/unidad5/cerrar/cierras.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(él, ella, usted) cierra</li>
+    <li>(nosotros/as) cerramos</li>
+    <li>(vosotros/as) cerráis</li>
+    <li>(ellos/as, ustedes) cierran</li>
+  </ul>
+  <p class="explanation">Algunos verbos cambian la <b>E</b> de la raíz por <b>IE</b> si es tónica.</p>
+
+  <h3>Verbo QUERER (E → IE)</h3>
+  <ul>
+    <li>(yo) quiero 
+      <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(tú) quieres 
+      <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(él, ella, usted) quiere</li>
+    <li>(nosotros/as) queremos</li>
+    <li>(vosotros/as) queréis</li>
+    <li>(ellos/as, ustedes) quieren</li>
+  </ul>
+
+  <h3>Verbo PREFERIR (E → IE)</h3>
+  <ul>
+    <li>(yo) prefiero 
+      <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(tú) prefieres 
+      <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">🔊</button>
+      <button class="mic-button">🎤</button>
+      <span class="feedback"></span>
+    </li>
+    <li>(él, ella, usted) prefiere</li>
+    <li>(nosotros/as) preferimos</li>
+    <li>(vosotros/as) preferís</li>
+    <li>(ellos/as, ustedes) prefieren</li>
   </ul>
 </div>
 
@@ -124,16 +195,14 @@ document.querySelectorAll('.play-button').forEach(btn => {
 
 // Reconocimiento de voz
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-recognition.lang = 'es-ES'; // español (España)
+recognition.lang = 'es-ES';
 recognition.interimResults = false;
 
-// Manejar clic en micrófonos
-document.querySelectorAll('.mic-button').forEach((micBtn, index) => {
+document.querySelectorAll('.mic-button').forEach(micBtn => {
   micBtn.addEventListener('click', () => {
     const parent = micBtn.closest('li');
     const expectedText = parent.querySelector('.play-button').dataset.text.toLowerCase();
     const feedback = parent.querySelector('.feedback');
-
     feedback.textContent = "🎙️ Escuchando...";
     feedback.className = "feedback";
 
@@ -157,5 +226,6 @@ document.querySelectorAll('.mic-button').forEach((micBtn, index) => {
   });
 });
 </script>
+
 </body>
 </html>
