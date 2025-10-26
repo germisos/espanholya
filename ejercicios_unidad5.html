@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 5 - Verbos con cambio vocálico y ejercicios</title>
+<script src="menu.js" defer></script>  
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    /* Contenedor principal */
+    .lesson-container {
+        max-width: 900px;
+        margin: 80px auto 25px auto;
+        padding: 25px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    h2, h3 {
+        color: #007bff;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 4px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 6px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Botones de audio (Oír - Azul) */
+    .play-button, .audio-btn { 
+        border: none;
+        border-radius: 5px;
+        padding: 6px 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        background-color: #007bff; /* Azul */
+    }
+    .play-button:hover, .audio-btn:hover {
+        background-color: #0056b3; /* Azul más oscuro */
+    }
+
+    /* Botón de Micrófono (Grabar - Verde) */
+    .mic-button {
+        background-color: #28a745; /* Verde */
+        border: none;
+        border-radius: 5px;
+        padding: 6px 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+    }
+    .mic-button:hover {
+        background-color: #218838; /* Verde más oscuro */
+    }
+
+    .feedback {
+        font-size: 0.9em;
+        margin-left: 6px;
+    }
+
+    .feedback.ok {
+        color: green;
+        font-weight: bold;
+    }
+    .feedback.retry {
+        color: red;
+    }
+
+    p.explanation {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    hr {
+        margin: 30px 0;
+        border: none;
+        border-top: 2px solid #ddd;
+    }
+
+    /* Estilos para las tablas de números y conjugación */
+    .numbers-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 15px 0;
+    }
+
+    .numbers-table td, .numbers-table th {
+        border: 1px solid #ccc;
+        padding: 6px 8px;
+    }
+
+    .numbers-table td:first-child {
+        text-align: left;
+    }
+    
+    /* Estilos para Vocabulario (Punto 7) */
+    .vocabulary-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .vocab-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        width: 45%; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        display: flex; 
+        gap: 15px;
+        align-items: flex-start;
+        background-color: #fafafa;
+    }
+
+    .vocab-image {
+        flex-shrink: 0;
+        width: 120px;
+        max-height: 120px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+
+    .vocab-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .vocab-list {
+        flex-grow: 1;
+    }
+
+    .vocab-list ul {
+        list-style-type: square; 
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .vocab-list li {
+        display: list-item; 
+        margin: 0;
+        gap: 0;
+    }
+    
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+        .vocab-item {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+        .vocab-image {
+            width: 100%;
+            max-width: 150px;
+        }
+    }
+    
+    /* Estilos para ejercicios de conjugación (Ej 1 anterior) */
+    .exercise-list {
+        padding-left: 20px;
+        list-style-type: decimal;
+    }
+
+    .exercise-list li {
+        margin: 10px 0;
+        display: block;
+    }
+
+    /* Estilos para el nuevo Ejercicio 1 (Escucha y Repetición) */
+    .exercise-list li {
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .exercise-list .play-button, .exercise-list .mic-button {
+        padding: 8px 12px;
+        font-size: 1em;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="lesson-container">
+
+    <h2>UNIDAD 5 – VERBOS CON CAMBIO VOCÁLICO</h2>
+
+    <div class="verb-section">
+        <h3>1. VERBOS</h3>
+        <h3>Verbo PODER (O → UE)</h3>
+        <ul>
+            <li>(yo) puedo <button class="play-button" data-text="puedo" data-audio="assets/audio/unidad5/poder/puedo.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(tú) puedes <button class="play-button" data-text="puedes" data-audio="assets/audio/unidad5/poder/puedes.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(él, ella, usted) puede <button class="play-button" data-text="puede" data-audio="assets/audio/unidad5/poder/puede.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(nosotros/as) podemos <button class="play-button" data-text="podemos" data-audio="assets/audio/unidad5/poder/podemos.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(vosotros/as) podéis <button class="play-button" data-text="podéis" data-audio="assets/audio/unidad5/poder/podeis.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(ellos/as, ustedes) pueden <button class="play-button" data-text="pueden" data-audio="assets/audio/unidad5/poder/pueden.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+        </ul>
+
+        <h3>Verbo DORMIR (O → UE)</h3>
+        <ul>
+            <li>(yo) duermo <button class="play-button" data-text="duermo" data-audio="assets/audio/unidad5/dormir/duermo.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(tú) duermes <button class="play-button" data-text="duermes" data-audio="assets/audio/unidad5/dormir/duermes.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(él, ella, usted) duerme <button class="play-button" data-text="duerme" data-audio="assets/audio/unidad5/dormir/duerme.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(nosotros/as) dormimos <button class="play-button" data-text="dormimos" data-audio="assets/audio/unidad5/dormir/dormimos.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(vosotros/as) dormís <button class="play-button" data-text="dormís" data-audio="assets/audio/unidad5/dormir/dormis.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(ellos/as, ustedes) duermen <button class="play-button" data-text="duermen" data-audio="assets/audio/unidad5/dormir/duermen.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+        </ul>
+
+        <h3>Verbo CERRAR (E → IE)</h3>
+        <ul>
+            <li>(yo) cierro <button class="play-button" data-text="cierro" data-audio="assets/audio/unidad5/cerrar/cierro.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(tú) cierras <button class="play-button" data-text="cierras" data-audio="assets/audio/unidad5/cerrar/cierras.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(él, ella, usted) cierra <button class="play-button" data-text="cierra" data-audio="assets/audio/unidad5/cerrar/cierra.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(nosotros/as) cerramos <button class="play-button" data-text="cerramos" data-audio="assets/audio/unidad5/cerrar/cerramos.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(vosotros/as) cerráis <button class="play-button" data-text="cerráis" data-audio="assets/audio/unidad5/cerrar/cerrais.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(ellos/as, ustedes) cierran <button class="play-button" data-text="cierran" data-audio="assets/audio/unidad5/cerrar/cierran.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+        </ul>
+
+        <h3>Verbo QUERER (E → IE)</h3>
+        <ul>
+            <li>(yo) quiero <button class="play-button" data-text="quiero" data-audio="assets/audio/unidad5/querer/quiero.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(tú) quieres <button class="play-button" data-text="quieres" data-audio="assets/audio/unidad5/querer/quieres.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(él, ella, usted) quiere <button class="play-button" data-text="quiere" data-audio="assets/audio/unidad5/querer/quiere.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(nosotros/as) queremos <button class="play-button" data-text="queremos" data-audio="assets/audio/unidad5/querer/queremos.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(vosotros/as) queréis <button class="play-button" data-text="queréis" data-audio="assets/audio/unidad5/querer/quereis.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(ellos/as, ustedes) quieren <button class="play-button" data-text="quieren" data-audio="assets/audio/unidad5/querer/quieren.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+        </ul>
+
+        <h3>Verbo PREFERIR (E → IE)</h3>
+        <ul>
+            <li>(yo) prefiero <button class="play-button" data-text="prefiero" data-audio="assets/audio/unidad5/preferir/prefiero.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(tú) prefieres <button class="play-button" data-text="prefieres" data-audio="assets/audio/unidad5/preferir/prefieres.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(él, ella, usted) prefiere <button class="play-button" data-text="prefiere" data-audio="assets/audio/unidad5/preferir/prefiere.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(nosotros/as) preferimos <button class="play-button" data-text="preferimos" data-audio="assets/audio/unidad5/preferir/preferimos.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(vosotros/as) preferís <button class="play-button" data-text="preferís" data-audio="assets/audio/unidad5/preferir/preferis.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+            <li>(ellos/as, ustedes) prefieren <button class="play-button" data-text="prefieren" data-audio="assets/audio/unidad5/preferir/prefieren.mp3">Oír</button><button class="mic-button">🎤 Grabar</button><span class="feedback"></span></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>2. PORCENTAJES Y NÚMEROS A PARTIR DE 1000</h3>
+
+        <p>
+            Se usa:
+            <button class="audio-btn" data-audio="assets/audio/unidad5/porcentajes.mp3">Oír</button>
+        </p>
+
+        <ul>
+            <li>diez por ciento (10%)</li>
+            <li>cuarenta y cinco por ciento (45%)</li>
+            <li>noventa coma cinco por ciento (90,5%)</li>
+        </ul>
+
+
+        <table class="numbers-table">
+            <tr><td>1000</td><td>mil</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/mil.mp3">Oír</button></td></tr>
+            <tr><td>1500</td><td>mil quinientos</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/milqui.mp3">Oír</button></td></tr>
+            <tr><td>2000</td><td>dos mil</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/dosmil.mp3">Oír</button></td></tr>
+            <tr><td>50550</td><td>cincuenta mil quinientos cincuenta</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/cincuenta.mp3">Oír</button></td></tr>
+            <tr><td>100000</td><td>cien mil</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/cien.mp3">Oír</button></td></tr>
+            <tr><td>800000</td><td>ochocientos mil</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/ocho.mp3">Oír</button></td></tr>
+            <tr><td>999999</td><td>novecientos noventa y nueve mil novecientos noventa y nueve</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/novevento.mp3">Oír</button></td></tr>
+            <tr><td>1000000</td><td>un millón</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/unmi.mp3">Oír</button></td></tr>
+            <tr><td>10000000</td><td>diez millones</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/diezmi.mp3">Oír</button></td></tr>
+            <tr><td>1000000000</td><td>mil millones</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/numeros/milmillones.mp3">Oír</button></td></tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>3. El pronombre relativo "que"</h3>
+
+        <p class="explanation">
+            Es una palabra que se utiliza para introducir una cláusula subordinada (también llamada oración subordinada) que actúa como adjetivo en relación con un sustantivo o pronombre en la oración principal. Este pronombre relativo se utiliza para unir dos oraciones relacionadas, a
+            menudo especificando o describiendo algo sobre el sustantivo o pronombre al que se refiere. El pronombre relativo "que" es muy versátil y se utiliza con frecuencia en la construcción de oraciones más complejas en español.
+        </p>
+        
+        <h4>Aquí hay algunos puntos clave sobre el pronombre relativo "que":</h4>
+
+        <div>
+            <h5>Uso con Sustantivos o Pronombres:</h5>
+            <p>Se utiliza para referirse a un sustantivo o pronombre en la oración principal.</p>
+            <p>
+                Ejemplo: el libro que estoy leyendo es interesante. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/que/1.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Uso con Verbos:</h5>
+            <p>Puede utilizarse para referirse a un verbo en la oración principal.</p>
+            <p>
+                Ejemplo: la película que vi ayer era emocionante.  
+                <button class="audio-btn" data-audio="assets/audio/unidad5/que/2.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Invariable en Género y Número:</h5>
+            <p>"Que" es invariable en género y número, lo que significa que no cambia según el género o el número del sustantivo al que se refiere.</p>
+            <p>
+                Ejemplo: los niños que están jugando son felices. Las niñas que están jugando son felices.   
+                <button class="audio-btn" data-audio="assets/audio/unidad5/que/3.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Uso en Cláusulas Explicativas o Especificativas:</h5>
+            <p>Puede utilizarse en cláusulas explicativas o especificativas, según el grado de información que se desea proporcionar.</p>
+            <p>
+                Ejemplo de explicativa: mi amigo, que es médico, me dio un consejo. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/que/4.mp3">Oír</button>
+            </p>
+            <p>Ejemplo de especificativa: el médico que me dio un consejo es mi amigo.</p>
+        </div>
+
+        <div>
+            <h5>No se Omiten Comas:</h5>
+            <p>A diferencia de otros pronombres relativos como "cual" o "quien", "que" generalmente no se omite con comas al usarlo para introducir una cláusula relativa.</p>
+            <p>
+                Ejemplo: la chica que está hablando es mi hermana.  
+                <button class="audio-btn" data-audio="assets/audio/unidad5/que/5.mp3">Oír</button>
+            </p>
+        </div>
+
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>4. FRASES Y EXPRESIONES CLAVE</h3>
+
+        <h4>A. Expresar acuerdo o desacuerdo</h4>
+        <p>
+            <button class="audio-btn" data-audio="assets/audio/unidad5/expresaracuerdo.mp3">Oír Diálogo</button>
+        </p>
+        <ul>
+            <li>- Creemos que hay que pintar todo el edificio.</li>
+            <li>- Sí, estamos de acuerdo con eso.</li>
+            <li>- Bueno, nosotros 6 no estamos de acuerdo.</li>
+        </ul>
+        
+        <h4>B. Preguntar por el nombre, la nacionalidad y otras informaciones</h4>
+        <table class="numbers-table" style="max-width: 800px;">
+            <thead>
+                <tr>
+                    <th style="width: 50%; padding: 8px; border: 1px solid #ccc; background-color: #e6f0ff;">INFORMAL <button class="audio-btn" data-audio="assets/audio/unidad5/informal.mp3">Oír</button></th>
+                    <th style="width: 50%; padding: 8px; border: 1px solid #ccc; background-color: #e6fff0;">FORMAL <button class="audio-btn" data-audio="assets/audio/unidad5/formal.mp3">Oír</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>- ¿Cómo te llamas?</td><td>- ¿Cómo se llama?</td></tr>
+                <tr><td>– Me llamo Gonzalo.</td><td>– Me llamo Gonzalo.</td></tr>
+                <tr><td>- ¿De dónde eres?</td><td>- ¿De dónde es?</td></tr>
+                <tr><td>– Soy de Colombia.</td><td>– Soy de Colombia.</td></tr>
+                <tr><td>- ¿Cuántos años tienes?</td><td>- ¿Cuántos años tiene?</td></tr>
+                <tr><td>- Tengo 18 años.</td><td>- Tengo 18 años.</td></tr>
+                <tr><td>- ¿A qué te dedicas?</td><td>- ¿A qué se dedica?</td></tr>
+                <tr><td>- Soy arquitecto.</td><td>- Soy arquitecto.</td></tr>
+                <tr><td>- ¿Con quién vives?</td><td>- ¿Con quién vive?</td></tr>
+                <tr><td>- Con 2 amigos.</td><td>- Con 2 amigos.</td></tr>
+            </tbody>
+        </table>
+
+        <h4>C. Proponer citas (encuentros), aceptar o no</h4>
+        <p>
+            <button class="audio-btn" data-audio="assets/audio/unidad5/proponercitas.mp3">Oír Diálogo</button>
+        </p>
+        <ul>
+            <li>- ¿Haces algo el sábado a la noche?</li>
+            <li>- No, estoy libre.</li>
+            <li>- ¿Quieres ir a tomar algo?</li>
+            <li>- No sé, ir al cine es mejor para mí.</li>
+            <li>- Bueno, podemos ir al cine a las 20h y después a tomar algo a un bar.</li>
+            <li>- Lo siento, a las 20h no puedo, es que me libero a las 21h.</li>
+            <li>- Bueno, ¿y qué tal si vamos al museo a las 21h y después a tomar algo?</li>
+            <li>- Dale, entonces quedamos el sábado a las 21h.</li>
+        </ul>
+        
+        <h4>D. Usamos para aceptar y rechazar 
+            <button class="audio-btn" data-audio="assets/audio/unidad5/aceptar.mp3">Oír</button>
+        </h4>
+        <table class="numbers-table" style="max-width: 500px;">
+            <thead>
+                <tr>
+                    <th style="width: 50%; padding: 8px; border: 1px solid #ccc; background-color: #ccffcc;">Para aceptar</th>
+                    <th style="width: 50%; padding: 8px; border: 1px solid #ccc; background-color: #ffcccc;">Para rechazar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Perfecto</td><td>Lo siento, es que…</td></tr>
+                <tr><td>Muy bien</td><td>Lo siento, no puedo…</td></tr>
+                <tr><td>De acuerdo</td><td></td></tr>
+                <tr><td>Vale</td><td></td></tr>
+                <tr><td>Dale</td><td></td></tr>
+                <tr><td>Ok.</td><td></td></tr>
+                <tr><td>Bueno</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h4>E. Expresar hipótesis</h4>
+        <p>
+            <button class="audio-btn" data-audio="assets/audio/unidad5/expresarhipotesis.mp3">Oír Frases</button>
+        </p>
+        <ul style="margin-bottom: 10px;">
+            <li>**Más probable**</li>
+            <ul>
+                <li>Seguro que voy a ganar bastante dinero.</li>
+                <li>Me imagino que vas a viajar en primera.</li>
+            </ul>
+            <li>**Menos probable**</li>
+            <ul>
+                <li>A lo mejor vamos a comer pizza más tarde.</li>
+                <li>Quizá me avisa antes y salimos.</li>
+            </ul>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>5. DIFERENCIA ENTRE TÚ (INFORMAL) Y USTED (FORMAL)</h3>
+
+        <p class="explanation">
+            Usamos **TÚ** para amigos, familiares, personas jóvenes o de confianza.
+            Usamos **USTED** (o **USTEDES** en plural) para expresar respeto o formalidad, como con un jefe, un profesor o una persona mayor que no conocemos.
+        </p>
+
+        <table class="numbers-table">
+            <tr>
+                <td style="font-weight: bold; width: 40%; background-color: #e6f0ff;">TÚ (INFORMAL)</td>
+                <td style="font-weight: bold; width: 40%; background-color: #e6fff0;">USTED (FORMAL)</td>
+                <td style="font-weight: bold; width: 20%; background-color: #f4f4f4;">AUDIO</td>
+            </tr>
+            <tr><td>¿Cómo te llamas?</td><td>¿Cómo se llama?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/1.mp3">Oír</button></td></tr>
+            <tr><td>¿Y tu apellido?</td><td>¿Y su apellido?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/2.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu apellido?</td><td>¿Cuál es su apellido?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/3.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu nombre?</td><td>¿Cuál es su nombre?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/4.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuántos años tienes?</td><td>¿Cuántos años tiene?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/5.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu estado civil?</td><td>¿Cuál es su estado civil?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/6.mp3">Oír</button></td></tr>
+            <tr><td>¿Dónde trabajas?</td><td>¿Dónde trabaja?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/7.mp3">Oír</button></td></tr>
+            <tr><td>¿Dónde estudias?</td><td>¿Dónde estudia?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/8.mp3">Oír</button></td></tr>
+            <tr><td>¿Qué estudias?</td><td>¿Qué estudia?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/9.mp3">Oír</button></td></tr>
+            <tr><td>¿A qué te dedicas?</td><td>¿A qué se dedica?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/10.mp3">Oír</button></td></tr>
+            <tr><td>¿Qué haces?</td><td>¿Qué hace?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/11.mp3">Oír</button></td></tr>
+            <tr><td>¿Me das tu dirección?</td><td>¿Me da su dirección?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/12.mp3">Oír</button></td></tr>
+            <tr><td>¿Me das tu número de teléfono?</td><td>¿Me da su número de teléfono?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/13.mp3">Oír</button></td></tr>
+            <tr><td>¿Me das tu correo electrónico?</td><td>¿Me da su correo electrónico?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/14.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu número de teléfono?</td><td>¿Cuál es su número de teléfono?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/15.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu número de celular?</td><td>¿Cuál es su número de celular?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/16.mp3">Oír</button></td></tr>
+            <tr><td>¿Cuál es tu dirección?</td><td>¿Cuál es su dirección?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/17.mp3">Oír</button></td></tr>
+            <tr><td>¿Dónde vives?</td><td>¿Dónde vive?</td><td><button class="audio-btn" data-audio="assets/audio/unidad5/tuusted/18.mp3">Oír</button></td></tr>
+        </table>
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>6. NEGACIÓN: NO</h3>
+
+        <p class="explanation">
+            La palabra **"no"** es la principal palabra de negación en español. Se utiliza para expresar la negación de acciones, estados o situaciones.
+        </p>
+
+        <h4>Puntos clave sobre la negación con "no":</h4>
+
+        <div>
+            <h5>Negación de Verbos:</h5>
+            <p>Se utiliza **antes de un verbo** para expresar la negación de una acción.</p>
+            <p>
+                Ejemplo: no quiero ir al cine. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/1.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Negación de Adjetivos y Adverbios:</h5>
+            <p>También se utiliza **antes de adjetivos y adverbios** para negar cualidades o circunstancias.</p>
+            <ul>
+                <li>Ejemplo con adjetivo: ese libro no es interesante.</li>
+                <li>Ejemplo con adverbio: No camines tan rápido.</li>
+            </ul>
+            <p>
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/2.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Negación de Sustantivos:</h5>
+            <p>Puede usarse con el verbo "ser" para negar cualidades o características de un sustantivo.</p>
+            <p>
+                Ejemplo: esa no es mi bicicleta. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/3.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Doble Negación:</h5>
+            <p>En español, **se evita el uso de doble negación**. Solo se usa "no" para negar.</p>
+            <ul>
+                <li>Incorrecto: no quiero nunca nada ("nunca" añade otra negación).</li>
+                <li>Correcto: no quiero nada.</li>
+            </ul>
+            <p>
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/4.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Negación en Preguntas:</h5>
+            <p>"No" se coloca **antes del verbo** o al principio de la pregunta.</p>
+            <p>
+                Ejemplo: ¿No quieres café? 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/5.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Negación con Pronombres y Artículos:</h5>
+            <p>Cuando se utiliza con pronombres o artículos definidos, "no" se coloca **delante del pronombre o artículo**.</p>
+            <ul>
+                <li>Ejemplo con pronombre indefinido: no quiero nada.</li>
+                <li>Ejemplo con artículo indefinido: No tengo ningún libro.</li>
+            </ul>
+            <p>
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/6.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Negación de Todo el Enunciado:</h5>
+            <p>Se puede utilizar al principio de una oración para negar toda la afirmación.</p>
+            <p>
+                Ejemplo: no, no lo haré. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/7.mp3">Oír</button>
+            </p>
+        </div>
+
+        <div>
+            <h5>Expresiones de Negación:</h5>
+            <p>"No" también se utiliza en expresiones idiomáticas de negación, como "de ninguna manera", "de ningún modo", etc.</p>
+            <p>
+                Ejemplo: de ninguna manera voy a aceptar eso. 
+                <button class="audio-btn" data-audio="assets/audio/unidad5/no/8.mp3">Oír</button>
+            </p>
+        </div>
+
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h3>7. Vocabulario</h3>
+
+        <div class="vocabulary-container">
+
+            <div class="vocab-item">
+                <div class="vocab-image">
+                    <img src="assets/images/unidad5/cama.png" alt="Dormitorio">
+                </div>
+                <div class="vocab-list">
+                    <ul>
+                        <li>Dormitorio</li>
+                        <li>Cuarto de invitados</li>
+                        <li>Cama</li>
+                        <li>Habitación</li>
+                        <li>Cuadro</li>
+                        <li>Cuadrado</li>
+                        <li>El cuadro es cuadrado</li>
+                        <li>Acostarse</li>
+                        <li>Me acuesto en la cama</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vocab-item">
+                <div class="vocab-image">
+                    <img src="assets/images/unidad5/estanteria.png" alt="Estantería">
+                </div>
+                <div class="vocab-list">
+                    <ul>
+                        <li>Estantería</li>
+                        <li>Metal</li>
+                        <li>La estantería es de metal y madera</li>
+                        <li>Compartir piso</li>
+                        <li>Quedarse</li>
+                        <li>Me quedo en casa este sábado</li>
+                        <li>Edificio</li>
+                        <li>Verde oscuro</li>
+                        <li>Las plantas son de color verde oscuro</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="vocab-item">
+                <div class="vocab-image">
+                    <img src="assets/images/unidad5/mesa.png" alt="Mesa">
+                </div>
+                <div class="vocab-list">
+                    <ul>
+                        <li>Mesa</li>
+                        <li>Marrón</li>
+                        <li>La mesa es de madera marrón claro</li>
+                        <li>Silla</li>
+                        <li>Negro</li>
+                        <li>La silla es negra</li>
+                        <li>Planta</li>
+                        <li>Verde</li>
+                        <li>La planta es verde</li>
+                        <li>Sala de estar</li>
+                        <li>Apartamento</li>
+                        <li>Lámparas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="vocab-item">
+                <div class="vocab-image">
+                    <img src="assets/images/unidad5/sillon.png" alt="Sillón">
+                </div>
+                <div class="vocab-list">
+                    <ul>
+                        <li>Sillón</li>
+                        <li>Piso</li>
+                        <li>Busco piso</li>
+                        <li>Vecino</li>
+                        <li>Marco o Portarretrato</li>
+                        <li>Cristal o vidrio</li>
+                        <li>El marco es de cristal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="vocab-item">
+                <div class="vocab-image">
+                    <img src="assets/images/unidad5/sofa.png" alt="Sofá">
+                </div>
+                <div class="vocab-list">
+                    <ul>
+                        <li>Sofá</li>
+                        <li>Vivir en una casa</li>
+                        <li>Metros cuadrados</li>
+                        <li>Sentarse en el sofá</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="exercise-section">
+        <h2>EJERCICIOS</h2>
+        <h3>EJERCICIO 1: Escucha y Repite (Pronunciación)</h3>
+
+        <p class="explanation">Escucha la frase (Oír), luego haz clic en el botón verde (🎤) y repite la frase para verificar tu pronunciación. La retroalimentación verde (✅) indica que fue correcta.</p>
+
+        <ol class="exercise-list">
+            <li>
+                Ellos no pueden ir al cine.
+                <button class="play-button" data-text="Ellos no pueden ir al cine" data-audio="assets/audio/unidad5/ejercicios/e1-1.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>
+                ¿Tú quieres un café o prefieres té?
+                <button class="play-button" data-text="Tú quieres un café o prefieres té" data-audio="assets/audio/unidad5/ejercicios/e1-2.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>
+                Nosotras cerramos la tienda a las nueve.
+                <button class="play-button" data-text="Nosotras cerramos la tienda a las nueve" data-audio="assets/audio/unidad5/ejercicios/e1-3.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>
+                Mi hermano duerme mucho los domingos.
+                <button class="play-button" data-text="Mi hermano duerme mucho los domingos" data-audio="assets/audio/unidad5/ejercicios/e1-4.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+            <li>
+                (Ustedes) ¿Pueden llamarnos más tarde?
+                <button class="play-button" data-text="Pueden llamarnos más tarde" data-audio="assets/audio/unidad5/ejercicios/e1-5.mp3">Oír</button>
+                <button class="mic-button">🎤 Grabar</button>
+                <span class="feedback"></span>
+            </li>
+        </ol>
+    </section>
+
+    </div>
+
+<script>
+    // 1. Función genérica para reproducir cualquier URL de audio
+    function playAudio(src) {
+        const audio = new Audio(src);
+        audio.play().catch(error => {
+            console.error("❌ Error de reproducción de audio. Comprueba la ruta:", src, error);
+            // Mostrar una alerta de error para el usuario
+            alert("No se pudo reproducir el audio. Verifica la ruta del archivo y la consola (F12).");
+        });
+    }
+
+    // 2. Escuchadores para los botones de audio y micro
+    
+    // Configuración del Reconocimiento de Voz
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'es-ES'; // Idioma español
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    // Listener unificado para todos los botones de audio (Oír)
+    document.querySelectorAll('.play-button, .audio-btn').forEach(btn => {
+        const audioSrc = btn.dataset.audio;
+        
+        if (audioSrc) {
+            btn.addEventListener('click', () => {
+                playAudio(audioSrc);
+            });
+            // Remover onclick si existe para evitar duplicados
+            btn.removeAttribute('onclick'); 
+        }
+    });
+
+    // Listener para los botones de micrófono (Grabar)
+    document.querySelectorAll('.mic-button').forEach(micBtn => {
+        micBtn.addEventListener('click', () => {
+            const parent = micBtn.closest('li') || micBtn.closest('div.verb-section') || micBtn.closest('ul');
+            
+            // Intentar obtener el texto esperado del data-text del botón Oír asociado
+            const playBtn = parent.querySelector('.play-button');
+            // Usamos data-text si está disponible, si no, intentamos la parte de la frase en el li
+            let expectedText = playBtn ? playBtn.dataset.text : '';
+            
+            // Si no se encontró en el botón, asumimos que es un li normal del Punto 1 (verbos)
+            if (!expectedText && parent.tagName === 'LI') {
+                 // Aquí se necesita un manejo específico para los verbos del Punto 1 (ya debería funcionar con data-text)
+                 // Si falla, podrías intentar tomar el texto del li excluyendo los botones, pero es más fiable usar data-text.
+            }
+            
+            expectedText = expectedText.toLowerCase().trim();
+            const feedback = parent.querySelector('.feedback');
+            
+            if (!expectedText) {
+                feedback.textContent = "⚠️ Error: Falta el texto esperado (data-text) para verificar.";
+                feedback.className = "feedback retry";
+                console.error("Falta expectedText en el botón de audio asociado.");
+                return;
+            }
+            
+            feedback.textContent = "🎙️ Escuchando...";
+            feedback.className = "feedback";
+
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const said = event.results[0][0].transcript.toLowerCase().trim();
+                
+                // Comprobación flexible: permite errores menores o palabras extra.
+                // Usamos includes() y comprobamos si la transcripción es 'cercana' al texto esperado.
+                const isCorrect = said.includes(expectedText) || expectedText.includes(said) || (
+                    // Comprobación si las frases tienen palabras en común (más flexible)
+                    said.split(' ').filter(word => expectedText.split(' ').includes(word)).length / expectedText.split(' ').length > 0.7 
+                );
+
+                if (isCorrect) {
+                    feedback.textContent = "✅ Bien hecho (" + said + ")";
+                    feedback.className = "feedback ok";
