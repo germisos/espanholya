@@ -651,23 +651,27 @@
             };
         });
     });
-    // NUEVA FUNCIÓN PARA EL EJERCICIO DE OPCIÓN MÚLTIPLE
-function checkMultipleChoice(clickedButton, expectedValue) {
+   // NUEVA FUNCIÓN PARA EL EJERCICIO DE OPCIÓN MÚLTIPLE
+function checkMultipleChoice(clickedButton, buttonValue) {
     const parentLi = clickedButton.closest('li');
-    // Solo busca botones dentro del mismo options-container (para frases con dos huecos)
+    // Buscamos solo los botones dentro del contenedor actual para manejar frases con dos huecos.
     const currentOptionsContainer = clickedButton.closest('.options-container'); 
     const buttonsInCurrentContainer = currentOptionsContainer.querySelectorAll('.mc-button');
     
     const feedbackSpan = parentLi.querySelector('.feedback');
     const fullExpectedAnswer = parentLi.getAttribute('data-correct-answer');
+    
+    // El 'buttonValue' es el texto del botón clicado (ej: 'quiere', 'quere', 'queréis').
+    // Buscamos si ese valor está dentro de las respuestas esperadas para la frase completa.
+    const expectedForThisHole = fullExpectedAnswer.split(', ').find(answer => answer === buttonValue);
 
-    // Limpiar el estado de todos los botones en este contenedor (solo el que se está respondiendo)
+    // 1. Limpiar el estado de error de los botones en este contenedor
     buttonsInCurrentContainer.forEach(btn => {
         btn.classList.remove('incorrect');
     });
 
-    // Comprobar la respuesta del botón clicado
-    if (clickedButton.textContent.trim() === expectedValue) {
+    // 2. Comprobar la respuesta del botón clicado
+    if (expectedForThisHole) {
         
         // --- RESPUESTA CORRECTA ---
         clickedButton.classList.add('correct');
@@ -695,7 +699,7 @@ function checkMultipleChoice(clickedButton, expectedValue) {
         
         // --- RESPUESTA INCORRECTA ---
         clickedButton.classList.add('incorrect');
-        feedbackSpan.textContent = "❌ Incorrecto. Intenta de nuevo.";
+        feedbackSpan.textContent = `❌ Incorrecto. Intenta de nuevo.`;
         feedbackSpan.className = "feedback retry";
     }
 }
