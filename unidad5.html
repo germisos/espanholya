@@ -108,6 +108,68 @@
     text-align: right;
     font-weight: bold;
   }
+  .vocabulary-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .vocab-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        width: 45%; /* Dos elementos por fila en pantallas grandes */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        display: flex; 
+        gap: 15px;
+        align-items: flex-start;
+        background-color: #fafafa;
+    }
+
+    .vocab-image {
+        flex-shrink: 0;
+        width: 120px;
+        max-height: 120px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+
+    .vocab-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .vocab-list {
+        flex-grow: 1;
+    }
+
+    .vocab-list ul {
+        list-style-type: square; 
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .vocab-list li {
+        display: list-item; 
+        margin: 0;
+        gap: 0;
+    }
+    
+    /* Ajuste para móviles */
+    @media (max-width: 768px) {
+        .vocab-item {
+            width: 100%; /* Un elemento por fila en pantallas pequeñas */
+            flex-direction: column;
+            align-items: center;
+        }
+        .vocab-image {
+            width: 100%;
+            max-width: 150px;
+        }
+    }
 </style>
 </head>
 
@@ -553,6 +615,106 @@
         </p>
     </div>
 
+</section>
+<hr>
+
+<section class="exercise-section">
+    <h3>7. Vocabulario</h3>
+
+    <div class="vocabulary-container">
+
+        <div class="vocab-item">
+            <div class="vocab-image">
+                <img src="assets/images/unidad5/cama.png" alt="Dormitorio">
+            </div>
+            <div class="vocab-list">
+                <ul>
+                    <li>Dormitorio</li>
+                    <li>Cuarto de invitados</li>
+                    <li>Cama</li>
+                    <li>Habitación</li>
+                    <li>Cuadro</li>
+                    <li>Cuadrado</li>
+                    <li>El cuadro es cuadrado</li>
+                    <li>Acostarse</li>
+                    <li>Me acuesto en la cama</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vocab-item">
+            <div class="vocab-image">
+                <img src="assets/images/unidad5/estanteria.png" alt="Estantería">
+            </div>
+            <div class="vocab-list">
+                <ul>
+                    <li>Estantería</li>
+                    <li>Metal</li>
+                    <li>La estantería es de metal y madera</li>
+                    <li>Compartir piso</li>
+                    <li>Quedarse</li>
+                    <li>Me quedo en casa este sábado</li>
+                    <li>Edificio</li>
+                    <li>Verde oscuro</li>
+                    <li>Las plantas son de color verde oscuro</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="vocab-item">
+            <div class="vocab-image">
+                <img src="assets/images/unidad5/mesa.png" alt="Mesa">
+            </div>
+            <div class="vocab-list">
+                <ul>
+                    <li>Mesa</li>
+                    <li>Marrón</li>
+                    <li>La mesa es de madera marrón claro</li>
+                    <li>Silla</li>
+                    <li>Negro</li>
+                    <li>La silla es negra</li>
+                    <li>Planta</li>
+                    <li>Verde</li>
+                    <li>La planta es verde</li>
+                    <li>Sala de estar</li>
+                    <li>Apartamento</li>
+                    <li>Lámparas</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="vocab-item">
+            <div class="vocab-image">
+                <img src="assets/images/unidad5/sillon.png" alt="Sillón">
+            </div>
+            <div class="vocab-list">
+                <ul>
+                    <li>Sillón</li>
+                    <li>Piso</li>
+                    <li>Busco piso</li>
+                    <li>Vecino</li>
+                    <li>Marco o Portarretrato</li>
+                    <li>Cristal o vidrio</li>
+                    <li>El marco es de cristal</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vocab-item">
+            <div class="vocab-image">
+                <img src="assets/images/unidad5/sofa.png" alt="Sofá">
+            </div>
+            <div class="vocab-list">
+                <ul>
+                    <li>Sofá</li>
+                    <li>Vivir en una casa</li>
+                    <li>Metros cuadrados</li>
+                    <li>Sentarse en el sofá</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
 </section>
 
 <hr>
