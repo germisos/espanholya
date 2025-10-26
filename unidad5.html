@@ -172,7 +172,114 @@
   </table>
 </section>
 <!-- 🔸 Aquí podrás pegar el punto 3 directamente debajo -->
-  
+ <script>
+// Reproducir audio
+document.querySelectorAll('.play-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audio = new Audio(btn.dataset.audio);
+    audio.play();
+  });
+});
+
+// Reconocimiento de voz
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'es-ES';
+recognition.interimResults = false;
+
+document.querySelectorAll('.mic-button').forEach(micBtn => {
+  micBtn.addEventListener('click', () => {
+    const parent = micBtn.closest('li, td, p');
+    const playBtn = parent.querySelector('.play-button');
+    if (!playBtn) return;
+
+    const expectedText = playBtn.dataset.text.toLowerCase();
+    const feedback = parent.querySelector('.feedback');
+    feedback.textContent = "🎙️ Escuchando...";
+    feedback.className = "feedback";
+
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const said = event.results[0][0].transcript.toLowerCase();
+      if (said.includes(expectedText)) {
+        feedback.textContent = "✅ Bien hecho (" + said + ")";
+        feedback.className = "feedback ok";
+      } else {
+        feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
+        feedback.className = "feedback retry";
+      }
+    };
+
+    recognition.onerror = () => {
+      feedback.textContent = "⚠️ Error al usar el micrófono";
+      feedback.className = "feedback retry";
+    };
+  });
+});
+</script>
+
+<style>
+.exercise-section {
+  margin: 20px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.exercise-section h3 {
+  color: #1a73e8;
+  margin-bottom: 8px;
+}
+
+.play-button, .audio-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.play-button:hover, .audio-btn:hover {
+  background-color: #45a049;
+}
+
+.mic-button {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+.mic-button:hover {
+  background-color: #e68900;
+}
+
+.feedback {
+  margin-left: 8px;
+  font-weight: bold;
+}
+.feedback.ok {
+  color: green;
+}
+.feedback.retry {
+  color: red;
+}
+
+.numbers-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+}
+.numbers-table td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+}
+.numbers-table td:first-child {
+  text-align: right;
+  font-weight: bold;
+}
+</style> 
 
 <script>
 function playAudio(src) {
@@ -263,112 +370,6 @@ document.querySelectorAll('.mic-button').forEach(micBtn => {
   });
 });
 </script>
-  <script>
-// Reproducir audio
-document.querySelectorAll('.play-button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const audio = new Audio(btn.dataset.audio);
-    audio.play();
-  });
-});
-
-// Reconocimiento de voz
-const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-recognition.lang = 'es-ES';
-recognition.interimResults = false;
-
-document.querySelectorAll('.mic-button').forEach(micBtn => {
-  micBtn.addEventListener('click', () => {
-    const parent = micBtn.closest('li, td, p');
-    const playBtn = parent.querySelector('.play-button');
-    if (!playBtn) return;
-
-    const expectedText = playBtn.dataset.text.toLowerCase();
-    const feedback = parent.querySelector('.feedback');
-    feedback.textContent = "🎙️ Escuchando...";
-    feedback.className = "feedback";
-
-    recognition.start();
-
-    recognition.onresult = (event) => {
-      const said = event.results[0][0].transcript.toLowerCase();
-      if (said.includes(expectedText)) {
-        feedback.textContent = "✅ Bien hecho (" + said + ")";
-        feedback.className = "feedback ok";
-      } else {
-        feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
-        feedback.className = "feedback retry";
-      }
-    };
-
-    recognition.onerror = () => {
-      feedback.textContent = "⚠️ Error al usar el micrófono";
-      feedback.className = "feedback retry";
-    };
-  });
-});
-</script>
-<style>
-.exercise-section {
-  margin: 20px 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-.exercise-section h3 {
-  color: #1a73e8;
-  margin-bottom: 8px;
-}
-
-.play-button, .audio-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.play-button:hover, .audio-btn:hover {
-  background-color: #45a049;
-}
-
-.mic-button {
-  background-color: #ff9800;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 4px;
-}
-.mic-button:hover {
-  background-color: #e68900;
-}
-
-.feedback {
-  margin-left: 8px;
-  font-weight: bold;
-}
-.feedback.ok {
-  color: green;
-}
-.feedback.retry {
-  color: red;
-}
-
-.numbers-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 600px;
-}
-.numbers-table td {
-  border: 1px solid #ccc;
-  padding: 6px 8px;
-}
-.numbers-table td:first-child {
-  text-align: right;
-  font-weight: bold;
-}
-</style>
+  
 </body>
 </html>
