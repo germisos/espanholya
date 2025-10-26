@@ -205,51 +205,92 @@
     </div>
 
 
-<script>
-// El resto de tu código JavaScript que ya tenías:
-function playAudio(src) {
-  const audio = new Audio(src);
-  audio.play();
-}
+  <script>
+    // Configuración del Reconocimiento de Voz (sin cambios, solo reubicado)
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'es-ES';
+    recognition.interimResults = false;
 
-document.querySelectorAll('.play-button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const audio = new Audio(btn.dataset.audio);
-    audio.play();
-  });
-});
+    // Función que reproduce el audio de manera segura
+    function playAudio(src) {
+        const audio = new Audio(src);
+        audio.play().catch(error => {
+            console.error("❌ Error de reproducción de audio. Comprueba la ruta:", src, error);
+            // Esto ayuda a diagnosticar si hay un problema con el archivo o la ruta.
+            alert("No se pudo reproducir el audio. Revisa la consola del navegador (F12) o verifica la ruta.");
+        });
+    }
 
-const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-recognition.lang = 'es-ES';
-recognition.interimResults = false;
+    // Listener para todos los botones de audio (Clases: .play-button y .audio-btn)
+    document.querySelectorAll('.play-button, .audio-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            let audioSrc = null;
 
-document.querySelectorAll('.mic-button').forEach(micBtn => {
-  micBtn.addEventListener('click', () => {
-    const parent = micBtn.closest('li');
-    const expectedText = parent.querySelector('.play-button').dataset.text.toLowerCase();
-    const feedback = parent.querySelector('.feedback');
-    feedback.textContent = "🎙️ Escuchando...";
-    feedback.className = "feedback";
+            // Opción 1: Obtener ruta desde data-audio (para los verbos)
+            if (btn.dataset.audio) {
+                audioSrc = btn.dataset.audio;
+            } 
+            
+            // Opción 2: Obtener ruta desde el onclick (para los números/expresiones)
+            // Necesitamos parsear el contenido de la función onclick
+            else if (btn.getAttribute('onclick')) {
+                // Extraer la ruta que está entre comillas simples dentro del onclick
+                const onclickAttr = btn.getAttribute('onclick');
+                const match = onclickAttr.match(/playAudio\(['"]([^'"]+)['"]\)/);
+                if (match && match[1]) {
+                    audioSrc = match[1];
+                }
+            }
 
-    recognition.start();
+            if (audioSrc) {
+                playAudio(audioSrc);
+            } else {
+                console.warn("No se encontró una ruta de audio válida para este botón.");
+            }
+        });
+        
+        // **IMPORTANTE**: Quitar el atributo onclick después de configurar el listener
+        // Esto evita que se ejecute dos veces y reduce conflictos.
+        btn.removeAttribute('onclick'); 
+    });
 
-    recognition.onresult = (event) => {
-      const said = event.results[0][0].transcript.toLowerCase();
-      if (said.includes(expectedText)) {
-        feedback.textContent = "✅ Bien hecho (" + said + ")";
-        feedback.className = "feedback ok";
-      } else {
-        feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
-        feedback.className = "feedback retry";
-      }<
-    };
+    // Listener para los botones de micrófono (sin cambios)
+    document.querySelectorAll('.mic-button').forEach(micBtn => {
+      micBtn.addEventListener('click', () => {
+        const parent = micBtn.closest('li');
+        // Usa data-text del botón .play-button asociado
+        const playBtn = parent.querySelector('.play-button');
+        const expectedText = playBtn ? playBtn.dataset.text.toLowerCase() : ""; 
+        const feedback = parent.querySelector('.feedback');
+        
+        if (!expectedText) {
+             feedback.textContent = "⚠️ Error: Falta el texto esperado (data-text) en el botón de audio.";
+             feedback.className = "feedback retry";
+             return;
+        }
+        
+        feedback.textContent = "🎙️ Escuchando...";
+        feedback.className = "feedback";
 
-    recognition.onerror = () => {
-      feedback.textContent = "⚠️ Error al usar el micrófono";
-      feedback.className = "feedback retry";
-    };
-  });
-});
+        recognition.start();
+
+        recognition.onresult = (event) => {
+          const said = event.results[0][0].transcript.toLowerCase();
+          if (said.includes(expectedText)) {
+            feedback.textContent = "✅ Bien hecho (" + said + ")";
+            feedback.className = "feedback ok";
+          } else {
+            feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
+            feedback.className = "feedback retry";
+          }
+        };
+
+        recognition.onerror = () => {
+          feedback.textContent = "⚠️ Error al usar el micrófono";
+          feedback.className = "feedback retry";
+        };
+      });
+    });
 </script>
 
 </body>
