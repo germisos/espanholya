@@ -31,7 +31,7 @@
         margin-top: 30px;
     }
 
-    /* Lista de conjugación */
+    /* Estilos para las listas de conjugación (la parte interactiva) */
     .verb-conjugation-list {
         list-style: none;
         padding: 0;
@@ -45,13 +45,77 @@
         font-size: 1.1em;
     }
 
+    /* Estilos para las listas de opción múltiple */
+    .exercise-list-multiple-choice {
+        list-style: none;
+        padding: 0;
+    }
+
+    .exercise-list-multiple-choice li {
+        margin: 25px 0; /* Más espacio entre frases */
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+    
+    .exercise-list-multiple-choice li p {
+        margin-top: 0;
+        font-weight: bold;
+    }
+
+    /* Contenedor de las opciones para separarlas de la frase */
+    .options-container {
+        display: flex;
+        flex-wrap: wrap; /* Para que bajen en pantallas pequeñas */
+        gap: 10px; /* Espacio entre los botones */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Estilo para los botones de Opción Múltiple (Gris) */
+    .mc-button {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        color: #333;
+        background-color: #eee; /* Gris claro */
+        font-weight: bold;
+        font-size: 1em;
+        min-width: 90px;
+        transition: background-color 0.2s;
+    }
+
+    .mc-button:hover:not(:disabled) {
+        background-color: #ddd;
+    }
+
+    /* Estados de corrección */
+    .mc-button.correct {
+        background-color: #d4edda; /* Verde claro */
+        color: #155724;
+        border-color: #c3e6cb;
+    }
+
+    .mc-button.incorrect {
+        background-color: #f8d7da; /* Rojo claro */
+        color: #721c24;
+        border-color: #f5c6cb;
+    }
+
+    .mc-button:disabled {
+        cursor: default;
+        opacity: 0.7;
+    }
+
     .explanation {
         font-style: italic;
         color: #555;
         margin-bottom: 20px;
     }
-
-    /* Botones de audio (Oír - AZUL) */
+    
+    /* Botones de audio (Oír - AZUL) - Mantenidos por la sección anterior */
     .play-button { 
         border: none;
         border-radius: 5px;
@@ -59,7 +123,7 @@
         cursor: pointer;
         color: white;
         font-weight: bold;
-        background-color: #007bff; /* Azul */
+        background-color: #007bff; 
         font-size: 1em;
         flex-shrink: 0;
     }
@@ -67,13 +131,13 @@
         background-color: #0056b3; 
     }
     .play-button::before {
-        content: "🔊";
+        content: "🔊 Oír"; /* Etiqueta para mayor claridad */
         margin-right: 5px;
     }
 
-    /* Botón de Micrófono (Grabar - VERDE) */
+    /* Botón de Micrófono (Grabar - VERDE) - Mantenidos por la sección anterior */
     .mic-button {
-        background-color: #28a745; /* Verde */
+        background-color: #28a745; 
         border: none;
         border-radius: 5px;
         padding: 8px 12px;
@@ -87,7 +151,7 @@
         background-color: #218838; 
     }
     .mic-button::before {
-        content: "🎤";
+        content: "🎤 Grabar"; /* Etiqueta para mayor claridad */
         margin-right: 5px;
     }
 
