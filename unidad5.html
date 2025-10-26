@@ -142,6 +142,123 @@
   </ul>
 </div>
 
+  <section class="exercise-section">
+  <h3>2. PORCENTAJES Y NÚMEROS A PARTIR DE 1000</h3>
+
+  <p>
+    Se usa:
+    <button class="audio-btn" onclick="playAudio('assets/audio/unidad5/porcentajes.mp3')">🔊 Escuchar</button>
+  </p>
+
+  <ul>
+    <li>diez por ciento (10%)</li>
+    <li>cuarenta y cinco por ciento (45%)</li>
+    <li>noventa coma cinco por ciento (90,5%)</li>
+  </ul>
+
+  <br>
+
+  <table class="numbers-table">
+    <tr>
+      <td>1000</td>
+      <td>mil</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/mil.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>1500</td>
+      <td>mil quinientos</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milqui.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>2000</td>
+      <td>dos mil</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/dosmil.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>50550</td>
+      <td>cincuenta mil quinientos cincuenta</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cincuenta.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>100000</td>
+      <td>cien mil</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/cien.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>800000</td>
+      <td>ochocientos mil</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/ocho.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>999999</td>
+      <td>novecientos noventa y nueve mil novecientos noventa y nueve</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/novevento.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>1000000</td>
+      <td>un millón</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/unmi.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>10000000</td>
+      <td>diez millones</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/diezmi.mp3')">🔊</button></td>
+    </tr>
+    <tr>
+      <td>1000000000</td>
+      <td>mil millones</td>
+      <td><button class="audio-btn" onclick="playAudio('assets/audio/unidad5/numeros/milmillones.mp3')">🔊</button></td>
+    </tr>
+  </table>
+</section>
+
+<script>
+function playAudio(src) {
+  const audio = new Audio(src);
+  audio.play();
+}
+</script>
+
+<style>
+.exercise-section {
+  margin: 15px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.exercise-section h3 {
+  color: #1a73e8;
+  margin-bottom: 8px;
+}
+
+.audio-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.audio-btn:hover {
+  background-color: #45a049;
+}
+
+.numbers-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+}
+.numbers-table td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+}
+.numbers-table td:first-child {
+  text-align: right;
+  font-weight: bold;
+}
+</style>
+
+  
 <script>
 // Reproducir audio
 document.querySelectorAll('.play-button').forEach(btn => {
