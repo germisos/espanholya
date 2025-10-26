@@ -263,6 +263,51 @@ document.querySelectorAll('.mic-button').forEach(micBtn => {
   });
 });
 </script>
+  <script>
+// Reproducir audio
+document.querySelectorAll('.play-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audio = new Audio(btn.dataset.audio);
+    audio.play();
+  });
+});
+
+// Reconocimiento de voz
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'es-ES';
+recognition.interimResults = false;
+
+document.querySelectorAll('.mic-button').forEach(micBtn => {
+  micBtn.addEventListener('click', () => {
+    const parent = micBtn.closest('li, td, p');
+    const playBtn = parent.querySelector('.play-button');
+    if (!playBtn) return;
+
+    const expectedText = playBtn.dataset.text.toLowerCase();
+    const feedback = parent.querySelector('.feedback');
+    feedback.textContent = "🎙️ Escuchando...";
+    feedback.className = "feedback";
+
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const said = event.results[0][0].transcript.toLowerCase();
+      if (said.includes(expectedText)) {
+        feedback.textContent = "✅ Bien hecho (" + said + ")";
+        feedback.className = "feedback ok";
+      } else {
+        feedback.textContent = "🔁 Dijo: '" + said + "' — Intenta de nuevo";
+        feedback.className = "feedback retry";
+      }
+    };
+
+    recognition.onerror = () => {
+      feedback.textContent = "⚠️ Error al usar el micrófono";
+      feedback.className = "feedback retry";
+    };
+  });
+});
+</script>
 <style>
 .exercise-section {
   margin: 20px 0;
