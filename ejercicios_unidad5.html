@@ -653,81 +653,49 @@
     // NUEVA FUNCIÓN PARA EL EJERCICIO DE OPCIÓN MÚLTIPLE
 function checkMultipleChoice(clickedButton, expectedValue) {
     const parentLi = clickedButton.closest('li');
-    const allButtonsInLi = parentLi.querySelectorAll('button');
+    // Solo busca botones dentro del mismo options-container (para frases con dos huecos)
+    const currentOptionsContainer = clickedButton.closest('.options-container'); 
+    const buttonsInCurrentContainer = currentOptionsContainer.querySelectorAll('.mc-button');
+    
     const feedbackSpan = parentLi.querySelector('.feedback');
-    
-    // Si la frase tiene dos verbos (e.g., el ejercicio 5), la respuesta esperada es 'verbo1, verbo2'
     const fullExpectedAnswer = parentLi.getAttribute('data-correct-answer');
-    
-    // Obtener todas las respuestas seleccionadas actualmente en este <li>
-    const currentSelections = [];
-    allButtonsInLi.forEach(btn => {
-        if (btn.classList.contains('correct')) {
-            currentSelections.push(btn.textContent.trim());
-        } else if (btn === clickedButton) {
-            currentSelections.push(expectedValue); // Agrega la opción actual
-        }
+
+    // Limpiar el estado de todos los botones en este contenedor (solo el que se está respondiendo)
+    buttonsInCurrentContainer.forEach(btn => {
+        btn.classList.remove('incorrect');
     });
 
-    // 1. Deshabilitar y limpiar el estado de todos los botones
-    allButtonsInLi.forEach(btn => {
-        btn.disabled = true;
-        btn.classList.remove('correct', 'incorrect', 'selected');
-    });
-
-    // 2. Comprobar la respuesta del botón clicado
+    // Comprobar la respuesta del botón clicado
     if (clickedButton.textContent.trim() === expectedValue) {
+        
+        // --- RESPUESTA CORRECTA ---
         clickedButton.classList.add('correct');
-        // Si hay más de un verbo en la frase, solo marca el botón como correcto por ahora.
-    } else {
-        clickedButton.classList.add('incorrect');
-    }
-
-    // 3. Evaluar la respuesta final (para frases con uno o dos huecos)
-    // El texto esperado coincide con el texto en el botón.
-    if (clickedButton.textContent.trim() === expectedValue) {
-        feedbackSpan.textContent = "✅ ¡Correcto!";
-        feedbackSpan.className = "feedback ok";
         
-        // Si la frase tiene múltiples verbos, reactiva los botones no respondidos:
-        if (fullExpectedAnswer.includes(',')) {
-            const expectedVerbs = fullExpectedAnswer.split(', ');
-            let allAnswered = true;
+        // Deshabilita todos los botones en este contenedor después de una respuesta correcta
+        buttonsInCurrentContainer.forEach(btn => {
+            btn.disabled = true;
+        });
+        
+        // Contar cuántos huecos hemos completado en la frase completa
+        const allCorrectButtons = parentLi.querySelectorAll('.mc-button.correct');
+        const totalVerbosEnFrase = fullExpectedAnswer.split(',').length;
 
-            allButtonsInLi.forEach(btn => {
-                const btnValue = btn.textContent.trim();
-                const btnFeedback = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-                
-                // Si este botón pertenece a la respuesta esperada pero aún no ha sido marcado
-                if (expectedVerbs.includes(btnFeedback) && !btn.classList.contains('correct')) {
-                    btn.disabled = false; // Mantenlo habilitado
-                    allAnswered = false;
-                } else if (!btn.classList.contains('correct') && !btn.classList.contains('incorrect')) {
-                    // Los botones de la respuesta esperada ya tienen su lógica arriba.
-                    // Aquí reactivamos el resto de botones que necesitan respuesta.
-                    btn.disabled = false;
-                }
-            });
-
-            if (allAnswered) {
-                // Si todo está respondido, el feedback ya está correcto.
-            } else {
-                // Si falta un verbo, borra el feedback de correcto para esperar la segunda parte.
-                feedbackSpan.textContent = "✅ Correcto. Continúa con el siguiente verbo.";
-                feedbackSpan.className = "feedback ok";
-            }
+        if (allCorrectButtons.length === totalVerbosEnFrase) {
+            // Si todos los verbos están correctos (simple o doble)
+            feedbackSpan.textContent = "✅ ¡Correcto! Todos los huecos completados.";
+            feedbackSpan.className = "feedback ok";
+        } else {
+            // Si aún falta un verbo (solo ocurre en frases con dos verbos)
+            feedbackSpan.textContent = "✅ Correcto. Continúa con el siguiente verbo.";
+            feedbackSpan.className = "feedback ok";
         }
         
     } else {
-        // Opción incorrecta
+        
+        // --- RESPUESTA INCORRECTA ---
+        clickedButton.classList.add('incorrect');
         feedbackSpan.textContent = "❌ Incorrecto. Intenta de nuevo.";
         feedbackSpan.className = "feedback retry";
-        
-        // Reactivar todos los botones
-        allButtonsInLi.forEach(btn => {
-            btn.disabled = false;
-            btn.classList.remove('correct', 'incorrect');
-        });
     }
 }
 </script>
