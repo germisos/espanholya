@@ -230,6 +230,71 @@
     opacity: 0.5;
     cursor: default;
 }
+    /* Estilos para las listas de Preguntas Abiertas (5.A) */
+.open-question-list {
+    list-style: none;
+    padding: 0;
+}
+
+.open-question-list li {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.open-question-list label {
+    font-weight: bold;
+    color: #007bff; /* Azul para destacar la pregunta */
+    display: block;
+    margin-bottom: 8px;
+}
+
+.open-question-list textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 1em;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Botón para mostrar la respuesta (Gris/Azul claro) */
+.show-answer-button {
+    background-color: #6c757d; 
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 10px;
+    display: block;
+    transition: background-color 0.2s;
+}
+.show-answer-button:hover {
+    background-color: #5a6268; 
+}
+
+/* Estilo para la caja de respuesta (oculta por defecto) */
+.answer-feedback {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px dashed #28a745;
+    background-color: #e2f0d9;
+    color: #28a745;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.hidden {
+    display: none !important;
+}
 </style>
 </head>
 
@@ -1391,8 +1456,182 @@
         </li>
     </ol>
 </section>
-<hr>
-    
+
+    <hr>
+
+<section class="exercise-section">
+    <h3>5.A: Lee el texto y contesta con respuestas completas</h3>
+
+    <div class="text-box" style="padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; margin-bottom: 20px;">
+        <p style="font-style: italic; font-size: 0.95em; line-height: 1.5;">
+            En lo profundo del bosque, vivía una niña llamada **Sofía**. Sofía era conocida en el pueblo por su **amor por los animales** y su **curiosidad por la naturaleza**. Un día, mientras exploraba el bosque, encontró un **sendero oculto detrás de un viejo roble**. Siguió el sendero y descubrió una **cascada escondida** entre los árboles. Fascinada por la belleza del lugar, decidió **regresar al día siguiente con su cámara** para capturar la magia del bosque.
+            <br><br>
+            Al día siguiente, Sofía regresó al bosque con su cámara en mano. Mientras fotografiaba la cascada, escuchó un **suave chirrido** proveniente de un arbusto cercano. Con cautela, se acercó y encontró a un **pequeño zorro atrapado en una trampa** para animales. Sofía sintió **compasión** por el zorro y rápidamente lo **liberó**. El zorro, **agradecido, le dio las gracias** y desapareció entre los árboles.
+        </p>
+    </div>
+
+    <ol class="open-question-list" id="ej5-abiertas">
+        <li data-answer="Sofía es una niña que vivía en lo profundo del bosque y era conocida en el pueblo por su amor por los animales y su curiosidad por la naturaleza.">
+            <label>1. ¿Quién es Sofía y cómo era conocida en el pueblo?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+        
+        <li data-answer="Un día, mientras exploraba el bosque, Sofía encontró un sendero oculto detrás de un viejo roble.">
+            <label>2. ¿Qué encontró Sofía un día mientras exploraba el bosque?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Al descubrir la cascada escondida, Sofía decidió regresar al día siguiente con su cámara para capturar la magia del bosque.">
+            <label>3. ¿Qué hizo Sofía al descubrir la cascada escondida?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Sofía decidió regresar al bosque al día siguiente para fotografiar la cascada y capturar la magia del lugar con su cámara.">
+            <label>4. ¿Por qué decidió Sofía regresar al bosque al día siguiente?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Sofía llevó su cámara consigo cuando regresó al bosque al día siguiente.">
+            <label>5. ¿Qué llevó Sofía consigo cuando regresó al bosque al día siguiente?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Mientras fotografiaba la cascada, Sofía escuchó un suave chirrido proveniente de un arbusto cercano.">
+            <label>6. ¿Qué escuchó Sofía mientras fotografiaba la cascada?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Sofía encontró a un pequeño zorro atrapado en una trampa para animales cuando se acercó al arbusto cercano.">
+            <label>7. ¿Qué encontró Sofía cuando se acercó al arbusto cercano?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Sofía sintió compasión por el zorro y rápidamente lo liberó.">
+            <label>8. ¿Cómo se sintió Sofía al encontrar al zorro atrapado en la trampa?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="Sofía sintió compasión por el zorro y rápidamente lo liberó.">
+            <label>9. ¿Qué hizo Sofía después de liberar al zorro?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+
+        <li data-answer="El zorro, agradecido, le dio las gracias a Sofía y desapareció entre los árboles.">
+            <label>10. ¿Cómo reaccionó el zorro después de ser liberado por Sofía?</label>
+            <div class="input-group">
+                <textarea rows="3" placeholder="Escribe aquí tu respuesta..."></textarea>
+                <button class="show-answer-button" onclick="showAnswer(this)">Mostrar Respuesta</button>
+            </div>
+            <span class="answer-feedback hidden"></span>
+        </li>
+    </ol>
+</section>
+
+    <hr>
+
+<section class="exercise-section">
+    <h3>5.B: Lee el texto y responde a las preguntas</h3>
+
+    <div class="text-box" style="padding: 15px; border: 1px solid #ccc; background-color: #f9f9f9; margin-bottom: 20px;">
+        <p style="font-style: italic; font-size: 0.95em; line-height: 1.5;">
+            El **cambio climático** es un fenómeno provocado por el **aumento de gases de efecto invernadero** en la atmósfera terrestre. Estos gases, como el dióxido de carbono y el metano, **atrapan el calor del sol** y causan un **aumento de la temperatura global**. El cambio climático tiene impactos significativos en el medio ambiente y en la vida humana, incluyendo el **derretimiento de los casquetes polares**, el **aumento del nivel del mar** y la **intensificación de fenómenos climáticos extremos**.
+        </p>
+    </div>
+
+    <ol class="mc-list" id="ej5-multiple-choice">
+        <li data-correct-answer="Los efectos del cambio climático.">
+            <label>1. ¿Cuál es el tema principal del texto?</label>
+            <div class="options-container">
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El calentamiento global.')">El calentamiento global.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La degradación del medio ambiente.')">La degradación del medio ambiente.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'Los efectos del cambio climático.')">Los efectos del cambio climático.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La importancia de la atmósfera terrestre.')">La importancia de la atmósfera terrestre.</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="El aumento de gases de efecto invernadero.">
+            <label>2. ¿Qué provoca el cambio climático?</label>
+            <div class="options-container">
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El aumento de la deforestación.')">El aumento de la deforestación.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La disminución de la contaminación atmosférica.')">La disminución de la contaminación atmosférica.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El aumento de gases de efecto invernadero.')">El aumento de gases de efecto invernadero.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La reducción del consumo de combustibles fósiles.')">La reducción del consumo de combustibles fósiles.</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="El derretimiento de los casquetes polares.">
+            <label>3. ¿Cuáles son algunos de los impactos del cambio climático?</label>
+            <div class="options-container">
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El aumento de la biodiversidad.')">El aumento de la biodiversidad.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El enfriamiento de la temperatura global.')">El enfriamiento de la temperatura global.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'El derretimiento de los casquetes polares.')">El derretimiento de los casquetes polares.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La disminución de fenómenos climáticos extremos.')">La disminución de fenómenos climáticos extremos.</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="Porque puede provocar el aumento del nivel del mar.">
+            <label>4. ¿Por qué es preocupante el cambio climático?</label>
+            <div class="options-container">
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'Porque no tiene impacto en la vida humana.')">Porque no tiene impacto en la vida humana.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'Porque puede provocar el aumento del nivel del mar.')">Porque puede provocar el aumento del nivel del mar.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'Porque favorece el crecimiento de la agricultura.')">Porque favorece el crecimiento de la agricultura.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'Porque solo afecta a regiones específicas del mundo.')">Porque solo afecta a regiones específicas del mundo.</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="La absorción de radiación solar por parte de la atmósfera.">
+            <label>5. ¿Qué causa el aumento de la temperatura global?</label>
+            <div class="options-container">
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La disminución de la actividad humana.')">La disminución de la actividad humana.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La absorción de radiación solar por parte de la atmósfera.')">La absorción de radiación solar por parte de la atmósfera.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La eliminación de gases de efecto invernadero.')">La eliminación de gases de efecto invernadero.</button>
+                <button class="mc-button" onclick="checkMultipleChoice(this, 'La reducción de la emisión de gases contaminantes.')">La reducción de la emisión de gases contaminantes.</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+    </ol>
+</section>
+    <hr>
 </div>
 
 <script>
@@ -1565,6 +1804,25 @@ function handleEnter(event, inputElement) {
         if (checkButton) {
             checkTextInput(checkButton);
         }
+    }
+}
+    // Función para mostrar la respuesta en las preguntas abiertas
+function showAnswer(clickedButton) {
+    const parentLi = clickedButton.closest('li');
+    const answerText = parentLi.getAttribute('data-answer');
+    const feedbackSpan = parentLi.querySelector('.answer-feedback');
+    const textarea = parentLi.querySelector('textarea');
+
+    if (feedbackSpan.classList.contains('hidden')) {
+        feedbackSpan.textContent = `Respuesta posible: ${answerText}`;
+        feedbackSpan.classList.remove('hidden');
+        clickedButton.textContent = "Ocultar Respuesta";
+        // Opcional: Deshabilita el área de texto una vez que se muestra la respuesta
+        textarea.disabled = true; 
+    } else {
+        feedbackSpan.classList.add('hidden');
+        clickedButton.textContent = "Mostrar Respuesta";
+        textarea.disabled = false;
     }
 }
 </script>
