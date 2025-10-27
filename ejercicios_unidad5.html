@@ -1067,6 +1067,39 @@ function checkMultipleChoice(clickedButton, buttonValue) {
         feedbackSpan.className = "feedback retry";
     }
 }
+    // Función para verificar la entrada de texto
+function checkTextInput(clickedButton) {
+    const parentLi = clickedButton.closest('li');
+    const inputElement = parentLi.querySelector('input[type="text"]');
+    const feedbackSpan = parentLi.querySelector('.feedback');
+    const correctAnswer = parentLi.getAttribute('data-correct-answer').toLowerCase().trim();
+    
+    // Normalizar la entrada del usuario: a minúsculas, quita espacios extra, etc.
+    const userAnswer = inputElement.value.toLowerCase().replace(/\s{2,}/g, ' ').trim();
+
+    // Comprobación
+    if (userAnswer === correctAnswer) {
+        feedbackSpan.textContent = "✅ ¡Correcto!";
+        feedbackSpan.className = "feedback ok";
+        inputElement.disabled = true;
+        clickedButton.disabled = true;
+        inputElement.style.borderColor = 'green';
+    } else {
+        feedbackSpan.textContent = `❌ Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+        feedbackSpan.className = "feedback retry";
+        inputElement.style.borderColor = 'red';
+    }
+}
+
+// Función para permitir usar Enter en el campo de texto
+function handleEnter(event, inputElement) {
+    if (event.key === 'Enter') {
+        const checkButton = inputElement.closest('.input-group').querySelector('.check-button');
+        if (checkButton) {
+            checkTextInput(checkButton);
+        }
+    }
+}
 </script>
 
 </body>
