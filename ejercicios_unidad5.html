@@ -169,6 +169,67 @@
     .feedback.retry {
         color: red;
     }
+    /* Estilos para ejercicios de entrada de texto (el nuevo formato) */
+.text-input-list {
+    list-style: none;
+    padding: 0;
+}
+
+.text-input-list li {
+    display: flex;
+    flex-direction: column; /* Coloca label arriba, input abajo */
+    margin: 15px 0;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.text-input-list label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-group input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    font-size: 1em;
+    min-width: 150px;
+    /* Placeholder gris claro */
+    color: #000;
+}
+
+.input-group input[type="text"]::placeholder {
+    color: #aaa; /* Gris claro para la palabra "respuesta" */
+    font-style: italic;
+}
+
+/* Botón de Verificar (VERDE) */
+.check-button {
+    background-color: #28a745; 
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+.check-button:hover:not(:disabled) {
+    background-color: #218838; 
+}
+.check-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
 </style>
 </head>
 
@@ -559,7 +620,310 @@
     </ol>
 </section>
 
+      <hr>
 
+<section class="exercise-section">
+    <h3>3.1: Escribe estos porcentajes por extensión (ej. diez por ciento)</h3>
+    <p class="explanation">Escribe el porcentaje usando letras. ¡Recuerda escribir todo junto si aplica (ej. veinticinco)!</p>
+
+    <ol class="text-input-list" id="ej3-1-list">
+        <li>
+            <label>1. 10%</label>
+            <div class="input-group">
+                <input type="text" value="diez por ciento" disabled>
+                <button class="check-button" disabled>Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="veinte por ciento">
+            <label>2. 20%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="treinta por ciento">
+            <label>3. 30%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="cuarenta por ciento">
+            <label>4. 40%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="cincuenta por ciento">
+            <label>5. 50%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="setenta por ciento">
+            <label>6. 70%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="sesenta por ciento">
+            <label>7. 60%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="quince por ciento">
+            <label>8. 15%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="veinticinco por ciento">
+            <label>9. 25%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="treinta y cinco por ciento">
+            <label>10. 35%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="cuarenta y cinco por ciento">
+            <label>11. 45%</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+    </ol>
+</section>
+
+<hr>
+
+<section class="exercise-section">
+    <h3>3.2: Coloca los números (Texto a Cifra)</h3>
+
+    <ol class="text-input-list" id="ej3-2-list">
+        <li>
+            <label>a) mil tres</label>
+            <div class="input-group">
+                <input type="text" value="1003" disabled>
+                <button class="check-button" disabled>Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="4500">
+            <label>b) cuatro mil quinientos</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="10000">
+            <label>c) diez mil</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="5320">
+            <label>d) cinco mil trescientos veinte</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="7800">
+            <label>e) siete mil ochocientos</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="1492">
+            <label>f) Mil cuatrocientos noventa y dos</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="2000500">
+            <label>g) Dos millones quinientos</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="155200">
+            <label>h) Ciento cincuenta y cinco mil doscientos</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="500203">
+            <label>i) Quinientos mil doscientos tres</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="1300000">
+            <label>j) Un millón trescientos mil</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+    </ol>
+</section>
+
+<hr>
+
+<section class="exercise-section">
+    <h3>3.3: Completa los números por extensión (Cifra a Texto)</h3>
+
+    <ol class="text-input-list" id="ej3-3-list">
+        <li>
+            <label>a) 1000</label>
+            <div class="input-group">
+                <input type="text" value="mil" disabled>
+                <button class="check-button" disabled>Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="mil ciento cuarenta y cinco">
+            <label>b) 1145</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="tres mil cuatrocientos">
+            <label>c) 3400</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="nueve mil novecientos treinta">
+            <label>d) 9930</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="seis mil setecientos noventa">
+            <label>e) 6790</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+        
+        <li data-correct-answer="cuatro mil quinientos sesenta y cinco">
+            <label>f) 4565</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="tres mil doscientos sesenta">
+            <label>g) 3260</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="siete mil ochocientos">
+            <label>h) 7800</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="ocho mil cuatrocientos">
+            <label>i) 8400</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+
+        <li data-correct-answer="dos mil seiscientos sesenta y cinco">
+            <label>j) 2665</label>
+            <div class="input-group">
+                <input type="text" placeholder="respuesta" onkeydown="handleEnter(event, this)">
+                <button class="check-button" onclick="checkTextInput(this)">Verificar</button>
+            </div>
+            <span class="feedback"></span>
+        </li>
+    </ol>
+</section>
+    
 <hr>
     
 </div>
