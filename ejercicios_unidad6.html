@@ -6,36 +6,42 @@
     <title>Unidad 6 - Ejercicios de Práctica</title>
     <script src="menu.js" defer></script>
     <style>
+        /* ============================
+           ESTILOS UNIFICADOS
+           ============================ */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f4f4f4;
+            color: #333;
         }
         .container {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            max-width: 980px;
             margin: 0 auto;
         }
         h1, h2, h3 {
             color: #0056b3;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.4rem; margin-top: 28px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        h3 { font-size: 1.05rem; color: #007bff; margin-top: 16px; }
+
         /* Caja uniforme para todos los ejercicios */
         .exercise-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
+            margin-bottom: 16px;
+            padding: 14px;
+            border: 1px solid #e6e6e6;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            background-color: #fbfbfb;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .exercise-item p {
@@ -43,64 +49,69 @@
             margin: 0;
             display: flex;
             align-items: center;
+            gap: 8px;
             flex-wrap: wrap;
         }
         .exercise-input {
-            width: 100px;
-            padding: 5px;
+            min-width: 110px;
+            max-width: 220px;
+            padding: 6px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            margin: 0 5px;
+            border-radius: 5px;
+            margin: 0 6px;
         }
         .options-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 10px;
         }
         .option-button, .option-button-cm {
-            padding: 8px 15px;
-            background-color: #e9ecef;
-            color: #495057;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
+            padding: 8px 14px;
+            background-color: #eef2f6;
+            color: #333;
+            border: 1px solid #d0d7df;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
+            transition: background-color 0.15s, transform 0.05s;
         }
-        .option-button:hover, .option-button-cm:hover {
-            background-color: #dee2e6;
-        }
+        .option-button:hover, .option-button-cm:hover { background-color: #e0e7ef; transform: translateY(-1px); }
         .verify-button {
-            padding: 8px 15px;
+            padding: 8px 14px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-        .verify-button:hover {
-            background-color: #0056b3;
-        }
+        .verify-button:hover { background-color: #0056b3; }
+
         .result-box {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            background-color: #f0f0f0;
-            border-radius: 4px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            background: #f6f6f6;
+            color: #555;
+            min-width: 110px;
             text-align: center;
-            color: #777;
-            min-width: 100px;
-            font-weight: bold;
+            font-weight: 600;
         }
+
         .correct-option, .correct-result {
-            background-color: #d4edda !important;
-            border-color: #155724 !important;
-            color: #155724 !important;
+            background-color: #dff0da !important;
+            border-color: #2e7d32 !important;
+            color: #2e7d32 !important;
         }
         .incorrect-option, .incorrect-result {
-            background-color: #f8d7da !important;
-            border-color: #721c24 !important;
-            color: #721c24 !important;
+            background-color: #fddede !important;
+            border-color: #a12a2a !important;
+            color: #a12a2a !important;
+        }
+
+        /* Responsivo */
+        @media (max-width: 720px) {
+            .container { padding: 18px; }
+            .result-box { min-width: 80px; font-size: 0.95rem; }
+            .exercise-input { min-width: 90px; }
         }
     </style>
 </head>
@@ -108,11 +119,12 @@
 <div class="container">
     <h1>Unidad 6 - Ejercicios</h1>
 
+    <!-- ========== 1. Cuantificadores ========== -->
     <h2>1. Cuantificadores del Adjetivo</h2>
-    <h3>Selecciona el cuantificador adecuado para cada frase: muy, bastante, poco(s/a/as), un poco, demasiado(s/a/as).</h3>
+    <h3>Selecciona el cuantificador adecuado para cada frase</h3>
 
     <div id="exercise-1-list">
-        
+        <!-- 1 -->
         <div class="exercise-item">
             <p class="question-text">1. Esta película es __________ interesante. Te gustará.</p>
             <div id="options-1" class="options-group">
@@ -123,6 +135,7 @@
             <div id="r1" class="result-box">Resultado</div>
         </div>
 
+        <!-- 2 -->
         <div class="exercise-item">
             <p class="question-text">2. Tengo __________ dinero para comprarme ese coche. ¡Es carísimo!</p>
             <div id="options-2" class="options-group">
@@ -133,6 +146,7 @@
             <div id="r2" class="result-box">Resultado</div>
         </div>
 
+        <!-- 3 -->
         <div class="exercise-item">
             <p class="question-text">3. ¿Tienes hambre? Yo tengo __________.</p>
             <div id="options-3" class="options-group">
@@ -142,7 +156,8 @@
             </div>
             <div id="r3" class="result-box">Resultado</div>
         </div>
-        
+
+        <!-- 4 -->
         <div class="exercise-item">
             <p class="question-text">4. Mis amigos están __________ contentos con la noticia.</p>
             <div id="options-4" class="options-group">
@@ -153,6 +168,7 @@
             <div id="r4" class="result-box">Resultado</div>
         </div>
 
+        <!-- 5 -->
         <div class="exercise-item">
             <p class="question-text">5. Hemos traído __________ comida. No va a ser suficiente para todos.</p>
             <div id="options-5" class="options-group">
@@ -162,7 +178,8 @@
             </div>
             <div id="r5" class="result-box">Resultado</div>
         </div>
-        
+
+        <!-- 6 -->
         <div class="exercise-item">
             <p class="question-text">6. La habitación es __________ pequeña para dos camas grandes.</p>
             <div id="options-6" class="options-group">
@@ -173,6 +190,7 @@
             <div id="r6" class="result-box">Resultado</div>
         </div>
 
+        <!-- 7 -->
         <div class="exercise-item">
             <p class="question-text">7. La calidad del servicio es __________ buena, no tengo quejas.</p>
             <div id="options-7" class="options-group">
@@ -182,7 +200,8 @@
             </div>
             <div id="r7" class="result-box">Resultado</div>
         </div>
-        
+
+        <!-- 8 -->
         <div class="exercise-item">
             <p class="question-text">8. En la clase hay __________ chicos inteligentes, la media es alta.</p>
             <div id="options-8" class="options-group">
@@ -193,6 +212,7 @@
             <div id="r8" class="result-box">Resultado</div>
         </div>
 
+        <!-- 9 -->
         <div class="exercise-item">
             <p class="question-text">9. Tienes __________ información errónea en ese informe.</p>
             <div id="options-9" class="options-group">
@@ -203,6 +223,7 @@
             <div id="r9" class="result-box">Resultado</div>
         </div>
 
+        <!-- 10 -->
         <div class="exercise-item">
             <p class="question-text">10. Solo necesitamos __________ más de tiempo para terminar el trabajo.</p>
             <div id="options-10" class="options-group">
@@ -212,7 +233,8 @@
             </div>
             <div id="r10" class="result-box">Resultado</div>
         </div>
-        
+
+        <!-- 11 -->
         <div class="exercise-item">
             <p class="question-text">11. Los precios de este mercado son __________ caros, casi no puedo comprar nada.</p>
             <div id="options-11" class="options-group">
@@ -223,6 +245,7 @@
             <div id="r11" class="result-box">Resultado</div>
         </div>
 
+        <!-- 12 -->
         <div class="exercise-item">
             <p class="question-text">12. Quedan __________ plazas en el concierto. ¡Date prisa!</p>
             <div id="options-12" class="options-group">
@@ -232,33 +255,32 @@
             </div>
             <div id="r12" class="result-box">Resultado</div>
         </div>
-        
     </div>
 
     <hr>
 
+    <!-- ========== 2. Superlativo (Rellenar) ========== -->
     <h2>2. El Superlativo (Rellenar)</h2>
-    <h3>Completa las frases con la forma superlativa correcta (el/la más + adjetivo, el mejor, la peor, etc.).</h3>
-    
-    <div id="exercise-2-list-input">
+    <h3>Completa con la forma superlativa correcta</h3>
 
+    <div id="exercise-2-list-input">
         <h3>2.1. Completa las siguientes frases (I)</h3>
 
         <div class="exercise-item">
             <p>1.b) Esta película es <input type="text" id="s1b" class="exercise-input" placeholder="El superlativo"> que he visto. (interesante)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('1b', ['la más interesante'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('1b', ['la mas interesante','la más interesante'])">Verificar</button>
             <div id="rs1b" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>1.c) Esa montaña es <input type="text" id="s1c" class="exercise-input" placeholder="El superlativo"> del país. (alta)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('1c', ['la más alta'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('1c', ['la mas alta','la más alta'])">Verificar</button>
             <div id="rs1c" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>1.d) Él es el estudiante <input type="text" id="s1d" class="exercise-input" placeholder="El superlativo"> de la clase. (inteligente)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('1d', ['el más inteligente'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('1d', ['el mas inteligente','el más inteligente'])">Verificar</button>
             <div id="rs1d" class="result-box">Resultado</div>
         </div>
 
@@ -269,24 +291,24 @@
         </div>
 
         <hr>
-        
+
         <h3>2.2. Completa las siguientes frases (II)</h3>
 
         <div class="exercise-item">
             <p>2.b) Este es el libro <input type="text" id="s2b" class="exercise-input" placeholder="El superlativo"> que he leído. (aburrido)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('2b', ['el más aburrido'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('2b', ['el mas aburrido','el más aburrido'])">Verificar</button>
             <div id="rs2b" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>2.c) Aquel edificio es <input type="text" id="s2c" class="exercise-input" placeholder="El superlativo"> de la ciudad. (alto)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('2c', ['el más alto'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('2c', ['el mas alto','el más alto'])">Verificar</button>
             <div id="rs2c" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>2.d) María es <input type="text" id="s2d" class="exercise-input" placeholder="El superlativo"> de todas las amigas. (simpático)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('2d', ['la más simpática'])">Verificar</button>
+            <p>2.d) María es <input type="text" id="s2d" class="exercise-input" placeholder="El superlativo"> de todas las amigas. (simpatico)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('2d', ['la mas simpatica','la más simpática','la mas simpatica','la más simpatica'])">Verificar</button>
             <div id="rs2d" class="result-box">Resultado</div>
         </div>
 
@@ -299,49 +321,45 @@
         <hr>
 
         <h3>2.3. Completa las siguientes frases (III)</h3>
-        
+
         <div class="exercise-item">
-            <p>3.b) Él es <input type="text" id="s3b" class="exercise-input" placeholder="El superlativo"> del equipo de fútbol. (rápido)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('3b', ['el más rápido'])">Verificar</button>
+            <p>3.b) Él es <input type="text" id="s3b" class="exercise-input" placeholder="El superlativo"> del equipo de fútbol. (rapido)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('3b', ['el mas rapido','el más rápido'])">Verificar</button>
             <div id="rs3b" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>3.c) Esta ciudad tiene la población <input type="text" id="s3c" class="exercise-input" placeholder="El superlativo"> de Europa. (densa)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('3c', ['la más densa'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('3c', ['la mas densa','la más densa'])">Verificar</button>
             <div id="rs3c" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>3.d) Aquel libro es <input type="text" id="s3d" class="exercise-input" placeholder="El superlativo"> que he leído. (interesante)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('3d', ['el más interesante'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('3d', ['el mas interesante','el más interesante'])">Verificar</button>
             <div id="rs3d" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
             <p>3.e) Esta es la tienda <input type="text" id="s3e" class="exercise-input" placeholder="El superlativo"> del centro comercial. (caro)</p>
-            <button class="verify-button" onclick="verifySuperlativeInput('3e', ['la más cara'])">Verificar</button>
+            <button class="verify-button" onclick="verifySuperlativeInput('3e', ['la mas cara','la más cara'])">Verificar</button>
             <div id="rs3e" class="result-box">Resultado</div>
         </div>
-
-    </div>
     </div>
 
     <hr>
 
-    <!-- ============================================= -->
-    <!--        EJERCICIO 3: COMPARACIONES            -->
-    <!-- ============================================= -->
+    <!-- ========== 3. La Comparación ========== -->
     <h2>3. La Comparación</h2>
-    <h3>3.1. Elige la alternativa correcta</h3>
 
+    <h3>3.1. Elige la alternativa correcta</h3>
     <div id="exercise-3-multiple-choice">
         <div class="exercise-item">
             <p class="question-text">1. Hoy día la gente se preocupa __________ por la salud y bienestar del cuerpo __________ antiguamente.</p>
             <div id="options-cm-1" class="options-group">
-                <button class="option-button-cm" value="tan; como" onclick="verifyComparisonMultipleChoice(1, this, 'más; que')">a) tan; como</button>
-                <button class="option-button-cm" value="igual; que" onclick="verifyComparisonMultipleChoice(1, this, 'más; que')">b) igual; que</button>
-                <button class="option-button-cm" value="más; que" onclick="verifyComparisonMultipleChoice(1, this, 'más; que')">c) más; que</button>
+                <button class="option-button-cm" value="tan; como" onclick="verifyComparisonMultipleChoice(1, this, 'mas; que')">a) tan; como</button>
+                <button class="option-button-cm" value="igual; que" onclick="verifyComparisonMultipleChoice(1, this, 'mas; que')">b) igual; que</button>
+                <button class="option-button-cm" value="mas; que" onclick="verifyComparisonMultipleChoice(1, this, 'mas; que')">c) más; que</button>
             </div>
             <div id="rcm1" class="result-box">Resultado</div>
         </div>
@@ -355,35 +373,151 @@
             </div>
             <div id="rcm2" class="result-box">Resultado</div>
         </div>
+
+        <div class="exercise-item">
+            <p class="question-text">3. Amazonas tiene __________ habitantes __________ la ciudad de São Paulo.</p>
+            <div id="options-cm-3" class="options-group">
+                <button class="option-button-cm" value="mas; que" onclick="verifyComparisonMultipleChoice(3, this, 'menos; que')">a) más; que</button>
+                <button class="option-button-cm" value="menos; que" onclick="verifyComparisonMultipleChoice(3, this, 'menos; que')">b) menos; que</button>
+                <button class="option-button-cm" value="tantos; como" onclick="verifyComparisonMultipleChoice(3, this, 'menos; que')">c) tantos; como</button>
+            </div>
+            <div id="rcm3" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p class="question-text">4. Los restaurantes de España son __________ buenos __________ los de Francia.</p>
+            <div id="options-cm-4" class="options-group">
+                <button class="option-button-cm" value="igual; que" onclick="verifyComparisonMultipleChoice(4, this, 'tan; como')">a) igual; que</button>
+                <button class="option-button-cm" value="tanto; como" onclick="verifyComparisonMultipleChoice(4, this, 'tan; como')">b) tanto; como</button>
+                <button class="option-button-cm" value="tan; como" onclick="verifyComparisonMultipleChoice(4, this, 'tan; como')">c) tan; como</button>
+            </div>
+            <div id="rcm4" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p class="question-text">5. En este mundo hay __________ ricos __________ pobres.</p>
+            <div id="options-cm-5" class="options-group">
+                <button class="option-button-cm" value="mas; que" onclick="verifyComparisonMultipleChoice(5, this, 'menos; que')">a) más; que</button>
+                <button class="option-button-cm" value="menos; que" onclick="verifyComparisonMultipleChoice(5, this, 'menos; que')">b) menos; que</button>
+                <button class="option-button-cm" value="tanto; como" onclick="verifyComparisonMultipleChoice(5, this, 'menos; que')">c) tanto; como</button>
+            </div>
+            <div id="rcm5" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p class="question-text">6. Federico tiene __________ pantalones vaqueros __________ Silvio.</p>
+            <div id="options-cm-6" class="options-group">
+                <button class="option-button-cm" value="tantos; como" onclick="verifyComparisonMultipleChoice(6, this, 'tantos; como')">a) tantos; como</button>
+                <button class="option-button-cm" value="tan; como" onclick="verifyComparisonMultipleChoice(6, this, 'tantos; como')">b) tan; como</button>
+                <button class="option-button-cm" value="igual; que" onclick="verifyComparisonMultipleChoice(6, this, 'tantos; como')">c) igual; que</button>
+            </div>
+            <div id="rcm6" class="result-box">Resultado</div>
+        </div>
     </div>
 
     <hr>
 
-    <h3>3.2. Completa con las expresiones de comparación</h3>
+    <h3>3.2. Completa con las expresiones de comparación (inputs)</h3>
     <p>Completa los espacios en blanco utilizando <strong>dos palabras</strong> para cada frase. ¡Ojo con la concordancia!</p>
 
     <div id="exercise-3-input">
         <div class="exercise-item">
-            <p>Esta camisa es <input type="text" id="ci1-b" class="exercise-input" placeholder="más/tan/menos/igual"> bonita <input type="text" id="ci2-b" class="exercise-input" placeholder="que/como"> aquella.</p>
-            <button class="verify-button" onclick="verifyComparisonInput('b', ['más que'])">Verificar</button>
+            <p>b) Esta camisa es <input type="text" id="ci1-b" class="exercise-input" placeholder="más/tan/menos/igual"> bonita <input type="text" id="ci2-b" class="exercise-input" placeholder="que/como"> aquella que hemos visto en el centro comercial.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('b', ['mas que','mas; que','mas que','masque','mas que'])">Verificar</button>
             <div id="rci-b" class="result-box">Resultado</div>
         </div>
-    </div>
-</div>
 
+        <div class="exercise-item">
+            <p>c) Raúl se siente <input type="text" id="ci1-c" class="exercise-input" placeholder="mejor/peor/igual"> <input type="text" id="ci2-c" class="exercise-input" placeholder="que/como"> ayer.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('c', ['mejor que','peor que','igual que'])">Verificar</button>
+            <div id="rci-c" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>d) Los americanos comen <input type="text" id="ci1-d" class="exercise-input" placeholder="más/menos/tantas"> hamburguesas <input type="text" id="ci2-d" class="exercise-input" placeholder="que/como"> los iraníes.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('d', ['mas que'])">Verificar</button>
+            <div id="rci-d" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>e) En Chile hay <input type="text" id="ci1-e" class="exercise-input" placeholder="más/menos/tanto"> petróleo <input type="text" id="ci2-e" class="exercise-input" placeholder="que/como"> en Venezuela.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('e', ['menos que'])">Verificar</button>
+            <div id="rci-e" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>f) Laura bebe <input type="text" id="ci1-f" class="exercise-input" placeholder="más/menos/tanta"> leche <input type="text" id="ci2-f" class="exercise-input" placeholder="que/como"> María.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('f', ['mas que'])">Verificar</button>
+            <div id="rci-f" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>g) Víctor ve <input type="text" id="ci1-g" class="exercise-input" placeholder="más/menos/tantas"> películas <input type="text" id="ci2-g" class="exercise-input" placeholder="que/como"> Pablo.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('g', ['menos que'])">Verificar</button>
+            <div id="rci-g" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>h) Los argentinos no comen <input type="text" id="ci1-h" class="exercise-input" placeholder="más/tan/menos"> tarde <input type="text" id="ci2-h" class="exercise-input" placeholder="que/como"> los españoles.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('h', ['tan como','menos que'])">Verificar</button>
+            <div id="rci-h" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>i) Hay <input type="text" id="ci1-i" class="exercise-input" placeholder="más/menos/tantos"> aviones <input type="text" id="ci2-i" class="exercise-input" placeholder="que/como"> coches en el mundo.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('i', ['menos que'])">Verificar</button>
+            <div id="rci-i" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>j) Algunas frutas son <input type="text" id="ci1-j" class="exercise-input" placeholder="más/tan/menos"> caras en Inglaterra <input type="text" id="ci2-j" class="exercise-input" placeholder="que/como"> en Brasil.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('j', ['tan como'])">Verificar</button>
+            <div id="rci-j" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>k) Ha llovido este año <input type="text" id="ci1-k" class="exercise-input" placeholder="tanto/más/menos"> <input type="text" id="ci2-k" class="exercise-input" placeholder="que/como"> llovió el año pasado.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('k', ['tanto como','igual que'])">Verificar</button>
+            <div id="rci-k" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>l) En Europa hace <input type="text" id="ci1-l" class="exercise-input" placeholder="más/menos/tanto"> calor <input type="text" id="ci2-l" class="exercise-input" placeholder="que/como"> en África.</p>
+            <button class="verify-button" onclick="verifyComparisonInput('l', ['menos que'])">Verificar</button>
+            <div id="rci-l" class="result-box">Resultado</div>
+        </div>
+    </div>
+
+</div> <!-- .container -->
+
+<!-- ============================
+     SCRIPTS: funciones de verificación
+     (colocados al final para asegurar DOM)
+     ============================ -->
 <script>
+    // Normalización simple: minusculas y quitar acentos
     function normalizeAnswer(answer) {
-        return answer.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        if (answer === undefined || answer === null) return "";
+        return String(answer).toLowerCase().trim()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, " "); // normalizar espacios
     }
-    function verifyComparisonMultipleChoice(exerciseId, selectedButton, correctAnswer) {
-        const resultBox = document.getElementById('rcm' + exerciseId);
-        const optionsGroup = document.getElementById('options-cm-' + exerciseId);
-        const buttons = optionsGroup.querySelectorAll('.option-button-cm');
+
+    // ---------- Cuantificadores (ej. verifyQuantifier) ----------
+    function verifyQuantifier(exerciseId, selectedButton, correctAnswer) {
+        const resultBox = document.getElementById('r' + exerciseId);
+        const optionsGroup = document.getElementById('options-' + exerciseId);
+        const buttons = optionsGroup.querySelectorAll('.option-button');
+
+        // reset UI
         resultBox.className = 'result-box';
         resultBox.textContent = 'Resultado';
         buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
-        const userAnswer = normalizeAnswer(selectedButton.value);
-        if (userAnswer === normalizeAnswer(correctAnswer)) {
+
+        const userAnswer = normalizeAnswer(selectedButton.textContent);
+        const normalizedCorrect = normalizeAnswer(correctAnswer);
+
+        if (userAnswer === normalizedCorrect) {
             selectedButton.classList.add('correct-option');
             resultBox.classList.add('correct-result');
             resultBox.textContent = '¡Correcto!';
@@ -391,22 +525,89 @@
             selectedButton.classList.add('incorrect-option');
             resultBox.classList.add('incorrect-result');
             resultBox.textContent = 'Error';
+            // marcar la correcta
             buttons.forEach(btn => {
-                if (normalizeAnswer(btn.value) === normalizeAnswer(correctAnswer)) {
+                if (normalizeAnswer(btn.textContent) === normalizedCorrect) {
                     btn.classList.add('correct-option');
                 }
             });
         }
     }
+
+    // ---------- Superlativo (input) ----------
+    function verifySuperlativeInput(exerciseId, correctAnswers) {
+        const inputElement = document.getElementById('s' + exerciseId);
+        // if id with letter-number (like '1b') use that exact id
+        let elem = inputElement;
+        if (!elem) elem = document.getElementById('s' + exerciseId); // fallback
+        const resultBox = document.getElementById('rs' + exerciseId);
+        const userAnswer = elem ? normalizeAnswer(elem.value) : "";
+
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+
+        let isCorrect = false;
+        for (const ans of correctAnswers) {
+            if (userAnswer === normalizeAnswer(ans)) { isCorrect = true; break; }
+        }
+
+        if (isCorrect) {
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+        }
+    }
+
+    // ---------- Comparaciones (multiple choice) ----------
+    function verifyComparisonMultipleChoice(exerciseId, selectedButton, correctAnswer) {
+        const resultBox = document.getElementById('rcm' + exerciseId);
+        const optionsGroup = document.getElementById('options-cm-' + exerciseId);
+        const buttons = optionsGroup.querySelectorAll('.option-button-cm');
+
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+
+        const userAnswer = normalizeAnswer(selectedButton.value || selectedButton.textContent);
+        const normalizedCorrect = normalizeAnswer(correctAnswer);
+
+        if (userAnswer === normalizedCorrect) {
+            selectedButton.classList.add('correct-option');
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            selectedButton.classList.add('incorrect-option');
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+            // marcar correcta
+            buttons.forEach(btn => {
+                if (normalizeAnswer(btn.value || btn.textContent) === normalizedCorrect) {
+                    btn.classList.add('correct-option');
+                }
+            });
+        }
+    }
+
+    // ---------- Comparaciones (inputs dobles) ----------
     function verifyComparisonInput(exerciseId, correctAnswers) {
-        const i1 = document.getElementById('ci1-' + exerciseId);
-        const i2 = document.getElementById('ci2-' + exerciseId);
+        const input1 = document.getElementById('ci1-' + exerciseId);
+        const input2 = document.getElementById('ci2-' + exerciseId);
         const result = document.getElementById('rci-' + exerciseId);
         result.className = 'result-box';
         result.textContent = 'Resultado';
-        const combined = (i1.value + ' ' + i2.value).toLowerCase().trim();
-        const isCorrect = correctAnswers.some(ans => combined === ans);
-        if (isCorrect) {
+
+        const v1 = input1 ? normalizeAnswer(input1.value) : "";
+        const v2 = input2 ? normalizeAnswer(input2.value) : "";
+        const combined = (v1 + " " + v2).replace(/\s+/g, ' ').trim();
+
+        let ok = false;
+        for (const ans of correctAnswers) {
+            if (combined === normalizeAnswer(ans)) { ok = true; break; }
+        }
+
+        if (ok) {
             result.classList.add('correct-result');
             result.textContent = '¡Correcto!';
         } else {
