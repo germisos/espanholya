@@ -262,5 +262,178 @@
 
 </div>
 
+    <hr>
+
+<h2>2. El Superlativo</h2>
+<h3>Completa las frases con el superlativo de los adjetivos: el/la más, mejor, peor.</h3>
+
+<script>
+    function verifySuperlative(exerciseId, selectedButton, correctAnswer) {
+        const resultBox = document.getElementById('r' + exerciseId);
+        const optionsGroup = document.getElementById('options-' + exerciseId);
+        const buttons = optionsGroup.querySelectorAll('.option-button');
+
+        // Limpiar resultados anteriores y resetear botones
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+
+        const userAnswer = normalizeAnswer(selectedButton.textContent);
+        const normalizedCorrectAnswer = normalizeAnswer(correctAnswer);
+
+        // Verificar y actualizar UI
+        if (userAnswer === normalizedCorrectAnswer) {
+            selectedButton.classList.add('correct-option');
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            selectedButton.classList.add('incorrect-option');
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+            
+            // Mostrar la respuesta correcta
+            buttons.forEach(btn => {
+                if (normalizeAnswer(btn.textContent) === normalizedCorrectAnswer) {
+                    btn.classList.add('correct-option');
+                }
+            });
+        }
+    }
+</script>
+
+<div id="exercise-2-list">
+
+    <h3>2.1. Completa las siguientes frases (I)</h3>
+
+    <div class="exercise-item">
+        <p class="question-text">1.b) Esta película es __________ que he visto. (interesante)</p>
+        <div id="options-1b" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('1b', this, 'la más interesante')">la peor</button>
+            <button class="option-button" onclick="verifySuperlative('1b', this, 'la más interesante')">la más interesante</button>
+            <button class="option-button" onclick="verifySuperlative('1b', this, 'la más interesante')">la mejor</button>
+        </div>
+        <div id="r1b" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">1.c) Esa montaña es __________ del país. (alta)</p>
+        <div id="options-1c" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('1c', this, 'la más alta')">la mejor</button>
+            <button class="option-button" onclick="verifySuperlative('1c', this, 'la más alta')">la más alta</button>
+            <button class="option-button" onclick="verifySuperlative('1c', this, 'la más alta')">la más peor</button>
+        </div>
+        <div id="r1c" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">1.d) Él es el estudiante __________ de la clase. (inteligente)</p>
+        <div id="options-1d" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('1d', this, 'el más inteligente')">el peor</button>
+            <button class="option-button" onclick="verifySuperlative('1d', this, 'el más inteligente')">el mejor</button>
+            <button class="option-button" onclick="verifySuperlative('1d', this, 'el más inteligente')">el más inteligente</button>
+        </div>
+        <div id="r1d" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">1.e) Este es __________ restaurante de la ciudad. (bueno)</p>
+        <div id="options-1e" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('1e', this, 'el mejor')">el más bueno</button>
+            <button class="option-button" onclick="verifySuperlative('1e', this, 'el mejor')">el mejor</button>
+            <button class="option-button" onclick="verifySuperlative('1e', this, 'el mejor')">el peor</button>
+        </div>
+        <div id="r1e" class="result-box">Resultado</div>
+    </div>
+
+    <hr>
+    
+    <h3>2.2. Completa las siguientes frases (II)</h3>
+
+    <div class="exercise-item">
+        <p class="question-text">2.b) Este es el libro __________ que he leído. (aburrido)</p>
+        <div id="options-2b" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('2b', this, 'el más aburrido')">el mejor</button>
+            <button class="option-button" onclick="verifySuperlative('2b', this, 'el más aburrido')">el más aburrido</button>
+            <button class="option-button" onclick="verifySuperlative('2b', this, 'el más aburrido')">el peor</button>
+        </div>
+        <div id="r2b" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">2.c) Aquel edificio es __________ de la ciudad. (alto)</p>
+        <div id="options-2c" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('2c', this, 'el más alto')">el peor</button>
+            <button class="option-button" onclick="verifySuperlative('2c', this, 'el más alto')">el más alto</button>
+            <button class="option-button" onclick="verifySuperlative('2c', this, 'el más alto')">el mejor</button>
+        </div>
+        <div id="r2c" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">2.d) María es __________ de todas las amigas. (simpático)</p>
+        <div id="options-2d" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('2d', this, 'la más simpática')">la peor</button>
+            <button class="option-button" onclick="verifySuperlative('2d', this, 'la más simpática')">la más simpática</button>
+            <button class="option-button" onclick="verifySuperlative('2d', this, 'la más simpática')">la mejor</button>
+        </div>
+        <div id="r2d" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">2.e) Esta es __________ película que he visto. (malo)</p>
+        <div id="options-2e" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('2e', this, 'la peor')">la más mala</button>
+            <button class="option-button" onclick="verifySuperlative('2e', this, 'la peor')">la peor</button>
+            <button class="option-button" onclick="verifySuperlative('2e', this, 'la peor')">la mejor</button>
+        </div>
+        <div id="r2e" class="result-box">Resultado</div>
+    </div>
+
+    <hr>
+
+    <h3>2.3. Completa las siguientes frases (III)</h3>
+    
+    <div class="exercise-item">
+        <p class="question-text">3.b) Él es __________ del equipo de fútbol. (rápido)</p>
+        <div id="options-3b" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('3b', this, 'el más rápido')">el mejor</button>
+            <button class="option-button" onclick="verifySuperlative('3b', this, 'el más rápido')">el más rápido</button>
+            <button class="option-button" onclick="verifySuperlative('3b', this, 'el más rápido')">el peor</button>
+        </div>
+        <div id="r3b" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">3.c) Esta ciudad tiene la población __________ de Europa. (densa)</p>
+        <div id="options-3c" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('3c', this, 'la más densa')">la peor densa</button>
+            <button class="option-button" onclick="verifySuperlative('3c', this, 'la más densa')">la más densa</button>
+            <button class="option-button" onclick="verifySuperlative('3c', this, 'la más densa')">la mejor densa</button>
+        </div>
+        <div id="r3c" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">3.d) Aquel libro es __________ que he leído. (interesante)</p>
+        <div id="options-3d" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('3d', this, 'el más interesante')">el mejor</button>
+            <button class="option-button" onclick="verifySuperlative('3d', this, 'el más interesante')">el peor</button>
+            <button class="option-button" onclick="verifySuperlative('3d', this, 'el más interesante')">el más interesante</button>
+        </div>
+        <div id="r3d" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">3.e) Esta es la tienda __________ del centro comercial. (caro)</p>
+        <div id="options-3e" class="options-group">
+            <button class="option-button" onclick="verifySuperlative('3e', this, 'la más cara')">la peor</button>
+            <button class="option-button" onclick="verifySuperlative('3e', this, 'la más cara')">la más cara</button>
+            <button class="option-button" onclick="verifySuperlative('3e', this, 'la más cara')">la mejor</button>
+        </div>
+        <div id="r3e" class="result-box">Resultado</div>
+    </div>
+
+</div>
+    
 </body>
 </html>
