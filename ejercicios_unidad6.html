@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad 6 - Ejercicios de Práctica</title>
-    <script src="menu.js" defer></script> 
+    <script src="menu.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,92 +25,105 @@
             margin-top: 25px;
         }
         .exercise-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .question-text {
+            font-size: 1.1em;
             margin-bottom: 15px;
-            padding: 10px;
-            border-left: 3px solid #007bff;
+        }
+        .options-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .option-button {
+            padding: 8px 15px;
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .option-button:hover {
+            background-color: #dee2e6;
+        }
+        .result-group {
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        .exercise-item p {
-            margin: 0;
-            flex-grow: 1;
-        }
-        .exercise-input {
-            width: 150px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            gap: 15px;
+            margin-top: 10px;
         }
         .result-box {
-            width: 80px;
-            padding: 5px;
-            margin-left: 10px;
+            padding: 8px 15px;
             border: 1px solid #ddd;
             background-color: #f0f0f0;
             border-radius: 4px;
             text-align: center;
             color: #777;
+            min-width: 100px;
+            font-weight: bold;
         }
-        .verify-button {
-            padding: 8px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .correct-option {
+            background-color: #d4edda !important;
+            border-color: #155724 !important;
+            color: #155724 !important;
         }
-        .verify-button:hover {
-            background-color: #0056b3;
+        .incorrect-option {
+            background-color: #f8d7da !important;
+            border-color: #721c24 !important;
+            color: #721c24 !important;
         }
-        .correct {
+        .correct-result {
             background-color: #d4edda !important;
             color: #155724 !important;
             border-color: #c3e6cb !important;
         }
-        .incorrect {
+        .incorrect-result {
             background-color: #f8d7da !important;
             color: #721c24 !important;
             border-color: #f5c6cb !important;
         }
-        .correct::after {
-            content: '✅';
-        }
-        .incorrect::after {
-            content: '❌';
-        }
     </style>
     <script>
         function normalizeAnswer(answer) {
-            // Convierte a minúsculas y elimina espacios en blanco al principio/final
+            // Convierte a minúsculas y elimina espacios en blanco/tildes
             return answer.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
-        function verifyQuantifier(exerciseId, correctAnswers) {
-            const inputElement = document.getElementById('q' + exerciseId);
+        function verifyQuantifier(exerciseId, selectedButton, correctAnswer) {
             const resultBox = document.getElementById('r' + exerciseId);
-            const userAnswer = normalizeAnswer(inputElement.value);
+            const optionsGroup = document.getElementById('options-' + exerciseId);
+            const buttons = optionsGroup.querySelectorAll('.option-button');
 
-            // Limpiar resultados anteriores
+            // Limpiar resultados anteriores y resetear botones
             resultBox.className = 'result-box';
             resultBox.textContent = 'Resultado';
+            buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
 
-            // Verificar respuesta
-            let isCorrect = false;
-            for (const answer of correctAnswers) {
-                if (userAnswer === normalizeAnswer(answer)) {
-                    isCorrect = true;
-                    break;
-                }
-            }
+            const userAnswer = normalizeAnswer(selectedButton.textContent);
+            const normalizedCorrectAnswer = normalizeAnswer(correctAnswer);
 
-            if (isCorrect) {
-                resultBox.classList.add('correct');
-                resultBox.textContent = 'Correcto';
+            // Verificar y actualizar UI
+            if (userAnswer === normalizedCorrectAnswer) {
+                selectedButton.classList.add('correct-option');
+                resultBox.classList.add('correct-result');
+                resultBox.textContent = '¡Correcto!';
             } else {
-                resultBox.classList.add('incorrect');
+                selectedButton.classList.add('incorrect-option');
+                resultBox.classList.add('incorrect-result');
                 resultBox.textContent = 'Error';
+                
+                // Mostrar la respuesta correcta
+                buttons.forEach(btn => {
+                    if (normalizeAnswer(btn.textContent) === normalizedCorrectAnswer) {
+                        btn.classList.add('correct-option');
+                    }
+                });
             }
         }
     </script>
@@ -121,91 +134,127 @@
     <h1>Unidad 6 - Ejercicios</h1>
 
     <h2>1. Cuantificadores del Adjetivo</h2>
-    <h3>Completa las frases con el cuantificador adecuado: muy, bastante, poco(s/a/as), un poco, demasiado(s/a/as).</h3>
+    <h3>Selecciona el cuantificador adecuado para cada frase: muy, bastante, poco(s/a/as), un poco, demasiado(s/a/as).</h3>
 
     <div id="exercise-1-list">
         
         <div class="exercise-item">
-            <p>1. Esta película es __________ interesante. Te gustará.</p>
-            <input type="text" id="q1" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(1, ['muy', 'bastante'])">Verificar</button>
+            <p class="question-text">1. Esta película es __________ interesante. Te gustará.</p>
+            <div id="options-1" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(1, this, 'muy')">mucho</button>
+                <button class="option-button" onclick="verifyQuantifier(1, this, 'muy')">muy</button>
+                <button class="option-button" onclick="verifyQuantifier(1, this, 'muy')">un poco</button>
+            </div>
             <div id="r1" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>2. Tengo __________ dinero para comprarme ese coche. ¡Es carísimo!</p>
-            <input type="text" id="q2" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(2, ['demasiado'])">Verificar</button>
+            <p class="question-text">2. Tengo __________ dinero para comprarme ese coche. ¡Es carísimo!</p>
+            <div id="options-2" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(2, this, 'demasiado')">bastante</button>
+                <button class="option-button" onclick="verifyQuantifier(2, this, 'demasiado')">un poco</button>
+                <button class="option-button" onclick="verifyQuantifier(2, this, 'demasiado')">demasiado</button>
+            </div>
             <div id="r2" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>3. ¿Tienes hambre? Yo tengo __________.</p>
-            <input type="text" id="q3" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(3, ['un poco'])">Verificar</button>
+            <p class="question-text">3. ¿Tienes hambre? Yo tengo __________.</p>
+            <div id="options-3" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(3, this, 'un poco')">poco</button>
+                <button class="option-button" onclick="verifyQuantifier(3, this, 'un poco')">un poco</button>
+                <button class="option-button" onclick="verifyQuantifier(3, this, 'un poco')">bastante</button>
+            </div>
             <div id="r3" class="result-box">Resultado</div>
         </div>
         
         <div class="exercise-item">
-            <p>4. Mis amigos están __________ contentos con la noticia.</p>
-            <input type="text" id="q4" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(4, ['muy', 'bastante'])">Verificar</button>
+            <p class="question-text">4. Mis amigos están __________ contentos con la noticia.</p>
+            <div id="options-4" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(4, this, 'bastante')">demasiado</button>
+                <button class="option-button" onclick="verifyQuantifier(4, this, 'bastante')">un poco</button>
+                <button class="option-button" onclick="verifyQuantifier(4, this, 'bastante')">bastante</button>
+            </div>
             <div id="r4" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>5. Hemos traído __________ comida. No va a ser suficiente para todos.</p>
-            <input type="text" id="q5" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(5, ['poca'])">Verificar</button>
+            <p class="question-text">5. Hemos traído __________ comida. No va a ser suficiente para todos.</p>
+            <div id="options-5" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(5, this, 'poca')">pocos</button>
+                <button class="option-button" onclick="verifyQuantifier(5, this, 'poca')">demasiados</button>
+                <button class="option-button" onclick="verifyQuantifier(5, this, 'poca')">poca</button>
+            </div>
             <div id="r5" class="result-box">Resultado</div>
         </div>
         
         <div class="exercise-item">
-            <p>6. La habitación es __________ pequeña para dos camas grandes.</p>
-            <input type="text" id="q6" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(6, ['demasiado'])">Verificar</button>
+            <p class="question-text">6. La habitación es __________ pequeña para dos camas grandes.</p>
+            <div id="options-6" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(6, this, 'demasiado')">demasiado</button>
+                <button class="option-button" onclick="verifyQuantifier(6, this, 'demasiado')">bastante</button>
+                <button class="option-button" onclick="verifyQuantifier(6, this, 'demasiado')">mucho</button>
+            </div>
             <div id="r6" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>7. La calidad del servicio es __________ buena, no tengo quejas.</p>
-            <input type="text" id="q7" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(7, ['bastante', 'muy'])">Verificar</button>
+            <p class="question-text">7. La calidad del servicio es __________ buena, no tengo quejas.</p>
+            <div id="options-7" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(7, this, 'muy')">bastantes</button>
+                <button class="option-button" onclick="verifyQuantifier(7, this, 'muy')">muy</button>
+                <button class="option-button" onclick="verifyQuantifier(7, this, 'muy')">poca</button>
+            </div>
             <div id="r7" class="result-box">Resultado</div>
         </div>
         
         <div class="exercise-item">
-            <p>8. En la clase hay __________ chicos inteligentes, la media es alta.</p>
-            <input type="text" id="q8" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(8, ['bastantes'])">Verificar</button>
+            <p class="question-text">8. En la clase hay __________ chicos inteligentes, la media es alta.</p>
+            <div id="options-8" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(8, this, 'bastantes')">bastante</button>
+                <button class="option-button" onclick="verifyQuantifier(8, this, 'bastantes')">pocos</button>
+                <button class="option-button" onclick="verifyQuantifier(8, this, 'bastantes')">bastantes</button>
+            </div>
             <div id="r8" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>9. Tienes __________ información errónea en ese informe.</p>
-            <input type="text" id="q9" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(9, ['demasiada'])">Verificar</button>
+            <p class="question-text">9. Tienes __________ información errónea en ese informe.</p>
+            <div id="options-9" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(9, this, 'demasiada')">demasiados</button>
+                <button class="option-button" onclick="verifyQuantifier(9, this, 'demasiada')">demasiada</button>
+                <button class="option-button" onclick="verifyQuantifier(9, this, 'demasiada')">bastante</button>
+            </div>
             <div id="r9" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>10. Solo necesitamos __________ tiempo más para terminar el trabajo.</p>
-            <input type="text" id="q10" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(10, ['un poco', 'poco'])">Verificar</button>
+            <p class="question-text">10. Solo necesitamos __________ tiempo más para terminar el trabajo.</p>
+            <div id="options-10" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(10, this, 'un poco')">muy</button>
+                <button class="option-button" onclick="verifyQuantifier(10, this, 'un poco')">un poco</button>
+                <button class="option-button" onclick="verifyQuantifier(10, this, 'un poco')">demasiado</button>
+            </div>
             <div id="r10" class="result-box">Resultado</div>
         </div>
         
         <div class="exercise-item">
-            <p>11. Los precios de este mercado son __________ caros, casi no puedo comprar nada.</p>
-            <input type="text" id="q11" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(11, ['demasiado', 'muy'])">Verificar</button>
+            <p class="question-text">11. Los precios de este mercado son __________ caros, casi no puedo comprar nada.</p>
+            <div id="options-11" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(11, this, 'muy')">poco</button>
+                <button class="option-button" onclick="verifyQuantifier(11, this, 'muy')">bastante</button>
+                <button class="option-button" onclick="verifyQuantifier(11, this, 'muy')">muy</button>
+            </div>
             <div id="r11" class="result-box">Resultado</div>
         </div>
 
         <div class="exercise-item">
-            <p>12. Quedan __________ plazas en el concierto. ¡Date prisa!</p>
-            <input type="text" id="q12" class="exercise-input" placeholder="Escribe aquí">
-            <button class="verify-button" onclick="verifyQuantifier(12, ['pocas'])">Verificar</button>
+            <p class="question-text">12. Quedan __________ plazas en el concierto. ¡Date prisa!</p>
+            <div id="options-12" class="options-group">
+                <button class="option-button" onclick="verifyQuantifier(12, this, 'pocas')">poca</button>
+                <button class="option-button" onclick="verifyQuantifier(12, this, 'pocas')">muchas</button>
+                <button class="option-button" onclick="verifyQuantifier(12, this, 'pocas')">pocas</button>
+            </div>
             <div id="r12" class="result-box">Resultado</div>
         </div>
         
