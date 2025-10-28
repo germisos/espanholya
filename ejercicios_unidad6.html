@@ -17,6 +17,9 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* ESTILOS AÑADIDOS/MODIFICADOS AQUÍ */
+            max-width: 900px; 
+            margin: 0 auto; 
         }
         h1, h2, h3 {
             color: #0056b3;
@@ -30,6 +33,20 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             background-color: #f9f9f9;
+            /* Asegurar que los inputs no ocupen todo el ancho si hay espacio */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .exercise-item p {
+            flex-grow: 1;
+            margin: 0;
+        }
+        .exercise-input {
+            width: 150px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .question-text {
             font-size: 1.1em;
@@ -52,12 +69,6 @@
         .option-button:hover {
             background-color: #dee2e6;
         }
-        .result-group {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
         .result-box {
             padding: 8px 15px;
             border: 1px solid #ddd;
@@ -68,6 +79,19 @@
             min-width: 100px;
             font-weight: bold;
         }
+        .verify-button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .verify-button:hover {
+            background-color: #0056b3;
+        }
+        /* Estilos de retroalimentación */
         .correct-option {
             background-color: #d4edda !important;
             border-color: #155724 !important;
@@ -124,6 +148,33 @@
                         btn.classList.add('correct-option');
                     }
                 });
+            }
+        }
+        
+        function verifySuperlativeInput(exerciseId, correctAnswers) {
+            const inputElement = document.getElementById('s' + exerciseId);
+            const resultBox = document.getElementById('rs' + exerciseId);
+            const userAnswer = normalizeAnswer(inputElement.value);
+
+            // Limpiar resultados anteriores
+            resultBox.className = 'result-box';
+            resultBox.textContent = 'Resultado';
+
+            // Verificar respuesta
+            let isCorrect = false;
+            for (const answer of correctAnswers) {
+                if (userAnswer === normalizeAnswer(answer)) {
+                    isCorrect = true;
+                    break;
+                }
+            }
+
+            if (isCorrect) {
+                resultBox.classList.add('correct-result');
+                resultBox.textContent = '¡Correcto!';
+            } else {
+                resultBox.classList.add('incorrect-result');
+                resultBox.textContent = 'Error';
             }
         }
     </script>
@@ -260,130 +311,97 @@
         
     </div>
 
-</div>
-
     <hr>
 
-<h2>2. El Superlativo (Rellenar)</h2>
-<h3>Completa las frases con la forma superlativa correcta (el/la más + adjetivo, el mejor, la peor, etc.).</h3>
-
-<script>
-    // Función de normalización ya definida en la parte superior del archivo
+    <h2>2. El Superlativo (Rellenar)</h2>
+    <h3>Completa las frases con la forma superlativa correcta (el/la más + adjetivo, el mejor, la peor, etc.).</h3>
     
-    function verifySuperlativeInput(exerciseId, correctAnswers) {
-        const inputElement = document.getElementById('s' + exerciseId);
-        const resultBox = document.getElementById('rs' + exerciseId);
-        const userAnswer = normalizeAnswer(inputElement.value);
+    <div id="exercise-2-list-input">
 
-        // Limpiar resultados anteriores
-        resultBox.className = 'result-box';
-        resultBox.textContent = 'Resultado';
+        <h3>2.1. Completa las siguientes frases (I)</h3>
 
-        // Verificar respuesta
-        let isCorrect = false;
-        // La función ahora acepta una lista de respuestas correctas (aunque la mayoría es única)
-        for (const answer of correctAnswers) {
-            if (userAnswer === normalizeAnswer(answer)) {
-                isCorrect = true;
-                break;
-            }
-        }
+        <div class="exercise-item">
+            <p>1.b) Esta película es <input type="text" id="s1b" class="exercise-input" placeholder="El superlativo"> que he visto. (interesante)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('1b', ['la más interesante'])">Verificar</button>
+            <div id="rs1b" class="result-box">Resultado</div>
+        </div>
 
-        if (isCorrect) {
-            resultBox.classList.add('correct-result');
-            resultBox.textContent = '¡Correcto!';
-        } else {
-            resultBox.classList.add('incorrect-result');
-            resultBox.textContent = 'Error';
-        }
-    }
-</script>
+        <div class="exercise-item">
+            <p>1.c) Esa montaña es <input type="text" id="s1c" class="exercise-input" placeholder="El superlativo"> del país. (alta)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('1c', ['la más alta'])">Verificar</button>
+            <div id="rs1c" class="result-box">Resultado</div>
+        </div>
 
-<div id="exercise-2-list-input">
+        <div class="exercise-item">
+            <p>1.d) Él es el estudiante <input type="text" id="s1d" class="exercise-input" placeholder="El superlativo"> de la clase. (inteligente)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('1d', ['el más inteligente'])">Verificar</button>
+            <div id="rs1d" class="result-box">Resultado</div>
+        </div>
 
-    <h3>2.1. Completa las siguientes frases (I)</h3>
+        <div class="exercise-item">
+            <p>1.e) Este es <input type="text" id="s1e" class="exercise-input" placeholder="El superlativo"> restaurante de la ciudad. (bueno)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('1e', ['el mejor'])">Verificar</button>
+            <div id="rs1e" class="result-box">Resultado</div>
+        </div>
 
-    <div class="exercise-item">
-        <p>1.b) Esta película es <input type="text" id="s1b" class="exercise-input" placeholder="El superlativo"> que he visto. (interesante)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('1b', ['la más interesante'])">Verificar</button>
-        <div id="rs1b" class="result-box">Resultado</div>
+        <hr>
+        
+        <h3>2.2. Completa las siguientes frases (II)</h3>
+
+        <div class="exercise-item">
+            <p>2.b) Este es el libro <input type="text" id="s2b" class="exercise-input" placeholder="El superlativo"> que he leído. (aburrido)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('2b', ['el más aburrido'])">Verificar</button>
+            <div id="rs2b" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>2.c) Aquel edificio es <input type="text" id="s2c" class="exercise-input" placeholder="El superlativo"> de la ciudad. (alto)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('2c', ['el más alto'])">Verificar</button>
+            <div id="rs2c" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>2.d) María es <input type="text" id="s2d" class="exercise-input" placeholder="El superlativo"> de todas las amigas. (simpático)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('2d', ['la más simpática'])">Verificar</button>
+            <div id="rs2d" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>2.e) Esta es <input type="text" id="s2e" class="exercise-input" placeholder="El superlativo"> película que he visto. (malo)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('2e', ['la peor'])">Verificar</button>
+            <div id="rs2e" class="result-box">Resultado</div>
+        </div>
+
+        <hr>
+
+        <h3>2.3. Completa las siguientes frases (III)</h3>
+        
+        <div class="exercise-item">
+            <p>3.b) Él es <input type="text" id="s3b" class="exercise-input" placeholder="El superlativo"> del equipo de fútbol. (rápido)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('3b', ['el más rápido'])">Verificar</button>
+            <div id="rs3b" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>3.c) Esta ciudad tiene la población <input type="text" id="s3c" class="exercise-input" placeholder="El superlativo"> de Europa. (densa)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('3c', ['la más densa'])">Verificar</button>
+            <div id="rs3c" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>3.d) Aquel libro es <input type="text" id="s3d" class="exercise-input" placeholder="El superlativo"> que he leído. (interesante)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('3d', ['el más interesante'])">Verificar</button>
+            <div id="rs3d" class="result-box">Resultado</div>
+        </div>
+
+        <div class="exercise-item">
+            <p>3.e) Esta es la tienda <input type="text" id="s3e" class="exercise-input" placeholder="El superlativo"> del centro comercial. (caro)</p>
+            <button class="verify-button" onclick="verifySuperlativeInput('3e', ['la más cara'])">Verificar</button>
+            <div id="rs3e" class="result-box">Resultado</div>
+        </div>
+
+    </div>
     </div>
 
-    <div class="exercise-item">
-        <p>1.c) Esa montaña es <input type="text" id="s1c" class="exercise-input" placeholder="El superlativo"> del país. (alta)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('1c', ['la más alta'])">Verificar</button>
-        <div id="rs1c" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>1.d) Él es el estudiante <input type="text" id="s1d" class="exercise-input" placeholder="El superlativo"> de la clase. (inteligente)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('1d', ['el más inteligente'])">Verificar</button>
-        <div id="rs1d" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>1.e) Este es <input type="text" id="s1e" class="exercise-input" placeholder="El superlativo"> restaurante de la ciudad. (bueno)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('1e', ['el mejor'])">Verificar</button>
-        <div id="rs1e" class="result-box">Resultado</div>
-    </div>
-
-    <hr>
-    
-    <h3>2.2. Completa las siguientes frases (II)</h3>
-
-    <div class="exercise-item">
-        <p>2.b) Este es el libro <input type="text" id="s2b" class="exercise-input" placeholder="El superlativo"> que he leído. (aburrido)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('2b', ['el más aburrido'])">Verificar</button>
-        <div id="rs2b" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>2.c) Aquel edificio es <input type="text" id="s2c" class="exercise-input" placeholder="El superlativo"> de la ciudad. (alto)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('2c', ['el más alto'])">Verificar</button>
-        <div id="rs2c" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>2.d) María es <input type="text" id="s2d" class="exercise-input" placeholder="El superlativo"> de todas las amigas. (simpático)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('2d', ['la más simpática'])">Verificar</button>
-        <div id="rs2d" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>2.e) Esta es <input type="text" id="s2e" class="exercise-input" placeholder="El superlativo"> película que he visto. (malo)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('2e', ['la peor'])">Verificar</button>
-        <div id="rs2e" class="result-box">Resultado</div>
-    </div>
-
-    <hr>
-
-    <h3>2.3. Completa las siguientes frases (III)</h3>
-    
-    <div class="exercise-item">
-        <p>3.b) Él es <input type="text" id="s3b" class="exercise-input" placeholder="El superlativo"> del equipo de fútbol. (rápido)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('3b', ['el más rápido'])">Verificar</button>
-        <div id="rs3b" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>3.c) Esta ciudad tiene la población <input type="text" id="s3c" class="exercise-input" placeholder="El superlativo"> de Europa. (densa)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('3c', ['la más densa'])">Verificar</button>
-        <div id="rs3c" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>3.d) Aquel libro es <input type="text" id="s3d" class="exercise-input" placeholder="El superlativo"> que he leído. (interesante)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('3d', ['el más interesante'])">Verificar</button>
-        <div id="rs3d" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>3.e) Esta es la tienda <input type="text" id="s3e" class="exercise-input" placeholder="El superlativo"> del centro comercial. (caro)</p>
-        <button class="verify-button" onclick="verifySuperlativeInput('3e', ['la más cara'])">Verificar</button>
-        <div id="rs3e" class="result-box">Resultado</div>
-    </div>
-
-</div>
-    
 </body>
 </html>
