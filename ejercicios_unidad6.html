@@ -490,147 +490,158 @@
 
 </div> <!-- .container -->
 
-    <hr>
+  <hr>
+<div class="lesson-container">
+  <h2>IV) Meses</h2>
 
-<h2>4. Meses</h2>
-
-<script>
-    // Función de verificación para el ejercicio de MESES
-    function verifyMonthInput(exerciseId, correctAnswers) {
-        const inputElement = document.getElementById('month-' + exerciseId);
-        const resultBox = document.getElementById('r-month-' + exerciseId);
-        
-        const userAnswer = normalizeAnswer(inputElement.value);
-        let isCorrect = false;
-
-        // Limpiar resultados anteriores
-        resultBox.className = 'result-box';
-        resultBox.textContent = 'Resultado';
-
-        // Verificar si la respuesta normalizada del usuario coincide con alguna de las respuestas correctas
-        for (const correct of correctAnswers) {
-            if (userAnswer === normalizeAnswer(correct)) {
-                isCorrect = true;
-                break;
-            }
-        }
-
-        if (isCorrect) {
-            resultBox.classList.add('correct-result');
-            resultBox.textContent = '¡Correcto!';
-        } else {
-            resultBox.classList.add('incorrect-result');
-            resultBox.textContent = 'Error';
-        }
+  <script>
+    // Normaliza texto (quita tildes, pasa a minúsculas)
+    function normalizeAnswer(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
     }
-</script>
 
-<h3>4.1. Completa las siguientes frases con el mes correcto entre paréntesis.</h3>
+    // Verifica respuestas de los ejercicios de meses
+    function verifyMonthInput(exerciseId, correctAnswers) {
+      const inputElement = document.getElementById("month-" + exerciseId);
+      const resultBox = document.getElementById("r-month-" + exerciseId);
 
-<div id="exercise-4-months-1">
-    
-    <div class="exercise-item">
-        <p>a) Mi cumpleaños es en **OCTUBRE** (10).</p>
-        <div class="result-box correct-result">Ejemplo</div>
-    </div>
-    
-    <div class="exercise-item">
-        <p>b) Las vacaciones de verano comienzan en <input type="text" id="month-1b" class="exercise-input" placeholder="Mes (12)"> (12).</p>
-        <button class="verify-button" onclick="verifyMonthInput('1b', ['diciembre'])">Verificar</button>
-        <div id="r-month-1b" class="result-box">Resultado</div>
-    </div>
+      if (!inputElement || !resultBox) return;
 
-    <div class="exercise-item">
-        <p>c) El Día de San Valentín se celebra en <input type="text" id="month-1c" class="exercise-input" placeholder="Mes (2)"> (2).</p>
-        <button class="verify-button" onclick="verifyMonthInput('1c', ['febrero'])">Verificar</button>
-        <div id="r-month-1c" class="result-box">Resultado</div>
-    </div>
+      const userAnswer = normalizeAnswer(inputElement.value);
+      let isCorrect = correctAnswers.some(
+        (correct) => normalizeAnswer(correct) === userAnswer
+      );
 
-    <div class="exercise-item">
-        <p>d) La primavera comienza en <input type="text" id="month-1d" class="exercise-input" placeholder="Mes (9)"> (9).</p>
-        <button class="verify-button" onclick="verifyMonthInput('1d', ['septiembre'])">Verificar</button>
-        <div id="r-month-1d" class="result-box">Resultado</div>
-    </div>
-    
-    <div class="exercise-item">
-        <p>e) Navidad se celebra en <input type="text" id="month-1e" class="exercise-input" placeholder="Mes (12)"> (12).</p>
-        <button class="verify-button" onclick="verifyMonthInput('1e', ['diciembre'])">Verificar</button>
-        <div id="r-month-1e" class="result-box">Resultado</div>
-    </div>
+      resultBox.className = "result-box";
+      resultBox.style.display = "block";
+      resultBox.textContent = isCorrect ? "✅ ¡Correcto!" : "❌ Error";
+      resultBox.style.color = isCorrect ? "#2e7d32" : "#c62828";
+    }
+  </script>
 
+  <h3>4.1. Completa las siguientes frases con el mes correcto entre paréntesis.</h3>
+
+  <div class="exercise-item">
+    <p><b>a)</b> Mi cumpleaños es en <b>OCTUBRE</b> (10).</p>
+    <div class="answer-box" style="display:block;">Ejemplo</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>b)</b> Las vacaciones de verano comienzan en 
+      <input type="text" id="month-1b" class="exercise-input" placeholder="Mes (12)"> (12).
+    </p>
+    <button onclick="verifyMonthInput('1b', ['diciembre'])">Verificar</button>
+    <div id="r-month-1b" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>c)</b> El Día de San Valentín se celebra en 
+      <input type="text" id="month-1c" class="exercise-input" placeholder="Mes (2)"> (2).
+    </p>
+    <button onclick="verifyMonthInput('1c', ['febrero'])">Verificar</button>
+    <div id="r-month-1c" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>d)</b> La primavera comienza en 
+      <input type="text" id="month-1d" class="exercise-input" placeholder="Mes (9)"> (9).
+    </p>
+    <button onclick="verifyMonthInput('1d', ['septiembre'])">Verificar</button>
+    <div id="r-month-1d" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>e)</b> Navidad se celebra en 
+      <input type="text" id="month-1e" class="exercise-input" placeholder="Mes (12)"> (12).
+    </p>
+    <button onclick="verifyMonthInput('1e', ['diciembre'])">Verificar</button>
+    <div id="r-month-1e" class="answer-box">Respuesta</div>
+  </div>
+
+  <h3>4.2. Completa las siguientes frases con el mes correcto.</h3>
+
+  <div class="exercise-item">
+    <p><b>a)</b> En <input type="text" id="month-2a" placeholder="Mes (3)"> (3) empieza el otoño.</p>
+    <button onclick="verifyMonthInput('2a', ['marzo'])">Verificar</button>
+    <div id="r-month-2a" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>b)</b> El festival de la primavera se celebra en 
+      <input type="text" id="month-2b" placeholder="Mes (10)"> (10).
+    </p>
+    <button onclick="verifyMonthInput('2b', ['octubre'])">Verificar</button>
+    <div id="r-month-2b" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>c)</b> Mi aniversario es en 
+      <input type="text" id="month-2c" placeholder="Mes"> (libre).
+    </p>
+    <button onclick="verifyMonthInput('2c', [
+      'enero','febrero','marzo','abril','mayo','junio',
+      'julio','agosto','septiembre','octubre','noviembre','diciembre'
+    ])">Verificar</button>
+    <div id="r-month-2c" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>d)</b> En <input type="text" id="month-2d" placeholder="Mes (6)"> (6) empieza a hacer frío.</p>
+    <button onclick="verifyMonthInput('2d', ['junio'])">Verificar</button>
+    <div id="r-month-2d" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>e)</b> El día de los inocentes es el primero de 
+      <input type="text" id="month-2e" placeholder="Mes (4)"> (4).
+    </p>
+    <button onclick="verifyMonthInput('2e', ['abril'])">Verificar</button>
+    <div id="r-month-2e" class="answer-box">Respuesta</div>
+  </div>
+
+  <h3>4.3. Completa la última tanda de frases.</h3>
+
+  <div class="exercise-item">
+    <p><b>a)</b> El día de la madre se celebra en 
+      <input type="text" id="month-3a" placeholder="Mes (5)"> (5).
+    </p>
+    <button onclick="verifyMonthInput('3a', ['mayo'])">Verificar</button>
+    <div id="r-month-3a" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>b)</b> En <input type="text" id="month-3b" placeholder="Mes (12)"> (12) empieza el verano.</p>
+    <button onclick="verifyMonthInput('3b', ['diciembre'])">Verificar</button>
+    <div id="r-month-3b" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>c)</b> El día del trabajo se celebra en 
+      <input type="text" id="month-3c" placeholder="Mes (5)"> (5).
+    </p>
+    <button onclick="verifyMonthInput('3c', ['mayo'])">Verificar</button>
+    <div id="r-month-3c" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>d)</b> En <input type="text" id="month-3d" placeholder="Mes (8)"> (8) suele nevar.</p>
+    <button onclick="verifyMonthInput('3d', ['agosto'])">Verificar</button>
+    <div id="r-month-3d" class="answer-box">Respuesta</div>
+  </div>
+
+  <div class="exercise-item">
+    <p><b>e)</b> El día de los enamorados es el catorce de 
+      <input type="text" id="month-3e" placeholder="Mes (2)"> (2).
+    </p>
+    <button onclick="verifyMonthInput('3e', ['febrero'])">Verificar</button>
+    <div id="r-month-3e" class="answer-box">Respuesta</div>
+  </div>
 </div>
-
-<h3>4.2. Continúa completando las frases con el mes correcto entre paréntesis.</h3>
-
-<div id="exercise-4-months-2">
-    
-    <div class="exercise-item">
-        <p>a) En <input type="text" id="month-2a" class="exercise-input" placeholder="Mes (3)"> (3) empieza el otoño.</p>
-        <button class="verify-button" onclick="verifyMonthInput('2a', ['marzo'])">Verificar</button>
-        <div id="r-month-2a" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>b) El festival de la primavera se celebra en <input type="text" id="month-2b" class="exercise-input" placeholder="Mes (10)"> (10).</p>
-        <button class="verify-button" onclick="verifyMonthInput('2b', ['octubre'])">Verificar</button>
-        <div id="r-month-2b" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>c) Mi aniversario es en <input type="text" id="month-2c" class="exercise-input" placeholder="Mes (libre)"> (libre).</p>
-        <button class="verify-button" onclick="verifyMonthInput('2c', ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'])">Verificar</button>
-        <div id="r-month-2c" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>d) En <input type="text" id="month-2d" class="exercise-input" placeholder="Mes (6)"> (6) empieza a hacer frío.</p>
-        <button class="verify-button" onclick="verifyMonthInput('2d', ['junio'])">Verificar</button>
-        <div id="r-month-2d" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>e) El día de los inocentes es el primero de <input type="text" id="month-2e" class="exercise-input" placeholder="Mes (4)"> (4).</p>
-        <button class="verify-button" onclick="verifyMonthInput('2e', ['abril'])">Verificar</button>
-        <div id="r-month-2e" class="result-box">Resultado</div>
-    </div>
-
-</div>
-
-<h3>4.3. Completa la última tanda de frases.</h3>
-
-<div id="exercise-4-months-3">
-    
-    <div class="exercise-item">
-        <p>a) El día de la madre se celebra en <input type="text" id="month-3a" class="exercise-input" placeholder="Mes (5)"> (5).</p>
-        <button class="verify-button" onclick="verifyMonthInput('3a', ['mayo'])">Verificar</button>
-        <div id="r-month-3a" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>b) En <input type="text" id="month-3b" class="exercise-input" placeholder="Mes (12)"> (12) empieza el verano.</p>
-        <button class="verify-button" onclick="verifyMonthInput('3b', ['diciembre'])">Verificar</button>
-        <div id="r-month-3b" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>c) El día del trabajo se celebra en <input type="text" id="month-3c" class="exercise-input" placeholder="Mes (5)"> (5).</p>
-        <button class="verify-button" onclick="verifyMonthInput('3c', ['mayo'])">Verificar</button>
-        <div id="r-month-3c" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>d) En <input type="text" id="month-3d" class="exercise-input" placeholder="Mes (8)"> (8) suele nevar.</p>
-        <button class="verify-button" onclick="verifyMonthInput('3d', ['agosto'])">Verificar</button>
-        <div id="r-month-3d" class="result-box">Resultado</div>
-    </div>
-
-    <div class="exercise-item">
-        <p>e) El día de los enamorados es el catorce de <input type="text" id="month-3e" class="exercise-input" placeholder="Mes (2)"> (2).</p>
-        <button class="verify-button" onclick="verifyMonthInput('3e', ['febrero'])">Verificar</button>
-        <div id="r-month-3e" class="result-box">Resultado</div>
-    </div>
-
-</div>
+ 
     
 <!-- ============================
      SCRIPTS: funciones de verificación
