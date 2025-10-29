@@ -617,6 +617,139 @@
         </div>
     </div>
 
+    <hr>
+<section class="exercise-section" id="exercise-5">
+<h2>5. Días de la Semana</h2>
+
+<script>
+    // Función de verificación para la secuencia de Días (5.1)
+    function verifyDaysOrder() {
+        // Respuesta correcta esperada, normalizada
+        const correctSequence = "lunes martes miércoles jueves viernes sábado domingo";
+        
+        let userAnswerArray = [];
+        let allInputs = true;
+        
+        // Recoger las respuestas de los 7 inputs
+        for (let i = 1; i <= 7; i++) {
+            const inputElement = document.getElementById('day-order-' + i);
+            const normalizedInput = normalizeAnswer(inputElement.value);
+            userAnswerArray.push(normalizedInput);
+            if (normalizedInput === '') {
+                allInputs = false; // Bandera para verificar que todos los campos estén llenos
+            }
+        }
+        
+        const resultBox = document.getElementById('r-days-order');
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+
+        if (!allInputs) {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error: Por favor, completa los 7 días.';
+            return;
+        }
+
+        const userSequence = userAnswerArray.join(' ');
+
+        if (userSequence === correctSequence) {
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto! Todos los días están en orden.';
+        } else {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error: Revisa el orden o la ortografía.';
+        }
+    }
+
+    // Función de verificación para rellenar huecos (5.2) - Reutilizamos la función de MESES/INPUT
+    // function verifyMonthInput(exerciseId, correctAnswers) 
+    // Los IDs usados son: 52a, 52b, etc.
+</script>
+
+<h3>5.1. Escribe los días de la semana en orden.</h3>
+
+<div id="exercise-5-order">
+    <div class="exercise-item" style="flex-wrap: wrap;">
+        <p style="flex-basis: 100%;">
+            1: <input type="text" id="day-order-1" class="exercise-input" placeholder="Lunes">
+            2: <input type="text" id="day-order-2" class="exercise-input" placeholder="Martes">
+            3: <input type="text" id="day-order-3" class="exercise-input" placeholder="Miércoles">
+            4: <input type="text" id="day-order-4" class="exercise-input" placeholder="Jueves">
+            5: <input type="text" id="day-order-5" class="exercise-input" placeholder="Viernes">
+            6: <input type="text" id="day-order-6" class="exercise-input" placeholder="Sábado">
+            7: <input type="text" id="day-order-7" class="exercise-input" placeholder="Domingo">
+        </p>
+        <button class="verify-button" onclick="verifyDaysOrder()">Verificar Secuencia</button>
+        <div id="r-days-order" class="result-box">Resultado</div>
+    </div>
+</div>
+
+<h3>5.2. Completa las siguientes frases con el día de la semana correcto.</h3>
+
+<div id="exercise-5-fill">
+    
+    <div class="exercise-item">
+        <p>a) El <input type="text" id="month-52a" class="exercise-input" placeholder="Día"> es el primer día de la semana.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52a', ['lunes'])">Verificar</button>
+        <div id="r-month-52a" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p>b) Voy al gimnasio los <input type="text" id="month-52b" class="exercise-input" placeholder="Día"> y jueves.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52b', ['martes'])">Verificar</button>
+        <div id="r-month-52b" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p>c) El martes es el día siguiente al <input type="text" id="month-52c" class="exercise-input" placeholder="Día">.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52c', ['lunes'])">Verificar</button>
+        <div id="r-month-52c" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p>d) El <input type="text" id="month-52d" class="exercise-input" placeholder="Día"> es el quinto día de la semana.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52d', ['viernes'])">Verificar</button>
+        <div id="r-month-52d" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p>e) El <input type="text" id="month-52e" class="exercise-input" placeholder="Día"> está en el medio de la semana.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52e', ['miércoles'])">Verificar</button>
+        <div id="r-month-52e" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p>f) La reunión de trabajo es el <input type="text" id="month-52f" class="exercise-input" placeholder="Día">.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52f', ['miércoles'])">Verificar</button>
+        <div id="r-month-52f" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p>g) El sábado y <input type="text" id="month-52g" class="exercise-input" placeholder="Día"> son días de descanso.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52g', ['domingo'])">Verificar</button>
+        <div id="r-month-52g" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p>h) El <input type="text" id="month-52h" class="exercise-input" placeholder="Día"> es el último día de la semana.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52h', ['domingo'])">Verificar</button>
+        <div id="r-month-52h" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p>i) El <input type="text" id="month-52i" class="exercise-input" placeholder="Día"> es el día antes del viernes.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52i', ['jueves'])">Verificar</button>
+        <div id="r-month-52i" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p>j) Me levanto temprano los <input type="text" id="month-52j" class="exercise-input" placeholder="Día">.</p>
+        <button class="verify-button" onclick="verifyMonthInput('52j', ['lunes', 'días de semana'])">Verificar</button>
+        <div id="r-month-52j" class="result-box">Resultado</div>
+    </div>
+
+</div>
+</section>
     <!-- Si necesitas añadir más puntos, copia un bloque like:
       <div class="exercise-item">
         <p><b>f)</b> Texto... <input id="month-3f" class="exercise-input"></p>
