@@ -1,122 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 6 - Ejercicios de Práctica</title>
-    <script src="menu.js" defer></script>
-    <style>
-        /* ============================
-           ESTILOS UNIFICADOS
-           ============================ */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            max-width: 980px;
-            margin: 0 auto;
-        }
-        h1, h2, h3 {
-            color: #0056b3;
-            margin-top: 20px;
-        }
-        h1 { font-size: 1.8rem; }
-        h2 { font-size: 1.4rem; margin-top: 28px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
-        h3 { font-size: 1.05rem; color: #007bff; margin-top: 16px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unidad 6 - Ejercicios de Práctica</title>
+  <script src="menu.js" defer></script>
+  <style>
+    /* ============================
+       ESTILOS UNIFICADOS
+       ============================ */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-        /* Caja uniforme para todos los ejercicios */
-        .exercise-item {
-            margin-bottom: 16px;
-            padding: 14px;
-            border: 1px solid #e6e6e6;
-            border-radius: 8px;
-            background-color: #fbfbfb;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .exercise-item p {
-            flex-grow: 1;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .exercise-input {
-            min-width: 110px;
-            max-width: 220px;
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 0 6px;
-        }
-        .options-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .option-button, .option-button-cm {
-            padding: 8px 14px;
-            background-color: #eef2f6;
-            color: #333;
-            border: 1px solid #d0d7df;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.15s, transform 0.05s;
-        }
-        .option-button:hover, .option-button-cm:hover { background-color: #e0e7ef; transform: translateY(-1px); }
-        .verify-button {
-            padding: 8px 14px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .verify-button:hover { background-color: #0056b3; }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      max-width: 980px;
+      margin: 0 auto;
+    }
 
-        .result-box {
-            padding: 8px 12px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            background: #f6f6f6;
-            color: #555;
-            min-width: 110px;
-            text-align: center;
-            font-weight: 600;
-        }
+    h1, h2, h3 {
+      color: #0056b3;
+      margin-top: 20px;
+    }
 
-        .correct-option, .correct-result {
-            background-color: #dff0da !important;
-            border-color: #2e7d32 !important;
-            color: #2e7d32 !important;
-        }
-        .incorrect-option, .incorrect-result {
-            background-color: #fddede !important;
-            border-color: #a12a2a !important;
-            color: #a12a2a !important;
-        }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 28px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #007bff;
+      margin-top: 16px;
+    }
 
-        /* Responsivo */
-        @media (max-width: 720px) {
-            .container { padding: 18px; }
-            .result-box { min-width: 80px; font-size: 0.95rem; }
-            .exercise-input { min-width: 90px; }
-        }
-    </style>
+    /* Caja uniforme para todos los ejercicios */
+    .exercise-item {
+      margin-bottom: 16px;
+      padding: 14px;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      background-color: #fbfbfb;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .exercise-item p {
+      flex-grow: 1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .exercise-input {
+      min-width: 110px;
+      max-width: 220px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 6px;
+    }
+
+    .options-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Botones de opciones (azules) */
+    .option-button, .option-button-cm {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.15s, transform 0.05s;
+    }
+    .option-button:hover, .option-button-cm:hover {
+      background-color: #0056b3;
+      transform: translateY(-1px);
+    }
+
+    .verify-button {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .verify-button:hover {
+      background-color: #0056b3;
+    }
+
+    .result-box {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: #f6f6f6;
+      color: #555;
+      min-width: 110px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .correct-option, .correct-result {
+      background-color: #dff0da !important;
+      border-color: #2e7d32 !important;
+      color: #2e7d32 !important;
+    }
+    .incorrect-option, .incorrect-result {
+      background-color: #fddede !important;
+      border-color: #a12a2a !important;
+      color: #a12a2a !important;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        padding: 18px;
+      }
+      .result-box {
+        min-width: 80px;
+        font-size: 0.95rem;
+      }
+      .exercise-input {
+        min-width: 90px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
     <h1>Unidad 6 - Ejercicios</h1>
 
     <!-- ========== 1. Cuantificadores ========== -->
@@ -650,124 +682,57 @@
 <script>
     // Normalización simple: minusculas y quitar acentos
     function normalizeAnswer(answer) {
-        if (answer === undefined || answer === null) return "";
-        return String(answer).toLowerCase().trim()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            .replace(/\s+/g, " "); // normalizar espacios
+      if (answer === undefined || answer === null) return "";
+      return String(answer).toLowerCase().trim()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ");
     }
 
-    // ---------- Cuantificadores (ej. verifyQuantifier) ----------
     function verifyQuantifier(exerciseId, selectedButton, correctAnswer) {
-        const resultBox = document.getElementById('r' + exerciseId);
-        const optionsGroup = document.getElementById('options-' + exerciseId);
-        const buttons = optionsGroup.querySelectorAll('.option-button');
+      const resultBox = document.getElementById('r' + exerciseId);
+      const optionsGroup = document.getElementById('options-' + exerciseId);
+      const buttons = optionsGroup.querySelectorAll('.option-button');
 
-        // reset UI
-        resultBox.className = 'result-box';
-        resultBox.textContent = 'Resultado';
-        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+      resultBox.className = 'result-box';
+      resultBox.textContent = 'Resultado';
+      buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
 
-        const userAnswer = normalizeAnswer(selectedButton.textContent);
-        const normalizedCorrect = normalizeAnswer(correctAnswer);
+      const userAnswer = normalizeAnswer(selectedButton.textContent);
+      const normalizedCorrect = normalizeAnswer(correctAnswer);
 
-        if (userAnswer === normalizedCorrect) {
-            selectedButton.classList.add('correct-option');
-            resultBox.classList.add('correct-result');
-            resultBox.textContent = '¡Correcto!';
-        } else {
-            selectedButton.classList.add('incorrect-option');
-            resultBox.classList.add('incorrect-result');
-            resultBox.textContent = 'Error';
-            // marcar la correcta
-            buttons.forEach(btn => {
-                if (normalizeAnswer(btn.textContent) === normalizedCorrect) {
-                    btn.classList.add('correct-option');
-                }
-            });
-        }
+      if (userAnswer === normalizedCorrect) {
+        selectedButton.classList.add('correct-option');
+        resultBox.classList.add('correct-result');
+        resultBox.textContent = '¡Correcto!';
+      } else {
+        selectedButton.classList.add('incorrect-option');
+        resultBox.classList.add('incorrect-result');
+        resultBox.textContent = 'Error';
+        buttons.forEach(btn => {
+          if (normalizeAnswer(btn.textContent) === normalizedCorrect) {
+            btn.classList.add('correct-option');
+          }
+        });
+      }
     }
 
-    // ---------- Superlativo (input) ----------
-    function verifySuperlativeInput(exerciseId, correctAnswers) {
-        const inputElement = document.getElementById('s' + exerciseId);
-        // if id with letter-number (like '1b') use that exact id
-        let elem = inputElement;
-        if (!elem) elem = document.getElementById('s' + exerciseId); // fallback
-        const resultBox = document.getElementById('rs' + exerciseId);
-        const userAnswer = elem ? normalizeAnswer(elem.value) : "";
+    function verifyMonthInput(id, correctAnswers) {
+      const input = document.getElementById('month-' + id);
+      const result = document.getElementById('r-month-' + id);
+      result.className = 'result-box';
+      result.textContent = 'Resultado';
 
-        resultBox.className = 'result-box';
-        resultBox.textContent = 'Resultado';
+      const userAnswer = normalizeAnswer(input.value);
+      const ok = correctAnswers.some(ans => normalizeAnswer(ans) === userAnswer);
 
-        let isCorrect = false;
-        for (const ans of correctAnswers) {
-            if (userAnswer === normalizeAnswer(ans)) { isCorrect = true; break; }
-        }
-
-        if (isCorrect) {
-            resultBox.classList.add('correct-result');
-            resultBox.textContent = '¡Correcto!';
-        } else {
-            resultBox.classList.add('incorrect-result');
-            resultBox.textContent = 'Error';
-        }
+      if (ok) {
+        result.classList.add('correct-result');
+        result.textContent = '¡Correcto!';
+      } else {
+        result.classList.add('incorrect-result');
+        result.textContent = 'Error';
+      }
     }
-
-    // ---------- Comparaciones (multiple choice) ----------
-    function verifyComparisonMultipleChoice(exerciseId, selectedButton, correctAnswer) {
-        const resultBox = document.getElementById('rcm' + exerciseId);
-        const optionsGroup = document.getElementById('options-cm-' + exerciseId);
-        const buttons = optionsGroup.querySelectorAll('.option-button-cm');
-
-        resultBox.className = 'result-box';
-        resultBox.textContent = 'Resultado';
-        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
-
-        const userAnswer = normalizeAnswer(selectedButton.value || selectedButton.textContent);
-        const normalizedCorrect = normalizeAnswer(correctAnswer);
-
-        if (userAnswer === normalizedCorrect) {
-            selectedButton.classList.add('correct-option');
-            resultBox.classList.add('correct-result');
-            resultBox.textContent = '¡Correcto!';
-        } else {
-            selectedButton.classList.add('incorrect-option');
-            resultBox.classList.add('incorrect-result');
-            resultBox.textContent = 'Error';
-            // marcar correcta
-            buttons.forEach(btn => {
-                if (normalizeAnswer(btn.value || btn.textContent) === normalizedCorrect) {
-                    btn.classList.add('correct-option');
-                }
-            });
-        }
-    }
-
-    // ---------- Comparaciones (inputs dobles) ----------
-    function verifyComparisonInput(exerciseId, correctAnswers) {
-        const input1 = document.getElementById('ci1-' + exerciseId);
-        const input2 = document.getElementById('ci2-' + exerciseId);
-        const result = document.getElementById('rci-' + exerciseId);
-        result.className = 'result-box';
-        result.textContent = 'Resultado';
-
-        const v1 = input1 ? normalizeAnswer(input1.value) : "";
-        const v2 = input2 ? normalizeAnswer(input2.value) : "";
-        const combined = (v1 + " " + v2).replace(/\s+/g, ' ').trim();
-
-        let ok = false;
-        for (const ans of correctAnswers) {
-            if (combined === normalizeAnswer(ans)) { ok = true; break; }
-        }
-
-        if (ok) {
-            result.classList.add('correct-result');
-            result.textContent = '¡Correcto!';
-        } else {
-            result.classList.add('incorrect-result');
-            result.textContent = 'Error';
-        }
-    }
-</script>
+  </script>
 </body>
 </html>
