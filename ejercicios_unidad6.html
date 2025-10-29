@@ -1,154 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unidad 6 - Ejercicios de Práctica</title>
-  <script src="menu.js" defer></script>
-  <style>
-    /* ============================
-       ESTILOS UNIFICADOS
-       ============================ */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Unidad 6 - Ejercicios de Práctica</title>
+    <script src="menu.js" defer></script>
+    <style>
+        /* ============================
+           ESTILOS UNIFICADOS
+           ============================ */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+        }
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.4rem; margin-top: 28px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        h3 { font-size: 1.05rem; color: #007bff; margin-top: 16px; }
 
-    .container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-      max-width: 980px;
-      margin: 0 auto;
-    }
+        /* Caja uniforme para todos los ejercicios */
+        .exercise-item {
+            margin-bottom: 16px;
+            padding: 14px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            background-color: #fbfbfb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .exercise-item p {
+            flex-grow: 1;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .exercise-input {
+            min-width: 110px;
+            max-width: 220px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 6px;
+        }
+        .options-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    h1, h2, h3 {
-      color: #0056b3;
-      margin-top: 20px;
-    }
+        /* Botones de opciones (azules) */
+        .option-button, .option-button-cm {
+            padding: 8px 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.15s, transform 0.05s;
+        }
+        .option-button:hover, .option-button-cm:hover { background-color: #0056b3; transform: translateY(-1px); }
 
-    h1 {
-      font-size: 1.8rem;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 28px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-    }
-    h3 {
-      font-size: 1.05rem;
-      color: #007bff;
-      margin-top: 16px;
-    }
+        .verify-button {
+            padding: 8px 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .verify-button:hover { background-color: #0056b3; }
 
-    /* Caja uniforme para todos los ejercicios */
-    .exercise-item {
-      margin-bottom: 16px;
-      padding: 14px;
-      border: 1px solid #e6e6e6;
-      border-radius: 8px;
-      background-color: #fbfbfb;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        .result-box {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            background: #f6f6f6;
+            color: #555;
+            min-width: 110px;
+            text-align: center;
+            font-weight: 600;
+        }
 
-    .exercise-item p {
-      flex-grow: 1;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+        .correct-option, .correct-result {
+            background-color: #dff0da !important;
+            border-color: #2e7d32 !important;
+            color: #2e7d32 !important;
+        }
+        .incorrect-option, .incorrect-result {
+            background-color: #fddede !important;
+            border-color: #a12a2a !important;
+            color: #a12a2a !important;
+        }
 
-    .exercise-input {
-      min-width: 110px;
-      max-width: 220px;
-      padding: 6px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 0 6px;
-    }
-
-    .options-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* Botones de opciones (azules) */
-    .option-button, .option-button-cm {
-      padding: 8px 14px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.15s, transform 0.05s;
-    }
-    .option-button:hover, .option-button-cm:hover {
-      background-color: #0056b3;
-      transform: translateY(-1px);
-    }
-
-    .verify-button {
-      padding: 8px 14px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .verify-button:hover {
-      background-color: #0056b3;
-    }
-
-    .result-box {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #e0e0e0;
-      background: #f6f6f6;
-      color: #555;
-      min-width: 110px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .correct-option, .correct-result {
-      background-color: #dff0da !important;
-      border-color: #2e7d32 !important;
-      color: #2e7d32 !important;
-    }
-    .incorrect-option, .incorrect-result {
-      background-color: #fddede !important;
-      border-color: #a12a2a !important;
-      color: #a12a2a !important;
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        padding: 18px;
-      }
-      .result-box {
-        min-width: 80px;
-        font-size: 0.95rem;
-      }
-      .exercise-input {
-        min-width: 90px;
-      }
-    }
-  </style>
+        /* Responsivo */
+        @media (max-width: 720px) {
+            .container { padding: 18px; }
+            .result-box { min-width: 80px; font-size: 0.95rem; }
+            .exercise-input { min-width: 90px; }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
+<div class="container">
     <h1>Unidad 6 - Ejercicios</h1>
 
     <!-- ========== 1. Cuantificadores ========== -->
@@ -520,216 +491,295 @@
         </div>
     </div>
 
-</div> <!-- .container -->
+    <hr>
 
-  <hr>
-<div class="lesson-container">
-  <h2>IV) Meses</h2>
-
+    <!-- ===========================
+         IV) Meses (integrado y listo para pegar más puntos)
+         =========================== -->
+    <h2>IV) Meses</h2>
     <h3>4.1. Completa las siguientes frases con el mes correcto entre paréntesis.</h3>
 
-  <div class="exercise-item">
-    <p><b>a)</b> Mi cumpleaños es en <b>OCTUBRE</b> (10).</p>
-    <div class="answer-box" style="display:block;">Ejemplo</div>
-  </div>
+    <div id="exercise-months">
+        <div class="exercise-item">
+            <p><b>a)</b> Mi cumpleaños es en <b>OCTUBRE</b> (10).</p>
+            <div class="result-box" style="display:inline-block; min-width:auto; padding:6px 10px;">Ejemplo</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>b)</b> Las vacaciones de verano comienzan en 
-      <input type="text" id="month-1b" class="exercise-input" placeholder="Mes (12)"> (12).
-    </p>
-    <button onclick="verifyMonthInput('1b', ['diciembre'])">Verificar</button>
-    <div id="r-month-1b" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>b)</b> Las vacaciones de verano comienzan en 
+              <input type="text" id="month-1b" class="exercise-input" placeholder="Mes (12)"> (12).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('1b', ['diciembre'])">Verificar</button>
+            <div id="r-month-1b" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>c)</b> El Día de San Valentín se celebra en 
-      <input type="text" id="month-1c" class="exercise-input" placeholder="Mes (2)"> (2).
-    </p>
-    <button onclick="verifyMonthInput('1c', ['febrero'])">Verificar</button>
-    <div id="r-month-1c" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>c)</b> El Día de San Valentín se celebra en 
+              <input type="text" id="month-1c" class="exercise-input" placeholder="Mes (2)"> (2).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('1c', ['febrero'])">Verificar</button>
+            <div id="r-month-1c" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>d)</b> La primavera comienza en 
-      <input type="text" id="month-1d" class="exercise-input" placeholder="Mes (9)"> (9).
-    </p>
-    <button onclick="verifyMonthInput('1d', ['septiembre'])">Verificar</button>
-    <div id="r-month-1d" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>d)</b> La primavera comienza en 
+              <input type="text" id="month-1d" class="exercise-input" placeholder="Mes (9)"> (9).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('1d', ['septiembre'])">Verificar</button>
+            <div id="r-month-1d" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>e)</b> Navidad se celebra en 
-      <input type="text" id="month-1e" class="exercise-input" placeholder="Mes (12)"> (12).
-    </p>
-    <button onclick="verifyMonthInput('1e', ['diciembre'])">Verificar</button>
-    <div id="r-month-1e" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>e)</b> Navidad se celebra en 
+              <input type="text" id="month-1e" class="exercise-input" placeholder="Mes (12)"> (12).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('1e', ['diciembre'])">Verificar</button>
+            <div id="r-month-1e" class="result-box">Respuesta</div>
+        </div>
 
-  <h3>4.2. Completa las siguientes frases con el mes correcto.</h3>
+        <h3>4.2. Completa las siguientes frases con el mes correcto.</h3>
 
-  <div class="exercise-item">
-    <p><b>a)</b> En <input type="text" id="month-2a" placeholder="Mes (3)"> (3) empieza el otoño.</p>
-    <button onclick="verifyMonthInput('2a', ['marzo'])">Verificar</button>
-    <div id="r-month-2a" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>a)</b> En <input type="text" id="month-2a" class="exercise-input" placeholder="Mes (3)"> (3) empieza el otoño.</p>
+            <button class="verify-button" onclick="verifyMonthInput('2a', ['marzo'])">Verificar</button>
+            <div id="r-month-2a" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>b)</b> El festival de la primavera se celebra en 
-      <input type="text" id="month-2b" placeholder="Mes (10)"> (10).
-    </p>
-    <button onclick="verifyMonthInput('2b', ['octubre'])">Verificar</button>
-    <div id="r-month-2b" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>b)</b> El festival de la primavera se celebra en 
+              <input type="text" id="month-2b" class="exercise-input" placeholder="Mes (10)"> (10).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('2b', ['octubre'])">Verificar</button>
+            <div id="r-month-2b" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>c)</b> Mi aniversario es en 
-      <input type="text" id="month-2c" placeholder="Mes"> (libre).
-    </p>
-    <button onclick="verifyMonthInput('2c', [
-      'enero','febrero','marzo','abril','mayo','junio',
-      'julio','agosto','septiembre','octubre','noviembre','diciembre'
-    ])">Verificar</button>
-    <div id="r-month-2c" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>c)</b> Mi aniversario es en 
+              <input type="text" id="month-2c" class="exercise-input" placeholder="Mes"> (libre).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('2c', [
+              'enero','febrero','marzo','abril','mayo','junio',
+              'julio','agosto','septiembre','octubre','noviembre','diciembre'
+            ])">Verificar</button>
+            <div id="r-month-2c" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>d)</b> En <input type="text" id="month-2d" placeholder="Mes (6)"> (6) empieza a hacer frío.</p>
-    <button onclick="verifyMonthInput('2d', ['junio'])">Verificar</button>
-    <div id="r-month-2d" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>d)</b> En <input type="text" id="month-2d" class="exercise-input" placeholder="Mes (6)"> (6) empieza a hacer frío.</p>
+            <button class="verify-button" onclick="verifyMonthInput('2d', ['junio'])">Verificar</button>
+            <div id="r-month-2d" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>e)</b> El día de los inocentes es el primero de 
-      <input type="text" id="month-2e" placeholder="Mes (4)"> (4).
-    </p>
-    <button onclick="verifyMonthInput('2e', ['abril'])">Verificar</button>
-    <div id="r-month-2e" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>e)</b> El día de los inocentes es el primero de 
+              <input type="text" id="month-2e" class="exercise-input" placeholder="Mes (4)"> (4).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('2e', ['abril'])">Verificar</button>
+            <div id="r-month-2e" class="result-box">Respuesta</div>
+        </div>
 
-  <h3>4.3. Completa la última tanda de frases.</h3>
+        <h3>4.3. Completa la última tanda de frases.</h3>
 
-  <div class="exercise-item">
-    <p><b>a)</b> El día de la madre se celebra en 
-      <input type="text" id="month-3a" placeholder="Mes (5)"> (5).
-    </p>
-    <button onclick="verifyMonthInput('3a', ['mayo'])">Verificar</button>
-    <div id="r-month-3a" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>a)</b> El día de la madre se celebra en 
+              <input type="text" id="month-3a" class="exercise-input" placeholder="Mes (5)"> (5).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('3a', ['mayo'])">Verificar</button>
+            <div id="r-month-3a" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>b)</b> En <input type="text" id="month-3b" placeholder="Mes (12)"> (12) empieza el verano.</p>
-    <button onclick="verifyMonthInput('3b', ['diciembre'])">Verificar</button>
-    <div id="r-month-3b" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>b)</b> En <input type="text" id="month-3b" class="exercise-input" placeholder="Mes (12)"> (12) empieza el verano.</p>
+            <button class="verify-button" onclick="verifyMonthInput('3b', ['diciembre'])">Verificar</button>
+            <div id="r-month-3b" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>c)</b> El día del trabajo se celebra en 
-      <input type="text" id="month-3c" placeholder="Mes (5)"> (5).
-    </p>
-    <button onclick="verifyMonthInput('3c', ['mayo'])">Verificar</button>
-    <div id="r-month-3c" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>c)</b> El día del trabajo se celebra en 
+              <input type="text" id="month-3c" class="exercise-input" placeholder="Mes (5)"> (5).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('3c', ['mayo'])">Verificar</button>
+            <div id="r-month-3c" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>d)</b> En <input type="text" id="month-3d" placeholder="Mes (8)"> (8) suele nevar.</p>
-    <button onclick="verifyMonthInput('3d', ['agosto'])">Verificar</button>
-    <div id="r-month-3d" class="answer-box">Respuesta</div>
-  </div>
+        <div class="exercise-item">
+            <p><b>d)</b> En <input type="text" id="month-3d" class="exercise-input" placeholder="Mes (8)"> (8) suele nevar.</p>
+            <button class="verify-button" onclick="verifyMonthInput('3d', ['agosto'])">Verificar</button>
+            <div id="r-month-3d" class="result-box">Respuesta</div>
+        </div>
 
-  <div class="exercise-item">
-    <p><b>e)</b> El día de los enamorados es el catorce de 
-      <input type="text" id="month-3e" placeholder="Mes (2)"> (2).
-    </p>
-    <button onclick="verifyMonthInput('3e', ['febrero'])">Verificar</button>
-    <div id="r-month-3e" class="answer-box">Respuesta</div>
-  </div>
-</div>
- </section>
-    
+        <div class="exercise-item">
+            <p><b>e)</b> El día de los enamorados es el catorce de 
+              <input type="text" id="month-3e" class="exercise-input" placeholder="Mes (2)"> (2).
+            </p>
+            <button class="verify-button" onclick="verifyMonthInput('3e', ['febrero'])">Verificar</button>
+            <div id="r-month-3e" class="result-box">Respuesta</div>
+        </div>
+    </div>
+
+    <!-- Si necesitas añadir más puntos, copia un bloque like:
+      <div class="exercise-item">
+        <p><b>f)</b> Texto... <input id="month-3f" class="exercise-input"></p>
+        <button class="verify-button" onclick="verifyMonthInput('3f', ['respuesta'])">Verificar</button>
+        <div id="r-month-3f" class="result-box">Respuesta</div>
+      </div>
+    -->
+</div> <!-- .container -->
+
 <!-- ============================
      SCRIPTS: funciones de verificación
      (colocados al final para asegurar DOM)
      ============================ -->
 <script>
-    // Normalización simple: minusculas y quitar acentos
+    // Normalización simple: minúsculas y quitar acentos
     function normalizeAnswer(answer) {
-      if (answer === undefined || answer === null) return "";
-      return String(answer).toLowerCase().trim()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, " ");
+        if (answer === undefined || answer === null) return "";
+        return String(answer).toLowerCase().trim()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, " ");
     }
 
+    // ---------- Cuantificadores ----------
     function verifyQuantifier(exerciseId, selectedButton, correctAnswer) {
-      const resultBox = document.getElementById('r' + exerciseId);
-      const optionsGroup = document.getElementById('options-' + exerciseId);
-      const buttons = optionsGroup.querySelectorAll('.option-button');
+        const resultBox = document.getElementById('r' + exerciseId);
+        const optionsGroup = document.getElementById('options-' + exerciseId);
+        if (!resultBox || !optionsGroup) return;
+        const buttons = optionsGroup.querySelectorAll('.option-button');
 
-      resultBox.className = 'result-box';
-      resultBox.textContent = 'Resultado';
-      buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+        // reset UI
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
 
-      const userAnswer = normalizeAnswer(selectedButton.textContent);
-      const normalizedCorrect = normalizeAnswer(correctAnswer);
+        const userAnswer = normalizeAnswer(selectedButton.textContent);
+        const normalizedCorrect = normalizeAnswer(correctAnswer);
 
-      if (userAnswer === normalizedCorrect) {
-        selectedButton.classList.add('correct-option');
-        resultBox.classList.add('correct-result');
-        resultBox.textContent = '¡Correcto!';
-      } else {
-        selectedButton.classList.add('incorrect-option');
-        resultBox.classList.add('incorrect-result');
-        resultBox.textContent = 'Error';
-        buttons.forEach(btn => {
-          if (normalizeAnswer(btn.textContent) === normalizedCorrect) {
-            btn.classList.add('correct-option');
-          }
-        });
-      }
+        if (userAnswer === normalizedCorrect) {
+            selectedButton.classList.add('correct-option');
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            selectedButton.classList.add('incorrect-option');
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+            // marcar la correcta
+            buttons.forEach(btn => {
+                if (normalizeAnswer(btn.textContent) === normalizedCorrect) {
+                    btn.classList.add('correct-option');
+                }
+            });
+        }
     }
 
-    function verifyMonthInput(id, correctAnswers) {
-      const input = document.getElementById('month-' + id);
-      const result = document.getElementById('r-month-' + id);
-      result.className = 'result-box';
-      result.textContent = 'Resultado';
+    // ---------- Superlativo (input) ----------
+    function verifySuperlativeInput(exerciseId, correctAnswers) {
+        // exerciseId like '1b' etc.
+        const inputElement = document.getElementById('s' + exerciseId);
+        const resultBox = document.getElementById('rs' + exerciseId);
+        if (!resultBox) return;
 
-      const userAnswer = normalizeAnswer(input.value);
-      const ok = correctAnswers.some(ans => normalizeAnswer(ans) === userAnswer);
+        const userAnswer = inputElement ? normalizeAnswer(inputElement.value) : "";
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
 
-      if (ok) {
-        result.classList.add('correct-result');
-        result.textContent = '¡Correcto!';
-      } else {
-        result.classList.add('incorrect-result');
-        result.textContent = 'Error';
-      }
+        let isCorrect = false;
+        for (const ans of correctAnswers) {
+            if (userAnswer === normalizeAnswer(ans)) { isCorrect = true; break; }
+        }
+
+        if (isCorrect) {
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+        }
     }
-      // Normaliza texto (quita tildes, pasa a minúsculas)
-    function normalizeAnswer(str) {
-      return str
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
+
+    // ---------- Comparaciones (multiple choice) ----------
+    function verifyComparisonMultipleChoice(exerciseId, selectedButton, correctAnswer) {
+        const resultBox = document.getElementById('rcm' + exerciseId);
+        const optionsGroup = document.getElementById('options-cm-' + exerciseId);
+        if (!resultBox || !optionsGroup) return;
+        const buttons = optionsGroup.querySelectorAll('.option-button-cm');
+
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+
+        const raw = selectedButton.getAttribute('value') || selectedButton.textContent;
+        const userAnswer = normalizeAnswer(raw);
+        const normalizedCorrect = normalizeAnswer(correctAnswer);
+
+        if (userAnswer === normalizedCorrect) {
+            selectedButton.classList.add('correct-option');
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            selectedButton.classList.add('incorrect-option');
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+            // marcar correcta
+            buttons.forEach(btn => {
+                const val = normalizeAnswer(btn.getAttribute('value') || btn.textContent);
+                if (val === normalizedCorrect) btn.classList.add('correct-option');
+            });
+        }
     }
 
-    // Verifica respuestas de los ejercicios de meses
+    // ---------- Comparaciones (inputs dobles) ----------
+    function verifyComparisonInput(exerciseId, correctAnswers) {
+        const input1 = document.getElementById('ci1-' + exerciseId);
+        const input2 = document.getElementById('ci2-' + exerciseId);
+        const result = document.getElementById('rci-' + exerciseId);
+        if (!result) return;
+        result.className = 'result-box';
+        result.textContent = 'Resultado';
+
+        const v1 = input1 ? normalizeAnswer(input1.value) : "";
+        const v2 = input2 ? normalizeAnswer(input2.value) : "";
+        const combined = (v1 + " " + v2).replace(/\s+/g, ' ').trim();
+
+        let ok = false;
+        for (const ans of correctAnswers) {
+            if (combined === normalizeAnswer(ans)) { ok = true; break; }
+        }
+
+        if (ok) {
+            result.classList.add('correct-result');
+            result.textContent = '¡Correcto!';
+        } else {
+            result.classList.add('incorrect-result');
+            result.textContent = 'Error';
+        }
+    }
+
+    // ---------- Meses ----------
     function verifyMonthInput(exerciseId, correctAnswers) {
-      const inputElement = document.getElementById("month-" + exerciseId);
-      const resultBox = document.getElementById("r-month-" + exerciseId);
+        const inputElement = document.getElementById('month-' + exerciseId);
+        const resultBox = document.getElementById('r-month-' + exerciseId);
+        if (!resultBox) return;
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
 
-      if (!inputElement || !resultBox) return;
+        if (!inputElement) {
+            // si falta el input no hacer nada (evita error)
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error (input no encontrado)';
+            return;
+        }
 
-      const userAnswer = normalizeAnswer(inputElement.value);
-      let isCorrect = correctAnswers.some(
-        (correct) => normalizeAnswer(correct) === userAnswer
-      );
+        const userAnswer = normalizeAnswer(inputElement.value);
+        const ok = correctAnswers.some(ans => normalizeAnswer(ans) === userAnswer);
 
-      resultBox.className = "result-box";
-      resultBox.style.display = "block";
-      resultBox.textContent = isCorrect ? "✅ ¡Correcto!" : "❌ Error";
-      resultBox.style.color = isCorrect ? "#2e7d32" : "#c62828";
+        if (ok) {
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+        }
     }
-  </script>
+</script>
 </body>
 </html>
