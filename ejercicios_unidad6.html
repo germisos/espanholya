@@ -526,36 +526,7 @@
 <div class="lesson-container">
   <h2>IV) Meses</h2>
 
-  <script>
-    // Normaliza texto (quita tildes, pasa a minúsculas)
-    function normalizeAnswer(str) {
-      return str
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
-    }
-
-    // Verifica respuestas de los ejercicios de meses
-    function verifyMonthInput(exerciseId, correctAnswers) {
-      const inputElement = document.getElementById("month-" + exerciseId);
-      const resultBox = document.getElementById("r-month-" + exerciseId);
-
-      if (!inputElement || !resultBox) return;
-
-      const userAnswer = normalizeAnswer(inputElement.value);
-      let isCorrect = correctAnswers.some(
-        (correct) => normalizeAnswer(correct) === userAnswer
-      );
-
-      resultBox.className = "result-box";
-      resultBox.style.display = "block";
-      resultBox.textContent = isCorrect ? "✅ ¡Correcto!" : "❌ Error";
-      resultBox.style.color = isCorrect ? "#2e7d32" : "#c62828";
-    }
-  </script>
-
-  <h3>4.1. Completa las siguientes frases con el mes correcto entre paréntesis.</h3>
+    <h3>4.1. Completa las siguientes frases con el mes correcto entre paréntesis.</h3>
 
   <div class="exercise-item">
     <p><b>a)</b> Mi cumpleaños es en <b>OCTUBRE</b> (10).</p>
