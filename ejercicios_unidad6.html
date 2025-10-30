@@ -1480,6 +1480,140 @@
 
 </div>
 </section>
+    <hr>
+<section class="exercise-section" id="exercise-11">
+<h2>11. Secuenciar Acciones (Conectores Temporales)</h2>
+
+<h3>11.1. Ordena las frases para formar una rutina o secuencia lógica.</h3>
+<p>Escribe la secuencia de números (ejemplo: 2 4 1 3).</p>
+
+<div id="exercise-11-order">
+    
+    <div class="exercise-item">
+        <p class="question-text">1. La rutina de la mañana:</p>
+        <ol type="1" class="sequence-list">
+            <li>(Después) me ducho rápidamente.</li>
+            <li>(Finalmente) salgo de casa para ir al trabajo.</li>
+            <li>(Primero) me despierto con la alarma.</li>
+            <li>(Luego) me visto y tomo un café.</li>
+        </ol>
+        <input type="text" id="seq-order-input-1" class="exercise-input" placeholder="respuesta">
+        <button class="verify-button" onclick="verifySequenceOrderInput('1', ['3 1 4 2'])">Verificar</button>
+        <div id="r-seq-order-input-1" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">2. Preparar una comida:</p>
+        <ol type="1" class="sequence-list">
+            <li>(Más tarde) ponemos la mesa para cenar.</li>
+            <li>(Luego) cocinamos la carne y las verduras.</li>
+            <li>(Primero) compramos los ingredientes en el supermercado.</li>
+            <li>(Finalmente) nos sentamos a comer.</li>
+        </ol>
+        <input type="text" id="seq-order-input-2" class="exercise-input" placeholder="respuesta">
+        <button class="verify-button" onclick="verifySequenceOrderInput('2', ['3 2 1 4'])">Verificar</button>
+        <div id="r-seq-order-input-2" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">3. Ir al gimnasio:</p>
+        <ol type="1" class="sequence-list">
+            <li>(Luego) hago ejercicios con pesas.</li>
+            <li>(Finalmente) vuelvo a casa.</li>
+            <li>(Primero) hago calentamiento.</li>
+            <li>(Después) corro media hora en la cinta.</li>
+        </ol>
+        <input type="text" id="seq-order-input-3" class="exercise-input" placeholder="respuesta">
+        <button class="verify-button" onclick="verifySequenceOrderInput('3', ['3 4 1 2'])">Verificar</button>
+        <div id="r-seq-order-input-3" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">4. Estudiar para un examen:</p>
+        <ol type="1" class="sequence-list">
+            <li>(Más tarde) repaso mis notas y hago un resumen.</li>
+            <li>(Primero) leo el libro de texto.</li>
+            <li>(Luego) busco más información en internet.</li>
+            <li>(Finalmente) hago ejercicios de práctica.</li>
+        </ol>
+        <input type="text" id="seq-order-input-4" class="exercise-input" placeholder="respuesta">
+        <button class="verify-button" onclick="verifySequenceOrderInput('4', ['2 3 1 4'])">Verificar</button>
+        <div id="r-seq-order-input-4" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p class="question-text">5. Una tarde libre:</p>
+        <ol type="1" class="sequence-list">
+            <li>(Después) veo una película en casa.</li>
+            <li>(Finalmente) preparo la cena.</li>
+            <li>(Primero) descanso en el sofá.</li>
+            <li>(Luego) llamo a mis padres por teléfono.</li>
+        </ol>
+        <input type="text" id="seq-order-input-5" class="exercise-input" placeholder="respuesta">
+        <button class="verify-button" onclick="verifySequenceOrderInput('5', ['3 4 1 2'])">Verificar</button>
+        <div id="r-seq-order-input-5" class="result-box">Resultado</div>
+    </div>
+
+</div>
+
+<hr>
+
+<h3>11.2. Elige el conector temporal que mejor complete la frase.</h3>
+
+<div id="exercise-11-multiple-choice-connector">
+    
+    <div class="exercise-item">
+        <p class="question-text">1. _________ abro la puerta de la casa, luego enciendo la luz. </p>
+        <div id="options-cm11-1" class="options-group">
+            <button class="option-button-cm" value="luego" onclick="verifyConnectorMultipleChoice('1', this, 'primero')">a) Luego</button>
+            <button class="option-button-cm" value="primero" onclick="verifyConnectorMultipleChoice('1', this, 'primero')">b) Primero</button>
+            <button class="option-button-cm" value="más tarde" onclick="verifyConnectorMultipleChoice('1', this, 'primero')">c) Más tarde</button>
+        </div>
+        <div id="rcm11-1" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">2. Estudié toda la noche y _________ fui a dormir a las 4 de la mañana.</p>
+        <div id="options-cm11-2" class="options-group">
+            <button class="option-button-cm" value="finalmente" onclick="verifyConnectorMultipleChoice('2', this, 'finalmente')">a) finalmente</button>
+            <button class="option-button-cm" value="luego" onclick="verifyConnectorMultipleChoice('2', this, 'finalmente')">b) luego</button>
+            <button class="option-button-cm" value="primero" onclick="verifyConnectorMultipleChoice('2', this, 'finalmente')">c) primero</button>
+        </div>
+        <div id="rcm11-2" class="result-box">Resultado</div>
+    </div>
+
+    <div class="exercise-item">
+        <p class="question-text">3. _________ de cenar, siempre doy un paseo corto antes de acostarme.</p>
+        <div id="options-cm11-3" class="options-group">
+            <button class="option-button-cm" value="luego" onclick="verifyConnectorMultipleChoice('3', this, 'despues')">a) Luego</button>
+            <button class="option-button-cm" value="despues" onclick="verifyConnectorMultipleChoice('3', this, 'despues')">b) Después</button>
+            <button class="option-button-cm" value="finalmente" onclick="verifyConnectorMultipleChoice('3', this, 'despues')">c) Finalmente</button>
+        </div>
+        <div id="rcm11-3" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p class="question-text">4. Primero preparo el café, _________ enciendo el ordenador y empiezo a trabajar.</p>
+        <div id="options-cm11-4" class="options-group">
+            <button class="option-button-cm" value="raramente" onclick="verifyConnectorMultipleChoice('4', this, 'luego')">a) raramente</button>
+            <button class="option-button-cm" value="siempre" onclick="verifyConnectorMultipleChoice('4', this, 'luego')">b) siempre</button>
+            <button class="option-button-cm" value="luego" onclick="verifyConnectorMultipleChoice('4', this, 'luego')">c) luego</button>
+        </div>
+        <div id="rcm11-4" class="result-box">Resultado</div>
+    </div>
+    
+    <div class="exercise-item">
+        <p class="question-text">5. Voy a ir al médico por la mañana. _________ iré a la oficina.</p>
+        <div id="options-cm11-5" class="options-group">
+            <button class="option-button-cm" value="más tarde" onclick="verifyConnectorMultipleChoice('5', this, 'más tarde')">a) Más tarde</button>
+            <button class="option-button-cm" value="primero" onclick="verifyConnectorMultipleChoice('5', this, 'más tarde')">b) Primero</button>
+            <button class="option-button-cm" value="nunca" onclick="verifyConnectorMultipleChoice('5', this, 'más tarde')">c) Nunca</button>
+        </div>
+        <div id="rcm11-5" class="result-box">Resultado</div>
+    </div>
+
+</div>
+</section>
     <!-- Si necesitas añadir más puntos, copia un bloque like:
       <div class="exercise-item">
         <p><b>f)</b> Texto... <input id="month-3f" class="exercise-input"></p>
@@ -1831,6 +1965,66 @@
     function verifyFrequencyMultipleChoice(exerciseId, selectedButton, correctAnswer) {
         const resultBox = document.getElementById('rcm10-' + exerciseId);
         const optionsGroup = document.getElementById('options-cm10-' + exerciseId);
+        const buttons = optionsGroup.querySelectorAll('.option-button-cm');
+
+        // Limpiar resultados anteriores y resetear botones
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+        buttons.forEach(btn => btn.classList.remove('correct-option', 'incorrect-option'));
+
+        const userAnswer = normalizeAnswer(selectedButton.value);
+        const normalizedCorrectAnswer = normalizeAnswer(correctAnswer);
+
+        if (userAnswer === normalizedCorrectAnswer) {
+            selectedButton.classList.add('correct-option');
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            selectedButton.classList.add('incorrect-option');
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+            
+            // Mostrar la respuesta correcta
+            buttons.forEach(btn => {
+                if (normalizeAnswer(btn.value) === normalizedCorrectAnswer) {
+                    btn.classList.add('correct-option');
+                }
+            });
+        }
+    }
+    // Función de verificación para el Punto 11.1 (Orden de Secuencia - Input de texto)
+    function verifySequenceOrderInput(exerciseId, correctAnswers) {
+        const inputElement = document.getElementById('seq-order-input-' + exerciseId);
+        const resultBox = document.getElementById('r-seq-order-input-' + exerciseId);
+        
+        const userAnswer = normalizeAnswer(inputElement.value);
+        let isCorrect = false;
+
+        // Limpiar resultados anteriores
+        resultBox.className = 'result-box';
+        resultBox.textContent = 'Resultado';
+
+        // Verificar si la respuesta normalizada del usuario coincide con alguna de las respuestas correctas
+        for (const correct of correctAnswers) {
+            if (userAnswer === normalizeAnswer(correct)) {
+                isCorrect = true;
+                break;
+            }
+        }
+
+        if (isCorrect) {
+            resultBox.classList.add('correct-result');
+            resultBox.textContent = '¡Correcto!';
+        } else {
+            resultBox.classList.add('incorrect-result');
+            resultBox.textContent = 'Error';
+        }
+    }
+    
+    // Función de verificación para el Punto 11.2 (Elección de Conector - Opción Múltiple)
+    function verifyConnectorMultipleChoice(exerciseId, selectedButton, correctAnswer) {
+        const resultBox = document.getElementById('rcm11-' + exerciseId);
+        const optionsGroup = document.getElementById('options-cm11-' + exerciseId);
         const buttons = optionsGroup.querySelectorAll('.option-button-cm');
 
         // Limpiar resultados anteriores y resetear botones
