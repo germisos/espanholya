@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 7 - Ejercicios</title>
+  <script src="menu.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 {
+      color: #0056b3;
+      margin-top: 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+    }
+    .exercise-item {
+      margin-bottom: 16px;
+      padding: 14px;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      background-color: #fbfbfb;
+    }
+    .exercise-input {
+      min-width: 110px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 6px;
+    }
+    .option-button {
+      padding: 8px 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .option-button:hover {
+      background-color: #0056b3;
+    }
+    .result-box {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      background: #f6f6f6;
+      color: #555;
+      min-width: 110px;
+      text-align: center;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 5px;
+    }
+    .correct-result {
+      background-color: #dff0da;
+      border-color: #2e7d32;
+      color: #2e7d32;
+    }
+    .incorrect-result {
+      background-color: #fddede;
+      border-color: #a12a2a;
+      color: #a12a2a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Unidad 7 - Ejercicios</h1>
+
+    <!-- ==================================== -->
+    <!-- 🔹 PUNTO 1: Ejercicio -->
+    <section id="punto-1">
+      <h2>1. Tema del ejercicio</h2>
+      <h3>Selecciona la opción correcta</h3>
+
+      <div class="exercise-item">
+        <p>1. Esta comida es ______ deliciosa.</p>
+        <div id="options-1">
+          <button class="option-button" onclick="verifyOption(this, 'muy')">muy</button>
+          <button class="option-button" onclick="verifyOption(this, 'poco')">poco</button>
+          <button class="option-button" onclick="verifyOption(this, 'nada')">nada</button>
+        </div>
+        <div id="result-1" class="result-box">Respuesta</div>
+      </div>
+    </section>
+    <!-- ==================================== -->
+
+  </div>
+
+  <script>
+    // Normaliza texto
+    function normalize(str) {
+      return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
+    // Verifica opción seleccionada
+    function verifyOption(btn, correct) {
+      const result = btn.parentElement.nextElementSibling;
+      const user = normalize(btn.textContent);
+      const expected = normalize(correct);
+
+      result.className = "result-box";
+      if (user === expected) {
+        result.classList.add("correct-result");
+        result.textContent = "¡Correcto!";
+      } else {
+        result.classList.add("incorrect-result");
+        result.textContent = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
