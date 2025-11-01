@@ -40,21 +40,189 @@
       margin: 12px 0;
       border-radius: 5px;
     }
+    /* Estilos para los botones de audio, si no están en tu CSS principal */
+    .audio-button {
+        background-color: #007bff; /* Azul */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .audio-button:hover {
+        background-color: #0056b3;
+    }
+    .conjugation-table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    .conjugation-table th, .conjugation-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    .conjugation-table th {
+        background-color: #f2f2f2;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Unidad 7 - Lecciones</h1>
+<h2>1. Pretérito Indefinido</h2>
 
-    <!-- ==================================== -->
-    <!-- 🔸 PUNTO 1: Nombre de la lección -->
-    <section id="punto-1">
-      <h2>1. Tema principal de la lección</h2>
-      <p>Explicación detallada del punto 1...</p>
+<p>El **pretérito indefinido** es un tiempo verbal en español que se utiliza para expresar acciones pasadas que están **completamente terminadas** en un momento específico en el pasado. Se utiliza para eventos que ocurrieron y concluyeron en el pasado sin relación directa con el presente.</p>
 
-      <div class="example-box">
-        <strong>Ejemplo:</strong> Aquí puedes mostrar un ejemplo o diálogo.
-      </div>
+<hr>
+
+<h3>1.1 Uso del Pretérito Indefinido</h3>
+
+<h4>Acciones Concluidas</h4>
+<ul>
+    <li>Se utiliza para hablar de acciones específicas que ocurrieron y terminaron en un momento determinado del pasado.</li>
+    <li>Ejemplo: Ayer compré un libro. 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/1.mp3')">Oír</button>
+    </li>
+</ul>
+
+<h4>Acciones que Ocurrieron en un Momento Específico</h4>
+<ul>
+    <li>Indica acciones que tuvieron lugar en un momento exacto del pasado.</li>
+    <li>Ejemplo: El año pasado viajé a Francia.
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/2.mp3')">Oír</button>
+    </li>
+</ul>
+
+<h4>Marcadores Temporales Comunes</h4>
+<p>Se usan frecuentemente con los siguientes marcadores:</p>
+<ul>
+    <li>Ayer/anteayer/anoche 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/3.mp3')">Oír</button>
+    </li>
+    <li>Hace tres días/una semana/ dos meses/ tres años 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/4.mp3')">Oír</button>
+    </li>
+    <li>El mes/ bimestre/ año pasado 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/5.mp3')">Oír</button>
+    </li>
+    <li>La semana pasada 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/6.mp3')">Oír</button>
+    </li>
+    <li>El otro día 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/7.mp3')">Oír</button>
+    </li>
+    <li>El martes/ jueves/ domingo 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/8.mp3')">Oír</button>
+    </li>
+    <li>En año nuevo, en Navidad 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/9.mp3')">Oír</button>
+    </li>
+    <li>En 1986/ en el 75/en el 2010/en enero de 1999 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/10.mp3')">Oír</button>
+    </li>
+    <li>Hace 5 días/ un mes/ un año/ mucho tiempo 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/11.mp3')">Oír</button>
+    </li>
+    <li>El 5 de enero de 1956 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/12.mp3')">Oír</button>
+    </li>
+    <li>Del 39 al 45 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/13.mp3')">Oír</button>
+    </li>
+</ul>
+
+<hr>
+
+<h3>1.2. Formas del Pretérito Indefinido</h3>
+
+<h4>Verbos Regulares</h4>
+
+<table class="conjugation-table">
+    <thead>
+        <tr>
+            <th>Pronombre</th>
+            <th>TRABAJAR (-AR)</th>
+            <th>NACER (-ER)</th>
+            <th>ABRIR (-IR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Yo</td>
+            <td>trabajé 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabaje.mp3')">Oír</button>
+            </td>
+            <td>nací 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/naci.mp3')">Oír</button>
+            </td>
+            <td>abrí 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abri.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Tú</td>
+            <td>trabajaste 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabajaste.mp3')">Oír</button>
+            </td>
+            <td>naciste 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/naciste.mp3')">Oír</button>
+            </td>
+            <td>abriste 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abriste.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Él/Ella/Usted</td>
+            <td>trabajó 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabajo.mp3')">Oír</button>
+            </td>
+            <td>nació 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/nacio.mp3')">Oír</button>
+            </td>
+            <td>abrió 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abrio.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Nosotros/as</td>
+            <td>trabajamos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabajamos.mp3')">Oír</button>
+            </td>
+            <td>nacimos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/nacimos.mp3')">Oír</button>
+            </td>
+            <td>abrimos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abrimos.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Vosotros/as</td>
+            <td>trabajasteis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabajasteis.mp3')">Oír</button>
+            </td>
+            <td>nacisteis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/nacisteis.mp3')">Oír</button>
+            </td>
+            <td>abristeis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abristeis.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Ellos/Ellas/Ustedes</td>
+            <td>trabajaron 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/trabajar/trabajaron.mp3')">Oír</button>
+            </td>
+            <td>nacieron 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/nacer/nacieron.mp3')">Oír</button>
+            </td>
+            <td>abrieron 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/indefinido/abrir/abrieron.mp3')">Oír</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
     </section>
     <!-- ==================================== -->
 
@@ -70,5 +238,12 @@
     -->
 
   </div>
+  <script>
+    // Función para reproducir el audio (asumiendo que está definida en tu código base)
+    function playAudio(src) {
+        const audio = new Audio(src);
+        audio.play().catch(e => console.error("Error al reproducir el audio:", e));
+    }
+</script>
 </body>
 </html>
