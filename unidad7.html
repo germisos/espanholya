@@ -140,6 +140,41 @@
     .gerundio-list li {
         margin-bottom: 5px;
     }
+    /* Estilos para las tablas de Futuro Simple */
+    .futuro-table {
+        width: 95%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .futuro-table th, .futuro-table td {
+        border: 1px solid #ddd;
+        padding: 10px 5px;
+        vertical-align: middle;
+    }
+    .futuro-table th {
+        background-color: #e9ecef;
+    }
+    .futuro-irregulares-table {
+        width: 70%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 1.1em;
+    }
+    .futuro-irregulares-table td {
+        border: 1px solid #ddd;
+        padding: 10px 5px;
+    }
+    .futuro-irregulares-table .raiz {
+        font-weight: bold;
+        color: #dc3545; /* Rojo */
+    }
+    .futuro-irregulares-table .terminacion {
+        color: #007bff; /* Azul */
+        font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -1066,6 +1101,201 @@
         <tr><td>pedir</td><td>pidiendo</td></tr>
         <tr><td>influir</td><td>influyendo</td></tr>
         <tr><td>poder</td><td>pudiendo</td></tr>
+    </tbody>
+</table>
+    <hr>
+    <h2>4. FUTURO SIMPLE</h2>
+
+<p>El futuro es un tiempo verbal que se utiliza para expresar acciones que **ocurrirán en el tiempo posterior** al momento en que se está hablando.</p>
+
+<hr>
+
+<h3>4.1. Formación del Futuro Simple en Verbos Regulares</h3>
+<p>Se forma añadiendo al **Infinitivo** las terminaciones correspondientes: **-é, -ás, -á, -emos, -éis, -án**.</p>
+
+<table class="futuro-table">
+    <thead>
+        <tr>
+            <th>Pronombre</th>
+            <th>ESTAR (-AR)</th>
+            <th>VENDER (-ER)</th>
+            <th>ESCRIBIR (-IR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>(yo)</td>
+            <td>estaré 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estare.mp3')">Oír</button>
+            </td>
+            <td>venderé 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/vendere.mp3')">Oír</button>
+            </td>
+            <td>escribiré 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribire.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>(tú)</td>
+            <td>estarás 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estaras.mp3')">Oír</button>
+            </td>
+            <td>venderás 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/venderas.mp3')">Oír</button>
+            </td>
+            <td>escribirás 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribiras.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>(él, ella, usted)</td>
+            <td>estará 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estara.mp3')">Oír</button>
+            </td>
+            <td>venderá 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/vendera.mp3')">Oír</button>
+            </td>
+            <td>escribirá 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribira.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>(nosotros/as)</td>
+            <td>estaremos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estaremos.mp3')">Oír</button>
+            </td>
+            <td>venderemos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/venderemos.mp3')">Oír</button>
+            </td>
+            <td>escribiremos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribiremos.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>(vosotros/as)</td>
+            <td>estaréis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estareis.mp3')">Oír</button>
+            </td>
+            <td>venderéis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/vendereis.mp3')">Oír</button>
+            </td>
+            <td>escribiréis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribireis.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>(ellos/as, ustedes)</td>
+            <td>estarán 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/estar/estaran.mp3')">Oír</button>
+            </td>
+            <td>venderán 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/vender/venderan.mp3')">Oír</button>
+            </td>
+            <td>escribirán 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/escribir/escribiran.mp3')">Oír</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Ejemplos de Futuro Simple</h4>
+<ul>
+    <li>Mañana viajaré a la ciudad. 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/1.mp3')">Oír</button>
+    </li>
+    <li>El próximo año, estudiaremos en el extranjero.</li>
+    <li>¿Dónde estarás este fin de semana?</li>
+</ul>
+
+<hr>
+
+<h3>4.2. Verbos Irregulares</h3>
+
+<p>Mantienen la misma terminación que los verbos regulares, pero **cambian la raíz** del infinitivo.</p>
+
+<table class="futuro-irregulares-table">
+    <thead>
+        <tr>
+            <th>Infinitivo</th>
+            <th>Raíz Irregular</th>
+            <th>Ejemplos de Terminaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Decir</td>
+            <td class="raiz">dir- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/dire.mp3')">Oír</button>
+            </td>
+            <td rowspan="11" style="text-align: center;">
+                <span class="terminacion">-é</span> (Yo diré, Yo cabré) <br>
+                <span class="terminacion">-ás</span> (Tú dirás, Tú cabrás) <br>
+                <span class="terminacion">-á</span> (Él dirá, Él cabrá) <br>
+                <span class="terminacion">-emos</span> (Nosotros diremos, Nosotros cabremos) <br>
+                <span class="terminacion">-éis</span> (Vosotros diréis, Vosotros cabréis) <br>
+                <span class="terminacion">-án</span> (Ellos dirán, Ellos cabrán)
+            </td>
+        </tr>
+        <tr>
+            <td>Haber</td>
+            <td class="raiz">habr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/habre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Caber</td>
+            <td class="raiz">cabr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/cabre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Hacer</td>
+            <td class="raiz">har- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/hare.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Poder</td>
+            <td class="raiz">podr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/podre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Venir</td>
+            <td class="raiz">vendr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/vendre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Salir</td>
+            <td class="raiz">saldr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/saldre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Tener</td>
+            <td class="raiz">tendr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/tendre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Querer</td>
+            <td class="raiz">querr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/querre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Poner</td>
+            <td class="raiz">pondr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/pondre.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Saber</td>
+            <td class="raiz">sabr- 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/futuro/irregulares/sabre.mp3')">Oír</button>
+            </td>
+        </tr>
     </tbody>
 </table>
     </section>
