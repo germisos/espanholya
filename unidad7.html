@@ -104,6 +104,42 @@
         font-style: italic;
         text-align: center; /* Centrado solicitado */
     }
+    /* Estilos para la tabla Estar + Gerundio */
+    .gerundio-table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .gerundio-table th, .gerundio-table td {
+        border: 1px solid #ddd;
+        padding: 10px 5px;
+        vertical-align: middle;
+    }
+    .gerundio-table .pronombre {
+        font-weight: bold;
+        text-align: right;
+        padding-right: 15px;
+        width: 25%;
+    }
+    .gerundio-table .verbo-estar {
+        font-weight: bold;
+        color: #007bff; /* Azul */
+        width: 15%;
+    }
+    .gerundio-table .gerundio-form {
+        font-style: italic;
+        text-align: left;
+        padding-left: 15px;
+    }
+    .gerundio-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .gerundio-list li {
+        margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -933,6 +969,105 @@
     </ul>
 </div>
     <hr>
+    <h2>3. ESTAR + GERUNDIO (Presente Progresivo)</h2>
+
+<p>La construcción **"estar + gerundio"** en español se utiliza para expresar una **acción en curso** (o sea, en el momento en el que hablamos) o en progreso, en un momento específico del presente.</p>
+
+<hr>
+
+<h3>Estructura de "Estar + Gerundio"</h3>
+
+<table class="gerundio-table">
+    <thead>
+        <tr>
+            <th>ESTAR (Conjugación)</th>
+            <th>+</th>
+            <th>GERUNDIO (Acción)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="pronombre">(yo)</td>
+            <td class="verbo-estar">estoy 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/estoy.mp3')">Oír</button>
+            </td>
+            <td class="gerundio-form" rowspan="6">
+                trabajando/amando **(-ar)** <br>
+                haciendo/bebiendo **(-er)** <br>
+                viviendo/produciendo **(-ir)**
+            </td>
+        </tr>
+        <tr>
+            <td class="pronombre">(tú)</td>
+            <td class="verbo-estar">estás 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/esta.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="pronombre">(él, ella, usted)</td>
+            <td class="verbo-estar">está 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/estas.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="pronombre">(nosotros/as)</td>
+            <td class="verbo-estar">estamos 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/estamos.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="pronombre">(vosotros/as)</td>
+            <td class="verbo-estar">estáis 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/estais.mp3')">Oír</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="pronombre">(ellos/as, ustedes)</td>
+            <td class="verbo-estar">están 
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/estan.mp3')">Oír</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h3>Formación del Gerundio</h3>
+
+<p>El gerundio se forma añadiendo el sufijo al infinitivo:</p>
+<ul>
+    <li>Verbos de la primera conjugación **(-ar)**: sufijo **-ando** (Ejemplos: hablar → hablando, trabajar → trabajando, amar → amando). 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/ar.mp3')">Oír</button>
+    </li>
+    <li>Verbos de la segunda conjugación **(-er)** y tercera conjugación **(-ir)**: sufijo **-iendo** (Ejemplos: comer → comiendo, hacer → haciendo, beber → bebiendo, vivir → viviendo, producir → produciendo). 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/er.mp3')">Oír</button> / 
+        <button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/ir.mp3')">Oír</button>
+    </li>
+</ul>
+
+<h4>Gerundios Irregulares</h4>
+
+<p>Algunos verbos tienen una forma irregular en el gerundio:</p>
+<button class="audio-button" onclick="playAudio('assets/audio/unidad7/estar/gerundioIRE.mp3')">Oír</button>
+<table class="conjugation-table" style="width: 50%;">
+    <thead>
+        <tr>
+            <th>Infinitivo</th>
+            <th>Gerundio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>leer</td><td>leyendo</td></tr>
+        <tr><td>oír</td><td>oyendo</td></tr>
+        <tr><td>decir</td><td>diciendo</td></tr>
+        <tr><td>dormir</td><td>durmiendo</td></tr>
+        <tr><td>ir</td><td>yendo</td></tr>
+        <tr><td>traer</td><td>trayendo</td></tr>
+        <tr><td>pedir</td><td>pidiendo</td></tr>
+        <tr><td>influir</td><td>influyendo</td></tr>
+        <tr><td>poder</td><td>pudiendo</td></tr>
+    </tbody>
+</table>
     </section>
     <!-- ==================================== -->
 
