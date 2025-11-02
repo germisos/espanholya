@@ -67,7 +67,7 @@
                 <a href="#" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Extras ▾</a>
                 <ul class="dropdown-content" style="position:absolute;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1000;min-width:200px;display:none;">
                   
-                  <li><a href="dialogos.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Diálogos y Audios</a></li>
+                  <li><a href="dialogos_audios.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Diálogos y Audios</a></li>
                   <li><a href="vocabulario.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Vocabulario</a></li>
 
                   <!-- Submenú de Material -->
