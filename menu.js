@@ -1,4 +1,4 @@
-// menu.js - versión robusta, con estilos inyectados para consistencia visual
+// menu.js - versión robusta con bloque "Material del Curso" mejorado
 (function () {
   if (window.__MENU_JS_LOADED) return;
   window.__MENU_JS_LOADED = true;
@@ -14,6 +14,7 @@
             <ul class="main-menu" style="list-style:none;display:flex;gap:12px;padding:0;margin:0;">
               <li><a href="index.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Inicio</a></li>
 
+              <!-- CURSO -->
               <li class="dropdown" style="position:relative;">
                 <a href="#" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Curso ▾</a>
                 <ul class="dropdown-content" style="position:absolute;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1000;min-width:180px;display:none;">
@@ -54,54 +55,68 @@
                       <li><a href="ejercicios_unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U8</a></li>
                     </ul>
                   </li>
+                </ul>
+              </li>
+
+              <!-- OTROS ENLACES -->
+              <li><a href="pago.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Pago</a></li>
+              <li><a href="contacto.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Contacto</a></li>
+
+              <!-- NUEVO BLOQUE: EXTRAS / MATERIAL DEL CURSO -->
+              <li class="dropdown" style="position:relative;">
+                <a href="#" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Extras ▾</a>
+                <ul class="dropdown-content" style="position:absolute;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1000;min-width:200px;display:none;">
+                  
+                  <li><a href="dialogos.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Diálogos y Audios</a></li>
+                  <li><a href="vocabulario.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Vocabulario</a></li>
+
+                  <!-- Submenú de Material -->
+                  <li class="sub-dropdown" style="position:relative;">
+                    <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Material del Curso ►</a>
+                    <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:200px;display:none;">
+                      <li><a href="libro.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">📘 Libro principal</a></li>
+                      <li><a href="audios.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">🎧 Audios del curso</a></li>
+                      <li><a href="recursos.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">🗂️ Recursos descargables</a></li>
+                    </ul>
+                  </li>
 
                 </ul>
               </li>
 
-              <li><a href="pago.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Pago</a></li>
-              <li><a href="contacto.html" class="menu-link" style="color:white;text-decoration:none;font-weight:bold;">Contacto</a></li>
             </ul>
           </nav>
         </div>
       </header>
       `;
 
-      // remove old header if present
+      // elimina encabezado previo si existe
       const existing = document.getElementById("mainHeader");
       if (existing) existing.remove();
 
-      // insert fresh header
       const tmp = document.createElement("div");
       tmp.innerHTML = headerHtml;
       const headerNode = tmp.firstElementChild;
-      if (!headerNode) {
-        console.error("menu.js: headerNode no creado");
-        return;
-      }
-      // use firstElementChild to avoid text nodes
+      if (!headerNode) return;
       document.body.insertBefore(headerNode, document.body.firstElementChild);
-      console.log("menu.js: header insertado");
 
-      // attach interactions
+      // comportamiento del menú
       const dropdowns = document.querySelectorAll(".dropdown, .sub-dropdown");
       dropdowns.forEach(dropdown => {
         const content = dropdown.querySelector(".dropdown-content, .sub-dropdown-content");
         const title = dropdown.querySelector(".menu-link");
         if (!content || !title) return;
 
-        dropdown.addEventListener("mouseenter", () => { content.style.display = "block"; });
-        dropdown.addEventListener("mouseleave", () => { content.style.display = "none"; });
-
-        title.addEventListener("click", (ev) => {
+        dropdown.addEventListener("mouseenter", () => content.style.display = "block");
+        dropdown.addEventListener("mouseleave", () => content.style.display = "none");
+        title.addEventListener("click", ev => {
           ev.preventDefault();
           content.style.display = (content.style.display === "block") ? "none" : "block";
         });
       });
 
-      // auto-close clicking outside
+      // cierre automático al hacer clic fuera
       document.addEventListener("click", (e) => {
         const header = document.getElementById("mainHeader");
-        if (!header) return;
         if (!header.contains(e.target)) {
           document.querySelectorAll(".dropdown-content, .sub-dropdown-content").forEach(menu => {
             menu.style.display = "none";
@@ -109,7 +124,7 @@
         }
       });
 
-      // === UNIFICAR ESTILO VISUAL DEL MENÚ (inyección segura) ===
+      // estilos unificados
       const style = document.createElement("style");
       style.textContent = `
         #mainHeader, #mainHeader * {
@@ -132,7 +147,7 @@
       `;
       document.head.appendChild(style);
 
-      console.log("menu.js: listo");
+      console.log("menu.js: listo con bloque 'Material del Curso'");
     } catch (err) {
       console.error("menu.js error:", err);
     }
