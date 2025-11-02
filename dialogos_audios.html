@@ -173,5 +173,26 @@
 
         <p class="script-notes">Nota: Asegúrate de que la función <code>playAudio(ruta)</code> esté correctamente definida en tu JavaScript principal o en la página para que los botones de audio funcionen.</p>
     </div>
+    <script>
+        // Variable global para controlar la reproducción
+        window.currentAudio = null;
+
+        function playAudio(ruta) {
+            // 1. Detiene y resetea cualquier audio que se esté reproduciendo
+            if (window.currentAudio) {
+                window.currentAudio.pause();
+                window.currentAudio.currentTime = 0;
+            }
+
+            // 2. Crea y reproduce el nuevo audio
+            window.currentAudio = new Audio(ruta);
+            window.currentAudio.play().catch(error => {
+                // Manejo de errores (útil para el auto-play en algunos navegadores)
+                console.error("Error al reproducir el audio:", error);
+                alert("No se pudo reproducir el audio. Asegúrate de que los archivos MP3 existan en la ruta: " + ruta);
+            });
+        }
+    </script>
+    
 </body>
 </html>
