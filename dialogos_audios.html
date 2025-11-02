@@ -1,5 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Diálogos y Audios</title><script src="menu.js" defer></script></head>
-<body><h2 style="margin-top:80px;text-align:center;">Próximamente Diálogos y Audios</h2></body>
+<head>
+    <meta charset="UTF-8">
+    <title>Diálogos y Audios</title>
+    <script src="menu.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .main-content {
+            margin-top: 80px; /* Espacio para el menú principal */
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .dialogo-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+        }
+        .dialogo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .dialogo-header h3 {
+            margin: 0;
+            color: #333;
+        }
+        .audio-button-dialogo {
+            background-color: #007bff; /* Azul */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .audio-button-dialogo:hover {
+            background-color: #0056b3;
+        }
+        .speaker {
+            font-weight: bold;
+            color: #dc3545; /* Rojo para los nombres */
+        }
+        .dialogo-text {
+            line-height: 1.6;
+            white-space: pre-wrap; /* Mantiene saltos de línea y formato */
+        }
+        /* Función ficticia para reproducir audio */
+        .script-notes {
+            color: #888;
+            font-style: italic;
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function playAudio(ruta) {
+            // Esta función debe ser implementada en tu sitio.
+            // Por ejemplo: new Audio(ruta).play();
+            console.log("Reproduciendo audio desde: " + ruta);
+            alert("Reproduciendo audio desde: " + ruta + " (Necesitas implementar la función 'playAudio' en JavaScript)");
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content">
+        <h2>Diálogos y Audios de la Unidad 7</h2>
+        
+        <div class="dialogo-container">
+            <div class="dialogo-header">
+                <h3>Tiempo Libre</h3>
+                <button class="audio-button-dialogo" onclick="playAudio('assets/audio/audiosbajar/Pista37.mp3')">OÍR</button>
+            </div>
+            <div class="dialogo-text">
+                <span class="speaker">Carlos:</span> ¡Hola, Ana! ¿Cómo estás?<br>
+                <span class="speaker">Ana:</span> ¡Hola, Carlos! Estoy bien, ¿y tú?<br>
+                <span class="speaker">Carlos:</span> Bastante bien. ¿Qué planes tienes para el fin de semana?<br>
+                <span class="speaker">Ana:</span> No tengo planes concretos, ¿tú?<br>
+                <span class="speaker">Carlos:</span> Estaba pensando en hacer algo al aire libre. Tal vez ir al parque o dar un paseo en bicicleta.<br>
+                <span class="speaker">Ana:</span> ¡Suena genial! Me encantaría unirme. Hace tiempo que no hago ejercicio al aire libre.<br>
+                <span class="speaker">Carlos:</span> Perfecto, ¡será divertido! ¿Tienes alguna actividad que te guste hacer en tu tiempo libre?<br>
+                <span class="speaker">Ana:</span> Sí, me gusta leer. Pienso pasar parte del tiempo leyendo un buen libro.<br>
+                <span class="speaker">Carlos:</span> Eso suena relajante. ¿Alguna recomendación?<br>
+                <span class="speaker">Ana:</span> Estoy leyendo una novela interesante. ¿Te gustaría que te la preste cuando termine?<br>
+                <span class="speaker">Carlos:</span> ¡Claro! Me encanta leer de vez en cuando. ¿Y qué más te gusta hacer en tu tiempo libre?<br>
+                <span class="speaker">Ana:</span> También disfruto cocinar. Tal vez intente hacer una nueva receta este fin de semana.<br>
+                <span class="speaker">Carlos:</span> ¡Excelente! Si necesitas ayuda, estaré encantado de colaborar.<br>
+                <span class="speaker">Ana:</span> ¡Gracias, Carlos! Será un fin de semana divertido y relajado.
+            </div>
+        </div>
+
+        <div class="dialogo-container">
+            <div class="dialogo-header">
+                <h3>Trabajo</h3>
+                <button class="audio-button-dialogo" onclick="playAudio('assets/audio/audiosbajar/Pista38.mp3')">OÍR</button>
+            </div>
+            <div class="dialogo-text">
+                <span class="speaker">María:</span> ¡Hola, Juan! ¿Cómo te ha ido en el trabajo esta semana?<br>
+                <span class="speaker">Juan:</span> Hola, María. Ha sido un poco ocupada, pero bien. Estamos trabajando en un nuevo proyecto.<br>
+                <span class="speaker">María:</span> ¡Eso suena emocionante! ¿En qué consiste?<br>
+                <span class="speaker">Juan:</span> Estamos desarrollando una aplicación móvil para facilitar el acceso a información de salud.<br>
+                <span class="speaker">María:</span> ¡Vaya, suena muy útil! ¿En qué parte del proyecto estás trabajando?<br>
+                <span class="speaker">Juan:</span> Estoy a cargo del diseño de la interfaz de usuario. Queremos que sea intuitiva y fácil de usar.<br>
+                <span class="speaker">María:</span> Excelente. Si necesitas alguna ayuda, no dudes en decírmelo. ¿Cómo te estás llevando con el equipo?<br>
+                <span class="speaker">Juan:</span> Muy bien. Tenemos un buen equipo y todos están comprometidos con el proyecto. ¿Y tú, cómo va en tu área?<br>
+                <span class="speaker">María:</span> Estamos preparando una presentación para un cliente importante la próxima semana. Hay mucho trabajo por hacer, pero creo que saldrá bien.<br>
+                <span class="speaker">Juan:</span> ¡Buena suerte con eso! Si necesitas apoyo, aquí estoy.<br>
+                <span class="speaker">María:</span> Gracias, Juan. Por cierto, ¿te gustaría almorzar juntos hoy?<br>
+                <span class="speaker">Juan:</span> ¡Claro! Podemos ir al restaurante al final de la calle.
+            </div>
+        </div>
+
+        <div class="dialogo-container">
+            <div class="dialogo-header">
+                <h3>Gustos</h3>
+                <button class="audio-button-dialogo" onclick="playAudio('assets/audio/audiosbajar/Pista39.mp3')">OÍR</button>
+            </div>
+            <div class="dialogo-text">
+                <span class="speaker">Laura:</span> ¡Hola, Carlos! ¿Qué te gusta hacer en tu tiempo libre?<br>
+                <span class="speaker">Carlos:</span> ¡Hola, Laura! Me encanta escuchar música y tocar la guitarra. Es mi manera de relajarme.<br>
+                <span class="speaker">Laura:</span> ¡Eso suena genial! A mí también me gusta la música. ¿Algún género favorito?<br>
+                <span class="speaker">Carlos:</span> Sí, me gusta mucho el rock clásico. ¿Y a ti?<br>
+                <span class="speaker">Laura:</span> ¡Increíble! A mí también me gusta el rock. Pero también disfruto mucho de la lectura. ¿Tienes algún libro favorito?<br>
+                <span class="speaker">Carlos:</span> Sí, me gusta la ciencia ficción. "El fin de la eternidad" es uno de mis favoritos. <br>
+                <span class="speaker">Laura:</span> ¡Vaya! Ese libro es genial. ¿Te gustaría intercambiar libros algún día?<br>
+                <span class="speaker">Carlos:</span> ¡Claro! Sería genial. También me encanta pasar tiempo al aire libre. ¿A ti te gusta hacer senderismo o algo así?<br>
+                <span class="speaker">Laura:</span> Sí, me encanta caminar en la naturaleza. El senderismo es una de mis actividades favoritas.<br>
+                <span class="speaker">Carlos:</span> ¡Perfecto! Podríamos organizar una salida al aire libre algún fin de semana.<br>
+                <span class="speaker">Laura:</span> ¡Me encantaría! Y hablando de fines de semana, ¿tienes alguna comida favorita?<br>
+                <span class="speaker">Carlos:</span> Definitivamente la pizza. ¿Y tú?<br>
+                <span class="speaker">Laura:</span> ¡Coincidimos en eso! La pizza es mi debilidad.
+            </div>
+        </div>
+
+        <div class="dialogo-container">
+            <div class="dialogo-header">
+                <h3>Intereses</h3>
+                <button class="audio-button-dialogo" onclick="playAudio('assets/audio/audiosbajar/Pista40.mp3')">OÍR</button>
+            </div>
+            <div class="dialogo-text">
+                <span class="speaker">Marta:</span> ¡Hola, Jorge! ¿Qué te gusta hacer en tu tiempo libre?<br>
+                <span class="speaker">Jorge:</span> Hola, Marta. Me encanta la fotografía. Siempre que puedo, salgo a capturar momentos con mi cámara.<br>
+                <span class="speaker">Marta:</span> ¡Qué interesante! ¿Algún tipo específico de fotografía que te guste más?<br>
+                <span class="speaker">Jorge:</span> Sí, me gusta mucho la fotografía de paisajes y retratos. Me encanta jugar con la luz y las composiciones.<br>
+                <span class="speaker">Marta:</span> Suena apasionante. Yo soy más de la pintura. Me relaja mucho. ¿Te gusta el arte en general?<br>
+                <span class="speaker">Jorge:</span> Sí, me encanta. Aunque no soy muy hábil con los pinceles, siempre disfruto visitando galerías y exposiciones.<br>
+                <span class="speaker">Marta:</span> ¡Eso es genial! Podríamos planear ir a una galería de arte juntos algún día.<br>
+                <span class="speaker">Jorge:</span> ¡Por supuesto! Además de la fotografía, me gusta mucho la música. Toco la guitarra.<br>
+                <span class="speaker">Marta:</span> ¡Qué talento! Yo soy una melómana empedernida. Escucho de todo, pero el jazz es mi favorito. ¿Tienes alguna banda o género preferido?<br>
+                <span class="speaker">Jorge:</span> Me encanta el rock clásico, especialmente Led Zeppelin. Pero siempre estoy abierto a descubrir nueva música.<br>
+                <span class="speaker">Marta:</span> ¡Led Zeppelin es increíble! Coincidimos en buen gusto musical. Tal vez podríamos intercambiar recomendaciones.<br>
+                <span class="speaker">Jorge:</span> ¡Por supuesto! Será genial compartir intereses y descubrir nuevas cosas juntos.
+            </div>
+        </div>
+
+        <p class="script-notes">Nota: Asegúrate de que la función <code>playAudio(ruta)</code> esté correctamente definida en tu JavaScript principal o en la página para que los botones de audio funcionen.</p>
+    </div>
+</body>
 </html>
