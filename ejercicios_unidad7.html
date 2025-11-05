@@ -426,6 +426,7 @@ function verifyInput(id, correctAnswer) {
             <p id="feedback1-2" style="font-weight: bold; margin-top: 10px;"></p>
         </div>
   
+  </section>
 <script>
   // Normaliza la respuesta del usuario (elimina espacios extra y acentos)
   function normalizeAnswer(text) {
@@ -459,7 +460,7 @@ function verifyInput(id, correctAnswer) {
       resultBox.classList.add("incorrect-result");
     }
   }
-  <script>
+
         // Función original del Punto 1.1
         function toggleSolution(id) {
             var solution = document.getElementById(id);
@@ -502,7 +503,14 @@ function verifyInput(id, correctAnswer) {
                 feedback.style.color = '#dc3545';
             }
         }
-    </script>
+      function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
 </script>
 
 <style>
