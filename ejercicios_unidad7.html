@@ -330,6 +330,102 @@ function verifyInput(id, correctAnswer) {
 
   </div> <!-- Cierra .lesson-container -->
 
+  <h3>Punto 1.2. Completa (Opción Múltiple)</h3>
+        <h4>2. Selecciona la forma correcta del verbo en pretérito indefinido para completar la narración.</h4>
+
+        <div id="exercise1-2" class="exercise-list">
+            <p>Hace un par de meses Ejemplo: (viajar) <strong>VIAJÉ</strong> a Granada durante un fin de semana. (llegar) 
+                <select id="q1">
+                    <option value="">---</option>
+                    <option value="incorrecta">Llegó</option>
+                    <option value="correcta">Llegué</option>
+                </select>
+                 el viernes temprano y (marcharse) 
+                <select id="q2">
+                    <option value="">---</option>
+                    <option value="incorrecta">se marchó</option>
+                    <option value="correcta">me marché</option>
+                </select>
+                el domingo a última hora.</p>
+            
+            <p>Desde que pones un pie en la ciudad, sientes su magia. (pasear) 
+                <select id="q3">
+                    <option value="">---</option>
+                    <option value="incorrecta">Paseó</option>
+                    <option value="correcta">Paseé</option>
+                </select>
+                por el Paseo de los Tristes admirando la Alhambra, (disfrutar) 
+                <select id="q4">
+                    <option value="">---</option>
+                    <option value="correcta">disfruté</option>
+                    <option value="incorrecta">disfrutó</option>
+                </select>
+                de las vistas desde el mirador de San Miguel, (perderse) 
+                <select id="q5">
+                    <option value="">---</option>
+                    <option value="correcta">me perdí</option>
+                    <option value="incorrecta">se perdió</option>
+                </select>
+                por el Albaicín…</p>
+            
+            <p>Por supuesto, también (disfrutar) 
+                <select id="q6">
+                    <option value="">---</option>
+                    <option value="incorrecta">disfrutó</option>
+                    <option value="correcta">disfruté</option>
+                </select>
+                de la gastronomía de la tierra. Al caer la noche (irse) 
+                <select id="q7">
+                    <option value="">---</option>
+                    <option value="correcta">me fui</option>
+                    <option value="incorrecta">se fue</option>
+                </select>
+                de tapas: (comer) 
+                <select id="q8">
+                    <option value="">---</option>
+                    <option value="incorrecta">comió</option>
+                    <option value="correcta">comí</option>
+                </select>
+                habas con jamón, remojón granadino y tortilla de Sacromonte, (probar) 
+                <select id="q9">
+                    <option value="">---</option>
+                    <option value="incorrecta">probó</option>
+                    <option value="correcta">probé</option>
+                </select>
+                los piononos y (descubrir) 
+                <select id="q10">
+                    <option value="">---</option>
+                    <option value="correcta">descubrí</option>
+                    <option value="incorrecta">descubrió</option>
+                </select>
+                bebidas riquísimas, como el té moruno.</p>
+
+            <p>El sábado por la mañana (ponerse) 
+                <select id="q11">
+                    <option value="">---</option>
+                    <option value="correcta">se puso</option>
+                    <option value="incorrecta">me puse</option>
+                </select>
+                a llover muchísimo de repente y todas las calles (llenarse) 
+                <select id="q12">
+                    <option value="">---</option>
+                    <option value="incorrecta">me llené</option>
+                    <option value="correcta">se llenaron</option>
+                </select>
+                de un brillo especial.</p>
+            
+            <p>Sin duda, (llevarse) 
+                <select id="q13">
+                    <option value="">---</option>
+                    <option value="incorrecta">se llevó</option>
+                    <option value="correcta">me llevé</option>
+                </select>
+                un gran recuerdo a casa de esta ciudad espectacular.</p>
+            
+            <button class="check-button" onclick="checkAnswers1_2()">Verificar Respuesta</button>
+            <p id="feedback1-2" style="font-weight: bold; margin-top: 10px;"></p>
+        </div>
+  
 <script>
   // Normaliza la respuesta del usuario (elimina espacios extra y acentos)
   function normalizeAnswer(text) {
@@ -363,6 +459,50 @@ function verifyInput(id, correctAnswer) {
       resultBox.classList.add("incorrect-result");
     }
   }
+  <script>
+        // Función original del Punto 1.1
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+        
+        // Función NUEVA para el Punto 1.2
+        function checkAnswers1_2() {
+            // IDs de los select elements
+            const answers = [
+                'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 
+                'q8', 'q9', 'q10', 'q11', 'q12', 'q13'
+            ];
+            let allCorrect = true;
+
+            answers.forEach(id => {
+                const select = document.getElementById(id);
+                // Comprobar si el valor seleccionado es 'correcta'
+                if (select.value === 'correcta') {
+                    select.style.border = '2px solid #28a745'; // Borde verde
+                } else if (select.value === 'incorrecta') {
+                    select.style.border = '2px solid #dc3545'; // Borde rojo
+                    allCorrect = false;
+                } else {
+                    select.style.border = '1px solid #ccc'; // Borde por defecto si no ha seleccionado nada
+                    allCorrect = false;
+                }
+            });
+
+            const feedback = document.getElementById('feedback1-2');
+            if (allCorrect) {
+                feedback.textContent = '¡Correcta!';
+                feedback.style.color = '#28a745';
+            } else {
+                feedback.textContent = 'Incorrecta. Revisa las opciones marcadas en rojo.';
+                feedback.style.color = '#dc3545';
+            }
+        }
+    </script>
 </script>
 
 <style>
