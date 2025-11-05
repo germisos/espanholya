@@ -598,6 +598,8 @@ function verifyInput(id, correctAnswer) {
                 <span id="feedback-gustar-t" class="feedback-span"></span>
             </li>
         </ul>
+              </div>
+    </div>
           <hr>
  </section>
 </div>
@@ -702,6 +704,15 @@ function verifyInput(id, correctAnswer) {
             input.style.border = '2px solid #dc3545';
         }
     }
+  function checkAnswers1_2() {
+  const selects = document.querySelectorAll('#exercise1-2 select');
+  let correct = 0;
+  selects.forEach(sel => {
+    if (sel.value === 'correcta') correct++;
+  });
+  const feedback = document.getElementById('feedback1-2');
+  feedback.textContent = `Has acertado ${correct} de ${selects.length} respuestas.`;
+}
 </script>
 
 <style>
