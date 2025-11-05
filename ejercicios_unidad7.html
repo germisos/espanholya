@@ -7,123 +7,189 @@
   <script src="menu.js" defer></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    .container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-      max-width: 980px;
-      margin: 0 auto;
-    }
-    h1, h2, h3 {
-      color: #0056b3;
-      margin-top: 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-    }
-    .exercise-item {
-      margin-bottom: 16px;
-      padding: 14px;
-      border: 1px solid #e6e6e6;
-      border-radius: 8px;
-      background-color: #fbfbfb;
-    }
-    .exercise-input {
-      min-width: 110px;
-      padding: 6px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 0 6px;
-    }
-    .option-button {
-      padding: 8px 14px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .option-button:hover {
-      background-color: #0056b3;
-    }
-    .result-box {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #e0e0e0;
-      background: #f6f6f6;
-      color: #555;
-      min-width: 110px;
-      text-align: center;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 5px;
-    }
-    .correct-result {
-      background-color: #dff0da;
-      border-color: #2e7d32;
-      color: #2e7d32;
-    }
-    .incorrect-result {
-      background-color: #fddede;
-      border-color: #a12a2a;
-      color: #a12a2a;
-    }
-  </style>
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .main-content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            color: #28a745;
+            margin-top: 30px;
+        }
+        .exercise-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .exercise-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Estilos del contenedor de respuesta */
+        .solution-container {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .solution-toggle {
+            display: none; /* Inicialmente oculto */
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px dashed #28a745;
+            background-color: #e9f7ef;
+            border-radius: 5px;
+        }
+        .solution-toggle ul {
+            list-style: none;
+            padding-left: 0;
+            columns: 2; /* Para mostrar las respuestas en dos columnas si el espacio lo permite */
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+        .solution-toggle strong {
+            color: #007bff; /* Para destacar las respuestas */
+        }
+        
+        /* Estilos del botón */
+        .check-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .check-button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Unidad 7 - Ejercicios</h1>
+    <div class="main-content">
+        <h2>Unidad 7 - Ejercicios</h2>
+        
+        <h3>Punto 1. Pretérito Indefinido</h3>
+        <h4>1. Completa las siguientes frases con la forma correcta del verbo en pretérito indefinido.</h4>
+        
+        <ul class="exercise-list">
+            <li>Ejemplo: a) Yo HABLÉ (hablar) con mi amigo ayer.</li>
+            <li>b) Ella ________________ (comer) una ensalada para la cena.</li>
+            <li>c) Nosotros ________________ (ir) al parque el fin de semana pasado.</li>
+            <li>d) Tú ________________ (estudiar) para el examen anoche.</li>
+            <li>e) Ellos ________________ (llegar) tarde a la fiesta.</li>
+            <li>f) Él ________________ (cantar) una canción en la fiesta.</li>
+            <li>g) Nosotros ________________ (viajar) a Madrid el verano pasado.</li>
+            <li>h) Tú ________________ (bailar) en la boda de tu hermana.</li>
+            <li>i) Ella ________________ (leer) un libro interesante la semana pasada.</li>
+            <li>j) Ustedes ________________ (comprar) un regalo para su mamá.</li>
+            <li>k) Yo ________________ (ir) al cine con mis amigos.</li>
+            <li>l) Ellos ________________ (correr) en el parque por la mañana.</li>
+            <li>m) Nosotros ________________ (ver) una película ayer.</li>
+            <li>n) Tú ________________ (ayudar) a tu hermana con sus tareas.</li>
+            <li>o) Ella ________________ (tomar) el autobús para ir al trabajo.</li>
+            <li>p) Él no ________________ (venir) a la fiesta el sábado.</li>
+            <li>q) Nosotros no ________________ (hacer) la tarea anoche.</li>
+            <li>r) Tú no ________________ (decir) la verdad.</li>
+            <li>s) Ella no ________________ (poder) encontrar las llaves.</li>
+            <li>t) Ustedes no ________________ (poner) atención en clase.</li>
+            <li>u) Nosotros ________________ (comprar) un nuevo coche el año pasado.</li>
+            <li>v) Ella ________________ (recibir) una carta de su amiga.</li>
+            <li>w) Tú ________________ (decidir) estudiar en el extranjero.</li>
+            <li>x) Él ________________ (salir) temprano de la oficina ayer.</li>
+            <li>y) Ustedes ________________ (hablar) con el director sobre el proyecto.</li>
+            <li>z) Yo ________________ (conocer) a Juan en la universidad.</li>
+            <li>aa) Ellos ________________ (jugar) fútbol en el parque ayer.</li>
+            <li>bb) Nosotros ________________ (visitar) a nuestros abuelos el fin de semana pasado.</li>
+            <li>cc) Ella ________________ (aprender) a tocar guitarra el año pasado.</li>
+            <li>dd) Tú ________________ (trabajar) en ese restaurante el verano pasado.</li>
+            <li>ee) Él ________________ (perder) el tren para ir al aeropuerto.</li>
+            <li>ff) Nosotros ________________ (viajar) a Europa el verano pasado.</li>
+            <li>gg) Tú ________________ (cantar) en el concierto de la escuela.</li>
+            <li>hh) Ella ________________ (decidir) cambiar de carrera.</li>
+            <li>ii) Ustedes ________________ (comer) en ese restaurante famoso.</li>
+            <li>jj) Nosotros no ________________ (ver) la película completa.</li>
+            <li>kk) Él no ________________ (venir) a la reunión de ayer.</li>
+            <li>ll) Tú no ________________ (hacer) la tarea el fin de semana.</li>
+            <li>mm) Ella no ________________ (poder) resolver el problema.</li>
+            <li>nn) Ustedes no ________________ (entender) las instrucciones.</li>
+        </ul>
 
-    <!-- ==================================== -->
-    <!-- 🔹 PUNTO 1: Ejercicio -->
-    <section id="punto-1">
-      <h2>1. Tema del ejercicio</h2>
-      <h3>Selecciona la opción correcta</h3>
-
-      <div class="exercise-item">
-        <p>1. Esta comida es ______ deliciosa.</p>
-        <div id="options-1">
-          <button class="option-button" onclick="verifyOption(this, 'muy')">muy</button>
-          <button class="option-button" onclick="verifyOption(this, 'poco')">poco</button>
-          <button class="option-button" onclick="verifyOption(this, 'nada')">nada</button>
+        <div class="solution-container">
+            <button class="check-button" onclick="toggleSolution('solution1')">Verificar Respuesta</button>
+            <div id="solution1" class="solution-toggle">
+                <p><strong>Posibles respuestas.</strong></p>
+                <ul class="exercise-list">
+                    <li>a) Yo <strong>hablé</strong> con mi amigo ayer.</li>
+                    <li>b) Ella <strong>comió</strong> una ensalada para la cena.</li>
+                    <li>c) Nosotros <strong>fuimos</strong> al parque el fin de semana pasado.</li>
+                    <li>d) Tú <strong>estudiaste</strong> para el examen anoche.</li>
+                    <li>e) Ellos <strong>llegaron</strong> tarde a la fiesta.</li>
+                    <li>f) Él <strong>cantó</strong> una canción en la fiesta.</li>
+                    <li>g) Nosotros <strong>viajamos</strong> a Madrid el verano pasado.</li>
+                    <li>h) Tú <strong>bailaste</strong> en la boda de tu hermana.</li>
+                    <li>i) Ella <strong>leyó</strong> un libro interesante la semana pasada.</li>
+                    <li>j) Ustedes <strong>compraron</strong> un regalo para su mamá.</li>
+                    <li>k) Yo <strong>fui</strong> al cine con mis amigos.</li>
+                    <li>l) Ellos <strong>corrieron</strong> en el parque por la mañana.</li>
+                    <li>m) Nosotros <strong>vimos</strong> una película ayer.</li>
+                    <li>n) Tú <strong>ayudaste</strong> a tu hermana con sus tareas.</li>
+                    <li>o) Ella <strong>tomó</strong> el autobús para ir al trabajo.</li>
+                    <li>p) Él no <strong>vino</strong> a la fiesta el sábado.</li>
+                    <li>q) Nosotros no <strong>hicimos</strong> la tarea anoche.</li>
+                    <li>r) Tú no <strong>dijiste</strong> la verdad.</li>
+                    <li>s) Ella no <strong>pudo</strong> encontrar las llaves.</li>
+                    <li>t) Ustedes no <strong>pusieron</strong> atención en clase.</li>
+                    <li>u) Nosotros <strong>compramos</strong> un nuevo coche el año pasado.</li>
+                    <li>v) Ella <strong>recibió</strong> una carta de su amiga.</li>
+                    <li>w) Tú <strong>decidiste</strong> estudiar en el extranjero.</li>
+                    <li>x) Él <strong>salió</strong> temprano de la oficina ayer.</li>
+                    <li>y) Ustedes <strong>hablaron</strong> con el director sobre el proyecto.</li>
+                    <li>z) Yo <strong>conocí</strong> a Juan en la universidad.</li>
+                    <li>aa) Ellos <strong>jugaron</strong> fútbol en el parque ayer.</li>
+                    <li>bb) Nosotros <strong>visitamos</strong> a nuestros abuelos el fin de semana pasado.</li>
+                    <li>cc) Ella <strong>aprendió</strong> a tocar guitarra el año pasado.</li>
+                    <li>dd) Tú <strong>trabajaste</strong> en ese restaurante el verano pasado.</li>
+                    <li>ee) Él <strong>perdió</strong> el tren para ir al aeropuerto.</li>
+                    <li>ff) Nosotros <strong>viajamos</strong> a Europa el verano pasado.</li>
+                    <li>gg) Tú <strong>cantaste</strong> en el concierto de la escuela.</li>
+                    <li>hh) Ella <strong>decidió</strong> cambiar de carrera.</li>
+                    <li>ii) Ustedes <strong>comieron</strong> en ese restaurante famoso.</li>
+                    <li>jj) Nosotros no <strong>vimos</strong> la película completa.</li>
+                    <li>kk) Él no <strong>vino</strong> a la reunión de ayer.</li>
+                    <li>ll) Tú no <strong>hiciste</strong> la tarea el fin de semana.</li>
+                    <li>mm) Ella no <strong>pudo</strong> resolver el problema.</li>
+                    <li>nn) Ustedes no <strong>entendieron</strong> las instrucciones.</li>
+                </ul>
+            </div>
         </div>
-        <div id="result-1" class="result-box">Respuesta</div>
-      </div>
-    </section>
-    <!-- ==================================== -->
 
-  </div>
+        </div>
 
   <script>
-    // Normaliza texto
-    function normalize(str) {
-      return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
-    }
-
-    // Verifica opción seleccionada
-    function verifyOption(btn, correct) {
-      const result = btn.parentElement.nextElementSibling;
-      const user = normalize(btn.textContent);
-      const expected = normalize(correct);
-
-      result.className = "result-box";
-      if (user === expected) {
-        result.classList.add("correct-result");
-        result.textContent = "¡Correcto!";
-      } else {
-        result.classList.add("incorrect-result");
-        result.textContent = "Error";
-      }
-    }
-  </script>
-</body>
+        function toggleSolution(id) {
+            var solution = document.getElementById(id);
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+  
+    </body>
 </html>
