@@ -174,6 +174,27 @@ select {
 }
 .correct-result { color: #28a745; }
 .incorrect-result { color: #dc3545; }
+  .exercise-section {
+  font-family: Arial, sans-serif;
+  margin: 15px;
+}
+.exercise-section h4 {
+  margin-top: 15px;
+}
+.exercise input {
+  width: 120px;
+  padding: 3px;
+  margin-left: 5px;
+}
+.exercise button {
+  margin-top: 10px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.exercise span {
+  font-size: 18px;
+  margin-left: 5px;
+}
 </style>
   
 </head>
@@ -993,6 +1014,53 @@ select {
 </div>
 
   <hr>
+  <section class="exercise-section">
+  <h3>5. FUTURO DE INDICATIVO</h3>
+
+  <h4>5.1. Coloca los verbos en la forma de futuro de indicativo.</h4>
+  <div class="exercise">
+    <p>a) partir (yo): <b>partiré</b></p>
+    <p>b) cantar (nosotros/as): <input type="text" data-answer="cantaremos"> <span></span></p>
+    <p>c) correr (vosotros/as): <input type="text" data-answer="correréis"> <span></span></p>
+    <p>d) ver (tú): <input type="text" data-answer="verás"> <span></span></p>
+    <p>e) salir (ellos/ellas/ustedes): <input type="text" data-answer="saldrán"> <span></span></p>
+    <p>f) hacer (él/ella/usted): <input type="text" data-answer="hará"> <span></span></p>
+    <p>g) poder (nosotros/as): <input type="text" data-answer="podremos"> <span></span></p>
+    <p>h) hablar (yo): <input type="text" data-answer="hablaré"> <span></span></p>
+    <p>i) estudiar (vosotros/as): <input type="text" data-answer="estudiaréis"> <span></span></p>
+    <p>j) dormir (ellos/ellas/ustedes): <input type="text" data-answer="dormirán"> <span></span></p>
+    <p>k) servir (tú): <input type="text" data-answer="servirás"> <span></span></p>
+    <p>l) mover (él/ella/usted): <input type="text" data-answer="moverá"> <span></span></p>
+    <p>m) acertar (tú): <input type="text" data-answer="acertarás"> <span></span></p>
+    <p>n) cambiar (yo): <input type="text" data-answer="cambiaré"> <span></span></p>
+    <button onclick="checkAnswers(this)">Verificar</button>
+  </div>
+
+  <h4>5.2. Conjugue los verbos en futuro de indicativo.</h4>
+  <div class="exercise">
+    <p>1. No sé si nosotros (poder) <input type="text" data-answer="podremos"> <span></span> superar tus resultados.</p>
+    <p>2. Jaime dice que (ir) <input type="text" data-answer="irá"> <span></span> a la biblioteca este fin de semana.</p>
+    <p>3. Creo que voy a (recibir) <input type="text" data-answer="recibir"> <span></span> buenas notas.</p>
+    <p>4. El meteorólogo dijo que mañana (llover) <input type="text" data-answer="lloverá"> <span></span>.</p>
+    <p>5. Dicen que tus padres (venir) <input type="text" data-answer="vendrán"> <span></span> a visitarte.</p>
+    <p>6. Se dice que el promedio de vida (aumentar) <input type="text" data-answer="aumentará"> <span></span>.</p>
+    <p>7. Os (reír) <input type="text" data-answer="reiréis"> <span></span> mucho cuando veáis la película.</p>
+    <p>8. Yo (ver) <input type="text" data-answer="veré"> <span></span> la película tan pronto comience.</p>
+    <p>9. Vuestra hermana dijo que (ponerse) <input type="text" data-answer="se pondrá"> <span></span> su vestido rojo.</p>
+    <p>10. Me parece que esta noche me (acostar) <input type="text" data-answer="acostaré"> <span></span> tarde porque voy a (estudiar) <input type="text" data-answer="estudiar"> <span></span> mucho.</p>
+    <p>11. La estudiante dice que ella (hacer) <input type="text" data-answer="hará"> <span></span> todo lo posible.</p>
+    <p>12. Los periódicos dicen que el consumo de drogas (incrementarse) <input type="text" data-answer="se incrementará"> <span></span>.</p>
+    <p>13. Este invierno mi familia y yo (ir) <input type="text" data-answer="iremos"> <span></span> a Colorado.</p>
+    <p>14. Vosotros no (poder) <input type="text" data-answer="podréis"> <span></span> viajar porque os (hacer) <input type="text" data-answer="hará"> <span></span> falta dinero.</p>
+    <p>15. Si te caes, tus compañeros (reírse) <input type="text" data-answer="se reirán"> <span></span>.</p>
+    <p>16. Tu hijo (romper) <input type="text" data-answer="romperá"> <span></span> la computadora si sigue jugando.</p>
+    <p>17. Creemos que os (gustar) <input type="text" data-answer="gustará"> <span></span> la nueva película.</p>
+    <p>18. Me marcho ahora, pero (venir) <input type="text" data-answer="vendré"> <span></span> pronto a buscarte.</p>
+    <p>19. Te (graduar) <input type="text" data-answer="graduarás"> <span></span> en mayo y (tener) <input type="text" data-answer="tendrás"> <span></span> que buscar trabajo.</p>
+    <button onclick="checkAnswers(this)">Verificar</button>
+  </div>
+</section>
+  <hr>
  </section>
 </div>
   
@@ -1116,6 +1184,29 @@ function verificarCoincidencia(id) {
     result.textContent = "❌ Incorrecto. La respuesta correcta es: " + correcto;
     result.classList.add("incorrect-result");
   }
+}
+   function checkAnswers(button) {
+  const container = button.parentElement;
+  const inputs = container.querySelectorAll("input");
+
+  inputs.forEach(input => {
+    const correct = input.dataset.answer.trim().toLowerCase();
+    const user = input.value.trim().toLowerCase();
+    const span = input.nextElementSibling;
+
+    if (!input.value) {
+      span.textContent = "";
+      return;
+    }
+
+    if (user === correct) {
+      span.textContent = "✅";
+      span.style.color = "green";
+    } else {
+      span.textContent = "❌";
+      span.style.color = "red";
+    }
+  });
 }
 </script>
 
