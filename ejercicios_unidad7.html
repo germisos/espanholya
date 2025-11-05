@@ -150,6 +150,17 @@ h2, h3 {
 .solution-toggle strong {
   color: #007bff;
 }
+  .emoji-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 3px;
+  transition: transform 0.2s;
+}
+.emoji-btn:hover {
+  transform: scale(1.2);
+}
 </style>
   
 </head>
@@ -646,7 +657,82 @@ h2, h3 {
      <button class="check-button-small" onclick="checkGustar('g19','les gustan')">Verificar</button>
      <span id="feedback-g19" class="feedback-span"></span></p>
 </div>
+<hr>
+  
+  <div class="exercise-item" id="exercise3">
+  <h3>3. Expresar coincidencia y no coincidencia</h3>
+  <p><strong>Ejemplo:</strong> a) A mí me gusta el chocolate.<br>
+  👉 <em>Respuesta:</em> A mí, también me gusta el chocolate. ✅</p>
 
+  <p>b) A él le gusta la música clásica.<br>
+    <button onclick="checkEmotion('b','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('b','😞')" class="emoji-btn">😞</button>
+    <span id="r-b" class="result-box"></span>
+  </p>
+
+  <p>c) A nosotros nos gustan los deportes.<br>
+    <button onclick="checkEmotion('c','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('c','😞')" class="emoji-btn">😞</button>
+    <span id="r-c" class="result-box"></span>
+  </p>
+
+  <p>d) A ellas les gusta leer libros.<br>
+    <button onclick="checkEmotion('d','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('d','😞')" class="emoji-btn">😞</button>
+    <span id="r-d" class="result-box"></span>
+  </p>
+
+  <p>e) A mí sí me gusta ir al cine.<br>
+    <button onclick="checkEmotion('e','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('e','😞')" class="emoji-btn">😞</button>
+    <span id="r-e" class="result-box"></span>
+  </p>
+
+  <p>f) A él no le gusta cocinar.<br>
+    <button onclick="checkEmotion('f','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('f','😞')" class="emoji-btn">😞</button>
+    <span id="r-f" class="result-box"></span>
+  </p>
+
+  <p>g) A nosotros nos gusta viajar.<br>
+    <button onclick="checkEmotion('g','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('g','😞')" class="emoji-btn">😞</button>
+    <span id="r-g" class="result-box"></span>
+  </p>
+
+  <p>h) A ellas les gusta bailar.<br>
+    <button onclick="checkEmotion('h','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('h','😞')" class="emoji-btn">😞</button>
+    <span id="r-h" class="result-box"></span>
+  </p>
+
+  <p>i) A él no le gusta el café.<br>
+    <button onclick="checkEmotion('i','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('i','😞')" class="emoji-btn">😞</button>
+    <span id="r-i" class="result-box"></span>
+  </p>
+
+  <p>j) A ellas no les gusta el frío.<br>
+    <button onclick="checkEmotion('j','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('j','😞')" class="emoji-btn">😞</button>
+    <span id="r-j" class="result-box"></span>
+  </p>
+
+  <p>k) A nosotros no nos gusta el fútbol.<br>
+    <button onclick="checkEmotion('k','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('k','😞')" class="emoji-btn">😞</button>
+    <span id="r-k" class="result-box"></span>
+  </p>
+
+  <p>l) A ti no te gusta la comida picante.<br>
+    <button onclick="checkEmotion('l','😊')" class="emoji-btn">😊</button>
+    <button onclick="checkEmotion('l','😞')" class="emoji-btn">😞</button>
+    <span id="r-l" class="result-box"></span>
+  </p>
+</div>
+
+  <hr>
+  
  </section>
 </div>
   
@@ -740,6 +826,49 @@ function checkGustar(inputId, correctAnswer) {
                           <em>Respuesta correcta:</em> <strong>${correctAnswer}</strong>`;
     feedback.style.color = "#dc3545";
     input.style.border = "2px solid #dc3545";
+  }
+}
+   const correctEmotions = {
+  b: "😞", // A mí, no me gusta la música clásica.
+  c: "😊", // A mí, también me gustan los deportes.
+  d: "😞", // A mí, no me gusta leer libros.
+  e: "😞", // A mí, no me gusta ir al cine.
+  f: "😊", // A mí, sí me gusta cocinar.
+  g: "😞", // A mí, no me gusta viajar.
+  h: "😊", // A mí, sí me gusta bailar.
+  i: "😞", // A mí, tampoco me gusta el café.
+  j: "😞", // A mí, tampoco me gusta el frío.
+  k: "😞", // A mí, tampoco me gusta el fútbol.
+  l: "😞"  // A mí, tampoco me gusta la comida picante.
+};
+
+const correctSentences = {
+  b: "A mí, no me gusta la música clásica.",
+  c: "A mí, también me gustan los deportes.",
+  d: "A mí, no me gusta leer libros.",
+  e: "A mí, no me gusta ir al cine.",
+  f: "A mí, sí me gusta cocinar.",
+  g: "A mí, no me gusta viajar.",
+  h: "A mí, sí me gusta bailar.",
+  i: "A mí, tampoco me gusta el café.",
+  j: "A mí, tampoco me gusta el frío.",
+  k: "A mí, tampoco me gusta el fútbol.",
+  l: "A mí, tampoco me gusta la comida picante."
+};
+
+function checkEmotion(id, emotion) {
+  const result = document.getElementById("r-" + id);
+  const correct = correctEmotions[id];
+  const correctText = correctSentences[id];
+
+  result.className = "result-box";
+
+  if (emotion === correct) {
+    result.textContent = "😊 ¡Correcto! → " + correctText;
+    result.classList.add("correct-result");
+  } else {
+    result.textContent = "😞 Incorrecto → " + correctText;
+    result.classList.add("incorrect-result");
   }
 }
 </script>
