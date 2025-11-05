@@ -152,27 +152,6 @@ h2, h3 {
 }
 </style>
   
-<script>
-function verifyInput(id, correctAnswer) {
-  const input = document.getElementById(id);
-  const result = document.getElementById("r-" + id);
-  const userAnswer = input.value.trim();
-  result.className = "result-box";
-
-  if (userAnswer === "") {
-    result.textContent = "respuesta";
-    return;
-  }
-
-  if (userAnswer === correctAnswer) {
-    result.classList.add("correct-result");
-    result.textContent = "¡Correcto!";
-  } else {
-    result.classList.add("incorrect-result");
-    result.textContent = "Incorrecto";
-  }
-}
-</script>
 </head>
 <body>
 <div class="lesson-container">
@@ -589,117 +568,99 @@ function verifyInput(id, correctAnswer) {
  </section>
 </div>
   
-<script>
-  // Normaliza la respuesta del usuario (elimina espacios extra y acentos)
-  function normalizeAnswer(text) {
-    return text
-      .toLowerCase()
-      .trim()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+ <script>
+// Normaliza la respuesta del usuario (elimina espacios extra y acentos)
+function normalizeAnswer(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+// === FUNCIÓN GENERAL PARA INPUTS (1.1, 1.3, 2.1) ===
+function verifyInput(id, correctAnswer) {
+  const input = document.getElementById(id);
+  const resultBox = document.getElementById("r-" + id);
+  if (!input || !resultBox) return;
+
+  const userAnswer = normalizeAnswer(input.value);
+  const normalizedCorrect = normalizeAnswer(correctAnswer);
+
+  resultBox.className = "result-box";
+
+  if (userAnswer === "") {
+    resultBox.textContent = "respuesta";
+    resultBox.style.color = "#999";
+    return;
   }
 
-  // Verifica la respuesta individual
-  function verifyInput(id, correctAnswer) {
-    const input = document.getElementById(id);
-    const resultBox = document.getElementById('r-' + id);
-
-    if (!input || !resultBox) return;
-
-    const userAnswer = normalizeAnswer(input.value);
-    const normalizedCorrect = normalizeAnswer(correctAnswer);
-
-    resultBox.className = "result-box";
-
-    if (userAnswer === normalizedCorrect) {
-      resultBox.textContent = "¡Correcto!";
-      resultBox.classList.add("correct-result");
-    } else if (userAnswer === "") {
-      resultBox.textContent = "respuesta";
-      resultBox.style.color = "#999";
-    } else {
-      resultBox.textContent = "Error → " + correctAnswer;
-      resultBox.classList.add("incorrect-result");
-    }
+  if (userAnswer === normalizedCorrect) {
+    resultBox.textContent = "✅ ¡Correcto!";
+    resultBox.classList.add("correct-result");
+  } else {
+    resultBox.innerHTML = `❌ Incorrecto.<br><em>Escribiste:</em> <strong>${input.value}</strong><br>
+                           <em>Respuesta correcta:</em> <strong>${correctAnswer}</strong>`;
+    resultBox.classList.add("incorrect-result");
   }
+}
 
-        // Función original del Punto 1.1
-        function toggleSolution(id) {
-            var solution = document.getElementById(id);
-            if (solution.style.display === "none" || solution.style.display === "") {
-                solution.style.display = "block";
-            } else {
-                solution.style.display = "none";
-            }
-        }
-        
-        // Función NUEVA para el Punto 1.2
-        function checkAnswers1_2() {
-            // IDs de los select elements
-            const answers = [
-                'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 
-                'q8', 'q9', 'q10', 'q11', 'q12', 'q13'
-            ];
-            let allCorrect = true;
+// === MOSTRAR / OCULTAR SOLUCIONES ===
+function toggleSolution(id) {
+  var solution = document.getElementById(id);
+  if (solution.style.display === "none" || solution.style.display === "") {
+    solution.style.display = "block";
+  } else {
+    solution.style.display = "none";
+  }
+}
 
-            answers.forEach(id => {
-                const select = document.getElementById(id);
-                // Comprobar si el valor seleccionado es 'correcta'
-                if (select.value === 'correcta') {
-                    select.style.border = '2px solid #28a745'; // Borde verde
-                } else if (select.value === 'incorrecta') {
-                    select.style.border = '2px solid #dc3545'; // Borde rojo
-                    allCorrect = false;
-                } else {
-                    select.style.border = '1px solid #ccc'; // Borde por defecto si no ha seleccionado nada
-                    allCorrect = false;
-                }
-            });
-
-            const feedback = document.getElementById('feedback1-2');
-            if (allCorrect) {
-                feedback.textContent = '¡Correcta!';
-                feedback.style.color = '#28a745';
-            } else {
-                feedback.textContent = 'Incorrecta. Revisa las opciones marcadas en rojo.';
-                feedback.style.color = '#dc3545';
-            }
-        }
-      function toggleSolution(id) {
-            var solution = document.getElementById(id);
-            if (solution.style.display === "none" || solution.style.display === "") {
-                solution.style.display = "block";
-            } else {
-                solution.style.display = "none";
-            }
-        }
-  function checkGustar(inputId, correctAnswer) {
-        const input = document.getElementById(inputId);
-        const feedback = document.getElementById('feedback-' + inputId);
-        // Limpiar y normalizar la respuesta (quitar espacios extra y pasar a minúsculas)
-        const studentAnswer = input.value.trim().toLowerCase();
-
-        if (studentAnswer === correctAnswer) {
-            feedback.textContent = 'Correcta';
-            feedback.style.color = '#28a745'; // Verde
-            input.style.border = '2px solid #28a745';
-        } else {
-            feedback.textContent = 'Incorrecta';
-            feedback.style.color = '#dc3545'; // Rojo
-            input.style.border = '2px solid #dc3545';
-        }
-    }
-  function checkAnswers1_2() {
+// === FUNCIÓN PARA EJERCICIO 1.2 (SELECTS) ===
+function checkAnswers1_2() {
   const selects = document.querySelectorAll('#exercise1-2 select');
   let correct = 0;
+
   selects.forEach(sel => {
-    if (sel.value === 'correcta') correct++;
+    if (sel.value === 'correcta') {
+      sel.style.border = '2px solid #28a745';
+      correct++;
+    } else if (sel.value === 'incorrecta') {
+      sel.style.border = '2px solid #dc3545';
+    } else {
+      sel.style.border = '1px solid #ccc';
+    }
   });
+
   const feedback = document.getElementById('feedback1-2');
   feedback.textContent = `Has acertado ${correct} de ${selects.length} respuestas.`;
+  feedback.style.color = correct === selects.length ? '#28a745' : '#dc3545';
+}
+
+// === FUNCIÓN PARA VERBO GUSTAR (PUNTO 2) ===
+function checkGustar(inputId, correctAnswer) {
+  const input = document.getElementById(inputId);
+  const feedback = document.getElementById('feedback-' + inputId);
+  const studentAnswer = input.value.trim().toLowerCase();
+
+  if (studentAnswer === "") {
+    feedback.textContent = "respuesta";
+    feedback.style.color = "#999";
+    input.style.border = "1px solid #ccc";
+    return;
+  }
+
+  if (studentAnswer === correctAnswer) {
+    feedback.textContent = "✅ Correcta";
+    feedback.style.color = "#28a745";
+    input.style.border = "2px solid #28a745";
+  } else {
+    feedback.innerHTML = `❌ Incorrecta. <em>Escribiste:</em> <strong>${input.value}</strong><br>
+                          <em>Respuesta correcta:</em> <strong>${correctAnswer}</strong>`;
+    feedback.style.color = "#dc3545";
+    input.style.border = "2px solid #dc3545";
+  }
 }
 </script>
-
 
 </body>
 </html>
