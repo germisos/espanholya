@@ -42,12 +42,23 @@ h2, h3 {
   line-height: 1.55;
 }
 
-/* === PUNTO 1.1: menos espacio y más compacto === */
+/* === PUNTO 1.1: mucho más compacto === */
+.exercise-item.compacto {
+  padding: 12px 18px;
+}
+
 .exercise-item.compacto p,
 .exercise-item.compacto li {
-  line-height: 1.35;
-  margin-bottom: 6px;
+  line-height: 1.2;        /* más apretado entre líneas */
+  margin-bottom: 3px;      /* menor espacio vertical */
 }
+
+.exercise-item.compacto form,
+.exercise-item.compacto div {
+  margin: 4px 0;
+  padding: 0;
+}
+
 
 /* === PUNTO 2 (verbo gustar): más espacio y margen interno === */
 .exercise-item.aireado {
