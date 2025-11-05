@@ -151,32 +151,29 @@ h2, h3 {
   color: #007bff;
 }
  .emotion-exercise {
-  margin-bottom: 8px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
-.emotion-exercise p {
-  display: inline-block;
-  width: 340px;
-  margin-right: 6px;
+.emoji {
+  font-size: 1.4em;
+  margin-left: 6px;
 }
-.emotion-exercise select {
+.question {
+  font-style: italic;
+  margin: 4px 0;
+}
+select {
   padding: 3px 6px;
   border-radius: 5px;
-}
-.emotion-exercise button {
-  margin-left: 4px;
-  padding: 3px 6px;
-  cursor: pointer;
 }
 .result-box {
   margin-left: 6px;
   font-weight: bold;
 }
-.correct-result {
-  color: green;
-}
-.incorrect-result {
-  color: red;
-}
+.correct-result { color: green; }
+.incorrect-result { color: red; }
 </style>
   
 </head>
@@ -677,11 +674,13 @@ h2, h3 {
   
   <div class="exercise-item" id="exercise3">
   <h3>3. Expresar coincidencia y no coincidencia</h3>
-  <p><em>Elige la respuesta correcta según si estás de acuerdo o no con la frase.  
+  <p><em>Observa si a la persona le gusta (🙂) o no le gusta (🙁) algo, y responde cómo te sientes tú.  
   Usa: "A mí también", "A mí tampoco", "A mí sí", "A mí no".</em></p>
 
+  <!-- Ejercicio 1 -->
   <div class="emotion-exercise">
-    <p><strong>a)</strong> A él le gusta la música clásica 😊</p>
+    <p><strong>a)</strong> A él le gusta la música clásica <span class="emoji">🙂</span></p>
+    <p class="question">¿Y a ti?</p>
     <select id="resp-a">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
@@ -691,8 +690,10 @@ h2, h3 {
     <span id="res-a" class="result-box"></span>
   </div>
 
+  <!-- Ejercicio 2 -->
   <div class="emotion-exercise">
-    <p><strong>b)</strong> A ellas no les gusta leer 😞</p>
+    <p><strong>b)</strong> A ellas no les gusta leer <span class="emoji">🙁</span></p>
+    <p class="question">¿Y a ti?</p>
     <select id="resp-b">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
@@ -704,8 +705,10 @@ h2, h3 {
     <span id="res-b" class="result-box"></span>
   </div>
 
+  <!-- Ejercicio 3 -->
   <div class="emotion-exercise">
-    <p><strong>c)</strong> A nosotros nos gusta viajar 😊</p>
+    <p><strong>c)</strong> A nosotros nos gustan los deportes <span class="emoji">🙂</span></p>
+    <p class="question">¿Y a ti?</p>
     <select id="resp-c">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
@@ -713,30 +716,6 @@ h2, h3 {
     </select>
     <button onclick="verificarEmocion('c')">Verificar</button>
     <span id="res-c" class="result-box"></span>
-  </div>
-
-  <div class="emotion-exercise">
-    <p><strong>d)</strong> A él no le gusta cocinar 😞</p>
-    <select id="resp-d">
-      <option value="">Selecciona...</option>
-      <option value="A mí también">A mí también</option>
-      <option value="A mí tampoco">A mí tampoco</option>
-      <option value="A mí sí">A mí sí</option>
-      <option value="A mí no">A mí no</option>
-    </select>
-    <button onclick="verificarEmocion('d')">Verificar</button>
-    <span id="res-d" class="result-box"></span>
-  </div>
-
-  <div class="emotion-exercise">
-    <p><strong>e)</strong> A mí me gusta ir al cine 😊</p>
-    <select id="resp-e">
-      <option value="">Selecciona...</option>
-      <option value="A mí también">A mí también</option>
-      <option value="A mí no">A mí no</option>
-    </select>
-    <button onclick="verificarEmocion('e')">Verificar</button>
-    <span id="res-e" class="result-box"></span>
   </div>
 </div>
 
@@ -837,12 +816,10 @@ function checkGustar(inputId, correctAnswer) {
     input.style.border = "2px solid #dc3545";
   }
 }
-   const respuestasCorrectas = {
-  a: "A mí no",        // A él le gusta → yo no
+  const respuestasCorrectas = {
+  a: "A mí no",        // A él le gusta → a mí no
   b: "A mí sí",        // A ellas no les gusta → a mí sí
-  c: "A mí también",   // A nosotros nos gusta → yo también
-  d: "A mí sí",        // A él no le gusta → a mí sí
-  e: "A mí también"    // A mí me gusta → coincide
+  c: "A mí también"    // A nosotros nos gustan → a mí también
 };
 
 function verificarEmocion(id) {
@@ -859,7 +836,7 @@ function verificarEmocion(id) {
     result.textContent = "✅ Correcto: " + correcto;
     result.classList.add("correct-result");
   } else {
-    result.textContent = "❌ Incorrecto. Respuesta correcta: " + correcto;
+    result.textContent = "❌ Incorrecto. La respuesta correcta es: " + correcto;
     result.classList.add("incorrect-result");
   }
 }
