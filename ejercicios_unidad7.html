@@ -195,6 +195,11 @@ select {
   font-size: 18px;
   margin-left: 5px;
 }
+   .exercise-section { font-family: Arial, sans-serif; margin: 16px 12px; }
+  .exercise p { margin: 8px 0; line-height: 1.4; }
+  .exercise input { width: 140px; padding: 4px; margin-left: 6px; }
+  .exercise button { margin-left: 6px; padding: 4px 8px; cursor: pointer; }
+  .res-icon { font-size: 18px; margin-left: 8px; vertical-align: middle; }
 </style>
   
 </head>
@@ -1014,50 +1019,237 @@ select {
 </div>
 
   <hr>
-  <section class="exercise-section">
+  <section class="exercise-section" id="punto5">
   <h3>5. FUTURO DE INDICATIVO</h3>
 
   <h4>5.1. Coloca los verbos en la forma de futuro de indicativo.</h4>
   <div class="exercise">
-    <p>a) partir (yo): <b>partiré</b></p>
-    <p>b) cantar (nosotros/as): <input type="text" data-answer="cantaremos"> <span></span></p>
-    <p>c) correr (vosotros/as): <input type="text" data-answer="correréis"> <span></span></p>
-    <p>d) ver (tú): <input type="text" data-answer="verás"> <span></span></p>
-    <p>e) salir (ellos/ellas/ustedes): <input type="text" data-answer="saldrán"> <span></span></p>
-    <p>f) hacer (él/ella/usted): <input type="text" data-answer="hará"> <span></span></p>
-    <p>g) poder (nosotros/as): <input type="text" data-answer="podremos"> <span></span></p>
-    <p>h) hablar (yo): <input type="text" data-answer="hablaré"> <span></span></p>
-    <p>i) estudiar (vosotros/as): <input type="text" data-answer="estudiaréis"> <span></span></p>
-    <p>j) dormir (ellos/ellas/ustedes): <input type="text" data-answer="dormirán"> <span></span></p>
-    <p>k) servir (tú): <input type="text" data-answer="servirás"> <span></span></p>
-    <p>l) mover (él/ella/usted): <input type="text" data-answer="moverá"> <span></span></p>
-    <p>m) acertar (tú): <input type="text" data-answer="acertarás"> <span></span></p>
-    <p>n) cambiar (yo): <input type="text" data-answer="cambiaré"> <span></span></p>
-    <button onclick="checkAnswers(this)">Verificar</button>
+    <p>a) partir (yo): <strong>partiré</strong></p>
+
+    <p>b) cantar (nosotros/as): 
+      <input id="f1" data-answer="cantaremos">
+      <button onclick="verifySingle('f1')">Verificar</button>
+      <span id="res-f1" class="res-icon"></span>
+    </p>
+
+    <p>c) correr (vosotros/as):
+      <input id="f2" data-answer="correréis">
+      <button onclick="verifySingle('f2')">Verificar</button>
+      <span id="res-f2" class="res-icon"></span>
+    </p>
+
+    <p>d) ver (tú):
+      <input id="f3" data-answer="verás">
+      <button onclick="verifySingle('f3')">Verificar</button>
+      <span id="res-f3" class="res-icon"></span>
+    </p>
+
+    <p>e) salir (ellos/ellas/ustedes):
+      <input id="f4" data-answer="saldrán">
+      <button onclick="verifySingle('f4')">Verificar</button>
+      <span id="res-f4" class="res-icon"></span>
+    </p>
+
+    <p>f) hacer (él/ella/usted):
+      <input id="f5" data-answer="hará">
+      <button onclick="verifySingle('f5')">Verificar</button>
+      <span id="res-f5" class="res-icon"></span>
+    </p>
+
+    <p>g) poder (nosotros/as):
+      <input id="f6" data-answer="podremos">
+      <button onclick="verifySingle('f6')">Verificar</button>
+      <span id="res-f6" class="res-icon"></span>
+    </p>
+
+    <p>h) hablar (yo):
+      <input id="f7" data-answer="hablaré">
+      <button onclick="verifySingle('f7')">Verificar</button>
+      <span id="res-f7" class="res-icon"></span>
+    </p>
+
+    <p>i) estudiar (vosotros/as):
+      <input id="f8" data-answer="estudiaréis">
+      <button onclick="verifySingle('f8')">Verificar</button>
+      <span id="res-f8" class="res-icon"></span>
+    </p>
+
+    <p>j) dormir (ellos/ellas/ustedes):
+      <input id="f9" data-answer="dormirán">
+      <button onclick="verifySingle('f9')">Verificar</button>
+      <span id="res-f9" class="res-icon"></span>
+    </p>
+
+    <p>k) servir (tú):
+      <input id="f10" data-answer="servirás">
+      <button onclick="verifySingle('f10')">Verificar</button>
+      <span id="res-f10" class="res-icon"></span>
+    </p>
+
+    <p>l) mover (él/ella/usted):
+      <input id="f11" data-answer="moverá">
+      <button onclick="verifySingle('f11')">Verificar</button>
+      <span id="res-f11" class="res-icon"></span>
+    </p>
+
+    <p>m) acertar (tú):
+      <input id="f12" data-answer="acertarás">
+      <button onclick="verifySingle('f12')">Verificar</button>
+      <span id="res-f12" class="res-icon"></span>
+    </p>
+
+    <p>n) cambiar (yo):
+      <input id="f13" data-answer="cambiaré">
+      <button onclick="verifySingle('f13')">Verificar</button>
+      <span id="res-f13" class="res-icon"></span>
+    </p>
   </div>
 
-  <h4>5.2. Conjugue los verbos en futuro de indicativo.</h4>
+  <hr>
+
+  <h4>5.2. Conjugue los verbos en futuro de indicativo (contexto)</h4>
   <div class="exercise">
-    <p>1. No sé si nosotros (poder) <input type="text" data-answer="podremos"> <span></span> superar tus resultados.</p>
-    <p>2. Jaime dice que (ir) <input type="text" data-answer="irá"> <span></span> a la biblioteca este fin de semana.</p>
-    <p>3. Creo que voy a (recibir) <input type="text" data-answer="recibir"> <span></span> buenas notas.</p>
-    <p>4. El meteorólogo dijo que mañana (llover) <input type="text" data-answer="lloverá"> <span></span>.</p>
-    <p>5. Dicen que tus padres (venir) <input type="text" data-answer="vendrán"> <span></span> a visitarte.</p>
-    <p>6. Se dice que el promedio de vida (aumentar) <input type="text" data-answer="aumentará"> <span></span>.</p>
-    <p>7. Os (reír) <input type="text" data-answer="reiréis"> <span></span> mucho cuando veáis la película.</p>
-    <p>8. Yo (ver) <input type="text" data-answer="veré"> <span></span> la película tan pronto comience.</p>
-    <p>9. Vuestra hermana dijo que (ponerse) <input type="text" data-answer="se pondrá"> <span></span> su vestido rojo.</p>
-    <p>10. Me parece que esta noche me (acostar) <input type="text" data-answer="acostaré"> <span></span> tarde porque voy a (estudiar) <input type="text" data-answer="estudiar"> <span></span> mucho.</p>
-    <p>11. La estudiante dice que ella (hacer) <input type="text" data-answer="hará"> <span></span> todo lo posible.</p>
-    <p>12. Los periódicos dicen que el consumo de drogas (incrementarse) <input type="text" data-answer="se incrementará"> <span></span>.</p>
-    <p>13. Este invierno mi familia y yo (ir) <input type="text" data-answer="iremos"> <span></span> a Colorado.</p>
-    <p>14. Vosotros no (poder) <input type="text" data-answer="podréis"> <span></span> viajar porque os (hacer) <input type="text" data-answer="hará"> <span></span> falta dinero.</p>
-    <p>15. Si te caes, tus compañeros (reírse) <input type="text" data-answer="se reirán"> <span></span>.</p>
-    <p>16. Tu hijo (romper) <input type="text" data-answer="romperá"> <span></span> la computadora si sigue jugando.</p>
-    <p>17. Creemos que os (gustar) <input type="text" data-answer="gustará"> <span></span> la nueva película.</p>
-    <p>18. Me marcho ahora, pero (venir) <input type="text" data-answer="vendré"> <span></span> pronto a buscarte.</p>
-    <p>19. Te (graduar) <input type="text" data-answer="graduarás"> <span></span> en mayo y (tener) <input type="text" data-answer="tendrás"> <span></span> que buscar trabajo.</p>
-    <button onclick="checkAnswers(this)">Verificar</button>
+    <p>1. No sé si nosotros (poder)
+      <input id="f21" data-answer="podremos">
+      <button onclick="verifySingle('f21')">Verificar</button>
+      <span id="res-f21" class="res-icon"></span>
+      superar tus resultados.
+    </p>
+
+    <p>2. Jaime dice que (ir)
+      <input id="f22" data-answer="irá">
+      <button onclick="verifySingle('f22')">Verificar</button>
+      <span id="res-f22" class="res-icon"></span>
+      a la biblioteca este fin de semana.
+    </p>
+
+    <p>3. Creo que voy a (recibir)
+      <input id="f23" data-answer="recibir">
+      <button onclick="verifySingle('f23')">Verificar</button>
+      <span id="res-f23" class="res-icon"></span>
+      buenas notas este semestre.
+    </p>
+
+    <p>4. El meteorólogo dijo que mañana (llover)
+      <input id="f24" data-answer="lloverá">
+      <button onclick="verifySingle('f24')">Verificar</button>
+      <span id="res-f24" class="res-icon"></span>.
+    </p>
+
+    <p>5. Dicen que tus padres (venir)
+      <input id="f25" data-answer="vendrán">
+      <button onclick="verifySingle('f25')">Verificar</button>
+      <span id="res-f25" class="res-icon"></span>
+      a visitarte durante la semana de exámenes finales.
+    </p>
+
+    <p>6. Se dice que el promedio de vida (aumentar)
+      <input id="f26" data-answer="aumentará">
+      <button onclick="verifySingle('f26')">Verificar</button>
+      <span id="res-f26" class="res-icon"></span>
+      en los próximos años.
+    </p>
+
+    <p>7. Os (reír)
+      <input id="f27" data-answer="reiréis">
+      <button onclick="verifySingle('f27')">Verificar</button>
+      <span id="res-f27" class="res-icon"></span>
+      mucho cuando veáis "Mujeres al borde de un ataque de nervios".
+    </p>
+
+    <p>8. Yo (ver)
+      <input id="f28" data-answer="veré">
+      <button onclick="verifySingle('f28')">Verificar</button>
+      <span id="res-f28" class="res-icon"></span>
+      la película tan pronto comience a exhibirse en el cine.
+    </p>
+
+    <p>9. Vuestra hermana dijo que (ponerse)
+      <input id="f29" data-answer="se pondrá">
+      <button onclick="verifySingle('f29')">Verificar</button>
+      <span id="res-f29" class="res-icon"></span>
+      su vestido rojo.
+    </p>
+
+    <p>10. Me parece que esta noche me (acostar)
+      <input id="f210" data-answer="acostaré">
+      <button onclick="verifySingle('f210')">Verificar</button>
+      <span id="res-f210" class="res-icon"></span>
+      tarde porque voy a (estudiar)
+      <input id="f211" data-answer="estudiar">
+      <button onclick="verifySingle('f211')">Verificar</button>
+      <span id="res-f211" class="res-icon"></span>
+      mucho.
+    </p>
+
+    <p>11. La estudiante dice que ella (hacer)
+      <input id="f212" data-answer="hará">
+      <button onclick="verifySingle('f212')">Verificar</button>
+      <span id="res-f212" class="res-icon"></span>
+      todo lo posible por salir bien en el siguiente examen.
+    </p>
+
+    <p>12. Los periódicos dicen que el consumo de drogas (incrementarse)
+      <input id="f213" data-answer="se incrementará">
+      <button onclick="verifySingle('f213')">Verificar</button>
+      <span id="res-f213" class="res-icon"></span>.
+    </p>
+
+    <p>13. Este invierno mi familia y yo (ir)
+      <input id="f214" data-answer="iremos">
+      <button onclick="verifySingle('f214')">Verificar</button>
+      <span id="res-f214" class="res-icon"></span>
+      a Colorado a esquiar.
+    </p>
+
+    <p>14. Vosotros no (poder)
+      <input id="f215" data-answer="podréis">
+      <button onclick="verifySingle('f215')">Verificar</button>
+      <span id="res-f215" class="res-icon"></span>
+      viajar durante el verano porque os (hacer)
+      <input id="f216" data-answer="hará">
+      <button onclick="verifySingle('f216')">Verificar</button>
+      <span id="res-f216" class="res-icon"></span>
+      falta más dinero.
+    </p>
+
+    <p>15. Si te caes por las escaleras, tus compañeros (reírse)
+      <input id="f217" data-answer="se reirán">
+      <button onclick="verifySingle('f217')">Verificar</button>
+      <span id="res-f217" class="res-icon"></span>.
+    </p>
+
+    <p>16. Tu hijo (romper)
+      <input id="f218" data-answer="romperá">
+      <button onclick="verifySingle('f218')">Verificar</button>
+      <span id="res-f218" class="res-icon"></span>
+      la computadora si dejas que siga jugando cerca de ella.
+    </p>
+
+    <p>17. Creemos que os (gustar)
+      <input id="f219" data-answer="gustará">
+      <button onclick="verifySingle('f219')">Verificar</button>
+      <span id="res-f219" class="res-icon"></span>
+      la nueva película de Almodóvar.
+    </p>
+
+    <p>18. Me marcho ahora, pero (venir)
+      <input id="f220" data-answer="vendré">
+      <button onclick="verifySingle('f220')">Verificar</button>
+      <span id="res-f220" class="res-icon"></span>
+      pronto a buscarte.
+    </p>
+
+    <p>19. Te (graduar)
+      <input id="f221" data-answer="graduarás">
+      <button onclick="verifySingle('f221')">Verificar</button>
+      <span id="res-f221" class="res-icon"></span>
+      en mayo y (tener)
+      <input id="f222" data-answer="tendrás">
+      <button onclick="verifySingle('f222')">Verificar</button>
+      <span id="res-f222" class="res-icon"></span>
+      que buscar trabajo.
+    </p>
   </div>
 </section>
   <hr>
@@ -1185,29 +1377,39 @@ function verificarCoincidencia(id) {
     result.classList.add("incorrect-result");
   }
 }
-   function checkAnswers(button) {
-  const container = button.parentElement;
-  const inputs = container.querySelectorAll("input");
+  // Normaliza: minusculas + eliminar tildes y espacios
+  function normalizeAnswer(text) {
+    return (text || "").toString()
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
 
-  inputs.forEach(input => {
-    const correct = input.dataset.answer.trim().toLowerCase();
-    const user = input.value.trim().toLowerCase();
-    const span = input.nextElementSibling;
+  // Verifica un solo input por id (puede reintentarse)
+  function verifySingle(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    const expected = normalizeAnswer(input.dataset.answer || "");
+    const given = normalizeAnswer(input.value || "");
+    const span = document.getElementById("res-" + id);
+    // reset classes/text
+    span.textContent = "";
+    span.style.color = "";
 
-    if (!input.value) {
-      span.textContent = "";
+    if (given === "") {
+      span.textContent = ""; // sin icono si no escribió nada
       return;
     }
 
-    if (user === correct) {
+    if (given === expected) {
       span.textContent = "✅";
-      span.style.color = "green";
+      span.style.color = "#28a745";
     } else {
       span.textContent = "❌";
-      span.style.color = "red";
+      span.style.color = "#dc3545";
     }
-  });
-}
+  }
 </script>
 
 </body>
