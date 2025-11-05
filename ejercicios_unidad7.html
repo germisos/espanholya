@@ -165,15 +165,15 @@ h2, h3 {
   margin: 4px 0;
 }
 select {
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 5px;
 }
 .result-box {
   margin-left: 6px;
   font-weight: bold;
 }
-.correct-result { color: green; }
-.incorrect-result { color: red; }
+.correct-result { color: #28a745; }
+.incorrect-result { color: #dc3545; }
 </style>
   
 </head>
@@ -673,49 +673,104 @@ select {
 <hr>
   
   <div class="exercise-item" id="exercise3">
-  <h3>3. Expresar coincidencia y no coincidencia</h3>
+  <h3>3. Expresar coincidencia con "gustar"</h3>
   <p><em>Observa si a la persona le gusta (🙂) o no le gusta (🙁) algo, y responde cómo te sientes tú.  
-  Usa: "A mí también", "A mí tampoco", "A mí sí", "A mí no".</em></p>
+  Usa: "A mí también" o "A mí tampoco".</em></p>
 
-  <!-- Ejercicio 1 -->
   <div class="emotion-exercise">
-    <p><strong>a)</strong> A él le gusta la música clásica <span class="emoji">🙂</span></p>
+    <p><strong>a)</strong> A él le gusta el chocolate <span class="emoji">🙂</span></p>
     <p class="question">¿Y a ti?</p>
     <select id="resp-a">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
-      <option value="A mí no">A mí no</option>
+      <option value="A mí tampoco">A mí tampoco</option>
     </select>
-    <button onclick="verificarEmocion('a')">Verificar</button>
+    <button onclick="verificarCoincidencia('a')">Verificar</button>
     <span id="res-a" class="result-box"></span>
   </div>
 
-  <!-- Ejercicio 2 -->
   <div class="emotion-exercise">
-    <p><strong>b)</strong> A ellas no les gusta leer <span class="emoji">🙁</span></p>
+    <p><strong>b)</strong> A ellas no les gusta el frío <span class="emoji">🙁</span></p>
     <p class="question">¿Y a ti?</p>
     <select id="resp-b">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
       <option value="A mí tampoco">A mí tampoco</option>
-      <option value="A mí sí">A mí sí</option>
-      <option value="A mí no">A mí no</option>
     </select>
-    <button onclick="verificarEmocion('b')">Verificar</button>
+    <button onclick="verificarCoincidencia('b')">Verificar</button>
     <span id="res-b" class="result-box"></span>
   </div>
 
-  <!-- Ejercicio 3 -->
   <div class="emotion-exercise">
     <p><strong>c)</strong> A nosotros nos gustan los deportes <span class="emoji">🙂</span></p>
     <p class="question">¿Y a ti?</p>
     <select id="resp-c">
       <option value="">Selecciona...</option>
       <option value="A mí también">A mí también</option>
-      <option value="A mí no">A mí no</option>
+      <option value="A mí tampoco">A mí tampoco</option>
     </select>
-    <button onclick="verificarEmocion('c')">Verificar</button>
+    <button onclick="verificarCoincidencia('c')">Verificar</button>
     <span id="res-c" class="result-box"></span>
+  </div>
+
+  <div class="emotion-exercise">
+    <p><strong>d)</strong> A él no le gusta el café <span class="emoji">🙁</span></p>
+    <p class="question">¿Y a ti?</p>
+    <select id="resp-d">
+      <option value="">Selecciona...</option>
+      <option value="A mí también">A mí también</option>
+      <option value="A mí tampoco">A mí tampoco</option>
+    </select>
+    <button onclick="verificarCoincidencia('d')">Verificar</button>
+    <span id="res-d" class="result-box"></span>
+  </div>
+
+  <div class="emotion-exercise">
+    <p><strong>e)</strong> A ella le gusta bailar salsa <span class="emoji">🙂</span></p>
+    <p class="question">¿Y a ti?</p>
+    <select id="resp-e">
+      <option value="">Selecciona...</option>
+      <option value="A mí también">A mí también</option>
+      <option value="A mí tampoco">A mí tampoco</option>
+    </select>
+    <button onclick="verificarCoincidencia('e')">Verificar</button>
+    <span id="res-e" class="result-box"></span>
+  </div>
+
+  <div class="emotion-exercise">
+    <p><strong>f)</strong> A nosotros no nos gusta levantarnos temprano <span class="emoji">🙁</span></p>
+    <p class="question">¿Y a ti?</p>
+    <select id="resp-f">
+      <option value="">Selecciona...</option>
+      <option value="A mí también">A mí también</option>
+      <option value="A mí tampoco">A mí tampoco</option>
+    </select>
+    <button onclick="verificarCoincidencia('f')">Verificar</button>
+    <span id="res-f" class="result-box"></span>
+  </div>
+
+  <div class="emotion-exercise">
+    <p><strong>g)</strong> A él le gusta el cine de acción <span class="emoji">🙂</span></p>
+    <p class="question">¿Y a ti?</p>
+    <select id="resp-g">
+      <option value="">Selecciona...</option>
+      <option value="A mí también">A mí también</option>
+      <option value="A mí tampoco">A mí tampoco</option>
+    </select>
+    <button onclick="verificarCoincidencia('g')">Verificar</button>
+    <span id="res-g" class="result-box"></span>
+  </div>
+
+  <div class="emotion-exercise">
+    <p><strong>h)</strong> A ellas no les gusta cocinar <span class="emoji">🙁</span></p>
+    <p class="question">¿Y a ti?</p>
+    <select id="resp-h">
+      <option value="">Selecciona...</option>
+      <option value="A mí también">A mí también</option>
+      <option value="A mí tampoco">A mí tampoco</option>
+    </select>
+    <button onclick="verificarCoincidencia('h')">Verificar</button>
+    <span id="res-h" class="result-box"></span>
   </div>
 </div>
 
@@ -816,17 +871,22 @@ function checkGustar(inputId, correctAnswer) {
     input.style.border = "2px solid #dc3545";
   }
 }
-  const respuestasCorrectas = {
-  a: "A mí no",        // A él le gusta → a mí no
-  b: "A mí sí",        // A ellas no les gusta → a mí sí
-  c: "A mí también"    // A nosotros nos gustan → a mí también
+  const respuestasCoincidencia = {
+  a: "A mí también",
+  b: "A mí tampoco",
+  c: "A mí también",
+  d: "A mí tampoco",
+  e: "A mí también",
+  f: "A mí tampoco",
+  g: "A mí también",
+  h: "A mí tampoco"
 };
 
-function verificarEmocion(id) {
+function verificarCoincidencia(id) {
   const select = document.getElementById("resp-" + id);
   const result = document.getElementById("res-" + id);
   const valor = select.value;
-  const correcto = respuestasCorrectas[id];
+  const correcto = respuestasCoincidencia[id];
 
   result.className = "result-box";
   if (valor === "") {
