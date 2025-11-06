@@ -100,36 +100,90 @@ footer {
   font-size: 0.9em;
   border-radius: 0 0 10px 10px;
 }
+  /* Estilos específicos para los botones de audio */
+        .audio-button {
+            background-color: #007bff; /* Azul */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-right: 15px;
+            transition: background-color 0.3s;
+        }
+        .audio-button:hover {
+            background-color: #0056b3;
+        }
+        /* Estilo para notas aclaratorias en ejemplos */
+        .audio-note {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        /* Estilos para el contenido de la lección */
+        .lesson-content {
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .example-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .example-list li {
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
 </style>
 </head>
 
 <body>
   <header>
-    <h2>Unidad 8 – Ejercicios</h2>
+    <h2>Unidad 8</h2>
   </header>
 
-  <div class="container">
-    <h3>8.1. Título del ejercicio</h3>
-    <div class="exercise">
-      <p>Ejemplo: <strong>Aquí iría una frase</strong></p>
-      <p>
-        <input type="text" id="e1" placeholder="respuesta">
-        <button onclick="verificar('e1','respuesta')">Verificar</button>
-        <span id="r-e1" class="result-box"></span>
-      </p>
-    </div>
-
-    <h3>8.2. Otro ejercicio</h3>
-    <div class="exercise">
-      <p><strong>Ejercicio 2:</strong> Completa con la palabra correcta.</p>
-      <p>
-        <input type="text" id="e2" placeholder="respuesta">
-        <button onclick="verificar('e2','correcta')">Verificar</button>
-        <span id="r-e2" class="result-box"></span>
-      </p>
-    </div>
-
-  </div>
+  <div class="main-content">
+            <h2>Unidad 8 - Lección</h2>
+            
+            <h3>Punto 1. PRETÉRITO PERFECTO</h3>
+            
+            <h4>1.1. Uso</h4>
+            <div class="lesson-content">
+                <p>El pretérito perfecto es un tiempo verbal que se utiliza para expresar acciones pasadas que tienen **relevancia en el presente**, acciones realizadas en el pasado que aún no han terminado. Se forma mediante el uso del presente del verbo "haber" más el participio pasado del verbo que se está conjugando.</p>
+                <p>Se usa con expresiones como: **hoy, este mes/año/invierno, esta tarde, esta mañana, estos días, estos años, estas semanas/vacaciones**. También se usa con acciones ocurridas en un momento pasado no definido, en estos casos usamos estos marcadores: **ya, todavía no, siempre, nunca, alguna vez, dos veces, muchas veces**.</p>
+                
+                <p><strong>Ejemplos:</strong></p>
+                <ul class="example-list">
+                    <li>
+                        <button class="audio-button" onclick="playAudio('assets/audio/unidad8/pp/1.mp3')">Oír</button> 
+                        He visitado ese museo varias veces. <span class="audio-note">(La acción de visitar el museo ocurrió en el pasado, pero la experiencia es relevante en el presente).</span>
+                    </li>
+                    <li>Yo he estudiado mucho para el examen.</li>
+                    <li>Hemos llegado justo a tiempo para la reunión. <span class="audio-note">(La acción de llegar ocurrió recientemente en relación con el momento presente).</span></li>
+                    <li>
+                        <button class="audio-button" onclick="playAudio('assets/audio/unidad8/pp/2.mp3')">Oír</button>
+                        Ellos han viajado por muchos países.
+                    </li>
+                    <li>He leído ese libro tres veces. <span class="audio-note">(La acción de leer el libro se ha realizado en varias ocasiones en el pasado).</span></li>
+                    <li>Tú has visto esa película antes.</li>
+                    <li>
+                        <button class="audio-button" onclick="playAudio('assets/audio/unidad8/pp/3.mp3')">Oír</button>
+                        Hemos construido una nueva casa. <span class="audio-note">(La acción de construir la casa tuvo lugar en el pasado, y el resultado, la casa, es visible en el presente).</span>
+                    </li>
+                    <li>Hemos comido en ese restaurante en varias ocasiones.</li>
+                    <li>Todavía no he viajado a Europa.</li>
+                    <li>
+                        <button class="audio-button" onclick="playAudio('assets/audio/unidad8/pp/4.mp3')">Oír</button>
+                        Miriam se ha levantado muy tarde.
+                    </li>
+                    <li>¿Has lavado tu coche alguna vez?</li>
+                    <li>Sí, muchas veces he lavado mi coche.</li>
+                </ul>
+            </div>
+        </div>
 
   <footer>
     © 2025 Curso de Español - Unidad 8
@@ -143,30 +197,27 @@ function normalizar(texto) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 }
+// Función para reproducir el audio
+    function playAudio(path) {
+        // Detener cualquier audio que se esté reproduciendo
+        const existingAudio = document.querySelector('audio[data-playing="true"]');
+        if (existingAudio) {
+            existingAudio.pause();
+            existingAudio.removeAttribute('data-playing');
+            existingAudio.remove(); 
+        }
 
-function verificar(id, respuestaCorrecta) {
-  const input = document.getElementById(id);
-  const result = document.getElementById("r-" + id);
-  const valor = normalizar(input.value);
-  const correcta = normalizar(respuestaCorrecta);
+        const audio = new Audio(path);
+        audio.setAttribute('data-playing', 'true');
+        audio.play().catch(e => console.error("Error al reproducir el audio:", e));
+        
+        // Limpiar el elemento de audio una vez que termine
+        audio.onended = () => {
+            audio.removeAttribute('data-playing');
+            audio.remove();
+        };
+    }
 
-  result.textContent = "";
-  result.className = "result-box";
-
-  if (valor === "") {
-    result.textContent = "respuesta";
-    result.style.color = "#888";
-    return;
-  }
-
-  if (valor === correcta) {
-    result.textContent = "✅";
-    result.classList.add("correct");
-  } else {
-    result.textContent = "❌";
-    result.classList.add("incorrect");
-  }
-}
 </script>
 
 </body>
