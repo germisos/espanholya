@@ -1,4 +1,4 @@
-// menu.js - versión robusta con bloque "Material del Curso" mejorado
+// menu.js - versión robusta con bloque "Material del Curso" mejorado 
 (function () {
   if (window.__MENU_JS_LOADED) return;
   window.__MENU_JS_LOADED = true;
@@ -29,6 +29,8 @@
                       <li><a href="ejercicios_unidad2.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U2</a></li>
                       <li><a href="unidad3.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 3 (Lección)</a></li>
                       <li><a href="ejercicios_unidad3.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U3</a></li>
+                      <li><a href="unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 4 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U4</a></li>
                     </ul>
                   </li>
 
@@ -36,12 +38,12 @@
                   <li class="sub-dropdown" style="position:relative;">
                     <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Nivel A2 ►</a>
                     <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
-                      <li><a href="unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 4 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad4.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U4</a></li>
                       <li><a href="unidad5.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 5 (Lección)</a></li>
                       <li><a href="ejercicios_unidad5.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U5</a></li>
                       <li><a href="unidad6.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 6 (Lección)</a></li>
                       <li><a href="ejercicios_unidad6.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U6</a></li>
+                      <li><a href="unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 7 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U7</a></li>
                     </ul>
                   </li>
 
@@ -49,8 +51,6 @@
                   <li class="sub-dropdown" style="position:relative;">
                     <a href="#" class="menu-link" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Nivel B1 ►</a>
                     <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
-                      <li><a href="unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 7 (Lección)</a></li>
-                      <li><a href="ejercicios_unidad7.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U7</a></li>
                       <li><a href="unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 8 (Lección)</a></li>
                       <li><a href="ejercicios_unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U8</a></li>
                     </ul>
@@ -89,7 +89,7 @@
       </header>
       `;
 
-      // elimina encabezado previo si existe
+      // (El resto del código sigue igual: inicialización, eventos, estilos)
       const existing = document.getElementById("mainHeader");
       if (existing) existing.remove();
 
@@ -99,7 +99,6 @@
       if (!headerNode) return;
       document.body.insertBefore(headerNode, document.body.firstElementChild);
 
-      // comportamiento del menú
       const dropdowns = document.querySelectorAll(".dropdown, .sub-dropdown");
       dropdowns.forEach(dropdown => {
         const content = dropdown.querySelector(".dropdown-content, .sub-dropdown-content");
@@ -114,7 +113,6 @@
         });
       });
 
-      // cierre automático al hacer clic fuera
       document.addEventListener("click", (e) => {
         const header = document.getElementById("mainHeader");
         if (!header.contains(e.target)) {
@@ -124,7 +122,6 @@
         }
       });
 
-      // estilos unificados
       const style = document.createElement("style");
       style.textContent = `
         #mainHeader, #mainHeader * {
@@ -147,7 +144,7 @@
       `;
       document.head.appendChild(style);
 
-      console.log("menu.js: listo con bloque 'Material del Curso'");
+      console.log("menu.js actualizado correctamente");
     } catch (err) {
       console.error("menu.js error:", err);
     }
