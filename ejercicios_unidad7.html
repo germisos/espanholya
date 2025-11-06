@@ -201,19 +201,6 @@ select {
   .exercise button { margin-left: 6px; padding: 4px 8px; cursor: pointer; }
   .res-icon { font-size: 18px; margin-left: 8px; vertical-align: middle; }
 
-  .exercise-section {
-  margin-bottom: 25px;
-}
-.exercise {
-  margin: 10px 0;
-  padding: 6px;
-  background: #f9f9f9;
-  border-radius: 6px;
-}
-.exercise span.result {
-  font-size: 1.2em;
-  margin-left: 8px;
-}
 </style>
   
 </head>
@@ -1019,127 +1006,337 @@ select {
   <button onclick="verifyInput('f219','vendré')">Verificar</button>
   <div id="r-f219" class="result-box">respuesta</div>
 
-    <hr>
+   <hr>
+        <h3>Punto 6. CONECTORES</h3>
 
-  <!-- 🔹 PUNTO 6 - CONECTORES -->
-<section class="exercise-section">
-  <h3>6. CONECTORES</h3>
-  <h4>1. Completa las frases con el conector adecuado: "y", "además", "pero", "sin embargo", "en cambio".</h4>
+        <h4>6.1. Completa las siguientes frases con el conector adecuado: "y", "además", "pero", "sin embargo", "en cambio".</h4>
+        <div id="exercise6-1" class="exercise-list">
+            <p>Ejemplo: a) Me gusta el chocolate, <strong>PERO</strong> no me gusta la vainilla.</p>
+            <ul class="exercise-list">
+                <li>
+                    b) Hoy hace sol, 
+                    <select id="c6_1_b">
+                        <option value="">---</option>
+                        <option value="incorrecta">y</option>
+                        <option value="correcta">pero</option>
+                        <option value="incorrecta">en cambio</option>
+                    </select>
+                    hace mucho frío.
+                </li>
+                <li>
+                    c) Quiero ir al cine, 
+                    <select id="c6_1_c">
+                        <option value="">---</option>
+                        <option value="correcta">pero</option>
+                        <option value="incorrecta">además</option>
+                        <option value="incorrecta">y</option>
+                    </select>
+                    mis amigos prefieren quedarse en casa.
+                </li>
+                <li>
+                    d) Estudio mucho para el examen, 
+                    <select id="c6_1_d">
+                        <option value="">---</option>
+                        <option value="incorrecta">pero</option>
+                        <option value="correcta">sin embargo</option>
+                        <option value="incorrecta">y</option>
+                    </select>
+                    aun así no estoy seguro de aprobar.
+                </li>
+                <li>
+                    e) Me gusta viajar, 
+                    <select id="c6_1_e">
+                        <option value="">---</option>
+                        <option value="incorrecta">además</option>
+                        <option value="correcta">pero</option>
+                        <option value="incorrecta">y</option>
+                    </select>
+                    no tengo mucho dinero para hacerlo.
+                </li>
+                <li>
+                    f) Ayer fuimos al parque, 
+                    <select id="c6_1_f">
+                        <option value="">---</option>
+                        <option value="correcta">y</option>
+                        <option value="incorrecta">pero</option>
+                        <option value="incorrecta">sin embargo</option>
+                    </select>
+                    también visitamos el museo.
+                </li>
+                <li>
+                    g) María quiere ser médica, 
+                    <select id="c6_1_g">
+                        <option value="">---</option>
+                        <option value="incorrecta">y</option>
+                        <option value="incorrecta">sin embargo</option>
+                        <option value="correcta">en cambio</option>
+                    </select>
+                    su hermano quiere ser abogado.
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkConectores('6_1')">Verificar Respuestas 6.1</button>
+            <p id="feedback6_1" class="feedback-span"></p>
+        </div>
+        
+        <hr>
 
-  <div class="exercise" data-correct="pero">
-    b) Hoy hace sol, ______ hace mucho frío.<br>
-    <label><input type="radio" name="ex1b" value="y"> y</label>
-    <label><input type="radio" name="ex1b" value="pero"> pero</label>
-    <label><input type="radio" name="ex1b" value="además"> además</label>
-    <span class="result"></span>
-  </div>
+        <h4>6.2. Completa las siguientes frases con el conector adecuado: "debido a", "porque" o "ya que".</h4>
+        <div id="exercise6-2" class="exercise-list">
+            <p>Ejemplo: a) No pudimos salir al parque <strong>PORQUE</strong> llovía.</p>
+            <ul class="exercise-list">
+                <li>
+                    b) No voy a la fiesta 
+                    <select id="c6_2_b">
+                        <option value="">---</option>
+                        <option value="correcta">porque</option>
+                        <option value="incorrecta">debido a</option>
+                    </select>
+                    tengo que estudiar.
+                </li>
+                <li>
+                    c) Ella llegó tarde al trabajo 
+                    <select id="c6_2_c">
+                        <option value="">---</option>
+                        <option value="correcta">debido al</option>
+                        <option value="incorrecta">porque</option>
+                    </select>
+                    tráfico.
+                </li>
+                <li>
+                    d) No comimos postre 
+                    <select id="c6_2_d">
+                        <option value="">---</option>
+                        <option value="incorrecta">debido a</option>
+                        <option value="correcta">porque</option>
+                    </select>
+                    estábamos llenos.
+                </li>
+                <li>
+                    e) No pudimos ir al concierto 
+                    <select id="c6_2_e">
+                        <option value="">---</option>
+                        <option value="correcta">porque</option>
+                        <option value="incorrecta">debido a</option>
+                    </select>
+                    se canceló.
+                </li>
+                <li>
+                    f) No pudimos hacer la excursión 
+                    <select id="c6_2_f">
+                        <option value="">---</option>
+                        <option value="correcta">debido al</option>
+                        <option value="incorrecta">ya que</option>
+                    </select>
+                    mal tiempo.
+                </li>
+                <li>
+                    g) No puedes ver la película 
+                    <select id="c6_2_g">
+                        <option value="">---</option>
+                        <option value="correcta">porque</option>
+                        <option value="incorrecta">debido a</option>
+                    </select>
+                    no tienes boleto.
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkConectores('6_2')">Verificar Respuestas 6.2</button>
+            <p id="feedback6_2" class="feedback-span"></p>
+        </div>
 
-  <div class="exercise" data-correct="pero">
-    c) Quiero ir al cine, ______ mis amigos prefieren quedarse en casa.<br>
-    <label><input type="radio" name="ex1c" value="sin embargo"> sin embargo</label>
-    <label><input type="radio" name="ex1c" value="pero"> pero</label>
-    <label><input type="radio" name="ex1c" value="y"> y</label>
-    <span class="result"></span>
-  </div>
+        <hr>
 
-  <div class="exercise" data-correct="sin embargo">
-    d) Estudio mucho para el examen, ______ aun así no estoy seguro de aprobar.<br>
-    <label><input type="radio" name="ex1d" value="pero"> pero</label>
-    <label><input type="radio" name="ex1d" value="sin embargo"> sin embargo</label>
-    <label><input type="radio" name="ex1d" value="además"> además</label>
-    <span class="result"></span>
-  </div>
+        <h4>6.3. Completa las siguientes frases con el conector adecuado: "si", "a menos que", "cuando" o "mientras".</h4>
+        <div id="exercise6-3" class="exercise-list">
+            <p>Ejemplo: a) No saldré de casa <strong>SI</strong> llueve.</p>
+            <ul class="exercise-list">
+                <li>
+                    b) Él irá al concierto 
+                    <select id="c6_3_b">
+                        <option value="">---</option>
+                        <option value="correcta">si</option>
+                        <option value="incorrecta">a menos que</option>
+                    </select>
+                    consigue boletos.
+                </li>
+                <li>
+                    c) No puedes jugar 
+                    <select id="c6_3_c">
+                        <option value="">---</option>
+                        <option value="correcta">a menos que</option>
+                        <option value="incorrecta">cuando</option>
+                    </select>
+                    no termines tus tareas. (Usando 'a menos que' para la estructura 'a menos que no')
+                </li>
+                <li>
+                    d) No podremos ir de vacaciones 
+                    <select id="c6_3_d">
+                        <option value="">---</option>
+                        <option value="correcta">a menos que</option>
+                        <option value="incorrecta">cuando</option>
+                    </select>
+                    tengamos dinero.
+                </li>
+                <li>
+                    e) Ella estudiará medicina 
+                    <select id="c6_3_e">
+                        <option value="">---</option>
+                        <option value="correcta">ya que</option>
+                        <option value="incorrecta">mientras</option>
+                    </select>
+                    aprobó el examen.
+                </li>
+                <li>
+                    f) No podré ir al cine 
+                    <select id="c6_3_f">
+                        <option value="">---</option>
+                        <option value="correcta">mientras</option>
+                        <option value="incorrecta">si</option>
+                    </select>
+                    no tenga tiempo.
+                </li>
+                <li>
+                    g) Él tocará la guitarra 
+                    <select id="c6_3_g">
+                        <option value="">---</option>
+                        <option value="correcta">si</option>
+                        <option value="incorrecta">cuando</option>
+                    </select>
+                    no hay mucho ruido.
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkConectores('6_3')">Verificar Respuestas 6.3</button>
+            <p id="feedback6_3" class="feedback-span"></p>
+        </div>
 
-  <div class="exercise" data-correct="y">
-    f) Ayer fuimos al parque, ______ también visitamos el museo.<br>
-    <label><input type="radio" name="ex1f" value="y"> y</label>
-    <label><input type="radio" name="ex1f" value="pero"> pero</label>
-    <label><input type="radio" name="ex1f" value="en cambio"> en cambio</label>
-    <span class="result"></span>
-  </div>
+        <hr>
 
-  <div class="exercise" data-correct="en cambio">
-    g) María quiere ser médica, ______ su hermano quiere ser abogado.<br>
-    <label><input type="radio" name="ex1g" value="sin embargo"> sin embargo</label>
-    <label><input type="radio" name="ex1g" value="en cambio"> en cambio</label>
-    <label><input type="radio" name="ex1g" value="además"> además</label>
-    <span class="result"></span>
-  </div>
+        <h4>6.4. Completa las siguientes frases con el conector adecuado: "igual que", "por lo tanto", o "en resumen".</h4>
+        <div id="exercise6-4" class="exercise-list">
+            <p>Ejemplo: a) Él es inteligente, <strong>IGUAL QUE</strong> sus hermanos.</p>
+            <ul class="exercise-list">
+                <li>
+                    b) No pude asistir a la fiesta, 
+                    <select id="c6_4_b">
+                        <option value="">---</option>
+                        <option value="incorrecta">igual que</option>
+                        <option value="correcta">por lo tanto</option>
+                    </select>
+                    no llegué tarde.
+                </li>
+                <li>
+                    c) Estudié mucho, 
+                    <select id="c6_4_c">
+                        <option value="">---</option>
+                        <option value="correcta">por lo tanto</option>
+                        <option value="incorrecta">en resumen</option>
+                    </select>
+                    saqué buenas notas.
+                </li>
+                <li>
+                    d) Él habla inglés, 
+                    <select id="c6_4_d">
+                        <option value="">---</option>
+                        <option value="incorrecta">por lo tanto</option>
+                        <option value="correcta">igual que</option>
+                    </select>
+                    yo.
+                </li>
+                <li>
+                    e) No tenemos suficiente comida, 
+                    <select id="c6_4_e">
+                        <option value="">---</option>
+                        <option value="correcta">por lo tanto</option>
+                        <option value="incorrecta">en resumen</option>
+                    </select>
+                    debemos ir al supermercado.
+                </li>
+                <li>
+                    f) Él es mayor, 
+                    <select id="c6_4_f">
+                        <option value="">---</option>
+                        <option value="correcta">más que</option>
+                        <option value="incorrecta">igual que</option>
+                    </select>
+                    su hermano.
+                </li>
+                <li>
+                    g) No comí el desayuno, 
+                    <select id="c6_4_g">
+                        <option value="">---</option>
+                        <option value="correcta">por lo tanto</option>
+                        <option value="incorrecta">en resumen</option>
+                    </select>
+                    me siento débil.
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkConectores('6_4')">Verificar Respuestas 6.4</button>
+            <p id="feedback6_4" class="feedback-span"></p>
+        </div>
 
-  <h4>2. Completa las frases con: "debido a", "porque" o "ya que".</h4>
+        <hr>
 
-  <div class="exercise" data-correct="porque">
-    b) No voy a la fiesta ______ tengo que estudiar.<br>
-    <label><input type="radio" name="ex2b" value="debido a"> debido a</label>
-    <label><input type="radio" name="ex2b" value="porque"> porque</label>
-    <label><input type="radio" name="ex2b" value="ya que"> ya que</label>
-    <span class="result"></span>
-  </div>
-
-  <div class="exercise" data-correct="debido a">
-    c) Ella llegó tarde al trabajo ______ el tráfico.<br>
-    <label><input type="radio" name="ex2c" value="porque"> porque</label>
-    <label><input type="radio" name="ex2c" value="ya que"> ya que</label>
-    <label><input type="radio" name="ex2c" value="debido a"> debido a</label>
-    <span class="result"></span>
-  </div>
-
-  <h4>3. Completa las frases con: "ya que", "si", "a menos que", "cuando" o "mientras".</h4>
-
-  <div class="exercise" data-correct="si">
-    b) Él irá al concierto ______ consigue boletos.<br>
-    <label><input type="radio" name="ex3b" value="si"> si</label>
-    <label><input type="radio" name="ex3b" value="a menos que"> a menos que</label>
-    <label><input type="radio" name="ex3b" value="ya que"> ya que</label>
-    <span class="result"></span>
-  </div>
-
-  <div class="exercise" data-correct="a menos que">
-    d) No podremos ir de vacaciones ______ tengamos dinero.<br>
-    <label><input type="radio" name="ex3d" value="si"> si</label>
-    <label><input type="radio" name="ex3d" value="mientras"> mientras</label>
-    <label><input type="radio" name="ex3d" value="a menos que"> a menos que</label>
-    <span class="result"></span>
-  </div>
-
-  <h4>4. Completa las frases con: "igual que", "más que", "en resumen" o "por lo tanto".</h4>
-
-  <div class="exercise" data-correct="por lo tanto">
-    c) Estudié mucho, ______ saqué buenas notas.<br>
-    <label><input type="radio" name="ex4c" value="por lo tanto"> por lo tanto</label>
-    <label><input type="radio" name="ex4c" value="en resumen"> en resumen</label>
-    <label><input type="radio" name="ex4c" value="igual que"> igual que</label>
-    <span class="result"></span>
-  </div>
-
-  <div class="exercise" data-correct="igual que">
-    d) Él habla inglés, ______ yo.<br>
-    <label><input type="radio" name="ex4d" value="igual que"> igual que</label>
-    <label><input type="radio" name="ex4d" value="más que"> más que</label>
-    <label><input type="radio" name="ex4d" value="por lo tanto"> por lo tanto</label>
-    <span class="result"></span>
-  </div>
-
-  <h4>5. Completa las frases con: "por eso", "en consecuencia", "primero", "después/luego" o "por último".</h4>
-
-  <div class="exercise" data-correct="por eso">
-    a) Me levanté tarde, ______ perdí el autobús.<br>
-    <label><input type="radio" name="ex5a" value="por eso"> por eso</label>
-    <label><input type="radio" name="ex5a" value="en consecuencia"> en consecuencia</label>
-    <label><input type="radio" name="ex5a" value="por último"> por último</label>
-    <span class="result"></span>
-  </div>
-
-  <div class="exercise" data-correct="en consecuencia">
-    b) Estudié mucho, ______ saqué buenas notas.<br>
-    <label><input type="radio" name="ex5b" value="después/luego"> después/luego</label>
-    <label><input type="radio" name="ex5b" value="por eso"> por eso</label>
-    <label><input type="radio" name="ex5b" value="en consecuencia"> en consecuencia</label>
-    <span class="result"></span>
-  </div>
-</section>
-
-
+        <h4>6.5. Completa las siguientes frases con el conector adecuado: "por eso", "en consecuencia", "primero", "después/luego".</h4>
+        <div id="exercise6-5" class="exercise-list">
+            <p>Ejemplo: a) Me levanté tarde, <strong>POR ESO</strong> perdí el autobús.</p>
+            <ul class="exercise-list">
+                <li>
+                    b) Estudié mucho, 
+                    <select id="c6_5_b">
+                        <option value="">---</option>
+                        <option value="correcta">en consecuencia</option>
+                        <option value="incorrecta">primero</option>
+                    </select>
+                    saqué buenas notas.
+                </li>
+                <li>
+                    c) Fui al supermercado, 
+                    <select id="c6_5_c">
+                        <option value="">---</option>
+                        <option value="correcta">después/luego</option>
+                        <option value="incorrecta">por eso</option>
+                    </select>
+                    cociné la cena.
+                </li>
+                <li>
+                    d) Terminé el proyecto, 
+                    <select id="c6_5_d">
+                        <option value="">---</option>
+                        <option value="correcta">después/luego</option>
+                        <option value="incorrecta">en consecuencia</option>
+                    </select>
+                    envié el informe.
+                </li>
+                <li>
+                    e) Me enfermé, 
+                    <select id="c6_5_e">
+                        <option value="">---</option>
+                        <option value="incorrecta">por eso</option>
+                        <option value="correcta">en consecuencia</option>
+                    </select>
+                    no pude ir al trabajo.
+                </li>
+                <li>
+                    f) Compré los boletos, 
+                    <select id="c6_5_f">
+                        <option value="">---</option>
+                        <option value="correcta">después/luego</option>
+                        <option value="incorrecta">por eso</option>
+                    </select>
+                    fuimos al concierto.
+                </li>
+                <li>
+                    g) Llegué tarde al trabajo, 
+                    <select id="c6_5_g">
+                        <option value="">---</option>
+                        <option value="incorrecta">después/luego</option>
+                        <option value="correcta">por eso</option>
+                    </select>
+                    me llamaron la atención.
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkConectores('6_5')">Verificar Respuestas 6.5</button>
+            <p id="feedback6_5" class="feedback-span"></p>
+        </div>
 
   
   <hr>
@@ -1300,27 +1497,32 @@ function verificarCoincidencia(id) {
       span.style.color = "#dc3545";
     }
   }
-   document.querySelectorAll('.exercise').forEach(ex => {
-  const correct = ex.dataset.correct.trim().toLowerCase();
-  let attempts = 0;
-  ex.querySelectorAll('input[type="radio"]').forEach(opt => {
-    opt.addEventListener('change', () => {
-      const result = ex.querySelector('.result');
-      if (opt.value.trim().toLowerCase() === correct) {
-        result.textContent = '✅';
-        result.style.color = 'green';
-      } else {
-        attempts++;
-        result.textContent = '❌';
-        result.style.color = 'red';
-        if (attempts >= 3) {
-          result.textContent = `❌ (${correct})`;
-          result.style.color = 'gray';
+  function checkConectores(exerciseId) {
+        const exerciseElement = document.getElementById('exercise' + exerciseId.replace('_', '-'));
+        const selects = exerciseElement.querySelectorAll('select');
+        let allCorrect = true;
+
+        selects.forEach(select => {
+            if (select.value === 'correcta') {
+                select.style.border = '2px solid #28a745'; // Borde verde
+            } else if (select.value === 'incorrecta') {
+                select.style.border = '2px solid #dc3545'; // Borde rojo
+                allCorrect = false;
+            } else {
+                select.style.border = '1px solid #ccc'; // Borde por defecto (no seleccionado)
+                allCorrect = false;
+            }
+        });
+
+        const feedback = document.getElementById('feedback' + exerciseId);
+        if (allCorrect) {
+            feedback.textContent = '¡Correcta!';
+            feedback.style.color = '#28a745';
+        } else {
+            feedback.textContent = 'Incorrecta. Revisa las opciones marcadas en rojo.';
+            feedback.style.color = '#dc3545';
         }
-      }
-    });
-  });
-});
+    }
 </script>
 
 </body>
