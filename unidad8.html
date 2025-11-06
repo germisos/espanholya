@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 8 - Ejercicios</title>
+<script src="menu.js" defer></script>
+
+<style>
+/* === ESTILO UNIFICADO (igual al de unidad7_ejercicios.html) === */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  background-color: #005f73;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  color: #005f73;
+}
+
+.container {
+  max-width: 850px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.exercise {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-left: 4px solid #94d2bd;
+  background: #f9f9fb;
+  border-radius: 8px;
+}
+
+.exercise p {
+  margin: 8px 0;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px;
+  width: 220px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #0077b6;
+  outline: none;
+  box-shadow: 0 0 4px #0077b6;
+}
+
+button {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005f73;
+}
+
+.result-box {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background: #005f73;
+  color: white;
+  font-size: 0.9em;
+  border-radius: 0 0 10px 10px;
+}
+</style>
+</head>
+
+<body>
+  <header>
+    <h2>Unidad 8 – Ejercicios</h2>
+  </header>
+
+  <div class="container">
+    <h3>8.1. Título del ejercicio</h3>
+    <div class="exercise">
+      <p>Ejemplo: <strong>Aquí iría una frase</strong></p>
+      <p>
+        <input type="text" id="e1" placeholder="respuesta">
+        <button onclick="verificar('e1','respuesta')">Verificar</button>
+        <span id="r-e1" class="result-box"></span>
+      </p>
+    </div>
+
+    <h3>8.2. Otro ejercicio</h3>
+    <div class="exercise">
+      <p><strong>Ejercicio 2:</strong> Completa con la palabra correcta.</p>
+      <p>
+        <input type="text" id="e2" placeholder="respuesta">
+        <button onclick="verificar('e2','correcta')">Verificar</button>
+        <span id="r-e2" class="result-box"></span>
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Curso de Español - Unidad 8
+  </footer>
+
+<script>
+function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function verificar(id, respuestaCorrecta) {
+  const input = document.getElementById(id);
+  const result = document.getElementById("r-" + id);
+  const valor = normalizar(input.value);
+  const correcta = normalizar(respuestaCorrecta);
+
+  result.textContent = "";
+  result.className = "result-box";
+
+  if (valor === "") {
+    result.textContent = "respuesta";
+    result.style.color = "#888";
+    return;
+  }
+
+  if (valor === correcta) {
+    result.textContent = "✅";
+    result.classList.add("correct");
+  } else {
+    result.textContent = "❌";
+    result.classList.add("incorrect");
+  }
+}
+</script>
+
+</body>
+</html>
