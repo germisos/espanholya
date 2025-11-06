@@ -200,6 +200,20 @@ select {
   .exercise input { width: 140px; padding: 4px; margin-left: 6px; }
   .exercise button { margin-left: 6px; padding: 4px 8px; cursor: pointer; }
   .res-icon { font-size: 18px; margin-left: 8px; vertical-align: middle; }
+
+  .exercise-section {
+  margin-bottom: 25px;
+}
+.exercise {
+  margin: 10px 0;
+  padding: 6px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+.exercise span.result {
+  font-size: 1.2em;
+  margin-left: 8px;
+}
 </style>
   
 </head>
@@ -1005,7 +1019,129 @@ select {
   <button onclick="verifyInput('f219','vendré')">Verificar</button>
   <div id="r-f219" class="result-box">respuesta</div>
 
-   
+    <hr>
+
+  <!-- 🔹 PUNTO 6 - CONECTORES -->
+<section class="exercise-section">
+  <h3>6. CONECTORES</h3>
+  <h4>1. Completa las frases con el conector adecuado: "y", "además", "pero", "sin embargo", "en cambio".</h4>
+
+  <div class="exercise" data-correct="pero">
+    b) Hoy hace sol, ______ hace mucho frío.<br>
+    <label><input type="radio" name="ex1b" value="y"> y</label>
+    <label><input type="radio" name="ex1b" value="pero"> pero</label>
+    <label><input type="radio" name="ex1b" value="además"> además</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="pero">
+    c) Quiero ir al cine, ______ mis amigos prefieren quedarse en casa.<br>
+    <label><input type="radio" name="ex1c" value="sin embargo"> sin embargo</label>
+    <label><input type="radio" name="ex1c" value="pero"> pero</label>
+    <label><input type="radio" name="ex1c" value="y"> y</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="sin embargo">
+    d) Estudio mucho para el examen, ______ aun así no estoy seguro de aprobar.<br>
+    <label><input type="radio" name="ex1d" value="pero"> pero</label>
+    <label><input type="radio" name="ex1d" value="sin embargo"> sin embargo</label>
+    <label><input type="radio" name="ex1d" value="además"> además</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="y">
+    f) Ayer fuimos al parque, ______ también visitamos el museo.<br>
+    <label><input type="radio" name="ex1f" value="y"> y</label>
+    <label><input type="radio" name="ex1f" value="pero"> pero</label>
+    <label><input type="radio" name="ex1f" value="en cambio"> en cambio</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="en cambio">
+    g) María quiere ser médica, ______ su hermano quiere ser abogado.<br>
+    <label><input type="radio" name="ex1g" value="sin embargo"> sin embargo</label>
+    <label><input type="radio" name="ex1g" value="en cambio"> en cambio</label>
+    <label><input type="radio" name="ex1g" value="además"> además</label>
+    <span class="result"></span>
+  </div>
+
+  <h4>2. Completa las frases con: "debido a", "porque" o "ya que".</h4>
+
+  <div class="exercise" data-correct="porque">
+    b) No voy a la fiesta ______ tengo que estudiar.<br>
+    <label><input type="radio" name="ex2b" value="debido a"> debido a</label>
+    <label><input type="radio" name="ex2b" value="porque"> porque</label>
+    <label><input type="radio" name="ex2b" value="ya que"> ya que</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="debido a">
+    c) Ella llegó tarde al trabajo ______ el tráfico.<br>
+    <label><input type="radio" name="ex2c" value="porque"> porque</label>
+    <label><input type="radio" name="ex2c" value="ya que"> ya que</label>
+    <label><input type="radio" name="ex2c" value="debido a"> debido a</label>
+    <span class="result"></span>
+  </div>
+
+  <h4>3. Completa las frases con: "ya que", "si", "a menos que", "cuando" o "mientras".</h4>
+
+  <div class="exercise" data-correct="si">
+    b) Él irá al concierto ______ consigue boletos.<br>
+    <label><input type="radio" name="ex3b" value="si"> si</label>
+    <label><input type="radio" name="ex3b" value="a menos que"> a menos que</label>
+    <label><input type="radio" name="ex3b" value="ya que"> ya que</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="a menos que">
+    d) No podremos ir de vacaciones ______ tengamos dinero.<br>
+    <label><input type="radio" name="ex3d" value="si"> si</label>
+    <label><input type="radio" name="ex3d" value="mientras"> mientras</label>
+    <label><input type="radio" name="ex3d" value="a menos que"> a menos que</label>
+    <span class="result"></span>
+  </div>
+
+  <h4>4. Completa las frases con: "igual que", "más que", "en resumen" o "por lo tanto".</h4>
+
+  <div class="exercise" data-correct="por lo tanto">
+    c) Estudié mucho, ______ saqué buenas notas.<br>
+    <label><input type="radio" name="ex4c" value="por lo tanto"> por lo tanto</label>
+    <label><input type="radio" name="ex4c" value="en resumen"> en resumen</label>
+    <label><input type="radio" name="ex4c" value="igual que"> igual que</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="igual que">
+    d) Él habla inglés, ______ yo.<br>
+    <label><input type="radio" name="ex4d" value="igual que"> igual que</label>
+    <label><input type="radio" name="ex4d" value="más que"> más que</label>
+    <label><input type="radio" name="ex4d" value="por lo tanto"> por lo tanto</label>
+    <span class="result"></span>
+  </div>
+
+  <h4>5. Completa las frases con: "por eso", "en consecuencia", "primero", "después/luego" o "por último".</h4>
+
+  <div class="exercise" data-correct="por eso">
+    a) Me levanté tarde, ______ perdí el autobús.<br>
+    <label><input type="radio" name="ex5a" value="por eso"> por eso</label>
+    <label><input type="radio" name="ex5a" value="en consecuencia"> en consecuencia</label>
+    <label><input type="radio" name="ex5a" value="por último"> por último</label>
+    <span class="result"></span>
+  </div>
+
+  <div class="exercise" data-correct="en consecuencia">
+    b) Estudié mucho, ______ saqué buenas notas.<br>
+    <label><input type="radio" name="ex5b" value="después/luego"> después/luego</label>
+    <label><input type="radio" name="ex5b" value="por eso"> por eso</label>
+    <label><input type="radio" name="ex5b" value="en consecuencia"> en consecuencia</label>
+    <span class="result"></span>
+  </div>
+</section>
+
+
+
+  
   <hr>
  </section>
 </div>
@@ -1164,6 +1300,27 @@ function verificarCoincidencia(id) {
       span.style.color = "#dc3545";
     }
   }
+   document.querySelectorAll('.exercise').forEach(ex => {
+  const correct = ex.dataset.correct.trim().toLowerCase();
+  let attempts = 0;
+  ex.querySelectorAll('input[type="radio"]').forEach(opt => {
+    opt.addEventListener('change', () => {
+      const result = ex.querySelector('.result');
+      if (opt.value.trim().toLowerCase() === correct) {
+        result.textContent = '✅';
+        result.style.color = 'green';
+      } else {
+        attempts++;
+        result.textContent = '❌';
+        result.style.color = 'red';
+        if (attempts >= 3) {
+          result.textContent = `❌ (${correct})`;
+          result.style.color = 'gray';
+        }
+      }
+    });
+  });
+});
 </script>
 
 </body>
