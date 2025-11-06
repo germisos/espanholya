@@ -1749,49 +1749,30 @@ function verificarCoincidencia(id) {
             feedback.style.color = '#dc3545';
         }
     }
-   
+   /**
+     * Función corregida para el Punto 7.
+     * Muestra la respuesta modelo al alumno.
+     * @param {string} inputId - El ID del textarea.
+     * @param {string} modelAnswer - La respuesta correcta modelo.
+     */
     function checkTextAnswer(inputId, modelAnswer) {
         const input = document.getElementById(inputId);
         const feedback = document.getElementById('feedback-' + inputId);
-        const studentAnswer = input.value.trim().toLowerCase();
-        
-        // Criterios de evaluación flexible
-        const normalizedModel = modelAnswer.toLowerCase();
-        const minLength = normalizedModel.split(' ').length * 0.5; // Mínimo 50% de las palabras del modelo.
-        
-        // Lógica de palabras clave (simple)
-        let keywordsMatch = true;
-        const keywords = normalizedModel.split(' ').filter(word => word.length > 3);
+        const studentAnswer = input.value.trim();
 
-        for (const keyword of keywords) {
-            if (!studentAnswer.includes(keyword)) {
-                keywordsMatch = false;
-                break;
-            }
+        // 1. Validar que el campo no esté vacío
+        if (studentAnswer.length === 0) {
+            feedback.textContent = 'Escribe tu respuesta antes de verificar.';
+            feedback.style.color = '#ffc107'; // Amarillo de advertencia
+            input.style.border = '2px solid #ffc107';
+            return; // Terminar la función aquí
         }
 
-        let isCorrect = false;
-
-        // 1. Si la respuesta del alumno es muy similar a la respuesta modelo
-        if (studentAnswer.includes(normalizedModel) || normalizedModel.includes(studentAnswer)) {
-             isCorrect = true;
-        } 
-        // 2. Si la respuesta cumple con las palabras clave (flexible)
-        else if (keywordsMatch && studentAnswer.split(' ').length >= minLength) {
-             isCorrect = true;
-        }
-
-        if (isCorrect) {
-            feedback.textContent = '¡Correcta!';
-            feedback.style.color = '#28a745';
-            input.style.border = '2px solid #28a745';
-        } else {
-            feedback.textContent = 'Incorrecta. Revisa el texto e intenta una respuesta más completa.';
-            feedback.style.color = '#dc3545';
-            input.style.border = '2px solid #dc3545';
-            // Opcionalmente, podrías mostrar la respuesta correcta en la consola para referencia del profesor:
-            // console.log("Respuesta esperada: " + modelAnswer);
-        }
+        // 2. Si el alumno escribió algo, mostrar la respuesta correcta
+        // Usamos una sintaxis HTML simple para mostrar la respuesta dentro del feedback span
+        feedback.innerHTML = '<strong>Respuesta Modelo:</strong> ' + modelAnswer;
+        feedback.style.color = '#007bff'; // Azul para destacar la respuesta
+        input.style.border = '2px solid #007bff';
     }
 </script>
 
