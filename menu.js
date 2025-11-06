@@ -53,6 +53,10 @@
                     <ul class="sub-dropdown-content" style="position:absolute;top:0;left:100%;background:white;list-style:none;padding:8px 0;margin:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);z-index:1001;min-width:220px;display:none;">
                       <li><a href="unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 8 (Lección)</a></li>
                       <li><a href="ejercicios_unidad8.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U8</a></li>
+                      <li><a href="unidad9.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 9 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad9.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U9</a></li>
+                      <li><a href="unidad10.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Unidad 10 (Lección)</a></li>
+                      <li><a href="ejercicios_unidad10.html" style="color:#333;text-decoration:none;padding:8px 15px;display:block;">Ejercicios U10</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -89,7 +93,7 @@
       </header>
       `;
 
-      // (El resto del código sigue igual: inicialización, eventos, estilos)
+      // comportamiento del menú
       const existing = document.getElementById("mainHeader");
       if (existing) existing.remove();
 
@@ -144,7 +148,7 @@
       `;
       document.head.appendChild(style);
 
-      console.log("menu.js actualizado correctamente");
+      console.log("menu.js actualizado con unidades hasta la 10");
     } catch (err) {
       console.error("menu.js error:", err);
     }
