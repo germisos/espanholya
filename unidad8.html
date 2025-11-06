@@ -27,9 +27,10 @@ h2, h3, h4 {
   color: #005f73;
 }
 
-.container {
+/* **CLAVE CORREGIDA:** Esta regla aplica el centrado y los márgenes a ambas clases */
+.container, .main-content {
   max-width: 850px;
-  margin: 20px auto;
+  margin: 20px auto; /* Esto centra el contenido y da márgenes verticales */
   background: white;
   padding: 20px 30px;
   border-radius: 10px;
@@ -100,43 +101,77 @@ footer {
   font-size: 0.9em;
   border-radius: 0 0 10px 10px;
 }
-  /* Estilos específicos para los botones de audio */
-        .audio-button {
-            background-color: #007bff; /* Azul */
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-right: 15px;
-            transition: background-color 0.3s;
-        }
-        .audio-button:hover {
-            background-color: #0056b3;
-        }
-        /* Estilo para notas aclaratorias en ejemplos */
-        .audio-note {
-            font-style: italic;
-            font-size: 0.9em;
-            color: #6c757d;
-        }
-        /* Estilos para el contenido de la lección */
-        .lesson-content {
-            padding: 15px;
-            border: 1px solid #e9ecef;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-        .example-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .example-list li {
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
+
+/* Estilos específicos para los botones de audio */
+.audio-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 15px;
+    transition: background-color 0.3s;
+}
+.audio-button:hover {
+    background-color: #0056b3;
+}
+/* Estilo para notas aclaratorias en ejemplos */
+.audio-note {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+/* Estilos para el contenido de la lección */
+.lesson-content {
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.example-list {
+    list-style: none;
+    padding-left: 0;
+}
+.example-list li {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* Estilos para el botón de verificación pequeño (al lado de cada frase) */
+.check-button-small {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+.check-button-small:hover {
+    background-color: #1e7e34;
+}
+/* Estilo para el texto de retroalimentación (Correcta/Incorrecta) */
+.feedback-span {
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+/* Estilo para la respuesta de ejemplo */
+.example-answer {
+    font-weight: bold;
+    color: #007bff;
+}
+/* Estilo para espaciar las líneas de los ejercicios tipo lista */
+.exercise-list li {
+    margin-bottom: 25px; 
+    line-height: 1.6;
+}
 </style>
 </head>
 
