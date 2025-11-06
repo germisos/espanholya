@@ -205,6 +205,43 @@ footer {
         .valorar-table ul li {
             margin-bottom: 5px;
         }
+  /* Estilos nuevos para los verbos regulares en línea */
+        .imperativo-line {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los verbos salten de línea en pantallas pequeñas */
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .inline-verb-group {
+            margin-right: 20px; /* Espacio entre cada pareja de verbo:forma */
+            margin-bottom: 8px; 
+            font-weight: bold;
+        }
+        .imperativo-line .audio-button {
+            /* Sobreescribe 'display: block' para que esté en línea con los grupos */
+            display: inline-block; 
+            margin-right: 15px; /* Pequeño margen después del botón principal */
+            margin-bottom: 0; /* Quitar el margen inferior */
+            float: left; /* Lo mantiene a la izquierda de la línea */
+        }
+        /* Estilo general para las tablas de conjugación (si aún no lo tienes) */
+        .conjugation-table { 
+            width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 20px;
+        }
+        .conjugation-table th, .conjugation-table td {
+            border: 1px solid #ccc; padding: 10px; text-align: center;
+        }
+        .conjugation-table th { 
+            background-color: #f0f0f0; 
+            color: #005f73;
+        }
+        .irregular-table button.audio-button {
+            /* Vuelve el botón de la tabla a inline-block para que se centre en la celda */
+            display: inline-block;
+            margin: 0;
+            padding: 5px 8px;
+            float: none;
+        }
 </style>
 </head>
 
@@ -525,44 +562,42 @@ footer {
             <h4>Verbos Regulares</h4>
             <p>Para verbos regulares en Imperativo, la segunda persona del singular **tú** es igual que la tercera persona del singular del presente del indicativo.</p>
             
-            <table class="conjugation-table lesson-table">
-                <thead>
-                    <tr>
-                        <th>Infinitivo</th>
-                        <th>TÚ (Regulares)</th>
-                        <th>USTED (Regulares)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>hablar, llamar, dejar</td>
-                        <td>habl<strong>a</strong>, llam<strong>a</strong>, dej<strong>a</strong></td>
-                        <td>habl<strong>e</strong>, llam<strong>e</strong>, dej<strong>e</strong></td>
-                    </tr>
-                    <tr>
-                        <td>comer, beber, ver</td>
-                        <td>com<strong>e</strong>, beb<strong>e</strong>, v<strong>e</strong></td>
-                        <td>com<strong>a</strong>, beb<strong>a</strong>, v<strong>ea</strong></td>
-                    </tr>
-                    <tr>
-                        <td>escribir, abrir, vivir</td>
-                        <td>escrib<strong>e</strong>, abr<strong>e</strong>, viv<strong>e</strong></td>
-                        <td>escrib<strong>a</strong>, abr<strong>a</strong>, viv<strong>a</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="audio-button" onclick="playAudio('assets/audio/unidad8/imperativo/1.mp3')">Oír (Tú)</button>
-            <button class="audio-button" onclick="playAudio('assets/audio/unidad8/imperativo/2.mp3')">Oír (Usted)</button>
+            <div class="imperativo-line">
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad8/imperativo/1.mp3')">Oír</button>
+                <span class="inline-verb-group">hablar (tú): habla</span>
+                <span class="inline-verb-group">llamar (tú): llama</span>
+                <span class="inline-verb-group">dejar (tú): deja</span>
+                <span class="inline-verb-group">comer (tú): come</span>
+                <span class="inline-verb-group">beber (tú): bebe</span>
+                <span class="inline-verb-group">ver (tú): ve</span>
+                <span class="inline-verb-group">escribir (tú): escribe</span>
+                <span class="inline-verb-group">abrir (tú): abre</span>
+                <span class="inline-verb-group">vivir (tú): vive</span>
+            </div>
+            
+            <div class="imperativo-line" style="margin-top: 15px;">
+                <button class="audio-button" onclick="playAudio('assets/audio/unidad8/imperativo/2.mp3')">Oír</button>
+                <span class="inline-verb-group">hablar (usted): hable</span>
+                <span class="inline-verb-group">llamar (usted): llame</span>
+                <span class="inline-verb-group">dejar (usted): deje</span>
+                <span class="inline-verb-group">comer (usted): coma</span>
+                <span class="inline-verb-group">beber (usted): beba</span>
+                <span class="inline-verb-group">ver (usted): vea</span>
+                <span class="inline-verb-group">escribir (usted): escriba</span>
+                <span class="inline-verb-group">abrir (usted): abra</span>
+                <span class="inline-verb-group">vivir (usted): viva</span>
+            </div>
+            <div style="clear: both;"></div>
 
             <h4>Verbos Irregulares</h4>
             <p>Algunos verbos irregulares tienen formas específicas en el imperativo afirmativo.</p>
-            <table class="conjugation-table lesson-table">
+            <table class="conjugation-table irregular-table">
                 <thead>
                     <tr>
-                        <th>V. Inf.</th>
-                        <th>TÚ</th>
-                        <th>USTED</th>
-                        <th>Audio</th>
+                        <th style="width: 25%;">V. Inf.</th>
+                        <th style="width: 20%;">TÚ</th>
+                        <th style="width: 20%;">USTED</th>
+                        <th style="width: 35%;">Audio</th>
                     </tr>
                 </thead>
                 <tbody>
