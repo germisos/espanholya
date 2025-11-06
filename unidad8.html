@@ -102,22 +102,30 @@ footer {
   border-radius: 0 0 10px 10px;
 }
 
-/* Estilos específicos para los botones de audio */
-.audio-button {
-    background-color: #007bff; /* Azul */
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-right: 15px;
-    transition: background-color 0.3s;
-}
-.audio-button:hover {
-    background-color: #0056b3;
-}
+/* Estilos específicos para los botones de audio (CORREGIDOS para añadir espacio VERTICAL) */
+        .audio-button {
+            /* Propiedades de visualización para forzar el flujo vertical */
+            display: block; /* Hace que el botón ocupe su propia línea */
+            margin-bottom: 8px; /* Añade un pequeño espacio debajo del botón */
+            
+            /* Estilos de apariencia */
+            background-color: #007bff; /* Azul */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            
+            /* Eliminamos el margin-right que causaba separación horizontal */
+            margin-right: 0; 
+            width: fit-content; /* El botón solo ocupa el ancho que necesita */
+            transition: background-color 0.3s;
+        }
+        .audio-button:hover {
+            background-color: #0056b3;
+        }
 /* Estilo para notas aclaratorias en ejemplos */
 .audio-note {
     font-style: italic;
