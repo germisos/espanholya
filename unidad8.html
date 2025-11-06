@@ -172,6 +172,31 @@ footer {
     margin-bottom: 25px; 
     line-height: 1.6;
 }
+  /* Estilos para la tabla de valoración de hechos pasados (Punto 2) */
+        .valorar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            table-layout: fixed; /* Asegura que las columnas tengan ancho igual */
+        }
+        .valorar-table th, .valorar-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .valorar-table th {
+            background-color: #e9ecef;
+            color: #005f73;
+            text-align: center;
+        }
+        .valorar-table ul {
+            list-style: none;
+            padding-left: 10px;
+            margin: 0;
+        }
+        .valorar-table ul li {
+            margin-bottom: 5px;
+        }
 </style>
 </head>
 
@@ -358,6 +383,57 @@ footer {
                     Ejemplo: he puesto llave.
                 </li>
             </ul>
+        </div>
+    <hr>
+        <h3>Punto 2. VALORAR HECHOS PASADOS</h3>
+
+        <div class="lesson-content">
+            <p>Usamos estas frases para preguntar y responder sobre cómo resultaron eventos o situaciones en un pasado reciente.</p>
+            
+            <table class="valorar-table">
+                <thead>
+                    <tr>
+                        <th>Preguntas</th>
+                        <th>Respuestas Cortas</th>
+                        <th>Respuestas Largas (Valoración)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="audio-button" onclick="playAudio('assets/audio/unidad8/hpasados/hpreg.mp3')">Oír</button>
+                            <ul>
+                                <li>¡Hola! ¿Qué tal tu día?</li>
+                                <li>¿Cómo te ha ido en la reunión?</li>
+                                <li>¿Qué tal la cena?</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <button class="audio-button" onclick="playAudio('assets/audio/unidad8/hpasados/hresp.mp3')">Oír</button>
+                            <ul>
+                                <li>Muy bien.</li>
+                                <li>Bastante bien.</li>
+                                <li>Regular.</li>
+                                <li>Normal.</li>
+                                <li>No muy bien.</li>
+                                <li>Bastante mal.</li>
+                                <li>Muy mal.</li>
+                                <li>Fatal.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <button class="audio-button" onclick="playAudio('assets/audio/unidad8/hpasados/hfra.mp3')">Oír</button>
+                            <ul>
+                                <li>Ha sido un día agradable (muy agradable).</li>
+                                <li>Ha sido una reunión aburrida (muy aburrida).</li>
+                                <li>Ha sido una cena interesante (muy interesante).</li>
+                                <li>Ha sido una cena horrible.</li>
+                                <li>Ha sido un día fantástic<span class="audio-note">a/o</span>.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     
