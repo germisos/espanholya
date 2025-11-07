@@ -391,7 +391,84 @@
     </div>
 
 </div>
+        <hr>
 
+<div class="exercise-item">
+    <h3>2. Valorar Hechos Pasados</h3>
+    <p>Elige la valoración más adecuada para cada pregunta, utilizando las estructuras del Pretérito Perfecto Compuesto.</p>
+
+    <div class="question-box" id="q5-1">
+        <p>1. Pregunta: **"¿Qué tal la excursión de ayer?"**</p>
+        <div class="options-container">
+            <input type="radio" name="q5-1" id="q5-1-a" value="incorrect">
+            <label for="q5-1-a">Hemos viajado a Europa.</label><br>
+            <input type="radio" name="q5-1" id="q5-1-b" value="correct">
+            <label for="q5-1-b">Ha sido muy agradable.</label><br>
+            <input type="radio" name="q5-1" id="q5-1-c" value="incorrect">
+            <label for="q5-1-c">Yo estoy fatal.</label><br>
+        </div>
+        <button class="verify-button check-button-small" onclick="checkMultipleChoice('q5-1')">Verificar</button>
+        <div id="resultado-q5-1" class="result-box" style="display:none;"></div>
+    </div>
+    
+    <div class="question-box" id="q5-2">
+        <p>2. Pregunta: **"¿Cómo te ha ido en la reunión de la mañana?"**</p>
+        <div class="options-container">
+            <input type="radio" name="q5-2" id="q5-2-a" value="correct">
+            <label for="q5-2-a">Ha sido bastante aburrida.</label><br>
+            <input type="radio" name="q5-2" id="q5-2-b" value="incorrect">
+            <label for="q5-2-b">Yo como mucho.</label><br>
+            <input type="radio" name="q5-2" id="q5-2-c" value="incorrect">
+            <label for="q5-2-c">Ha roto mi vaso.</label><br>
+        </div>
+        <button class="verify-button check-button-small" onclick="checkMultipleChoice('q5-2')">Verificar</button>
+        <div id="resultado-q5-2" class="result-box" style="display:none;"></div>
+    </div>
+
+    <div class="question-box" id="q5-3">
+        <p>3. Pregunta: **"¿Qué tal tu día?"**</p>
+        <div class="options-container">
+            <input type="radio" name="q5-3" id="q5-3-a" value="incorrect">
+            <label for="q5-3-a">Lo haré mañana.</label><br>
+            <input type="radio" name="q5-3" id="q5-3-b" value="incorrect">
+            <label for="q5-3-b">Sí, me ha gustado.</label><br>
+            <input type="radio" name="q5-3" id="q5-3-c" value="correct">
+            <label for="q5-3-c">Ha sido un día horrible.</label><br>
+        </div>
+        <button class="verify-button check-button-small" onclick="checkMultipleChoice('q5-3')">Verificar</button>
+        <div id="resultado-q5-3" class="result-box" style="display:none;"></div>
+    </div>
+    
+    <div class="question-box" id="q5-4">
+        <p>4. Pregunta: **"¿Cómo estuvo la cena con el equipo?"**</p>
+        <div class="options-container">
+            <input type="radio" name="q5-4" id="q5-4-a" value="correct">
+            <label for="q5-4-a">Ha sido una cena muy interesante.</label><br>
+            <input type="radio" name="q5-4" id="q5-4-b" value="incorrect">
+            <label for="q5-4-b">Ella ha puesto la mesa.</label><br>
+            <input type="radio" name="q5-4" id="q5-4-c" value="incorrect">
+            <label for="q5-4-c">Ellos han resuelto el problema.</label><br>
+        </div>
+        <button class="verify-button check-button-small" onclick="checkMultipleChoice('q5-4')">Verificar</button>
+        <div id="resultado-q5-4" class="result-box" style="display:none;"></div>
+    </div>
+    
+    <div class="question-box" id="q5-5">
+        <p>5. Pregunta: **"¿Qué valoración le das al festival de música de esta tarde?"**</p>
+        <div class="options-container">
+            <input type="radio" name="q5-5" id="q5-5-a" value="incorrect">
+            <label for="q5-5-a">Ha estado allí.</label><br>
+            <input type="radio" name="q5-5" id="q5-5-b" value="correct">
+            <label for="q5-5-b">Ha sido fantástico.</label><br>
+            <input type="radio" name="q5-5" id="q5-5-c" value="incorrect">
+            <label for="q5-5-c">No ha muerto nadie.</label><br>
+        </div>
+        <button class="verify-button check-button-small" onclick="checkMultipleChoice('q5-5')">Verificar</button>
+        <div id="resultado-q5-5" class="result-box" style="display:none;"></div>
+    </div>
+
+</div>
+        
   </div>
 
 <script>
@@ -520,6 +597,29 @@
             }
             resultBox.className = 'result-box incorrect-result';
         };
+    }
+        // Asegúrate de que esta función esté definida antes de que se use
+    function checkMultipleChoice(questionId) {
+        const resultBox = document.getElementById('resultado-' + questionId);
+        const selectedOption = document.querySelector('input[name="' + questionId + '"]:checked');
+        
+        // Muestra el resultado
+        resultBox.style.display = 'block';
+        
+        if (!selectedOption) {
+            resultBox.textContent = 'Selecciona una opción.';
+            resultBox.className = 'result-box incorrect-result';
+            return;
+        }
+
+        if (selectedOption.value === 'correct') {
+            resultBox.textContent = '¡Correcto! ✅';
+            resultBox.className = 'result-box correct-result';
+        } else {
+            const correctLabel = document.querySelector('input[name="' + questionId + '"][value="correct"]').nextElementSibling.textContent;
+            resultBox.textContent = `Prueba de nuevo. ❌ La respuesta correcta es: ${correctLabel}`;
+            resultBox.className = 'result-box incorrect-result';
+        }
     }
 </script>
 
