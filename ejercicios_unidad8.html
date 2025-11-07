@@ -355,6 +355,30 @@
     }
     ===============================================================
     */
+        // Función para reproducir un archivo de audio
+    function playAudio(audioPath) {
+        // Detiene cualquier audio que se esté reproduciendo (opcional)
+        // new Audio().pause(); 
+        
+        // Crea una nueva instancia de Audio y la reproduce
+        const audio = new Audio(audioPath);
+        audio.play().catch(error => {
+            console.error("Error al intentar reproducir el audio:", error);
+            // Esto puede ocurrir si el navegador bloquea la reproducción automática
+        });
+    }
+    
+    // NOTA: Aquí también deberías colocar el código de la función 'startRecording'
+    // cuando la desarrolles.
+    function startRecording(id) {
+        // ... (Tu código de grabación/reconocimiento de voz iría aquí) ...
+        console.log("Función startRecording(" + id + ") llamada. La implementación aún está pendiente.");
+        // Temporalmente, podemos simular un resultado para evitar el error:
+        const resultBox = document.getElementById('recording-result-' + id);
+        resultBox.innerHTML = 'Función de grabación no implementada. 🎤';
+        resultBox.className = 'result-box incorrect-result';
+        resultBox.style.display = 'block';
+    }
 </script>
 
 </body>
