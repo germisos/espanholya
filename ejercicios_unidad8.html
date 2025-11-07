@@ -250,7 +250,56 @@
     </div>
 <hr>
 
+<div class="exercise-item">
+    <h3>Punto 3. Participios Regulares (Práctica Oral)</h3>
+    <p>Escucha la pronunciación del grupo de participios y luego grábate diciendo las palabras. El sistema te dirá si has pronunciado correctamente.</p>
 
+    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+        <h4>Verbos terminados en -AR</h4>
+        <p><strong>Participios:</strong> estudiado, viajado</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ar.mp3')">
+                🎧 Oír Audio
+            </button>
+            <button class="verify-button" id="record-ar" onclick="startRecording('ar')">
+                🎤 Grabar (estudiado, viajado)
+            </button>
+        </div>
+        <div id="recording-result-ar" class="result-box" style="margin-top: 10px; display:none;"></div>
+        <input type="hidden" id="expected-text-ar" value="estudiado viajado">
+    </div>
+
+    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+        <h4>Verbos terminados en -ER</h4>
+        <p><strong>Participios:</strong> comido, tenido</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/er.mp3')">
+                🎧 Oír Audio
+            </button>
+            <button class="verify-button" id="record-er" onclick="startRecording('er')">
+                🎤 Grabar (comido, tenido)
+            </button>
+        </div>
+        <div id="recording-result-er" class="result-box" style="margin-top: 10px; display:none;"></div>
+        <input type="hidden" id="expected-text-er" value="comido tenido">
+    </div>
+
+    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+        <h4>Verbos terminados en -IR</h4>
+        <p><strong>Participios:</strong> construido, reducido</p>
+        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ir.mp3')">
+                🎧 Oír Audio
+            </button>
+            <button class="verify-button" id="record-ir" onclick="startRecording('ir')">
+                🎤 Grabar (construido, reducido)
+            </button>
+        </div>
+        <div id="recording-result-ir" class="result-box" style="margin-top: 10px; display:none;"></div>
+        <input type="hidden" id="expected-text-ir" value="construido reducido">
+    </div>
+
+</div>
     
 
   </div>
@@ -271,7 +320,41 @@
             resultBox.classList.add('correct-result');
             resultBox.style.display = 'inline-block';
         }
-  
+  /*
+    ===============================================================
+    ⚠️ CÓDIGO JAVASCRIPT REQUERIDO PARA GRABACIÓN Y RECONOCIMIENTO
+    ===============================================================
+    
+    ESTE CÓDIGO DEBE SER ESCRITO POR TI, YA QUE NECESITA:
+    1. Solicitar permiso al micrófono (navigator.mediaDevices.getUserMedia).
+    2. Usar la API de Grabación de Medios (MediaRecorder) para grabar el audio.
+    3. Usar el servicio de Reconocimiento de Voz (Web Speech API o un servicio externo) 
+       para convertir la voz a texto.
+    4. Comparar el texto grabado con el valor en el campo oculto (expected-text-id).
+    5. Actualizar la clase (correct-result/incorrect-result) y el texto del div
+       (#recording-result-id) según el resultado.
+
+    Función necesaria para el botón de audio (playAudio):
+    function playAudio(audioPath) {
+        new Audio(audioPath).play();
+    }
+    
+    Función necesaria para el botón de grabación (startRecording):
+    function startRecording(id) {
+        const expectedText = document.getElementById('expected-text-' + id).value.toLowerCase();
+        const resultBox = document.getElementById('recording-result-' + id);
+        
+        // --- AQUÍ VA LA LÓGICA COMPLEJA DE GRABACIÓN DE VOZ Y CONVERSIÓN A TEXTO ---
+        // Al terminar, si el texto reconocido coincide con expectedText:
+        // resultBox.innerHTML = '¡Bien! ✅';
+        // resultBox.className = 'result-box correct-result';
+        // Sino:
+        // resultBox.innerHTML = 'Prueba de nuevo. ❌';
+        // resultBox.className = 'result-box incorrect-result';
+        // resultBox.style.display = 'block';
+    }
+    ===============================================================
+    */
 </script>
 
 </body>
