@@ -100,44 +100,259 @@ footer {
   font-size: 0.9em;
   border-radius: 0 0 10px 10px;
 }
-  body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .main-content {
-            width: 85%;
-            margin: 20px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #005f73;
-            border-bottom: 2px solid #005f73;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
+ .question-box {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+    .question-box p {
+        margin: 0 0 10px 0;
+        font-weight: 500;
+    }
+    .answer-reveal {
+        margin-top: 10px;
+    }
+    .reveal-button {
+        background-color: #28a745; /* Verde */
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .reveal-button:hover {
+        background-color: #218838;
+    }
+    .answer-solution {
+        display: none;
+        padding: 5px;
+        color: #155724; /* Verde oscuro para el texto de respuesta */
+        background-color: #d4edda; /* Fondo verde claro */
+        border: 1px solid #c3e6cb;
+        border-radius: 4px;
+        margin-top: 5px;
+        font-size: 1em;
+        font-weight: 600;
+    }
+    /* Estilo para las palabras en blanco del 1.2 */
+    .blank-word {
+        text-decoration: underline;
+        color: #007bff; /* Azul para destacar el participio */
+        font-weight: bold;
+    }
+    .fill-in-the-blank li .answer-solution {
+        display: inline-block; /* Muestra inline con el texto */
+        padding: 2px 5px;
+    }
 </style>
-</head>
-
 <body>
   <header>
     <h2>Unidad 8 – Ejercicios</h2>
   </header>
 
- <div class="main-content">
-             
-        <h3>Punto 1 Repaso de Gramática</h3>
+ <h3>Punto 1. Pretérito Perfecto (Oraciones Completas)</h3>
 
-        
-http://googleusercontent.com/immersive_entry_chip/0
-
-        
+<div class="exercise">
+    <p class="instructions">1.1. Escribe las oraciones según el modelo, poniendo los verbos en la forma del pretérito perfecto.</p>
+    <p class="example">Ejemplo: Ana/estudiar inglés/todos los días. <br> Ana ha estudiado inglés todos los días.</p>
+    
+    <div class="question-box" id="q14a">
+        <p>a) Nosotras/viajar a Europa/este año</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14a').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14a">
+                <strong>Respuesta:</strong> Nosotras hemos viajado a Europa este año.
+            </div>
         </div>
+    </div>
 
+    <div class="question-box" id="q14b">
+        <p>b) Adrián/estudiar francés y alemán/casi todas las semanas</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14b').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14b">
+                <strong>Respuesta:</strong> Adrián ha estudiado francés y alemán casi todas las semanas.
+            </div>
+        </div>
+    </div>
+    
+    <div class="question-box" id="q14c">
+        <p>c) Ana/ver la nueva película de Almodóvar/ya</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14c').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14c">
+                <strong>Respuesta:</strong> Ana ya ha visto la nueva película de Almodóvar.
+            </div>
+        </div>
+    </div>
+    
+    <div class="question-box" id="q14d">
+        <p>d) Nosotros/ya/participar del debate sobre el hambre mundial/este año</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14d').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14d">
+                <strong>Respuesta:</strong> Nosotros ya hemos participado del debate sobre el hambre mundial este año.
+            </div>
+        </div>
+    </div>
+    
+    <div class="question-box" id="q14e">
+        <p>e) Vosotras/salir con vuestros amigos/durante todo el verano</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14e').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14e">
+                <strong>Respuesta:</strong> Vosotras habéis salido con vuestros amigos durante todo el verano.
+            </div>
+        </div>
+    </div>
+    
+    <div class="question-box" id="q14f">
+        <p>f) Los niños/jugar al fútbol/siempre</p>
+        <div class="answer-reveal">
+            <button class="reveal-button" onclick="document.getElementById('a14f').style.display='block'; this.style.display='none'">
+                Comprobar
+            </button>
+            <div class="answer-solution" id="a14f">
+                <strong>Respuesta:</strong> Los niños siempre han jugado al fútbol.
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<h3>Punto 1.2. Pretérito Perfecto (Participios)</h3>
+
+<div class="exercise">
+    <p class="instructions">1.2. Completa con el participio del verbo entre paréntesis.</p>
+    <p class="example">Ejemplo: Laura ha (estudiar) <span class="blank-word">estudiado</span> inglés.</p>
+    
+    <ul class="fill-in-the-blank">
+        <li id="q15-1">
+            1. Yo he (comer) _________________________ con mis amigos en el bar.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-1').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-1">
+                    <span class="blank-word">comido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-2">
+            2. Nosotros hemos (trabajar) ______________________ mucho esta semana.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-2').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-2">
+                    <span class="blank-word">trabajado</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-3">
+            3. Mi tío ha (salir) __________________________ para Cuba.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-3').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-3">
+                    <span class="blank-word">salido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-4">
+            4. Lola se ha (tomar) _________________________ toda la sopa y no ha (dejar) ______________________nada.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-4').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-4">
+                    <span class="blank-word">tomado</span> ... <span class="blank-word">dejado</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-5">
+            5. Los músicos han (tocar) ____________________________ la novena sinfonía de Beethoven.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-5').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-5">
+                    <span class="blank-word">tocado</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-6">
+            6. ¿Habéis (aprender) _________________________ los verbos en español?
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-6').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-6">
+                    <span class="blank-word">aprendido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-7">
+            7. No hemos (entender) _______________________ el ejercicio.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-7').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-7">
+                    <span class="blank-word">entendido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-8">
+            8. Este domingo he (ir) _______________________ a la iglesia.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-8').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-8">
+                    <span class="blank-word">ido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-9">
+            9. Ha (subir) ____________________ al sexto piso por la escalera porque el ascensor estaba estropeado.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-9').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-9">
+                    <span class="blank-word">subido</span>
+                </span>
+            </div>
+        </li>
+        <li id="q15-10">
+            10. He (dormir) ___________________ como un lirón y he (soñar) ____________________ que me tocaba la lotería.
+            <div class="answer-reveal">
+                <button class="reveal-button" onclick="document.getElementById('a15-10').style.display='inline-block'; this.style.display='none'">
+                    Ver respuesta
+                </button>
+                <span class="answer-solution" id="a15-10">
+                    <span class="blank-word">dormido</span> ... <span class="blank-word">soñado</span>
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
     
 
   </div>
@@ -147,37 +362,8 @@ http://googleusercontent.com/immersive_entry_chip/0
   </footer>
 
 <script>
-function normalizar(texto) {
-  return texto
-    .toLowerCase()
-    .trim()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
 
-function verificar(id, respuestaCorrecta) {
-  const input = document.getElementById(id);
-  const result = document.getElementById("r-" + id);
-  const valor = normalizar(input.value);
-  const correcta = normalizar(respuestaCorrecta);
-
-  result.textContent = "";
-  result.className = "result-box";
-
-  if (valor === "") {
-    result.textContent = "respuesta";
-    result.style.color = "#888";
-    return;
-  }
-
-  if (valor === correcta) {
-    result.textContent = "✅";
-    result.classList.add("correct");
-  } else {
-    result.textContent = "❌";
-    result.classList.add("incorrect");
-  }
-}
+  
 </script>
 
 </body>
