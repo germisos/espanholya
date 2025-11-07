@@ -320,64 +320,102 @@
             resultBox.classList.add('correct-result');
             resultBox.style.display = 'inline-block';
         }
-  /*
-    ===============================================================
-    ⚠️ CÓDIGO JAVASCRIPT REQUERIDO PARA GRABACIÓN Y RECONOCIMIENTO
-    ===============================================================
-    
-    ESTE CÓDIGO DEBE SER ESCRITO POR TI, YA QUE NECESITA:
-    1. Solicitar permiso al micrófono (navigator.mediaDevices.getUserMedia).
-    2. Usar la API de Grabación de Medios (MediaRecorder) para grabar el audio.
-    3. Usar el servicio de Reconocimiento de Voz (Web Speech API o un servicio externo) 
-       para convertir la voz a texto.
-    4. Comparar el texto grabado con el valor en el campo oculto (expected-text-id).
-    5. Actualizar la clase (correct-result/incorrect-result) y el texto del div
-       (#recording-result-id) según el resultado.
+  // Configuración del Reconocimiento de Voz (WebkitSpeechRecognition)
+    // Usa window.webkitSpeechRecognition, ya que es lo que has confirmado que funciona.
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition;
 
-    Función necesaria para el botón de audio (playAudio):
-    function playAudio(audioPath) {
-        new Audio(audioPath).play();
+    if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'es-ES';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+    } else {
+        console.warn("❌ Web Speech API no soportada en este navegador.");
+        alert("Tu navegador no soporta la función de reconocimiento de voz necesaria para este ejercicio.");
     }
-    
-    Función necesaria para el botón de grabación (startRecording):
-    function startRecording(id) {
-        const expectedText = document.getElementById('expected-text-' + id).value.toLowerCase();
-        const resultBox = document.getElementById('recording-result-' + id);
-        
-        // --- AQUÍ VA LA LÓGICA COMPLEJA DE GRABACIÓN DE VOZ Y CONVERSIÓN A TEXTO ---
-        // Al terminar, si el texto reconocido coincide con expectedText:
-        // resultBox.innerHTML = '¡Bien! ✅';
-        // resultBox.className = 'result-box correct-result';
-        // Sino:
-        // resultBox.innerHTML = 'Prueba de nuevo. ❌';
-        // resultBox.className = 'result-box incorrect-result';
-        // resultBox.style.display = 'block';
-    }
-    ===============================================================
-    */
-        // Función para reproducir un archivo de audio
-    function playAudio(audioPath) {
-        // Detiene cualquier audio que se esté reproduciendo (opcional)
-        // new Audio().pause(); 
-        
-        // Crea una nueva instancia de Audio y la reproduce
-        const audio = new Audio(audioPath);
+
+    // Función que reproduce el audio de manera segura
+    function playAudio(src) {
+        const audio = new Audio(src);
         audio.play().catch(error => {
-            console.error("Error al intentar reproducir el audio:", error);
-            // Esto puede ocurrir si el navegador bloquea la reproducción automática
+            console.error("❌ Error de reproducción de audio. Comprueba la ruta:", src, error);
+            alert("No se pudo reproducir el audio. Revisa la consola del navegador (F12) o verifica la ruta.");
         });
     }
-    
-    // NOTA: Aquí también deberías colocar el código de la función 'startRecording'
-    // cuando la desarrolles.
+
+    // Variable global para detener la grabación si es necesario
+    let isRecording = false;
+
+    // Función para iniciar la grabación
     function startRecording(id) {
-        // ... (Tu código de grabación/reconocimiento de voz iría aquí) ...
-        console.log("Función startRecording(" + id + ") llamada. La implementación aún está pendiente.");
-        // Temporalmente, podemos simular un resultado para evitar el error:
+        if (!recognition) return;
+
+        const recordButton = document.getElementById('record-' + id);
         const resultBox = document.getElementById('recording-result-' + id);
-        resultBox.innerHTML = 'Función de grabación no implementada. 🎤';
-        resultBox.className = 'result-box incorrect-result';
+        const expectedText = document.getElementById('expected-text-' + id).value.toLowerCase().trim();
+
+        // 1. Manejar estado de grabación (interfaz)
+        if (isRecording) {
+            recognition.stop();
+            return;
+        }
+
+        // 2. Iniciar grabación
+        isRecording = true;
+        recordButton.textContent = '🔴 Grabando... Haz clic para detener';
+        recordButton.classList.remove('verify-button');
+        recordButton.style.backgroundColor = '#dc3545'; // Rojo
+
         resultBox.style.display = 'block';
+        resultBox.textContent = 'Escuchando... Di los participios.';
+        resultBox.className = 'result-box';
+        
+        recognition.start();
+
+        // 3. Manejar resultado del reconocimiento
+        recognition.onresult = (event) => {
+            isRecording = false;
+            recordButton.textContent = '🎤 Grabar (' + id.toUpperCase() + ')';
+            recordButton.style.backgroundColor = '#28a745';
+            recordButton.classList.add('verify-button');
+
+            const transcript = event.results[0][0].transcript.toLowerCase().trim();
+            console.log('🗣️ Reconocido:', transcript);
+            
+            // Normalización simple para la comparación: quitar puntuación
+            const cleanTranscript = transcript.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s{2,}/g," ");
+
+            // Comparar resultado
+            if (cleanTranscript === expectedText) {
+                resultBox.textContent = '¡Bien! ✅ Pronunciación correcta.';
+                resultBox.className = 'result-box correct-result';
+            } else {
+                resultBox.textContent = `Prueba de nuevo. ❌ Dijiste: "${transcript}".`;
+                resultBox.className = 'result-box incorrect-result';
+            }
+        };
+
+        // 4. Manejar errores y finalización
+        recognition.onspeechend = () => {
+            if (isRecording) {
+                recognition.stop();
+            }
+        };
+        
+        recognition.onerror = (event) => {
+            isRecording = false;
+            recordButton.textContent = '🎤 Grabar (' + id.toUpperCase() + ')';
+            recordButton.style.backgroundColor = '#28a745';
+            recordBox.classList.add('verify-button');
+
+            if (event.error === 'not-allowed') {
+                 resultBox.textContent = '⚠️ Necesitas permitir el acceso al micrófono.';
+            } else {
+                 resultBox.textContent = `Error de reconocimiento: ${event.error}. Prueba de nuevo.`;
+            }
+            resultBox.className = 'result-box incorrect-result';
+        };
     }
 </script>
 
