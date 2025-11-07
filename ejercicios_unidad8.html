@@ -133,8 +133,8 @@
     <h2>Unidad 8 – Ejercicios</h2>
 
     <div class="exercise-item compacto">
-        <h3>Punto 1. Pretérito Perfecto (Oraciones Completas)</h3>
-        <p>1.1. Escribe las oraciones según el modelo, poniendo los verbos en la forma del pretérito perfecto.</p>
+        <h3>1.1. Pretérito Perfecto (Oraciones Completas)</h3>
+        <p>Escribe las oraciones según el modelo, poniendo los verbos en la forma del pretérito perfecto.</p>
         <p>Ejemplo: Ana/estudiar inglés/todos los días. → Ana ha estudiado inglés todos los días.</p>
 
         <div class="question-line">
@@ -183,8 +183,8 @@
     <hr>
     
     <div class="exercise-item compacto">
-        <h3>Pretérito Perfecto (Participios)</h3>
-        <p>1.2. Completa con el participio del verbo entre paréntesis.</p>
+        <h3>1.2. Pretérito Perfecto (Participios)</h3>
+        <p>Completa con el participio del verbo entre paréntesis.</p>
         <p>Ejemplo: Laura ha (estudiar) <span style="font-weight: bold; color: #007bff;">estudiado</span> inglés.</p>
         
         <div class="question-line">
@@ -251,7 +251,7 @@
 <hr>
 
 <div class="exercise-item">
-    <h3>Punto 3. Participios Regulares (Práctica Oral)</h3>
+    <h3>2. Participios Regulares (Práctica Oral)</h3>
     <p>Escucha la pronunciación del grupo de participios y luego grábate diciendo las palabras. El sistema te dirá si has pronunciado correctamente.</p>
 
     <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
@@ -320,8 +320,8 @@
             resultBox.classList.add('correct-result');
             resultBox.style.display = 'inline-block';
         }
-  // Configuración del Reconocimiento de Voz (WebkitSpeechRecognition)
-    // Usa window.webkitSpeechRecognition, ya que es lo que has confirmado que funciona.
+  // ... (Tu configuración inicial de SpeechRecognition y playAudio) ...
+
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     let recognition;
 
@@ -334,8 +334,8 @@
         console.warn("❌ Web Speech API no soportada en este navegador.");
         alert("Tu navegador no soporta la función de reconocimiento de voz necesaria para este ejercicio.");
     }
-
-    // Función que reproduce el audio de manera segura
+    
+    // ... (Tu función playAudio) ...
     function playAudio(src) {
         const audio = new Audio(src);
         audio.play().catch(error => {
@@ -344,10 +344,21 @@
         });
     }
 
-    // Variable global para detener la grabación si es necesario
+
+    // Variable global para controlar el estado
     let isRecording = false;
 
-    // Función para iniciar la grabación
+    // Función auxiliar para resetear el estado del botón
+    function resetRecordingState(id) {
+        const recordButton = document.getElementById('record-' + id);
+        isRecording = false;
+        recordButton.textContent = `🎤 Grabar (${id.toUpperCase()})`;
+        recordButton.style.backgroundColor = '#28a745'; // Verde
+        recordButton.classList.add('verify-button');
+    }
+
+
+    // Función principal para iniciar/detener la grabación
     function startRecording(id) {
         if (!recognition) return;
 
@@ -355,13 +366,13 @@
         const resultBox = document.getElementById('recording-result-' + id);
         const expectedText = document.getElementById('expected-text-' + id).value.toLowerCase().trim();
 
-        // 1. Manejar estado de grabación (interfaz)
+        // **AQUÍ ESTÁ LA CORRECCIÓN:** // Si ya está grabando y se vuelve a hacer click, simplemente detenemos la API
         if (isRecording) {
-            recognition.stop();
-            return;
+            recognition.stop(); 
+            return; // Salimos de la función. El onresult manejará el resultado.
         }
 
-        // 2. Iniciar grabación
+        // --- INICIO DE GRABACIÓN ---
         isRecording = true;
         recordButton.textContent = '🔴 Grabando... Haz clic para detener';
         recordButton.classList.remove('verify-button');
@@ -371,19 +382,21 @@
         resultBox.textContent = 'Escuchando... Di los participios.';
         resultBox.className = 'result-box';
         
+        // Limpiamos los eventos anteriores para evitar duplicados
+        recognition.onresult = null;
+        recognition.onspeechend = null;
+        recognition.onerror = null;
+
         recognition.start();
 
         // 3. Manejar resultado del reconocimiento
         recognition.onresult = (event) => {
-            isRecording = false;
-            recordButton.textContent = '🎤 Grabar (' + id.toUpperCase() + ')';
-            recordButton.style.backgroundColor = '#28a745';
-            recordButton.classList.add('verify-button');
-
+            resetRecordingState(id); // Reinicia el botón
+            
             const transcript = event.results[0][0].transcript.toLowerCase().trim();
             console.log('🗣️ Reconocido:', transcript);
             
-            // Normalización simple para la comparación: quitar puntuación
+            // Normalización simple para la comparación
             const cleanTranscript = transcript.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s{2,}/g," ");
 
             // Comparar resultado
@@ -396,21 +409,22 @@
             }
         };
 
-        // 4. Manejar errores y finalización
+        // 4. Manejar fin de voz o stop
         recognition.onspeechend = () => {
-            if (isRecording) {
+             // Detener la API si la voz se detiene automáticamente, y dejar que onresult maneje la UI
+            if (isRecording) { 
                 recognition.stop();
             }
         };
         
+        // 5. Manejar errores
         recognition.onerror = (event) => {
-            isRecording = false;
-            recordButton.textContent = '🎤 Grabar (' + id.toUpperCase() + ')';
-            recordButton.style.backgroundColor = '#28a745';
-            recordBox.classList.add('verify-button');
-
+            resetRecordingState(id); // Reinicia el botón
+            
             if (event.error === 'not-allowed') {
                  resultBox.textContent = '⚠️ Necesitas permitir el acceso al micrófono.';
+            } else if (event.error === 'no-speech') {
+                 resultBox.textContent = 'No detecté tu voz. Prueba de nuevo.';
             } else {
                  resultBox.textContent = `Error de reconocimiento: ${event.error}. Prueba de nuevo.`;
             }
