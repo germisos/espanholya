@@ -2715,6 +2715,37 @@ function checkMultipleChoice(questionId) {
         resultado.style.color = "red";
     }
 }
+        function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD") // elimina acentos
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function verificar(id, respuestaCorrecta) {
+  const input = document.getElementById("input-" + id);
+  const resultado = document.getElementById("resultado-" + id);
+
+  if (!input || !resultado) return;
+
+  const respuestaUsuario = normalizar(input.value);
+  const correcta = normalizar(respuestaCorrecta);
+
+  if (respuestaUsuario === "") {
+    resultado.textContent = "⚠️ Campo vacío.";
+    resultado.style.color = "orange";
+    return;
+  }
+
+  if (respuestaUsuario === correcta) {
+    resultado.textContent = "✅ Correcto";
+    resultado.style.color = "green";
+  } else {
+    resultado.textContent = "❌ Incorrecto";
+    resultado.style.color = "red";
+  }
+}
 </script>
 
 
