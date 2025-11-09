@@ -2271,79 +2271,84 @@
   </div>
 
 <script>
-    // --------------------------------------------------------------------------------
-    // FUNCIÓN PRINCIPAL DE VERIFICACIÓN (maneja entradas individuales)
-    // --------------------------------------------------------------------------------
-    function mostrarRespuesta(inputId, correctAnswer, multipleAnswers = false) {
-        // La función construye los IDs basándose en el parámetro 'inputId' (ej: '1a')
-        // Busca: 'input-1a' y 'resultado-1a'
-        const inputElement = document.getElementById('input-' + inputId);
-        const resultElement = document.getElementById('resultado-' + inputId);
+    <script>
+// --------------------------------------------------------------------------------
+// FUNCIÓN PRINCIPAL DE VERIFICACIÓN (adaptable a 1 o varios campos)
+// --------------------------------------------------------------------------------
+function mostrarRespuesta(idBase, correctAnswer, multipleAnswers = false) {
+  const resultEl = document.getElementById('resultado-' + idBase);
+  if (!resultEl) {
+    console.error('No se encontró el resultado para:', idBase);
+    return;
+  }
 
-        if (!inputElement || !resultElement) {
-            console.error('ERROR CRÍTICO: No se encontró el elemento Input o Resultado para el ID:', inputId);
-            return;
-        }
+  resultEl.style.display = 'block';
+  resultEl.classList.remove('correct-result', 'incorrect-result');
 
-        // 1. Normalización y limpieza de la respuesta del usuario
-        // Quita espacios extra, puntuación y convierte a minúsculas
-        const userAnswer = inputElement.value.trim().toLowerCase().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ");
+  // Detectar si hay varios inputs (a, b, c...) o solo uno
+  const posibles = ['a','b','c','1','2','3'];
+  const inputs = posibles
+    .map(suf => document.getElementById('input-' + idBase + suf))
+    .filter(el => el !== null);
 
-        // 2. Normalización de la respuesta(s) correcta(s)
-        const cleanCorrectAnswer = Array.isArray(correctAnswer) ?
-            correctAnswer.map(a => a.toLowerCase().trim().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ")) :
-            correctAnswer.toLowerCase().trim().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ");
+  // Si no hay varios, buscar el único input normal
+  if (inputs.length === 0) {
+    const unico = document.getElementById('input-' + idBase);
+    if (unico) inputs.push(unico);
+  }
 
-        let isCorrect = false;
+  const respuestas = Array.isArray(correctAnswer) ? correctAnswer : [correctAnswer];
+  let correctas = 0;
+  let feedback = [];
 
-        // 3. Lógica de verificación
-        if (Array.isArray(cleanCorrectAnswer) || multipleAnswers) {
-            isCorrect = cleanCorrectAnswer.includes(userAnswer);
-        } else {
-            isCorrect = (userAnswer === cleanCorrectAnswer);
-        }
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    const userAnswer = input.value.trim().toLowerCase().replace(/[.,;?!]/g, '');
+    const esperado = (respuestas[i] || respuestas[0]).toLowerCase().trim().replace(/[.,;?!]/g, '');
+    const isCorrect = userAnswer === esperado || (multipleAnswers && respuestas.map(r => r.toLowerCase()).includes(userAnswer));
 
-        // 4. Aplicar CLASES CSS para el resultado (usando tus clases: correct-result/incorrect-result)
-        resultElement.classList.remove('correct-result', 'incorrect-result');
-        resultElement.style.display = 'block'; // Hacemos el resultado visible
-
-        if (userAnswer === "") {
-            // Caso de campo vacío
-            resultElement.innerHTML = 'Escribe tu respuesta primero.';
-            resultElement.style.backgroundColor = '#fff3cd'; // Amarillo de aviso
-            resultElement.style.color = '#856404';
-        } else if (isCorrect) {
-            // Caso de respuesta correcta
-            resultElement.innerHTML = '¡**Correcta**! ✅';
-            resultElement.classList.add('correct-result');
-            resultElement.style.backgroundColor = ''; // Limpia estilos inline de aviso
-            resultElement.style.color = '';
-        } else {
-            // Caso de respuesta incorrecta
-            resultElement.innerHTML = `**Incorrecta**. La respuesta es: "${Array.isArray(correctAnswer) ? correctAnswer.join(' o ') : correctAnswer}" ❌`;
-            resultElement.classList.add('incorrect-result');
-            resultElement.style.backgroundColor = ''; // Limpia estilos inline de aviso
-            resultElement.style.color = '';
-        }
+    if (userAnswer === "") {
+      input.style.borderColor = "#ffcc00";
+      feedback.push(`⚠️ Campo vacío.`);
+      continue;
     }
 
-    // --------------------------------------------------------------------------------
-    // FUNCIONES AUXILIARES (para ejercicios de múltiples campos)
-    // --------------------------------------------------------------------------------
+    if (isCorrect) {
+      input.style.borderColor = "green";
+      correctas++;
+    } else {
+      input.style.borderColor = "red";
+      feedback.push(`❌ "${userAnswer}" → "${esperado}"`);
+    }
+  }
 
-    // Función para verificar dos campos de texto (ej. 11.4.d)
-    function mostrarRespuestaDosCampos(id1, ans1, id2, ans2) {
-        mostrarRespuesta(id1, ans1);
-        mostrarRespuesta(id2, ans2);
-    }
-    
-    // Función para verificar tres campos de texto (si aplica)
-    function mostrarRespuestaTriple(id1, ans1, id2, ans2, id3, ans3) {
-        mostrarRespuesta(id1, ans1);
-        mostrarRespuesta(id2, ans2);
-        mostrarRespuesta(id3, ans3);
-    }
-        function startRecording(code) {
+  if (correctas === inputs.length) {
+    resultEl.textContent = "✅ ¡Muy bien! Todas las respuestas son correctas.";
+    resultEl.classList.add("correct-result");
+  } else {
+    resultEl.innerHTML = `Has acertado ${correctas} de ${inputs.length}.<br>${feedback.join("<br>")}`;
+    resultEl.classList.add("incorrect-result");
+  }
+}
+
+// --------------------------------------------------------------------------------
+// FUNCIONES AUXILIARES (para ejercicios de múltiples campos)
+// --------------------------------------------------------------------------------
+function mostrarRespuestaDosCampos(id1, ans1, id2, ans2) {
+  mostrarRespuesta(id1, ans1);
+  mostrarRespuesta(id2, ans2);
+}
+
+function mostrarRespuestaTriple(id1, ans1, id2, ans2, id3, ans3) {
+  mostrarRespuesta(id1, ans1);
+  mostrarRespuesta(id2, ans2);
+  mostrarRespuesta(id3, ans3);
+}
+
+// --------------------------------------------------------------------------------
+// RECONOCIMIENTO DE VOZ
+// --------------------------------------------------------------------------------
+function startRecording(code) {
   const resultEl = document.getElementById('recording-result-' + code);
   const expected = document.getElementById('expected-text-' + code)?.value || '';
   if (!resultEl) return alert('Elemento de resultado de grabación no encontrado.');
@@ -2356,7 +2361,7 @@
   }
 
   const recognition = new SpeechRecognition();
-  recognition.lang = 'es-ES'; // puedes cambiar a 'es-AR', 'es-MX', etc.
+  recognition.lang = 'es-ES';
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
@@ -2384,10 +2389,6 @@
     resultEl.textContent = '❌ Error o no se reconoció la voz: ' + event.error;
     resultEl.classList.add('incorrect-result');
   };
-
-  recognition.onend = () => {
-    // opcional: reiniciar o dejar mensaje
-  };
 }
 
 function compararFrases(expected, said) {
@@ -2399,6 +2400,10 @@ function compararFrases(expected, said) {
   wordsExp.forEach(w => { if (wordsSaid.includes(w)) match++; });
   return match / wordsExp.length;
 }
+
+// --------------------------------------------------------------------------------
+// AUDIO
+// --------------------------------------------------------------------------------
 function playAudio(src) {
   try {
     const audio = new Audio(src);
@@ -2412,7 +2417,11 @@ function playAudio(src) {
     alert('Error al intentar reproducir el audio.');
   }
 }
-        function checkMultipleChoice(questionId) {
+
+// --------------------------------------------------------------------------------
+// MULTIPLE CHOICE
+// --------------------------------------------------------------------------------
+function checkMultipleChoice(questionId) {
   const options = document.querySelectorAll(`input[name="${questionId}"]`);
   const resultEl = document.getElementById(`resultado-${questionId}`);
   let selected = null;
@@ -2438,49 +2447,8 @@ function playAudio(src) {
     resultEl.classList.add('incorrect-result');
   }
 }
-        function mostrarRespuesta(idBase, respuestasCorrectas, ignorarMayusculas = true) {
-  const resultEl = document.getElementById(`resultado-${idBase}`);
-  resultEl.style.display = "block";
-  resultEl.classList.remove("correct-result", "incorrect-result");
+</script>
 
-  const inputs = [
-    document.getElementById(`input-${idBase}a`),
-    document.getElementById(`input-${idBase}b`)
-  ];
-
-  let correctas = 0;
-  const total = respuestasCorrectas.length;
-  const feedback = [];
-
-  for (let i = 0; i < total; i++) {
-    if (!inputs[i]) continue;
-    const valor = inputs[i].value.trim();
-    const esperado = respuestasCorrectas[i].trim();
-
-    let coincide = false;
-    if (ignorarMayusculas) {
-      coincide = valor.toLowerCase() === esperado.toLowerCase();
-    } else {
-      coincide = valor === esperado;
-    }
-
-    if (coincide) {
-      inputs[i].style.borderColor = "green";
-      correctas++;
-    } else {
-      inputs[i].style.borderColor = "red";
-      feedback.push(`❌ "${valor}" → debía ser "${esperado}"`);
-    }
-  }
-
-  if (correctas === total) {
-    resultEl.textContent = "✅ ¡Muy bien! Todas las respuestas son correctas.";
-    resultEl.classList.add("correct-result");
-  } else {
-    resultEl.innerHTML = `Has acertado ${correctas} de ${total}.<br>${feedback.join("<br>")}`;
-    resultEl.classList.add("incorrect-result");
-  }
-}
 </script>
 
 </body>
