@@ -262,55 +262,46 @@
 <hr>
 
 <div class="exercise-item">
-    <h3>1.3. Participios Regulares (Práctica Oral)</h3>
-    <p>Escucha la pronunciación del grupo de participios y luego grábate diciendo las palabras. El sistema te dirá si has pronunciado correctamente.</p>
+  <h3>1.3. Participios Regulares (Práctica Oral)</h3>
+  <p>Escucha la pronunciación del grupo de participios y luego grábate diciendo las palabras. El sistema te dirá si has pronunciado correctamente.</p>
 
-    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
-        <h4>Verbos terminados en -AR</h4>
-        <p><strong>Participios:</strong> estudiado, viajado</p>
-        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ar.mp3')">
-                🎧 Oír Audio
-            </button>
-            <button class="verify-button" id="record-ar" onclick="startRecording('ar')">
-                🎤 Grabar (estudiado, viajado)
-            </button>
-        </div>
-        <div id="recording-result-ar" class="result-box" style="margin-top: 10px; display:none;"></div>
-        <input type="hidden" id="expected-text-ar" value="estudiado viajado">
+  <!-- AR -->
+  <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+    <h4>Verbos terminados en -AR</h4>
+    <p><strong>Participios:</strong> estudiado, viajado</p>
+    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+      <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ar.mp3')">🎧 Oír Audio</button>
+      <button class="verify-button" id="record-ar" onclick="startRecording('ar')">🎤 Grabar (estudiado, viajado)</button>
     </div>
+    <div id="recording-result-ar" class="result-box" style="margin-top: 10px;">Esperando grabación...</div>
+    <input type="hidden" id="expected-text-ar" value="estudiado viajado">
+  </div>
 
-    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
-        <h4>Verbos terminados en -ER</h4>
-        <p><strong>Participios:</strong> comido, tenido</p>
-        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/er.mp3')">
-                🎧 Oír Audio
-            </button>
-            <button class="verify-button" id="record-er" onclick="startRecording('er')">
-                🎤 Grabar (comido, tenido)
-            </button>
-        </div>
-        <div id="recording-result-er" class="result-box" style="margin-top: 10px; display:none;"></div>
-        <input type="hidden" id="expected-text-er" value="comido tenido">
+  <!-- ER -->
+  <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+    <h4>Verbos terminados en -ER</h4>
+    <p><strong>Participios:</strong> comido, tenido</p>
+    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+      <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/er.mp3')">🎧 Oír Audio</button>
+      <button class="verify-button" id="record-er" onclick="startRecording('er')">🎤 Grabar (comido, tenido)</button>
     </div>
+    <div id="recording-result-er" class="result-box" style="margin-top: 10px;">Esperando grabación...</div>
+    <input type="hidden" id="expected-text-er" value="comido tenido">
+  </div>
 
-    <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
-        <h4>Verbos terminados en -IR</h4>
-        <p><strong>Participios:</strong> construido, reducido</p>
-        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-            <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ir.mp3')">
-                🎧 Oír Audio
-            </button>
-            <button class="verify-button" id="record-ir" onclick="startRecording('ir')">
-                🎤 Grabar (construido, reducido)
-            </button>
-        </div>
-        <div id="recording-result-ir" class="result-box" style="margin-top: 10px; display:none;"></div>
-        <input type="hidden" id="expected-text-ir" value="construido reducido">
+  <!-- IR -->
+  <div class="question-line" style="flex-direction: column; align-items: flex-start; margin-bottom: 20px;">
+    <h4>Verbos terminados en -IR</h4>
+    <p><strong>Participios:</strong> construido, reducido</p>
+    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+      <button class="check-button-small" onclick="playAudio('assets/audio/unidad8/pp/ir.mp3')">🎧 Oír Audio</button>
+      <button class="verify-button" id="record-ir" onclick="startRecording('ir')">🎤 Grabar (construido, reducido)</button>
     </div>
-
+    <div id="recording-result-ir" class="result-box" style="margin-top: 10px;">Esperando grabación...</div>
+    <input type="hidden" id="expected-text-ir" value="construido reducido">
+  </div>
 </div>
+
     <hr>
 
 <div class="exercise-item compacto">
@@ -2352,7 +2343,62 @@
         mostrarRespuesta(id2, ans2);
         mostrarRespuesta(id3, ans3);
     }
+        function startRecording(code) {
+  const resultEl = document.getElementById('recording-result-' + code);
+  const expected = document.getElementById('expected-text-' + code)?.value || '';
+  if (!resultEl) return alert('Elemento de resultado de grabación no encontrado.');
 
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    resultEl.textContent = '⚠️ Tu navegador no admite reconocimiento de voz.';
+    resultEl.style.display = 'block';
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'es-ES'; // puedes cambiar a 'es-AR', 'es-MX', etc.
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  resultEl.style.display = 'block';
+  resultEl.textContent = '🎙️ Escuchando... habla ahora.';
+  resultEl.classList.remove('correct-result', 'incorrect-result');
+
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const said = event.results[0][0].transcript.toLowerCase().trim();
+    const expectedNorm = expected.toLowerCase().trim();
+    const similarity = compararFrases(expectedNorm, said);
+
+    if (similarity > 0.75) {
+      resultEl.textContent = `✅ Correcto (${Math.round(similarity * 100)}% de coincidencia)`;
+      resultEl.classList.add('correct-result');
+    } else {
+      resultEl.textContent = `❌ Dijo: "${said}" (Coincidencia ${Math.round(similarity * 100)}%)`;
+      resultEl.classList.add('incorrect-result');
+    }
+  };
+
+  recognition.onerror = (event) => {
+    resultEl.textContent = '❌ Error o no se reconoció la voz: ' + event.error;
+    resultEl.classList.add('incorrect-result');
+  };
+
+  recognition.onend = () => {
+    // opcional: reiniciar o dejar mensaje
+  };
+}
+
+function compararFrases(expected, said) {
+  const normExp = expected.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const normSaid = said.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const wordsExp = normExp.split(/\s+/);
+  const wordsSaid = normSaid.split(/\s+/);
+  let match = 0;
+  wordsExp.forEach(w => { if (wordsSaid.includes(w)) match++; });
+  return match / wordsExp.length;
+}
 
 </script>
 
