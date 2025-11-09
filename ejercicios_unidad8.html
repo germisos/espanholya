@@ -2412,6 +2412,32 @@ function playAudio(src) {
     alert('Error al intentar reproducir el audio.');
   }
 }
+        function checkMultipleChoice(questionId) {
+  const options = document.querySelectorAll(`input[name="${questionId}"]`);
+  const resultEl = document.getElementById(`resultado-${questionId}`);
+  let selected = null;
+
+  options.forEach(opt => {
+    if (opt.checked) selected = opt;
+  });
+
+  resultEl.style.display = 'block';
+  resultEl.classList.remove('correct-result', 'incorrect-result');
+
+  if (!selected) {
+    resultEl.textContent = '⚠️ Por favor, selecciona una respuesta.';
+    resultEl.classList.add('incorrect-result');
+    return;
+  }
+
+  if (selected.value === 'correct') {
+    resultEl.textContent = '✅ ¡Correcto! Muy bien.';
+    resultEl.classList.add('correct-result');
+  } else {
+    resultEl.textContent = '❌ Incorrecto. Intenta otra vez.';
+    resultEl.classList.add('incorrect-result');
+  }
+}
 </script>
 
 </body>
