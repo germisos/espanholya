@@ -2418,6 +2418,64 @@
             resultBox.className = 'result-box incorrect-result';
         }
     }
+        // Función principal para verificar un solo campo de texto o selección.
+    function mostrarRespuesta(inputId, correctAnswer, multipleAnswers = false) {
+        const inputElement = document.getElementById(inputId);
+        const resultElement = document.getElementById('resultado-' + inputId);
+        
+        if (!inputElement || !resultElement) {
+            console.error('Elementos no encontrados para el ID:', inputId);
+            return;
+        }
+
+        const userAnswer = inputElement.value.trim().toLowerCase().replace(/[.,;?!]/g, '');
+        let isCorrect = false;
+
+        if (Array.isArray(correctAnswer) || multipleAnswers) {
+            // Manejar respuestas múltiples
+            const validAnswers = Array.isArray(correctAnswer) ? correctAnswer.map(a => a.toLowerCase().replace(/[.,;?!]/g, '')) : [correctAnswer.toLowerCase().replace(/[.,;?!]/g, '')];
+            isCorrect = validAnswers.includes(userAnswer);
+        } else {
+            // Manejar respuesta única
+            const cleanCorrectAnswer = correctAnswer.toLowerCase().replace(/[.,;?!]/g, '');
+            isCorrect = (userAnswer === cleanCorrectAnswer);
+        }
+
+        if (isCorrect) {
+            resultElement.innerHTML = '¡**Correcta**! ✅';
+            resultElement.style.backgroundColor = '#d4edda'; // Verde claro
+            resultElement.style.color = '#155724'; // Texto verde oscuro
+        } else {
+            resultElement.innerHTML = `**Incorrecta**. La respuesta es: "${correctAnswer}" ❌`;
+            resultElement.style.backgroundColor = '#f8d7da'; // Rojo claro
+            resultElement.style.color = '#721c24'; // Texto rojo oscuro
+        }
+        resultElement.style.display = 'block';
+    }
+
+    // Función para verificar dos campos de texto (usada en 11.4d, 11.5.5, 11.5.25)
+    function mostrarRespuestaDosCampos(id1, ans1, id2, ans2) {
+        // Ejecutar verificación individual para cada campo
+        mostrarRespuesta(id1, ans1);
+        mostrarRespuesta(id2, ans2);
+    }
+    
+    // Función para verificar tres campos de texto (usada en 11.5.19)
+    function mostrarRespuestaTriple(id1, ans1, id2, ans2, id3, ans3) {
+        // Ejecutar verificación individual para cada campo
+        mostrarRespuesta(id1, ans1);
+        mostrarRespuesta(id2, ans2);
+        mostrarRespuesta(id3, ans3);
+    }
+
+    // Función para mostrar solo la respuesta (puede ser útil para botones de "Ver Respuesta")
+    function mostrarRespuestaSolo(inputId, correctAnswer) {
+        const resultElement = document.getElementById('resultado-' + inputId);
+        resultElement.innerHTML = `Respuesta: "${correctAnswer}"`;
+        resultElement.style.backgroundColor = '#fff3cd'; // Amarillo claro
+        resultElement.style.color = '#856404'; // Texto amarillo oscuro
+        resultElement.style.display = 'block';
+    }
 </script>
 
 </body>
