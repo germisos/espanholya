@@ -2691,6 +2691,30 @@ function checkMultipleChoice(questionId) {
     resultado.style.color = "red";
   }
 }
+        function mostrarRespuesta(id, respuestaCorrecta) {
+    const input = document.getElementById("input-" + id);
+    const resultado = document.getElementById("resultado-" + id);
+    const respuestaUsuario = input.value.trim().toLowerCase();
+    const correcta = respuestaCorrecta.trim().toLowerCase();
+
+    resultado.style.display = "block";
+    resultado.style.fontWeight = "bold";
+    resultado.style.marginTop = "5px";
+
+    if (respuestaUsuario === "") {
+        resultado.innerHTML = "⚠️ Campo vacío.";
+        resultado.style.color = "orange";
+        return;
+    }
+
+    if (respuestaUsuario === correcta) {
+        resultado.innerHTML = "✅ Correcto.";
+        resultado.style.color = "green";
+    } else {
+        resultado.innerHTML = "❌ Incorrecto.";
+        resultado.style.color = "red";
+    }
+}
 </script>
 
 
