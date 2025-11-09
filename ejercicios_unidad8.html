@@ -2438,6 +2438,49 @@ function playAudio(src) {
     resultEl.classList.add('incorrect-result');
   }
 }
+        function mostrarRespuesta(idBase, respuestasCorrectas, ignorarMayusculas = true) {
+  const resultEl = document.getElementById(`resultado-${idBase}`);
+  resultEl.style.display = "block";
+  resultEl.classList.remove("correct-result", "incorrect-result");
+
+  const inputs = [
+    document.getElementById(`input-${idBase}a`),
+    document.getElementById(`input-${idBase}b`)
+  ];
+
+  let correctas = 0;
+  const total = respuestasCorrectas.length;
+  const feedback = [];
+
+  for (let i = 0; i < total; i++) {
+    if (!inputs[i]) continue;
+    const valor = inputs[i].value.trim();
+    const esperado = respuestasCorrectas[i].trim();
+
+    let coincide = false;
+    if (ignorarMayusculas) {
+      coincide = valor.toLowerCase() === esperado.toLowerCase();
+    } else {
+      coincide = valor === esperado;
+    }
+
+    if (coincide) {
+      inputs[i].style.borderColor = "green";
+      correctas++;
+    } else {
+      inputs[i].style.borderColor = "red";
+      feedback.push(`❌ "${valor}" → debía ser "${esperado}"`);
+    }
+  }
+
+  if (correctas === total) {
+    resultEl.textContent = "✅ ¡Muy bien! Todas las respuestas son correctas.";
+    resultEl.classList.add("correct-result");
+  } else {
+    resultEl.innerHTML = `Has acertado ${correctas} de ${total}.<br>${feedback.join("<br>")}`;
+    resultEl.classList.add("incorrect-result");
+  }
+}
 </script>
 
 </body>
