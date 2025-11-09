@@ -94,17 +94,17 @@
 
         /* === RESULTADOS === */
         .result-box {
-            margin-top: 8px;
-            padding: 7px 12px;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            color: #777;
-            font-style: italic;
-            border: 1px solid #ddd;
-            display: inline-block;
-            margin-left: 10px;
-        }
-
+    margin-top: 8px;
+    padding: 7px 12px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #777;
+    font-style: italic;
+    border: 1px solid #ddd;
+    display: none; /* <--- ¡ESTE CAMBIO ES ESENCIAL! */
+    width: fit-content; /* Añadimos esto para que no ocupe todo el ancho */
+    margin-left: 10px;
+}
         .correct-result {
             background-color: #d4edda !important;
             color: #155724 !important;
@@ -125,6 +125,17 @@
         .question-text {
             flex-grow: 1;
         }
+        /* === BOTONES DE SELECCIÓN MC AZULES === */
+.mc-button.blue-select {
+    background-color: #007bff !important;
+    color: white !important;
+    border: none !important;
+    padding: 5px 10px !important;
+    cursor: pointer !important;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: normal;
+}
 </style>
   </head>
 <body>
