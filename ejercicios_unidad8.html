@@ -2399,7 +2399,19 @@ function compararFrases(expected, said) {
   wordsExp.forEach(w => { if (wordsSaid.includes(w)) match++; });
   return match / wordsExp.length;
 }
-
+function playAudio(src) {
+  try {
+    const audio = new Audio(src);
+    audio.volume = 1.0;
+    audio.play().catch(err => {
+      console.warn('⚠️ No se pudo reproducir el audio automáticamente:', err);
+      alert('Debes hacer clic o permitir sonido en el navegador para reproducir el audio.');
+    });
+  } catch (error) {
+    console.error('Error al reproducir el audio:', error);
+    alert('Error al intentar reproducir el audio.');
+  }
+}
 </script>
 
 </body>
