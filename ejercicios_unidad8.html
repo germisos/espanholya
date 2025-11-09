@@ -1955,7 +1955,7 @@
             </tbody>
         </table>
     </div>
-
+    <div id="resultado-11-2-a" class="result-box" style="display:none;"></div>
     <hr>
     <h4>11.3. Preguntas con Pronombres Interrogativos</h4>
     <p>Formula la pregunta usando el pronombre interrogativo adecuado: **¿De dónde?, ¿Cómo?, ¿Cuánto(s)?, ¿Cuándo?, ¿Qué?, ¿Adónde?, ¿Cuál(es)?, ¿En qué?, ¿Quién(es)?**</p>
@@ -2018,40 +2018,94 @@
 
 
     <hr>
-    <h4>11.4. Acento Diacrítico (Elige la palabra adecuada)</h4>
-    <p>Completa las expresiones con la palabra adecuada. (Opciones entre paréntesis)</p>
+    <h4>11.4. Acento Diacrítico (Múltiple Choice)</h4>
+    <p>Selecciona la palabra correcta en cada caso. (Botones de selección azul, botón de verificación verde).</p>
     
-    <div class="question-line">
-        <div class="question-text">a) Lo explicó <input type="text" class="exercise-input-small" id="input-11-4-a" placeholder="más/mas"> de tres veces. (más, mas)</div>
-        <button class="verify-button check-button-small" onclick="mostrarRespuesta('11-4-a', 'más')">Verificar</button>
+    <div class="question-line" style="flex-direction: column; align-items: flex-start;">
+        <div class="question-text">a) Lo explicó <span id="span-11-4-a">_________</span> de tres veces.</div>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-a').value='más';">más</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-a').value='mas';">mas</button>
+            <input type="hidden" id="input-11-4-a" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-a', 'más')">Verificar</button>
+        </div>
         <div id="resultado-11-4-a" class="result-box" style="display:none;"></div>
     </div>
 
-    <div class="question-line">
-        <div class="question-text">b) Aquélla es <input type="text" class="exercise-input-small" id="input-11-4-b" placeholder="mí/mi"> revista favorita. (mí, mi)</div>
-        <button class="verify-button check-button-small" onclick="mostrarRespuesta('11-4-b', 'mi')">Verificar</button>
+    <div class="question-line" style="flex-direction: column; align-items: flex-start;">
+        <div class="question-text">b) Aquélla es <span id="span-11-4-b">_________</span> revista favorita.</div>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-b').value='mí';">mí</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-b').value='mi';">mi</button>
+            <input type="hidden" id="input-11-4-b" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-b', 'mi')">Verificar</button>
+        </div>
         <div id="resultado-11-4-b" class="result-box" style="display:none;"></div>
     </div>
 
-    <div class="question-line">
-        <div class="question-text">c) Te pido <input type="text" class="exercise-input-small" id="input-11-4-c" placeholder="sólo/solo"> un mes de plazo. (sólo, solo)</div>
-        <button class="verify-button check-button-small" onclick="mostrarRespuesta('11-4-c', ['sólo', 'solo'], true)">Verificar</button>
+    <div class="question-line" style="flex-direction: column; align-items: flex-start;">
+        <div class="question-text">c) Te pido <span id="span-11-4-c">_________</span> un mes de plazo.</div>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-c').value='sólo';">sólo</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-c').value='solo';">solo</button>
+            <input type="hidden" id="input-11-4-c" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-c', ['sólo', 'solo'], true)">Verificar</button>
+        </div>
         <div id="resultado-11-4-c" class="result-box" style="display:none;"></div>
     </div>
 
-    <div class="question-line">
-        <div class="question-text">d) <input type="text" class="exercise-input-small" id="input-11-4-d1" placeholder="Te/Té"> sirvo un <input type="text" class="exercise-input-small" id="input-11-4-d2" placeholder="Te/Té">. (té, te)</div>
-        <button class="verify-button check-button-small" onclick="mostrarRespuestaDosCampos('11-4-d1', 'Te', '11-4-d2', 'té')">Verificar</button>
+    <div class="question-line" style="flex-direction: column; align-items: flex-start;">
+        <div class="question-text">d) <span id="span-11-4-d1">_________</span> sirvo un <span id="span-11-4-d2">_________</span>.</div>
+        <p style="margin: 5px 0 0 0;">Primer hueco (Te/Té):</p>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-d1').value='Te';">Te (Pronombre)</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-d1').value='Té';">Té (Infusión)</button>
+            <input type="hidden" id="input-11-4-d1" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-d1', 'Te')">Verificar 1°</button>
+        </div>
         <div id="resultado-11-4-d1" class="result-box" style="display:none;"></div>
+
+        <p style="margin: 15px 0 0 0;">Segundo hueco (te/té):</p>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-d2').value='te';">te (Pronombre)</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-d2').value='té';">té (Infusión)</button>
+            <input type="hidden" id="input-11-4-d2" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-d2', 'té')">Verificar 2°</button>
+        </div>
         <div id="resultado-11-4-d2" class="result-box" style="display:none;"></div>
     </div>
 
-    <div class="question-line">
-        <div class="question-text">e) Me dijo mi papá que <input type="text" class="exercise-input-small" id="input-11-4-e" placeholder="sí/si"> me daba permiso… (sí, si)</div>
-        <button class="verify-button check-button-small" onclick="mostrarRespuesta('11-4-e', 'sí')">Verificar</button>
+
+    <div class="question-line" style="flex-direction: column; align-items: flex-start;">
+        <div class="question-text">e) Me dijo mi papá que <span id="span-11-4-e">_________</span> me daba permiso…</div>
+        <div style="display: flex; align-items: center; margin-top: 5px;">
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-right: 5px;" 
+                    onclick="document.getElementById('input-11-4-e').value='sí';">sí</button>
+            <button style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                    onclick="document.getElementById('input-11-4-e').value='si';">si</button>
+            <input type="hidden" id="input-11-4-e" value="">
+            <button style="background-color: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 15px; cursor: pointer;" 
+                    onclick="mostrarRespuesta('11-4-e', 'sí')">Verificar</button>
+        </div>
         <div id="resultado-11-4-e" class="result-box" style="display:none;"></div>
     </div>
 
+</div>
     <hr>
     <h4>11.5. Acento Diacrítico (Rellena el hueco)</h4>
     <p>Completa las oraciones con la forma correcta de las palabras que llevan acento diacrítico o no: **él/el, se/sé, té/te, de/dé, si/sí, aun/aún, más/mas, tu/tú, mi/mí**.</p>
