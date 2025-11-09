@@ -2280,213 +2280,83 @@
   </div>
 
 <script>
-// Función genérica para mostrar la respuesta correcta
-        function mostrarRespuesta(id, respuestaCorrecta, esDoble = false) {
-            const resultBox = document.getElementById('resultado-' + id);
-            
-            if (esDoble) {
-                // Para el caso 4 del Punto 2 (dos verbos)
-                resultBox.innerHTML = `<strong>Respuesta:</strong> ${respuestaCorrecta[0]} y ${respuestaCorrecta[1]}`;
-            } else {
-                resultBox.innerHTML = `<strong>Respuesta:</strong> ${respuestaCorrecta}`;
-            }
-            
-            resultBox.classList.remove('incorrect-result');
-            resultBox.classList.add('correct-result');
-            resultBox.style.display = 'inline-block';
-        }
-  // ... (Tu configuración inicial de SpeechRecognition y playAudio) ...
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    let recognition;
-
-    if (SpeechRecognition) {
-        recognition = new SpeechRecognition();
-        recognition.lang = 'es-ES';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-    } else {
-        console.warn("❌ Web Speech API no soportada en este navegador.");
-        alert("Tu navegador no soporta la función de reconocimiento de voz necesaria para este ejercicio.");
-    }
-    
-    // ... (Tu función playAudio) ...
-    function playAudio(src) {
-        const audio = new Audio(src);
-        audio.play().catch(error => {
-            console.error("❌ Error de reproducción de audio. Comprueba la ruta:", src, error);
-            alert("No se pudo reproducir el audio. Revisa la consola del navegador (F12) o verifica la ruta.");
-        });
-    }
-
-
-    // Variable global para controlar el estado
-    let isRecording = false;
-
-    // Función auxiliar para resetear el estado del botón
-    function resetRecordingState(id) {
-        const recordButton = document.getElementById('record-' + id);
-        isRecording = false;
-        recordButton.textContent = `🎤 Grabar (${id.toUpperCase()})`;
-        recordButton.style.backgroundColor = '#28a745'; // Verde
-        recordButton.classList.add('verify-button');
-    }
-
-
-    // Función principal para iniciar/detener la grabación
-    function startRecording(id) {
-        if (!recognition) return;
-
-        const recordButton = document.getElementById('record-' + id);
-        const resultBox = document.getElementById('recording-result-' + id);
-        const expectedText = document.getElementById('expected-text-' + id).value.toLowerCase().trim();
-
-        // **AQUÍ ESTÁ LA CORRECCIÓN:** // Si ya está grabando y se vuelve a hacer click, simplemente detenemos la API
-        if (isRecording) {
-            recognition.stop(); 
-            return; // Salimos de la función. El onresult manejará el resultado.
-        }
-
-        // --- INICIO DE GRABACIÓN ---
-        isRecording = true;
-        recordButton.textContent = '🔴 Grabando... Haz clic para detener';
-        recordButton.classList.remove('verify-button');
-        recordButton.style.backgroundColor = '#dc3545'; // Rojo
-
-        resultBox.style.display = 'block';
-        resultBox.textContent = 'Escuchando... Di los participios.';
-        resultBox.className = 'result-box';
-        
-        // Limpiamos los eventos anteriores para evitar duplicados
-        recognition.onresult = null;
-        recognition.onspeechend = null;
-        recognition.onerror = null;
-
-        recognition.start();
-
-        // 3. Manejar resultado del reconocimiento
-        recognition.onresult = (event) => {
-            resetRecordingState(id); // Reinicia el botón
-            
-            const transcript = event.results[0][0].transcript.toLowerCase().trim();
-            console.log('🗣️ Reconocido:', transcript);
-            
-            // Normalización simple para la comparación
-            const cleanTranscript = transcript.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s{2,}/g," ");
-
-            // Comparar resultado
-            if (cleanTranscript === expectedText) {
-                resultBox.textContent = '¡Bien! ✅ Pronunciación correcta.';
-                resultBox.className = 'result-box correct-result';
-            } else {
-                resultBox.textContent = `Prueba de nuevo. ❌ Dijiste: "${transcript}".`;
-                resultBox.className = 'result-box incorrect-result';
-            }
-        };
-
-        // 4. Manejar fin de voz o stop
-        recognition.onspeechend = () => {
-             // Detener la API si la voz se detiene automáticamente, y dejar que onresult maneje la UI
-            if (isRecording) { 
-                recognition.stop();
-            }
-        };
-        
-        // 5. Manejar errores
-        recognition.onerror = (event) => {
-            resetRecordingState(id); // Reinicia el botón
-            
-            if (event.error === 'not-allowed') {
-                 resultBox.textContent = '⚠️ Necesitas permitir el acceso al micrófono.';
-            } else if (event.error === 'no-speech') {
-                 resultBox.textContent = 'No detecté tu voz. Prueba de nuevo.';
-            } else {
-                 resultBox.textContent = `Error de reconocimiento: ${event.error}. Prueba de nuevo.`;
-            }
-            resultBox.className = 'result-box incorrect-result';
-        };
-    }
-        // Asegúrate de que esta función esté definida antes de que se use
-    function checkMultipleChoice(questionId) {
-        const resultBox = document.getElementById('resultado-' + questionId);
-        const selectedOption = document.querySelector('input[name="' + questionId + '"]:checked');
-        
-        // Muestra el resultado
-        resultBox.style.display = 'block';
-        
-        if (!selectedOption) {
-            resultBox.textContent = 'Selecciona una opción.';
-            resultBox.className = 'result-box incorrect-result';
-            return;
-        }
-
-        if (selectedOption.value === 'correct') {
-            resultBox.textContent = '¡Correcto! ✅';
-            resultBox.className = 'result-box correct-result';
-        } else {
-            const correctLabel = document.querySelector('input[name="' + questionId + '"][value="correct"]').nextElementSibling.textContent;
-            resultBox.textContent = `Prueba de nuevo. ❌ La respuesta correcta es: ${correctLabel}`;
-            resultBox.className = 'result-box incorrect-result';
-        }
-    }
-        // Función principal para verificar un solo campo de texto o selección.
+<script>
+    // --------------------------------------------------------------------------------
+    // FUNCIÓN PRINCIPAL DE VERIFICACIÓN (maneja entradas individuales)
+    // --------------------------------------------------------------------------------
     function mostrarRespuesta(inputId, correctAnswer, multipleAnswers = false) {
-        const inputElement = document.getElementById(inputId);
+        // La función construye los IDs basándose en el parámetro 'inputId' (ej: '1a')
+        // Busca: 'input-1a' y 'resultado-1a'
+        const inputElement = document.getElementById('input-' + inputId);
         const resultElement = document.getElementById('resultado-' + inputId);
-        
+
         if (!inputElement || !resultElement) {
-            console.error('Elementos no encontrados para el ID:', inputId);
+            console.error('ERROR CRÍTICO: No se encontró el elemento Input o Resultado para el ID:', inputId);
             return;
         }
 
-        const userAnswer = inputElement.value.trim().toLowerCase().replace(/[.,;?!]/g, '');
+        // 1. Normalización y limpieza de la respuesta del usuario
+        // Quita espacios extra, puntuación y convierte a minúsculas
+        const userAnswer = inputElement.value.trim().toLowerCase().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ");
+
+        // 2. Normalización de la respuesta(s) correcta(s)
+        const cleanCorrectAnswer = Array.isArray(correctAnswer) ?
+            correctAnswer.map(a => a.toLowerCase().trim().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ")) :
+            correctAnswer.toLowerCase().trim().replace(/[.,;?!]/g, '').replace(/\s{2,}/g, " ");
+
         let isCorrect = false;
 
-        if (Array.isArray(correctAnswer) || multipleAnswers) {
-            // Manejar respuestas múltiples
-            const validAnswers = Array.isArray(correctAnswer) ? correctAnswer.map(a => a.toLowerCase().replace(/[.,;?!]/g, '')) : [correctAnswer.toLowerCase().replace(/[.,;?!]/g, '')];
-            isCorrect = validAnswers.includes(userAnswer);
+        // 3. Lógica de verificación
+        if (Array.isArray(cleanCorrectAnswer) || multipleAnswers) {
+            isCorrect = cleanCorrectAnswer.includes(userAnswer);
         } else {
-            // Manejar respuesta única
-            const cleanCorrectAnswer = correctAnswer.toLowerCase().replace(/[.,;?!]/g, '');
             isCorrect = (userAnswer === cleanCorrectAnswer);
         }
 
-        if (isCorrect) {
+        // 4. Aplicar CLASES CSS para el resultado (usando tus clases: correct-result/incorrect-result)
+        resultElement.classList.remove('correct-result', 'incorrect-result');
+        resultElement.style.display = 'block'; // Hacemos el resultado visible
+
+        if (userAnswer === "") {
+            // Caso de campo vacío
+            resultElement.innerHTML = 'Escribe tu respuesta primero.';
+            resultElement.style.backgroundColor = '#fff3cd'; // Amarillo de aviso
+            resultElement.style.color = '#856404';
+        } else if (isCorrect) {
+            // Caso de respuesta correcta
             resultElement.innerHTML = '¡**Correcta**! ✅';
-            resultElement.style.backgroundColor = '#d4edda'; // Verde claro
-            resultElement.style.color = '#155724'; // Texto verde oscuro
+            resultElement.classList.add('correct-result');
+            resultElement.style.backgroundColor = ''; // Limpia estilos inline de aviso
+            resultElement.style.color = '';
         } else {
-            resultElement.innerHTML = `**Incorrecta**. La respuesta es: "${correctAnswer}" ❌`;
-            resultElement.style.backgroundColor = '#f8d7da'; // Rojo claro
-            resultElement.style.color = '#721c24'; // Texto rojo oscuro
+            // Caso de respuesta incorrecta
+            resultElement.innerHTML = `**Incorrecta**. La respuesta es: "${Array.isArray(correctAnswer) ? correctAnswer.join(' o ') : correctAnswer}" ❌`;
+            resultElement.classList.add('incorrect-result');
+            resultElement.style.backgroundColor = ''; // Limpia estilos inline de aviso
+            resultElement.style.color = '';
         }
-        resultElement.style.display = 'block';
     }
 
-    // Función para verificar dos campos de texto (usada en 11.4d, 11.5.5, 11.5.25)
+    // --------------------------------------------------------------------------------
+    // FUNCIONES AUXILIARES (para ejercicios de múltiples campos)
+    // --------------------------------------------------------------------------------
+
+    // Función para verificar dos campos de texto (ej. 11.4.d)
     function mostrarRespuestaDosCampos(id1, ans1, id2, ans2) {
-        // Ejecutar verificación individual para cada campo
         mostrarRespuesta(id1, ans1);
         mostrarRespuesta(id2, ans2);
     }
     
-    // Función para verificar tres campos de texto (usada en 11.5.19)
+    // Función para verificar tres campos de texto (si aplica)
     function mostrarRespuestaTriple(id1, ans1, id2, ans2, id3, ans3) {
-        // Ejecutar verificación individual para cada campo
         mostrarRespuesta(id1, ans1);
         mostrarRespuesta(id2, ans2);
         mostrarRespuesta(id3, ans3);
     }
 
-    // Función para mostrar solo la respuesta (puede ser útil para botones de "Ver Respuesta")
-    function mostrarRespuestaSolo(inputId, correctAnswer) {
-        const resultElement = document.getElementById('resultado-' + inputId);
-        resultElement.innerHTML = `Respuesta: "${correctAnswer}"`;
-        resultElement.style.backgroundColor = '#fff3cd'; // Amarillo claro
-        resultElement.style.color = '#856404'; // Texto amarillo oscuro
-        resultElement.style.display = 'block';
-    }
+    // Nota: Se han eliminado las funciones de Voz (SpeechRecognition) y Audio
+    // para dejar solo la lógica de verificación de texto pura.
+</script>
 </script>
 
 </body>
