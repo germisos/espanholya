@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Unidad 9</title>
+
+    <script src="menu.js" defer></script> 
+    
+<style>
+   body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor principal --- */
+    .lesson-container {
+        max-width: 900px; 
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+</style>
+</head>
+<body>
+<div class="lesson-container">
+  
+<h1>Unidad 9 – Ejercicios interactivos</h1>
+
+<!-- EJERCICIO 1 -->
+<div class="ejercicio">
+    <p><strong>1. Relaciones:</strong> elige la opción correcta.</p>
+    <label><input type="radio" name="r1" value="a"> a) Me llevo <strong>buen</strong> con mi jefe.</label><br>
+    <label><input type="radio" name="r1" value="b"> b) Me llevo <strong>bien</strong> con mi jefe.</label><br>
+    <label><input type="radio" name="r1" value="c"> c) Me llevo <strong>bueno</strong> con mi jefe.</label><br>
+    <button class="btn" onclick="verificar1()">Comprobar</button>
+    <div id="sol1" class="solucion"></div>
+</div>
+<hr>
+<!-- EJERCICIO 2 -->
+<div class="ejercicio">
+    <p><strong>2. Opiniones:</strong> marca la frase <strong>más natural</strong> en español coloquial.</p>
+    <label><input type="radio" name="r2" value="a"> a) Pieno que este café es caro.</label><br>
+    <label><input type="radio" name="r2" value="b"> b) Pienso que este café es caro.</label><br>
+    <label><input type="radio" name="r2" value="c"> c) Yo pienso que este café es caro.</label><br>
+    <button class="btn" onclick="verificar2()">Comprobar</button>
+    <div id="sol2" class="solucion"></div>
+</div>
+<hr>
+<!-- EJERCICIO 3 -->
+<div class="ejercicio">
+    <p><strong>3. Pasado en desarrollo:</strong> completa con <em>estaba</em> o <em>he estado</em>.</p>
+    1. Cuando llegaste, yo __________ cocinando.<br>
+    2. Esta semana __________ saliendo tarde todos los días.<br>
+    <input type="text" id="p3a" placeholder="1.">  
+    <input type="text" id="p3b" placeholder="2."><br>
+    <button class="btn" onclick="verificar3()">Comprobar</button>
+    <div id="sol3" class="solucion"></div>
+</div>
+<hr>
+<!-- EJERCICIO 4 -->
+<div class="ejercicio">
+    <p><strong>4. Por vs Para:</strong> elige la preposición correcta.</p>
+    1. Estudio italiano ___ amor a la cultura.  
+    2. Necesito el certificado ___ solicitar la beca.  
+    <select id="p4a">
+        <option value="">--</option>
+        <option value="por">por</option>
+        <option value="para">para</option>
+    </select>  
+    <select id="p4b">
+        <option value="">--</option>
+        <option value="por">por</option>
+        <option value="para">para</option>
+    </select><br>
+    <button class="btn" onclick="verificar4()">Comprobar</button>
+    <div id="sol4" class="solucion"></div>
+</div>
+<hr>
+<!-- EJERCICIO 5 -->
+<div class="ejercicio">
+    <p><strong>5. Condicional:</strong> escribe el verbo en condicional.</p>
+    1. Yo (viajar) __________ a Japón si pudiera.  
+    2. En tu lugar, yo (llamar) __________ antes.  
+    <input type="text" id="p5a" placeholder="1.">  
+    <input type="text" id="p5b" placeholder="2."><br>
+    <button class="btn" onclick="verificar5()">Comprobar</button>
+    <div id="sol5" class="solucion"></div>
+    </div>
+</div>
+  
+<script>
+function verificar1(){
+    const r=document.querySelector('input[name="r1"]:checked');
+    document.getElementById('sol1').style.display='block';
+    document.getElementById('sol1').textContent= r&&r.value==='b' ? '✅ Correcto' : '❌ Inténtalo otra vez';
+}
+function verificar2(){
+    const r=document.querySelector('input[name="r2"]:checked');
+    document.getElementById('sol2').style.display='block';
+    document.getElementById('sol2').textContent= r&&(r.value==='b'||r.value==='c') ? '✅ Correcto' : '❌ Inténtalo otra vez';
+}
+function verificar3(){
+    const a=document.getElementById('p3a').value.trim().toLowerCase();
+    const b=document.getElementById('p3b').value.trim().toLowerCase();
+    document.getElementById('sol3').style.display='block';
+    document.getElementById('sol3').textContent= (a==='estaba'&&b==='he estado') ? '✅ Correcto' : '❌ 1. estaba  2. he estado';
+}
+function verificar4(){
+    const a=document.getElementById('p4a').value;
+    const b=document.getElementById('p4b').value;
+    document.getElementById('sol4').style.display='block';
+    document.getElementById('sol4').textContent= (a==='por'&&b==='para') ? '✅ Correcto' : '❌ 1. por  2. para';
+}
+function verificar5(){
+    const a=document.getElementById('p5a').value.trim().toLowerCase();
+    const b=document.getElementById('p5b').value.trim().toLowerCase();
+    document.getElementById('sol5').style.display='block';
+    document.getElementById('sol5').textContent= (a==='viajaría'&&b==='llamaría') ? '✅ Correcto' : '❌ 1. viajaría  2. llamaría';
+}
+</script>
+
+</body>
+</html>
