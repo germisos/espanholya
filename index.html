@@ -1,102 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de Español</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EspanholYa – Aprenda Espanhol do Zero!</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Menú principal -->
   <script src="menu.js" defer></script>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
       padding-top: 60px; /* espacio para el menú fijo */
+      background: url('https://images.unsplash.com/photo-1584697964154-fb63ec5c6a9a?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
     }
 
-    .container {
-      width: 80%;
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
+    /* Quitar focos feos del menú */
+    a:focus, a:active {
+      outline: none !important;
+      box-shadow: none !important;
     }
 
-    h1 { color: #333; }
-    p { color: #555; line-height: 1.6; }
-
-    .unit-link {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1.1em;
+    .overlay {
+      background: rgba(0, 0, 0, 0.45);
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
-
-    .unit-link:hover {
-      background-color: #1e7e34;
-    }
- /* 🔹 Elimina el fondo blanco y el foco visual del menú */
-a:focus, a:active {
-  outline: none !important;
-  background-color: transparent !important;
-  color: inherit !important;
-  box-shadow: none !important;
-}
-
-.menu-link:focus, .menu-link:active {
-  background-color: #007bff !important;
-  color: white !important;
-}
-
-
-
-
   </style>
 </head>
 
-<body>
-  <!-- Aquí el script insertará el menú -->
-  <div class="header"></div>
+<body class="text-gray-800">
 
-  <div class="container">
-    <h1>¡Bienvenido a tu Curso de Español!</h1>
-    <p>Este curso interactivo te ayudará a aprender español desde cero. Empieza con la Unidad 1 para dominar los fundamentos básicos como saludos, el alfabeto y los verbos SER y LLAMARSE.</p>
-    <p>¡El camino hacia la fluidez comienza aquí!</p>
-    <a href="unidad1.html" class="unit-link">Empezar con la Unidad 1</a>
-    <p style="margin-top: 30px;">Recuerda que puedes saltar directamente a los ejercicios de cada unidad para practicar.</p>
-  </div>
+  <!-- Fondo oscuro semi-transparente -->
+  <div class="overlay"></div>
 
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  <!-- Contenido principal -->
+  <main class="flex flex-col items-center justify-center min-h-screen text-center px-6">
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBI6sD0mx6KAhForbnm9ai_tDCO39LlNnI",
-    authDomain: "espanholya-f50c2.firebaseapp.com",
-    projectId: "espanholya-f50c2",
-    storageBucket: "espanholya-f50c2.appspot.com",
-    messagingSenderId: "787039465837",
-    appId: "1:787039465837:web:90c5ea37b270b076a9aa64"
-  };
+    <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">
+      🇪🇸 EspanholYa – Aprenda Espanhol do Zero!
+    </h1>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-    console.log("✅ Firebase inicializado correctamente:", app.name);
+    <p class="text-lg md:text-2xl text-white max-w-2xl drop-shadow-md mb-8">
+      Domine o espanhol passo a passo — do nível <strong>A1</strong> ao <strong>B1</strong> —
+      com vídeos, áudios, vocabulário e exercícios interativos.<br />
+      <span class="italic text-yellow-300">¡Hola! Bienvenido a tu curso de español online.</span>
+    </p>
 
-</script>
-  
+    <!-- Botones principales -->
+    <div class="flex flex-col md:flex-row gap-4">
+      <a href="unidade1.html" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition">
+        🎁 Experimente GRÁTIS a Unidade 1
+      </a>
+      <a href="exercicios_unidade1.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition">
+        ✍️ Exercícios da Unidade 1
+      </a>
+      <a href="pago.html" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 rounded-full shadow-lg transition">
+        🔒 Acessar Curso Completo
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Sección de beneficios -->
+  <section class="bg-white bg-opacity-90 py-12 px-6 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Por que aprender com EspanholYa?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+      <div class="p-6 bg-white rounded-2xl shadow">
+        <div class="text-4xl mb-3">🎧</div>
+        <h3 class="font-semibold text-xl mb-2">Áudios e Vídeos</h3>
+        <p>Aprenda ouvindo e assistindo exemplos reais de conversas em espanhol.</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl shadow">
+        <div class="text-4xl mb-3">📝</div>
+        <h3 class="font-semibold text-xl mb-2">Exercícios Interativos</h3>
+        <p>Pratique o que aprendeu e veja o resultado na hora. ¡Muy fácil y divertido!</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl shadow">
+        <div class="text-4xl mb-3">🚀</div>
+        <h3 class="font-semibold text-xl mb-2">Do A1 ao B1</h3>
+        <p>Avance no seu ritmo, do básico ao intermediário, com acompanhamento completo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="bg-gray-100 py-12 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-8">O que dizem nossos alunos</h2>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <p class="italic text-gray-700">“Nunca pensei que aprender espanhol fosse tão fácil! Os áudios e exercícios me ajudaram muito.”</p>
+        <p class="mt-3 font-semibold text-green-700">– Camila, São Paulo</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <p class="italic text-gray-700">“Com EspanholYa consegui falar com confiança no meu trabalho.”</p>
+        <p class="mt-3 font-semibold text-green-700">– Rafael, Curitiba</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Frase final -->
+  <footer class="bg-green-600 text-white text-center py-8">
+    <p class="text-xl font-semibold">🌟 Seu caminho para o espanhol começa hoje. 🇧🇷 ➜ 🇪🇸</p>
+    <p class="text-sm mt-2">© 2025 EspanholYa. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
 </html>
