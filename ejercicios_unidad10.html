@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios | Unidad 10</title>
+
+    <script src="menu.js" defer></script> 
+    
+    <style>
+       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9; 
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* --- Contenedor principal --- */
+    .lesson-container {
+        max-width: 900px; 
+        margin: 80px auto 25px auto; 
+        padding: 25px; 
+        background: white;
+        border-radius: 12px; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15); 
+    }
+</style>
+  
+</head>
+<body>
+<div class="lesson-container">
+<h1>Unidad 10 – Ejercicios interactivos</h1>
+
+<!-- 1 -->
+<div class="ejercicio">
+    <p><strong>1. Indefinido vs Imperfecto:</strong> elige el tiempo correcto.</p>
+    1. Cuando (llegar) __________ a la estación, el tren (salir) __________ ya.<br>
+    2. Mientras (esperar) __________, (leer) __________ un capítulo entero.<br>
+    <input type="text" id="p1a" placeholder="1.">  
+    <input type="text" id="p1b" placeholder="2.">  
+    <input type="text" id="p1c" placeholder="3.">  
+    <input type="text" id="p1d" placeholder="4."><br>
+    <button class="btn" onclick="verificar1()">Comprobar</button>
+    <div id="sol1" class="solucion"></div>
+</div>
+<hr>
+<!-- 2 -->
+<div class="ejercicio">
+    <p><strong>2. Pluscuamperfecto:</strong> completa con el verbo en forma correcta.</p>
+    1. No (saber, yo) __________ que ellos (comprar) __________ los billetes.<br>
+    2. Cuando llegamos, ya (cerrar) __________ la puerta.<br>
+    <input type="text" id="p2a" placeholder="1.">  
+    <input type="text" id="p2b" placeholder="2.">  
+    <input type="text" id="p2c" placeholder="3."><br>
+    <button class="btn" onclick="verificar2()">Comprobar</button>
+    <div id="sol2" class="solucion"></div>
+</div>
+<hr>
+<!-- 3 -->
+<div class="ejercicio">
+    <p><strong>3. Hipótesis:</strong> escribe el verbo en el tiempo adecuado.</p>
+    1. Si (tener, yo) __________ más dinero, (viajar, yo) __________ a Perú.<br>
+    2. Si (venir, ellos) __________ mañana, les (enseñar, nosotros) __________ la ciudad.<br>
+    <input type="text" id="p3a" placeholder="1.">  
+    <input type="text" id="p3b" placeholder="2.">  
+    <input type="text" id="p3c" placeholder="3.">  
+    <input type="text" id="p3d" placeholder="4."><br>
+    <button class="btn" onclick="verificar3()">Comprobar</button>
+    <div id="sol3" class="solucion"></div>
+</div>
+<hr>
+<!-- 4 -->
+<div class="ejercicio">
+    <p><strong>4. Frase relativa con preposición:</strong> une las dos oraciones.</p>
+    1. La agencia / con ella / trabajamos / cerró.<br>
+    2. El tutorial / de él / me hablaste / está aquí.<br>
+    <input type="text" id="p4a" placeholder="1.">  
+    <input type="text" id="p4b" placeholder="2."><br>
+    <button class="btn" onclick="verificar4()">Comprobar</button>
+    <div id="sol4" class="solucion"></div>
+</div>
+<hr>
+<!-- 5 -->
+<div class="ejercicio">
+    <p><strong>5. Estilo indirecto:</strong> transforma la frase.</p>
+    1. “He perdido los documentos”, dijo Ana.<br>
+    → Ana dijo que __________.<br>
+    2. “Llamadme mañana”, nos pidió.<br>
+    → Nos pidió que __________.<br>
+    <input type="text" id="p5a" placeholder="1.">  
+    <input type="text" id="p5b" placeholder="2."><br>
+    <button class="btn" onclick="verificar5()">Comprobar</button>
+    <div id="sol5" class="solucion"></div>
+   </div>
+  </div>
+
+<script>
+function verificar1(){
+    const a=document.getElementById('p1a').value.trim().toLowerCase();
+    const b=document.getElementById('p1b').value.trim().toLowerCase();
+    const c=document.getElementById('p1c').value.trim().toLowerCase();
+    const d=document.getElementById('p1d').value.trim().toLowerCase();
+    document.getElementById('sol1').style.display='block';
+    document.getElementById('sol1').textContent=
+        (a==='llegué'&&b==='había salido'&&c==='esperaba'&&d==='leí') ? '✅ Correcto' : '❌ 1. llegué 2. había salido 3. esperaba 4. leí';
+}
+function verificar2(){
+    const a=document.getElementById('p2a').value.trim().toLowerCase();
+    const b=document.getElementById('p2b').value.trim().toLowerCase();
+    const c=document.getElementById('p2c').value.trim().toLowerCase();
+    document.getElementById('sol2').style.display='block';
+    document.getElementById('sol2').textContent=
+        (a==='sabía'&&b==='habían comprado'&&c==='habían cerrado') ? '✅ Correcto' : '❌ 1. sabía 2. habían comprado 3. habían cerrado';
+}
+function verificar3(){
+    const a=document.getElementById('p3a').value.trim().toLowerCase();
+    const b=document.getElementById('p3b').value.trim().toLowerCase();
+    const c=document.getElementById('p3c').value.trim().toLowerCase();
+    const d=document.getElementById('p3d').value.trim().toLowerCase();
+    document.getElementById('sol3').style.display='block';
+    document.getElementById('sol3').textContent=
+        (a==='tuviera'&&b==='viajaría'&&c==='vinieran'&&d==='enseñaríamos') ? '✅ Correcto' : '❌ 1. tuviera 2. viajaría 3. vinieran 4. enseñaríamos';
+}
+function verificar4(){
+    const a=document.getElementById('p4a').value.trim();
+    const b=document.getElementById('p4b').value.trim();
+    document.getElementById('sol4').style.display='block';
+    const ok1= a.toLowerCase().includes('la agencia con la que trabajamos cerró');
+    const ok2= b.toLowerCase().includes('el tutorial del que me hablaste está aquí');
+    document.getElementById('sol4').textContent=(ok1&&ok2)?'✅ Correcto':'❌ 1. La agencia con la que trabajamos cerró.  2. El tutorial del que me hablaste está aquí.';
+}
+function verificar5(){
+    const a=document.getElementById('p5a').value.trim().toLowerCase();
+    const b=document.getElementById('p5b').value.trim().toLowerCase();
+    document.getElementById('sol5').style.display='block';
+    document.getElementById('sol5').textContent=
+        (a==='había perdido los documentos'&&b==='la llamáramos al día siguiente') ? '✅ Correcto' : '❌ 1. había perdido los documentos  2. la llamáramos al día siguiente';
+}
+</script>
+
+</body>
+</html>
+  
