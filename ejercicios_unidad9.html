@@ -68,97 +68,68 @@
   
 <h1>Unidad 9 – Ejercicios interactivos</h1>
 
-<!-- EJERCICIO 1 -->
-<div class="ejercicio">
-    <p><strong>1. Relaciones:</strong> elige la opción correcta.</p>
-    <label><input type="radio" name="r1" value="a"> a) Me llevo <strong>buen</strong> con mi jefe.</label><br>
-    <label><input type="radio" name="r1" value="b"> b) Me llevo <strong>bien</strong> con mi jefe.</label><br>
-    <label><input type="radio" name="r1" value="c"> c) Me llevo <strong>bueno</strong> con mi jefe.</label><br>
-    <button class="btn" onclick="verificar1()">Comprobar</button>
-    <div id="sol1" class="solucion"></div>
+<hr style="margin: 30px 0;">
+
+<h2>2. ¿Qué harías si...? (El Condicional Simple)</h2>
+<p>Completa las frases usando el <strong>Condicional Simple</strong> (regulares e irregulares) del verbo entre paréntesis. </p>
+
+<div class="exercise-container" id="ejercicio2">
+    <ol>
+        <li data-answer="podría">Si tuviéramos tiempo, yo <input type="text" id="ej2_q1" size="15"> visitarte. (poder)</li>
+        <li data-answer="estudiaríamos">Nosotros <input type="text" id="ej2_q2" size="15"> más, pero estamos muy cansados. (estudiar)</li>
+        <li data-answer="dirían">Ellos no <input type="text" id="ej2_q3" size="15"> la verdad en esa situación. (decir)</li>
+        <li data-answer="escribirías">¿Tú <input type="text" id="ej2_q4" size="15"> ese informe si fuera necesario? (escribir)</li>
+        <li data-answer="cabría">Un mueble así no <input type="text" id="ej2_q5" size="15"> por la puerta. (caber)</li>
+        <li data-answer="haría">Ella <input type="text" id="ej2_q6" size="15"> cualquier cosa por su familia. (hacer)</li>
+        <li data-answer="sabríamos">Si hubiéramos leído el mapa, nosotros <input type="text" id="ej2_q7" size="15"> dónde estamos. (saber)</li>
+        <li data-answer="querría">¿Quién <input type="text" id="ej2_q8" size="15"> un café a esta hora? (querer)</li>
+    </ol>
+    <button onclick="checkExercise('ejercicio2')">Comprobar</button>
+    <button onclick="showAnswers('ejercicio2')">Mostrar Respuestas</button>
+    <div class="feedback" id="feedback-ejercicio2"></div>
 </div>
-<hr>
-<!-- EJERCICIO 2 -->
-<div class="ejercicio">
-    <p><strong>2. Opiniones:</strong> marca la frase <strong>más natural</strong> en español coloquial.</p>
-    <label><input type="radio" name="r2" value="a"> a) Pieno que este café es caro.</label><br>
-    <label><input type="radio" name="r2" value="b"> b) Pienso que este café es caro.</label><br>
-    <label><input type="radio" name="r2" value="c"> c) Yo pienso que este café es caro.</label><br>
-    <button class="btn" onclick="verificar2()">Comprobar</button>
-    <div id="sol2" class="solucion"></div>
-</div>
-<hr>
-<!-- EJERCICIO 3 -->
-<div class="ejercicio">
-    <p><strong>3. Pasado en desarrollo:</strong> completa con <em>estaba</em> o <em>he estado</em>.</p>
-    1. Cuando llegaste, yo __________ cocinando.<br>
-    2. Esta semana __________ saliendo tarde todos los días.<br>
-    <input type="text" id="p3a" placeholder="1.">  
-    <input type="text" id="p3b" placeholder="2."><br>
-    <button class="btn" onclick="verificar3()">Comprobar</button>
-    <div id="sol3" class="solucion"></div>
-</div>
-<hr>
-<!-- EJERCICIO 4 -->
-<div class="ejercicio">
-    <p><strong>4. Por vs Para:</strong> elige la preposición correcta.</p>
-    1. Estudio italiano ___ amor a la cultura.  
-    2. Necesito el certificado ___ solicitar la beca.  
-    <select id="p4a">
-        <option value="">--</option>
-        <option value="por">por</option>
-        <option value="para">para</option>
-    </select>  
-    <select id="p4b">
-        <option value="">--</option>
-        <option value="por">por</option>
-        <option value="para">para</option>
-    </select><br>
-    <button class="btn" onclick="verificar4()">Comprobar</button>
-    <div id="sol4" class="solucion"></div>
-</div>
-<hr>
-<!-- EJERCICIO 5 -->
-<div class="ejercicio">
-    <p><strong>5. Condicional:</strong> escribe el verbo en condicional.</p>
-    1. Yo (viajar) __________ a Japón si pudiera.  
-    2. En tu lugar, yo (llamar) __________ antes.  
-    <input type="text" id="p5a" placeholder="1.">  
-    <input type="text" id="p5b" placeholder="2."><br>
-    <button class="btn" onclick="verificar5()">Comprobar</button>
-    <div id="sol5" class="solucion"></div>
-    </div>
+
+
+    
 </div>
   
 <script>
-function verificar1(){
-    const r=document.querySelector('input[name="r1"]:checked');
-    document.getElementById('sol1').style.display='block';
-    document.getElementById('sol1').textContent= r&&r.value==='b' ? '✅ Correcto' : '❌ Inténtalo otra vez';
-}
-function verificar2(){
-    const r=document.querySelector('input[name="r2"]:checked');
-    document.getElementById('sol2').style.display='block';
-    document.getElementById('sol2').textContent= r&&(r.value==='b'||r.value==='c') ? '✅ Correcto' : '❌ Inténtalo otra vez';
-}
-function verificar3(){
-    const a=document.getElementById('p3a').value.trim().toLowerCase();
-    const b=document.getElementById('p3b').value.trim().toLowerCase();
-    document.getElementById('sol3').style.display='block';
-    document.getElementById('sol3').textContent= (a==='estaba'&&b==='he estado') ? '✅ Correcto' : '❌ 1. estaba  2. he estado';
-}
-function verificar4(){
-    const a=document.getElementById('p4a').value;
-    const b=document.getElementById('p4b').value;
-    document.getElementById('sol4').style.display='block';
-    document.getElementById('sol4').textContent= (a==='por'&&b==='para') ? '✅ Correcto' : '❌ 1. por  2. para';
-}
-function verificar5(){
-    const a=document.getElementById('p5a').value.trim().toLowerCase();
-    const b=document.getElementById('p5b').value.trim().toLowerCase();
-    document.getElementById('sol5').style.display='block';
-    document.getElementById('sol5').textContent= (a==='viajaría'&&b==='llamaría') ? '✅ Correcto' : '❌ 1. viajaría  2. llamaría';
-}
+        function checkExercise(id) {
+        const container = document.getElementById(id);
+        const feedback = document.getElementById(`feedback-${id}`);
+        const inputs = container.querySelectorAll('input[type="text"]');
+        let correctCount = 0;
+
+        inputs.forEach(input => {
+            const correctAnswer = input.closest('li').getAttribute('data-answer').toLowerCase().trim();
+            const userAnswer = input.value.toLowerCase().trim();
+
+            if (userAnswer === correctAnswer) {
+                input.style.backgroundColor = '#d4edda'; // Green for correct
+                correctCount++;
+            } else {
+                input.style.backgroundColor = '#f8d7da'; // Red for incorrect
+            }
+        });
+
+        if (correctCount === inputs.length) {
+            feedback.innerHTML = '<span style="color: green; font-weight: bold;">¡Perfecto! Todos los ejercicios son correctos.</span>';
+        } else {
+            feedback.innerHTML = `<span style="color: orange; font-weight: bold;">Tienes ${correctCount} de ${inputs.length} correctos. Revisa los marcados en rojo.</span>`;
+        }
+    }
+
+    function showAnswers(id) {
+        const container = document.getElementById(id);
+        const inputs = container.querySelectorAll('input[type="text"]');
+        
+        inputs.forEach(input => {
+            const correctAnswer = input.closest('li').getAttribute('data-answer');
+            input.value = correctAnswer;
+            input.style.backgroundColor = '#e2e3e5'; // Grey for shown answer
+        });
+        document.getElementById(`feedback-${id}`).innerHTML = '<span style="font-weight: bold;">Se han mostrado las respuestas.</span>';
+    }
 </script>
 
 </body>
