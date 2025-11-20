@@ -361,8 +361,51 @@
     <button onclick="showAnswers('ejercicio12')">Mostrar Respuestas</button>
     <div class="feedback" id="feedback-ejercicio12"></div>
 </div>
-    
-    
+    <hr style="margin: 30px 0;">
+
+<h2>10. Interpretación de Texto: Un Nuevo Comienzo</h2>
+
+<div class="reading-text" style="background-color: #f7f7f7; padding: 15px; border: 1px solid #ddd; border-left: 5px solid #007bff; margin-bottom: 20px;">
+    <h4 style="margin-top: 0;">Un nuevo comienzo</h4>
+    <p>Cuando Lucía aceptó el trabajo en Madrid, estaba muy nerviosa pero emocionada. Era su primera vez viviendo sola en otra ciudad. Llegó un domingo por la tarde y, después de dejar las maletas en su pequeño apartamento, decidió explorar el barrio. Necesitaba comprar algo para cenar y encontrar la parada de metro más cercana.</p>
+    <p>El lunes por la mañana, su primer día de trabajo, todo salió mal. Se despertó tarde porque su teléfono no sonó la alarma. Salió corriendo de casa sin desayunar y, cuando llegó a la estación, se dio cuenta de que no recordaba bien las indicaciones que le habían dado. Tomó la línea equivocada y tuvo que bajar en tres estaciones diferentes para preguntar a la gente.</p>
+    <p>Finalmente, llegó una hora tarde a la oficina, con los nervios a flor de piel. Sin embargo, su jefa sonrió y le dijo: "No te preocupes, el primer día siempre es difícil. Lo importante es que has llegado". Ese pequeño gesto de comprensión hizo que Lucía respirara tranquila y se sintiera bienvenida.</p>
+</div>
+
+<h3>Preguntas: Elige la opción correcta (A, B, C, D o E).</h3>
+
+<div class="exercise-container" id="ejercicio13">
+    <ol start="1">
+        <li data-answer="C">
+            <p><strong>¿Cuál es el tema principal del texto?</strong></p>
+            <label><input type="radio" name="q1" value="A"> A) Las dificultades de usar el metro en Madrid</label><br>
+            <label><input type="radio" name="q1" value="B"> B) La importancia de llegar puntual al trabajo</label><br>
+            <label><input type="radio" name="q1" value="C"> C) Una experiencia difícil en el primer día de una chica en una nueva ciudad</label><br>
+            <label><input type="radio" name="q1" value="D"> D) Los problemas técnicos con los teléfonos móviles</label><br>
+            <label><input type="radio" name="q1" value="E"> E) Cómo escoger un buen apartamento en otra ciudad</label>
+        </li>
+        <li data-answer="B">
+            <p><strong>¿Por qué llegó tarde Lucía a su trabajo?</strong></p>
+            <label><input type="radio" name="q2" value="A"> A) Porque el metro de Madrid fue muy lento ese día</label><br>
+            <label><input type="radio" name="q2" value="B"> B) Porque su teléfono no funcionó y se perdió en el camino</label><br>
+            <label><input type="radio" name="q2" value="C"> C) Porque su jefa le cambió la hora de entrada</label><br>
+            <label><input type="radio" name="q2" value="D"> D) Porque decidió explorar demasiado tiempo el barrio</label><br>
+            <label><input type="radio" name="q2" value="E"> E) Porque no encontró nadie que le ayudara en la estación</label>
+        </li>
+        <li data-answer="D">
+            <p><strong>¿Qué sentimiento se transmite al final del texto?</strong></p>
+            <label><input type="radio" name="q3" value="A"> A) Frustración por no haber tenido ayuda</label><br>
+            <label><input type="radio" name="q3" value="B"> B) Tristeza por haber perdido su primer día de trabajo</label><br>
+            <label><input type="radio" name="q3" value="C"> C) Miedo de que despidan a Lucía</label><br>
+            <label><input type="radio" name="q3" value="D"> D) Alivio y gratitud por la comprensión recibida</label><br>
+            <label><input type="radio" name="q3" value="E"> E) Vergüenza de no conocer bien la ciudad</label>
+        </li>
+    </ol>
+    <button onclick="checkMultipleChoice('ejercicio13')">Comprobar</button>
+    <button onclick="showAnswersMultipleChoice('ejercicio13')">Mostrar Respuestas</button>
+    <div class="feedback" id="feedback-ejercicio13"></div>
+</div>
+    <hr style="margin: 30px 0;">
 </div>
   
 <script>
@@ -401,6 +444,70 @@
             input.style.backgroundColor = '#e2e3e5'; // Grey for shown answer
         });
         document.getElementById(`feedback-${id}`).innerHTML = '<span style="font-weight: bold;">Se han mostrado las respuestas.</span>';
+    }
+    // Las funciones checkExercise y showAnswers del ejercicio anterior funcionan para los inputs de texto.
+    // Para las preguntas de opción múltiple, necesitamos nuevas funciones:
+    
+    function checkMultipleChoice(id) {
+        const container = document.getElementById(id);
+        const feedback = document.getElementById(`feedback-${id}`);
+        const questions = container.querySelectorAll('li[data-answer]');
+        let correctCount = 0;
+
+        questions.forEach((li, index) => {
+            const correctAnswer = li.getAttribute('data-answer');
+            const radios = li.querySelectorAll(`input[type="radio"][name="q${index + 1}"]`);
+            let isCorrect = false;
+
+            radios.forEach(radio => {
+                const label = radio.closest('label');
+                label.style.backgroundColor = 'transparent'; // Reset background
+
+                if (radio.checked) {
+                    if (radio.value === correctAnswer) {
+                        label.style.backgroundColor = '#d4edda'; // Green for correct
+                        isCorrect = true;
+                    } else {
+                        label.style.backgroundColor = '#f8d7da'; // Red for incorrect
+                    }
+                }
+            });
+
+            if (isCorrect) {
+                correctCount++;
+            }
+        });
+
+        if (correctCount === questions.length) {
+            feedback.innerHTML = '<span style="color: green; font-weight: bold;">¡Perfecto! Todos los ejercicios son correctos.</span>';
+        } else {
+            feedback.innerHTML = `<span style="color: orange; font-weight: bold;">Tienes ${correctCount} de ${questions.length} correctos. Revisa las respuestas marcadas.</span>`;
+        }
+    }
+
+    function showAnswersMultipleChoice(id) {
+        const container = document.getElementById(id);
+        const feedback = document.getElementById(`feedback-${id}`);
+        const questions = container.querySelectorAll('li[data-answer]');
+
+        questions.forEach((li, index) => {
+            const correctAnswer = li.getAttribute('data-answer');
+            const radios = li.querySelectorAll(`input[type="radio"][name="q${index + 1}"]`);
+
+            radios.forEach(radio => {
+                const label = radio.closest('label');
+                // Uncheck all radios first
+                radio.checked = false;
+                label.style.backgroundColor = 'transparent';
+                
+                // Highlight and check the correct answer
+                if (radio.value === correctAnswer) {
+                    radio.checked = true;
+                    label.style.backgroundColor = '#e2e3e5'; // Grey for shown answer
+                }
+            });
+        });
+        feedback.innerHTML = '<span style="font-weight: bold;">Se han mostrado las respuestas.</span>';
     }
 </script>
 
