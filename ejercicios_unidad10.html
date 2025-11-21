@@ -61,118 +61,473 @@
         margin: 30px 0;
         border-radius: 1px;
     }
+        /* ** ESTILOS ADICIONALES PARA EJERCICIOS (Se combinan con los tuyos) **
+    Se recomienda colocar estos estilos en el mismo bloque <style> que enviaste.
+*/
+
+.exercise-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    /* Usando el fondo del contenedor principal */
+    background-color: white; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+input[type="radio"] {
+    margin-right: 5px;
+}
+label {
+    margin-right: 15px;
+}
+
+/* Estilos para la corrección (COLORES FIJOS) */
+.correct {
+    background-color: #d4edda; /* Verde claro */
+    border: 2px solid #28a745; /* Verde fuerte */
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.incorrect {
+    background-color: #f8d7da; /* Rojo claro */
+    border: 2px solid #dc3545; /* Rojo fuerte */
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+/* Aplicar borde fuerte solo a los inputs de texto */
+input.correct {
+    border: 2px solid #28a745 !important;
+}
+input.incorrect {
+    border: 2px solid #dc3545 !important;
+}
+label.correct, label.incorrect {
+    /* Eliminar el padding extra del label, ya que se aplica al span/radio */
+    padding: 0; 
+}
+
+
+.answers-section {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e9f7ef;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+}
+.answers-section summary {
+    font-weight: bold;
+    color: #28a745;
+    cursor: pointer;
+}
+.answers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.answers-table th, .answers-table td {
+    border: 1px solid #c8e6c9;
+    padding: 8px;
+    text-align: left;
+}
+.answers-table th {
+    background-color: #d4edda;
+    color: #155724;
+}
+.control-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* El botón de control ya tiene estilo gracias a .play-button, button */
 </style>
   
 </head>
 <body>
 <div class="lesson-container">
-<h1>Unidad 10 – Ejercicios interactivos</h1>
+    
+    <h1>📝 Unidad 10 de Ejercicios</h1>
 
-<!-- 1 -->
-<div class="ejercicio">
-    <p><strong>1. Indefinido vs Imperfecto:</strong> elige el tiempo correcto.</p>
-    1. Cuando (llegar) __________ a la estación, el tren (salir) __________ ya.<br>
-    2. Mientras (esperar) __________, (leer) __________ un capítulo entero.<br>
-    <input type="text" id="p1a" placeholder="1.">  
-    <input type="text" id="p1b" placeholder="2.">  
-    <input type="text" id="p1c" placeholder="3.">  
-    <input type="text" id="p1d" placeholder="4."><br>
-    <button class="btn" onclick="verificar1()">Comprobar</button>
-    <div id="sol1" class="solucion"></div>
+    <div class="exercise-section">
+        <h2>🥇 Ejercicio 1: Igualdad con Adjetivos y Sustantivos</h2>
+        <p>Completa con "tan" o "tanto/a/os/as" (según corresponda) y "como":</p>
+
+        <form id="form_ej1">
+            <p>1. Mi hermano no es 
+                <input type="text" id="ej1_1_1" size="5"> alto 
+                <input type="text" id="ej1_1_2" size="5"> yo.
+            </p>
+            <p>2. Gana 
+                <input type="text" id="ej1_2_1" size="5"> dinero 
+                <input type="text" id="ej1_2_2" size="5"> mi jefe.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🥈 Ejercicio 2: Igualdad con Adverbios (Multiple Choice)</h2>
+        <p>Elige la opción correcta para completar cada frase.</p>
+
+        <form id="form_ej2">
+            <p id="q2_1">1. Corre 
+                <label><input type="radio" name="ej2_1" value="tan_rapido"> tan rápido</label>
+                <label><input type="radio" name="ej2_1" value="tanto_rapido"> tanto rápido</label>
+                como sus compañeros.
+            </p>
+            <p id="q2_2">2. No estudia 
+                <label><input type="radio" name="ej2_2" value="tan"> tan</label>
+                <label><input type="radio" name="ej2_2" value="tanto"> tanto</label>
+                diligentemente como debería.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🥉 Ejercicio 3: Igualdad con Sustantivos (Transformación)</h2>
+        <p>Transforma la siguiente frase usando "tanto/a/os/as... como":</p>
+        <blockquote>Él tiene paciencia. Ella también tiene paciencia.</blockquote>
+        <p>Transformación: Él tiene 
+            <input type="text" id="ej3_1" size="10"> paciencia 
+            <input type="text" id="ej3_2" size="10"> ella.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🏅 Ejercicio 4: Superioridad con Adjetivos (Multiple Choice)</h2>
+        <p>Completa con la forma comparativa correcta.</p>
+
+        <form id="form_ej4">
+            <p id="q4_1">1. Esta película es 
+                <label><input type="radio" name="ej4_1" value="mas_buena"> más buena</label>
+                <label><input type="radio" name="ej4_1" value="mejor_que"> mejor que</label>
+                <label><input type="radio" name="ej4_1" value="mas_buena_que"> más buena que</label>
+                la anterior.
+            </p>
+            <p id="q4_2">2. El clima es 
+                <label><input type="radio" name="ej4_2" value="mas_caluroso"> más caluroso</label>
+                <label><input type="radio" name="ej4_2" value="mas_caluroso_que"> más caluroso que</label>
+                <label><input type="radio" name="ej4_2" value="mas_que"> más que</label>
+                ayer.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🎖️ Ejercicio 5: Superioridad con Adverbios</h2>
+        <p>Reescribe la comparación usando el comparativo de superioridad (Ej: <em>Ella trabaja más que tú</em>).</p>
+        <blockquote>Ella trabaja mucho. Tú trabajas poco.</blockquote>
+        <p>Reescrita: Ella trabaja 
+            <input type="text" id="ej5_1" size="5"> 
+            <input type="text" id="ej5_2" size="5"> tú.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🏆 Ejercicio 6: Superioridad con Sustantivos</h2>
+        <p>Forma la oración comparativa a partir de los elementos dados: <em>Mi casa / habitaciones / + / tu casa</em></p>
+        <p>Oración: Mi casa tiene 
+            <input type="text" id="ej6_1" size="15"> habitaciones 
+            <input type="text" id="ej6_2" size="5"> tu casa.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🎗️ Ejercicio 7: Inferioridad con Adjetivos (Multiple Choice)</h2>
+        <p>Completa las comparaciones con la forma correcta.</p>
+
+        <form id="form_ej7">
+            <p id="q7_1">1. Mi coche es 
+                <label><input type="radio" name="ej7_1" value="menos_potente"> menos potente</label>
+                <label><input type="radio" name="ej7_1" value="menos_potente_que"> menos potente que</label>
+                el tuyo.
+            </p>
+            <p id="q7_2">2. Esta opción es 
+                <label><input type="radio" name="ej7_2" value="menos_mala"> menos mala</label>
+                <label><input type="radio" name="ej7_2" value="menos_peor"> menos peor</label>
+                que la otra.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🎯 Ejercicio 8: Inferioridad con Adverbios</h2>
+        <p>Transforma la comparación usando "menos... que":</p>
+        <blockquote>Mi hijo duerme poco. Su primo duerme mucho.</blockquote>
+        <p>Transformación: Mi hijo duerme 
+            <input type="text" id="ej8_1" size="5"> 
+            <input type="text" id="ej8_2" size="5"> su primo.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🎳 Ejercicio 9: Inferioridad con Sustantivos</h2>
+        <p>Elige las palabras correctas para completar la frase:</p>
+        <p>Tengo 
+            <input type="text" id="ej9_1" size="10"> experiencia 
+            <input type="text" id="ej9_2" size="10"> mi competidora.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🧩 Ejercicio 10: Comparativos Irregulares (Multiple Choice)</h2>
+        <p>Usa el comparativo correcto.</p>
+
+        <form id="form_ej10">
+            <p id="q10_1">1. Mi idea es 
+                <label><input type="radio" name="ej10_1" value="mejor"> mejor</label>
+                <label><input type="radio" name="ej10_1" value="mas_buena"> más buena</label>
+                que la tuya.
+            </p>
+            <p id="q10_2">2. Este ejercicio es 
+                <label><input type="radio" name="ej10_2" value="peor"> peor</label>
+                <label><input type="radio" name="ej10_2" value="mas_malo"> más malo</label>
+                que el anterior.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🔢 Ejercicio 11: Comparación de Cantidad (Multiple Choice)</h2>
+        <p>Elige entre "más de" (para números) o "más que" (para comparaciones).</p>
+
+        <form id="form_ej11">
+            <p id="q11_1">1. Tengo 
+                <label><input type="radio" name="ej11_1" value="mas_de"> más de</label>
+                <label><input type="radio" name="ej11_1" value="mas_que"> más que</label>
+                50 libros en casa.
+            </p>
+            <p id="q11_2">2. Es 
+                <label><input type="radio" name="ej11_2" value="mas_de"> más de</label>
+                <label><input type="radio" name="ej11_2" value="mas_que"> más que</label>
+                un simple problema.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>👑 Ejercicio 12: Superlativo Relativo</h2>
+        <p>Completa con el artículo, el superlativo ("más") y la preposición ("de").</p>
+        <form id="form_ej12">
+            <p>1. Es 
+                <input type="text" id="ej12_1" size="5"> chica 
+                <input type="text" id="ej12_2" size="5"> inteligente 
+                <input type="text" id="ej12_3" size="5"> la clase.
+            </p>
+            <p>2. Son 
+                <input type="text" id="ej12_4" size="5"> estudiantes 
+                <input type="text" id="ej12_5" size="5"> aplicados 
+                <input type="text" id="ej12_6" size="5"> todos.
+            </p>
+        </form>
+    </div>
+
+    <div class="exercise-section">
+        <h2>🔄 Ejercicio 13: Transformación (Igualdad)</h2>
+        <p>Cambia a comparación de igualdad:</p>
+        <blockquote>Juan es muy inteligente, como Pedro.</blockquote>
+        <p>Transformación: Juan es 
+            <input type="text" id="ej13_1" size="5"> inteligente 
+            <input type="text" id="ej13_2" size="5"> Pedro.
+        </p>
+    </div>
+
+    <div class="exercise-section">
+        <h2>💯 Ejercicio 14: Oraciones Finales (Igualdad)</h2>
+        <p>Completa con la estructura comparativa de igualdad correcta.</p>
+        <form id="form_ej14">
+            <p>1. No es 
+                <input type="text" id="ej14_1" size="5"> difícil 
+                <input type="text" id="ej14_2" size="5"> parece.
+            </p>
+            <p>2. Sandra tiene 
+                <input type="text" id="ej14_3" size="10"> años 
+                <input type="text" id="ej14_4" size="5"> Luisa.
+            </p>
+        </form>
+    </div>
+
+    <div class="control-section">
+        <button onclick="corregirEjercicios()">Corregir Ejercicios</button>
+        <p id="resultado_general" style="font-weight: bold; margin-top: 10px;"></p>
+    </div>
+
+    <details class="answers-section">
+        <summary>✅ Mostrar/Ocultar Respuestas (Solución)</summary>
+        
+        <table class="answers-table">
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Respuestas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>**1.**</td><td>tan, como; tanto, como</td></tr>
+                <tr><td>**2.**</td><td>tan rápido; tan</td></tr>
+                <tr><td>**3.**</td><td>tanta paciencia como</td></tr>
+                <tr><td>**4.**</td><td>mejor que; más caluroso que</td></tr>
+                <tr><td>**5.**</td><td>más que</td></tr>
+                <tr><td>**6.**</td><td>más habitaciones que</td></tr>
+                <tr><td>**7.**</td><td>menos potente que; menos mala</td></tr>
+                <tr><td>**8.**</td><td>menos que</td></tr>
+                <tr><td>**9.**</td><td>menos, que</td></tr>
+                <tr><td>**10.**</td><td>mejor; peor</td></tr>
+                <tr><td>**11.**</td><td>más de; más que</td></tr>
+                <tr><td>**12.**</td><td>la, más, de; los, más, de</td></tr>
+                <tr><td>**13.**</td><td>tan inteligente como</td></tr>
+                <tr><td>**14.**</td><td>tan difícil como; tantos años como</td></tr>
+            </tbody>
+        </table>
+    </details>
+
 </div>
-<hr>
-<!-- 2 -->
-<div class="ejercicio">
-    <p><strong>2. Pluscuamperfecto:</strong> completa con el verbo en forma correcta.</p>
-    1. No (saber, yo) __________ que ellos (comprar) __________ los billetes.<br>
-    2. Cuando llegamos, ya (cerrar) __________ la puerta.<br>
-    <input type="text" id="p2a" placeholder="1.">  
-    <input type="text" id="p2b" placeholder="2.">  
-    <input type="text" id="p2c" placeholder="3."><br>
-    <button class="btn" onclick="verificar2()">Comprobar</button>
-    <div id="sol2" class="solucion"></div>
-</div>
-<hr>
-<!-- 3 -->
-<div class="ejercicio">
-    <p><strong>3. Hipótesis:</strong> escribe el verbo en el tiempo adecuado.</p>
-    1. Si (tener, yo) __________ más dinero, (viajar, yo) __________ a Perú.<br>
-    2. Si (venir, ellos) __________ mañana, les (enseñar, nosotros) __________ la ciudad.<br>
-    <input type="text" id="p3a" placeholder="1.">  
-    <input type="text" id="p3b" placeholder="2.">  
-    <input type="text" id="p3c" placeholder="3.">  
-    <input type="text" id="p3d" placeholder="4."><br>
-    <button class="btn" onclick="verificar3()">Comprobar</button>
-    <div id="sol3" class="solucion"></div>
-</div>
-<hr>
-<!-- 4 -->
-<div class="ejercicio">
-    <p><strong>4. Frase relativa con preposición:</strong> une las dos oraciones.</p>
-    1. La agencia / con ella / trabajamos / cerró.<br>
-    2. El tutorial / de él / me hablaste / está aquí.<br>
-    <input type="text" id="p4a" placeholder="1.">  
-    <input type="text" id="p4b" placeholder="2."><br>
-    <button class="btn" onclick="verificar4()">Comprobar</button>
-    <div id="sol4" class="solucion"></div>
-</div>
-<hr>
-<!-- 5 -->
-<div class="ejercicio">
-    <p><strong>5. Estilo indirecto:</strong> transforma la frase.</p>
-    1. “He perdido los documentos”, dijo Ana.<br>
-    → Ana dijo que __________.<br>
-    2. “Llamadme mañana”, nos pidió.<br>
-    → Nos pidió que __________.<br>
-    <input type="text" id="p5a" placeholder="1.">  
-    <input type="text" id="p5b" placeholder="2."><br>
-    <button class="btn" onclick="verificar5()">Comprobar</button>
-    <div id="sol5" class="solucion"></div>
-   </div>
+
+
+
+    
   </div>
 
+
 <script>
-function verificar1(){
-    const a=document.getElementById('p1a').value.trim().toLowerCase();
-    const b=document.getElementById('p1b').value.trim().toLowerCase();
-    const c=document.getElementById('p1c').value.trim().toLowerCase();
-    const d=document.getElementById('p1d').value.trim().toLowerCase();
-    document.getElementById('sol1').style.display='block';
-    document.getElementById('sol1').textContent=
-        (a==='llegué'&&b==='había salido'&&c==='esperaba'&&d==='leí') ? '✅ Correcto' : '❌ 1. llegué 2. había salido 3. esperaba 4. leí';
-}
-function verificar2(){
-    const a=document.getElementById('p2a').value.trim().toLowerCase();
-    const b=document.getElementById('p2b').value.trim().toLowerCase();
-    const c=document.getElementById('p2c').value.trim().toLowerCase();
-    document.getElementById('sol2').style.display='block';
-    document.getElementById('sol2').textContent=
-        (a==='sabía'&&b==='habían comprado'&&c==='habían cerrado') ? '✅ Correcto' : '❌ 1. sabía 2. habían comprado 3. habían cerrado';
-}
-function verificar3(){
-    const a=document.getElementById('p3a').value.trim().toLowerCase();
-    const b=document.getElementById('p3b').value.trim().toLowerCase();
-    const c=document.getElementById('p3c').value.trim().toLowerCase();
-    const d=document.getElementById('p3d').value.trim().toLowerCase();
-    document.getElementById('sol3').style.display='block';
-    document.getElementById('sol3').textContent=
-        (a==='tuviera'&&b==='viajaría'&&c==='vinieran'&&d==='enseñaríamos') ? '✅ Correcto' : '❌ 1. tuviera 2. viajaría 3. vinieran 4. enseñaríamos';
-}
-function verificar4(){
-    const a=document.getElementById('p4a').value.trim();
-    const b=document.getElementById('p4b').value.trim();
-    document.getElementById('sol4').style.display='block';
-    const ok1= a.toLowerCase().includes('la agencia con la que trabajamos cerró');
-    const ok2= b.toLowerCase().includes('el tutorial del que me hablaste está aquí');
-    document.getElementById('sol4').textContent=(ok1&&ok2)?'✅ Correcto':'❌ 1. La agencia con la que trabajamos cerró.  2. El tutorial del que me hablaste está aquí.';
-}
-function verificar5(){
-    const a=document.getElementById('p5a').value.trim().toLowerCase();
-    const b=document.getElementById('p5b').value.trim().toLowerCase();
-    document.getElementById('sol5').style.display='block';
-    document.getElementById('sol5').textContent=
-        (a==='había perdido los documentos'&&b==='la llamáramos al día siguiente') ? '✅ Correcto' : '❌ 1. había perdido los documentos  2. la llamáramos al día siguiente';
-}
+function corregirEjercicios() {
+    let correctCount = 0;
+    let totalCount = 0;
+
+    // Función auxiliar para corregir campos de texto
+    const checkText = (id, correctAnswers) => {
+        totalCount++;
+        const input = document.getElementById(id);
+        if (!input) return;
+
+        const value = input.value.toLowerCase().trim();
+        // Normalizar las respuestas correctas para incluir tildes o variaciones si es necesario (aunque en este caso no lo es, se mantiene el patrón)
+        const isCorrect = correctAnswers.some(ans => ans.toLowerCase().trim() === value); 
+
+        input.classList.remove('correct', 'incorrect');
+        if (isCorrect && value !== "") {
+            input.classList.add('correct');
+            correctCount++;
+        } else {
+            input.classList.add('incorrect');
+        }
+    };
+    
+    // Función auxiliar para corregir Multiple Choice
+    const checkRadio = (name, correctAnswer, elementId) => {
+        totalCount++;
+        const radios = document.getElementsByName(name);
+        let isCorrect = false;
+        
+        // Limpiar estilos previos
+        radios.forEach(radio => {
+            radio.parentElement.classList.remove('correct', 'incorrect');
+        });
+
+        // Verificar la respuesta
+        radios.forEach(radio => {
+            if (radio.checked) {
+                if (radio.value === correctAnswer) {
+                    isCorrect = true;
+                }
+            }
+        });
+
+        // Aplicar estilos
+        radios.forEach(radio => {
+            if (radio.checked) {
+                if (isCorrect) {
+                    radio.parentElement.classList.add('correct');
+                } else {
+                    radio.parentElement.classList.add('incorrect');
+                }
+            } else if (radio.value === correctAnswer) {
+                 // Estilo para mostrar la respuesta correcta no seleccionada (Opcional, se puede comentar)
+                 // radio.parentElement.style.border = '1px dashed #28a745';
+            }
+        });
+
+        if (isCorrect) {
+            correctCount++;
+        }
+    };
+
+    // --- Definiciones de Respuestas Correctas (usando arrays para flexibilidad) ---
+
+    // Ejercicio 1 (tan/tanto, como)
+    checkText('ej1_1_1', ['tan']);
+    checkText('ej1_1_2', ['como']);
+    checkText('ej1_2_1', ['tanto']);
+    checkText('ej1_2_2', ['como']);
+
+    // Ejercicio 2 (Adverbios MC)
+    checkRadio('ej2_1', 'tan_rapido', 'q2_1'); 
+    checkRadio('ej2_2', 'tan', 'q2_2'); 
+
+    // Ejercicio 3 (tanta paciencia como)
+    checkText('ej3_1', ['tanta']);
+    checkText('ej3_2', ['como']);
+
+    // Ejercicio 4 (Superioridad MC)
+    checkRadio('ej4_1', 'mejor_que', 'q4_1'); 
+    checkRadio('ej4_2', 'mas_caluroso_que', 'q4_2'); 
+
+    // Ejercicio 5 (más que)
+    checkText('ej5_1', ['mas']);
+    checkText('ej5_2', ['que']);
+
+    // Ejercicio 6 (más habitaciones que)
+    checkText('ej6_1', ['mas']);
+    checkText('ej6_2', ['que']);
+
+    // Ejercicio 7 (Inferioridad MC)
+    checkRadio('ej7_1', 'menos_potente_que', 'q7_1'); 
+    checkRadio('ej7_2', 'menos_mala', 'q7_2'); 
+    
+    // Ejercicio 8 (menos que)
+    checkText('ej8_1', ['menos']);
+    checkText('ej8_2', ['que']);
+
+    // Ejercicio 9 (menos, que)
+    checkText('ej9_1', ['menos']);
+    checkText('ej9_2', ['que']);
+
+    // Ejercicio 10 (Irregulares MC)
+    checkRadio('ej10_1', 'mejor', 'q10_1'); 
+    checkRadio('ej10_2', 'peor', 'q10_2'); 
+
+    // Ejercicio 11 (Cantidad MC)
+    checkRadio('ej11_1', 'mas_de', 'q11_1'); 
+    checkRadio('ej11_2', 'mas_que', 'q11_2'); 
+
+    // Ejercicio 12 (Superlativo Relativo)
+    checkText('ej12_1', ['la']);
+    checkText('ej12_2', ['mas']);
+    checkText('ej12_3', ['de']);
+    checkText('ej12_4', ['los']);
+    checkText('ej12_5', ['mas']);
+    checkText('ej12_6', ['de']);
+
+    // Ejercicio 13 (tan inteligente como)
+    checkText('ej13_1', ['tan']);
+    checkText('ej13_2', ['como']);
+
+    // Ejercicio 14 (tan difícil como; tantos años como)
+    checkText('ej14_1', ['tan']);
+    checkText('ej14_2', ['como']);
+    checkText('ej14_3', ['tantos']);
+    checkText('ej14_4', ['como']);
+
+    // Mostrar resultado general
+    const percentage = ((correctCount / totalCount) * 100).toFixed(0);
+    const resultElement = document.getElementById('resultado_general');
+    resultElement.innerHTML = `Puntuación: ${correctCount} de ${totalCount} (${percentage}%)`;
+    resultElement.style.color = correctCount / totalCount > 0.7 ? '#28a745' : '#dc3545';
+} 
 </script>
 
 </body>
