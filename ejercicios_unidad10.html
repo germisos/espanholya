@@ -616,19 +616,25 @@
 
 
 <script>
+<script>
 /**
  * Ayuda a corregir un campo de texto y aplica el estilo.
  * @param {string} id - ID del elemento input.
- * @param {string[]} correctAnswers - Array de respuestas correctas (se acepta cualquiera).
+ * @param {string[]} correctAnswers - Array de respuestas correctas.
  * @returns {boolean} - true si la respuesta del usuario es correcta.
  */
 const checkText = (id, correctAnswers) => {
     const input = document.getElementById(id);
     if (!input) return false;
     
+    // Normalizar la entrada para ignorar mayúsculas y espacios extra.
     const value = input.value.toLowerCase().trim();
-    // Normaliza y verifica si la respuesta del usuario coincide con alguna de las correctas
-    const isCorrect = correctAnswers.some(ans => ans.toLowerCase().trim() === value); 
+    
+    // Normalizar las respuestas correctas.
+    const normalizedAnswers = correctAnswers.map(ans => ans.toLowerCase().trim());
+
+    // Verificar si la respuesta del usuario coincide con alguna de las correctas
+    const isCorrect = normalizedAnswers.includes(value); 
 
     input.classList.remove('correct', 'incorrect');
     if (isCorrect && value !== "") {
@@ -679,11 +685,12 @@ const checkRadio = (name, correctAnswer) => {
 
 /**
  * Función principal que se llama al hacer clic en un botón de corrección individual.
- * @param {string} exerciseId - ID del ejercicio ('ej1', 'ej2', etc.).
+ * Contiene la lógica para todos los ejercicios de la Unidad 10 (1-28).
+ * @param {string} exerciseId - ID del ejercicio (ej: 'ej1', 'ej15').
  */
 function checkExercise(exerciseId) {
     let correctCount = 0;
-    let totalCount = 0;
+    let totalCount = 0; 
     
     const button = document.querySelector(`#button_${exerciseId}`);
     
@@ -693,90 +700,147 @@ function checkExercise(exerciseId) {
         button.style.backgroundColor = '#007bff'; 
     }
 
-    // --- Lógica de corrección para cada ejercicio ---
-    switch (exerciseId) {
-        case 'ej1':
-            totalCount = 4;
-            if (checkText('ej1_1_1', ['tan'])) correctCount++;
-            if (checkText('ej1_1_2', ['como'])) correctCount++;
-            if (checkText('ej1_2_1', ['tanto'])) correctCount++;
-            if (checkText('ej1_2_2', ['como'])) correctCount++;
-            break;
-        case 'ej2':
-            totalCount = 2;
-            if (checkRadio('ej2_1', 'tan_rapido')) correctCount++;
-            if (checkRadio('ej2_2', 'tan')) correctCount++;
-            break;
-        case 'ej3':
-            totalCount = 2;
-            if (checkText('ej3_1', ['tanta'])) correctCount++;
-            if (checkText('ej3_2', ['como'])) correctCount++;
-            break;
-        case 'ej4':
-            totalCount = 2;
-            if (checkRadio('ej4_1', 'mejor_que')) correctCount++;
-            if (checkRadio('ej4_2', 'mas_caluroso_que')) correctCount++;
-            break;
-        case 'ej5':
-            totalCount = 2;
-            if (checkText('ej5_1', ['mas'])) correctCount++;
-            if (checkText('ej5_2', ['que'])) correctCount++;
-            break;
-        case 'ej6':
-            totalCount = 2;
-            if (checkText('ej6_1', ['mas'])) correctCount++;
-            if (checkText('ej6_2', ['que'])) correctCount++;
-            break;
-        case 'ej7':
-            totalCount = 2;
-            if (checkRadio('ej7_1', 'menos_potente_que')) correctCount++;
-            if (checkRadio('ej7_2', 'menos_mala')) correctCount++;
-            break;
-        case 'ej8':
-            totalCount = 2;
-            if (checkText('ej8_1', ['menos'])) correctCount++;
-            if (checkText('ej8_2', ['que'])) correctCount++;
-            break;
-        case 'ej9':
-            totalCount = 2;
-            if (checkText('ej9_1', ['menos'])) correctCount++;
-            if (checkText('ej9_2', ['que'])) correctCount++;
-            break;
-        case 'ej10':
-            totalCount = 2;
-            if (checkRadio('ej10_1', 'mejor')) correctCount++;
-            if (checkRadio('ej10_2', 'peor')) correctCount++;
-            break;
-        case 'ej11':
-            totalCount = 2;
-            if (checkRadio('ej11_1', 'mas_de')) correctCount++;
-            if (checkRadio('ej11_2', 'mas_que')) correctCount++;
-            break;
-        case 'ej12':
-            totalCount = 6;
-            if (checkText('ej12_1', ['la'])) correctCount++;
-            if (checkText('ej12_2', ['mas'])) correctCount++;
-            if (checkText('ej12_3', ['de'])) correctCount++;
-            if (checkText('ej12_4', ['los'])) correctCount++;
-            if (checkText('ej12_5', ['mas'])) correctCount++;
-            if (checkText('ej12_6', ['de'])) correctCount++;
-            break;
-        case 'ej13':
-            totalCount = 2;
-            if (checkText('ej13_1', ['tan'])) correctCount++;
-            if (checkText('ej13_2', ['como'])) correctCount++;
-            break;
-        case 'ej14':
-            totalCount = 4;
-            if (checkText('ej14_1', ['tan'])) correctCount++;
-            if (checkText('ej14_2', ['como'])) correctCount++;
-            if (checkText('ej14_3', ['tantos'])) correctCount++;
-            if (checkText('ej14_4', ['como'])) correctCount++;
-            break;
-        default:
-            return;
-    }
+    // --- Lógica de corrección consolidada (Ejercicios 1 - 14: Comparativos) ---
+    if (parseInt(exerciseId.substring(2)) >= 1 && parseInt(exerciseId.substring(2)) <= 14) {
+        
+        switch (exerciseId) {
+            case 'ej1':
+                totalCount = 4;
+                if (checkText('ej1_1_1', ['tan'])) correctCount++;
+                if (checkText('ej1_1_2', ['como'])) correctCount++;
+                if (checkText('ej1_2_1', ['tanto'])) correctCount++;
+                if (checkText('ej1_2_2', ['como'])) correctCount++;
+                break;
+            case 'ej2':
+                totalCount = 2;
+                if (checkRadio('ej2_1', 'tan_rapido')) correctCount++;
+                if (checkRadio('ej2_2', 'tan')) correctCount++;
+                break;
+            case 'ej3':
+                totalCount = 2;
+                if (checkText('ej3_1', ['tanta'])) correctCount++;
+                if (checkText('ej3_2', ['como'])) correctCount++;
+                break;
+            case 'ej4':
+                totalCount = 2;
+                if (checkRadio('ej4_1', 'mejor_que')) correctCount++;
+                if (checkRadio('ej4_2', 'mas_caluroso_que')) correctCount++;
+                break;
+            case 'ej5':
+                totalCount = 2;
+                if (checkText('ej5_1', ['mas'])) correctCount++;
+                if (checkText('ej5_2', ['que'])) correctCount++;
+                break;
+            case 'ej6':
+                totalCount = 2;
+                if (checkText('ej6_1', ['mas'])) correctCount++;
+                if (checkText('ej6_2', ['que'])) correctCount++;
+                break;
+            case 'ej7':
+                totalCount = 2;
+                if (checkRadio('ej7_1', 'menos_potente_que')) correctCount++;
+                if (checkRadio('ej7_2', 'menos_mala')) correctCount++;
+                break;
+            case 'ej8':
+                totalCount = 2;
+                if (checkText('ej8_1', ['menos'])) correctCount++;
+                if (checkText('ej8_2', ['que'])) correctCount++;
+                break;
+            case 'ej9':
+                totalCount = 2;
+                if (checkText('ej9_1', ['menos'])) correctCount++;
+                if (checkText('ej9_2', ['que'])) correctCount++;
+                break;
+            case 'ej10':
+                totalCount = 2;
+                if (checkRadio('ej10_1', 'mejor')) correctCount++;
+                if (checkRadio('ej10_2', 'peor')) correctCount++;
+                break;
+            case 'ej11':
+                totalCount = 2;
+                if (checkRadio('ej11_1', 'mas_de')) correctCount++;
+                if (checkRadio('ej11_2', 'mas_que')) correctCount++;
+                break;
+            case 'ej12':
+                totalCount = 6;
+                if (checkText('ej12_1', ['la'])) correctCount++;
+                if (checkText('ej12_2', ['mas'])) correctCount++;
+                if (checkText('ej12_3', ['de'])) correctCount++;
+                if (checkText('ej12_4', ['los'])) correctCount++;
+                if (checkText('ej12_5', ['mas'])) correctCount++;
+                if (checkText('ej12_6', ['de'])) correctCount++;
+                break;
+            case 'ej13':
+                totalCount = 2;
+                if (checkText('ej13_1', ['tan'])) correctCount++;
+                if (checkText('ej13_2', ['como'])) correctCount++;
+                break;
+            case 'ej14':
+                totalCount = 4;
+                if (checkText('ej14_1', ['tan'])) correctCount++;
+                if (checkText('ej14_2', ['como'])) correctCount++;
+                if (checkText('ej14_3', ['tantos'])) correctCount++;
+                if (checkText('ej14_4', ['como'])) correctCount++;
+                break;
+            // No necesitamos un default aquí si todos los IDs válidos están cubiertos
+        }
+    } 
     
+    // --- Lógica de corrección consolidada (Ejercicios 15 - 28: Futuro Perfecto) ---
+    else if (parseInt(exerciseId.substring(2)) >= 15 && parseInt(exerciseId.substring(2)) <= 28) {
+        totalCount = 1; // La mayoría son ejercicios de un solo campo
+        
+        switch (exerciseId) {
+            case 'ej15':
+                if (checkText('ej15_1', ['habré terminado'])) correctCount++;
+                break;
+            case 'ej16':
+                if (checkText('ej16_1', ['habremos visto'])) correctCount++;
+                break;
+            case 'ej17':
+                if (checkText('ej17_1', ['habremos llegado'])) correctCount++;
+                break;
+            case 'ej18':
+                if (checkText('ej18_1', ['habrás leído'])) correctCount++;
+                break;
+            case 'ej19':
+                if (checkText('ej19_1', ['se habrán graduado'])) correctCount++;
+                break;
+            case 'ej20':
+                if (checkText('ej20_1', ['habré cocinado'])) correctCount++;
+                break;
+            case 'ej21':
+                if (checkText('ej21_1', ['habré aprendido'])) correctCount++;
+                break;
+            case 'ej22':
+                if (checkText('ej22_1', ['habrán salido'])) correctCount++;
+                break;
+            case 'ej23':
+                if (checkText('ej23_1', ['habremos comprado'])) correctCount++;
+                break;
+            case 'ej24':
+                if (checkText('ej24_1', ['Se habrá olvidado', 'se habrá olvidado'])) correctCount++; // Acepta mayúscula inicial
+                break;
+            case 'ej25':
+                if (checkText('ej25_1', ['habrán hecho'])) correctCount++;
+                break;
+            case 'ej26':
+                if (checkText('ej26_1', ['habrá terminado'])) correctCount++;
+                break;
+            case 'ej27':
+                if (checkText('ej27_1', ['habrás decidido'])) correctCount++;
+                break;
+            case 'ej28':
+                if (checkText('ej28_1', ['habré escrito'])) correctCount++;
+                break;
+            default:
+                return;
+        }
+    } else {
+        // ID de ejercicio no válido
+        return; 
+    }
+
     // Mostrar resultado en el botón
     const percentage = ((correctCount / totalCount) * 100).toFixed(0);
     const message = `✅ ${correctCount}/${totalCount} (${percentage}%)`;
@@ -785,112 +849,10 @@ function checkExercise(exerciseId) {
         button.textContent = message;
         // Pinta el botón de verde si la puntuación es alta (>= 70%), sino rojo.
         button.style.backgroundColor = correctCount / totalCount >= 0.7 ? '#28a745' : '#dc3545';
+        button.style.color = 'white'; // Asegura que el texto se vea en el nuevo color
     }
 }
-   * Ayuda a corregir un campo de texto y aplica el estilo.
- * @param {string} id - ID del elemento input.
- * @param {string[]} correctAnswers - Array de respuestas correctas (se acepta cualquiera).
- * @returns {boolean} - true si la respuesta del usuario es correcta.
- */
-const checkTextFuturo = (id, correctAnswers) => {
-    const input = document.getElementById(id);
-    if (!input) return false;
-    
-    // Normalizar la entrada para ignorar mayúsculas y espacios.
-    const value = input.value.toLowerCase().trim();
-    
-    // Normalizar las respuestas correctas.
-    const normalizedAnswers = correctAnswers.map(ans => ans.toLowerCase().trim());
-
-    // Verificar si la respuesta del usuario coincide con alguna de las correctas
-    const isCorrect = normalizedAnswers.includes(value); 
-
-    input.classList.remove('correct', 'incorrect');
-    if (isCorrect && value !== "") {
-        input.classList.add('correct');
-        return true;
-    } else {
-        input.classList.add('incorrect');
-        return false;
-    }
-};
-
-
-/**
- * Función principal que se llama al hacer clic en un botón de corrección individual.
- * @param {string} exerciseId - ID del ejercicio ('ej15', 'ej16', etc.).
- */
-function checkExerciseFuturo(exerciseId) {
-    let correctCount = 0;
-    let totalCount = 1; 
-    
-    const button = document.querySelector(`#button_${exerciseId}`);
-    
-    // Restaurar estilo del botón al corregir
-    if(button) {
-        button.textContent = 'Corrigiendo...';
-        button.style.backgroundColor = '#007bff'; 
-    }
-
-    // --- Lógica de corrección para cada ejercicio ---
-    switch (exerciseId) {
-        case 'ej15':
-            if (checkTextFuturo('ej15_1', ['habré terminado'])) correctCount++;
-            break;
-        case 'ej16':
-            if (checkTextFuturo('ej16_1', ['habremos visto'])) correctCount++;
-            break;
-        case 'ej17':
-            if (checkTextFuturo('ej17_1', ['habremos llegado'])) correctCount++;
-            break;
-        case 'ej18':
-            if (checkTextFuturo('ej18_1', ['habrás leído'])) correctCount++;
-            break;
-        case 'ej19':
-            if (checkTextFuturo('ej19_1', ['se habrán graduado'])) correctCount++;
-            break;
-        case 'ej20':
-            if (checkTextFuturo('ej20_1', ['habré cocinado'])) correctCount++;
-            break;
-        case 'ej21':
-            if (checkTextFuturo('ej21_1', ['habré aprendido'])) correctCount++;
-            break;
-        case 'ej22':
-            if (checkTextFuturo('ej22_1', ['habrán salido'])) correctCount++;
-            break;
-        case 'ej23':
-            if (checkTextFuturo('ej23_1', ['habremos comprado'])) correctCount++;
-            break;
-        case 'ej24':
-            if (checkTextFuturo('ej24_1', ['Se habrá olvidado'])) correctCount++;
-            break;
-        case 'ej25':
-            if (checkTextFuturo('ej25_1', ['habrán hecho'])) correctCount++;
-            break;
-        case 'ej26':
-            if (checkTextFuturo('ej26_1', ['habrá terminado'])) correctCount++;
-            break;
-        case 'ej27':
-            if (checkTextFuturo('ej27_1', ['habrás decidido'])) correctCount++;
-            break;
-        case 'ej28':
-            if (checkTextFuturo('ej28_1', ['habré escrito'])) correctCount++;
-            break;
-        default:
-            return;
-    }
-    
-    // Mostrar resultado en el botón
-    const percentage = ((correctCount / totalCount) * 100).toFixed(0);
-    const message = `✅ ${correctCount}/${totalCount} (${percentage}%)`;
-
-    if(button) {
-        button.textContent = message;
-        // Pinta el botón de verde si es 100% correcto, sino rojo.
-        button.style.backgroundColor = correctCount / totalCount === 1 ? '#28a745' : '#dc3545';
-    }
-}
-
+</script>
 </script>
 
 </body>
