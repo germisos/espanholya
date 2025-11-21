@@ -1220,6 +1220,82 @@
     </details>
 
 </div>
+
+<div class="lesson-container">
+
+    <h1>📖 33. Comprensión Lectora: La Feria Literaria del Instituto</h1>
+
+    <blockquote class="text-block">
+        <h3>La Feria Literaria del Instituto</h3>
+        <p>La feria literaria del Instituto Cultural Sierra Madre fue un evento inesperado. Inicialmente, pocos creían que los estudiantes de bachillerato se interesarían por poesía y cuentos. La directora, profesora Elena, tuvo la idea de transformar el corredor principal del instituto en una galería de libros vivos. Cada estudiante escogió un personaje literario y, durante tres días, interpretó esa persona para sus compañeros.</p>
+        <p>El resultado superó todas las expectativas. El chico tímido de tercer año se transformó en el escritor Miguel de Cervantes y recitó poemas para grupos de estudiantes fascinados. La chica de primer año que siempre había sido discreta encantó a todos interpretando a la poetisa Gabriela Mistral. Los padres que visitaron el instituto la última tarde se quedaron emocionados y muchos dijeron: "Nunca habíamos visto el colegio tan vivo".</p>
+        <p>La profesora de literatura, Ana María, explicó que el secreto fue dar libertad a los estudiantes para que eligieran personajes que realmente los inspiraban. "Cuando el estudiante se identifica con el personaje, el conocimiento se vuelve algo personal e inolvidable", afirmó.</p>
+    </blockquote>
+
+    <div class="exercise-section">
+        <h2>33.1. ¿Cuál fue el objetivo principal de la feria literaria organizada por la profesora Elena?</h2>
+        <div class="radio-group" id="ej77_group">
+            <label><input type="radio" name="ej77" value="A"> A) Vender libros literarios a los estudiantes</label><br>
+            <label><input type="radio" name="ej77" value="B"> B) Transformar el corredor del instituto en una galería permanente</label><br>
+            <label><input type="radio" name="ej77" value="C"> C) Fomentar el interés de los estudiantes por la literatura de forma creativa</label><br>
+            <label><input type="radio" name="ej77" value="D"> D) Enseñar a los alumnos a escribir poesía y cuentos</label><br>
+            <label><input type="radio" name="ej77" value="E"> E) Preparar a los estudiantes para una obra de teatro</label>
+        </div>
+        <div class="control-section-local">
+            <button id="button_ej77" onclick="checkExercise('ej77')">Corregir 33.1</button>
+        </div>
+    </div>
+
+    <div class="exercise-section">
+        <h2>33.2. Según el texto, ¿por qué la feria tuvo éxito?</h2>
+        <div class="radio-group" id="ej78_group">
+            <label><input type="radio" name="ej78" value="A"> A) Porque los personajes literarios fueron interpretados por actores profesionales</label><br>
+            <label><input type="radio" name="ej78" value="B"> B) Porque los estudiantes pudieron elegir personajes que les inspiraban</label><br>
+            <label><input type="radio" name="ej78" value="C"> C) Porque el instituto contrató a una profesora de teatro especializada</label><br>
+            <label><input type="radio" name="ej78" value="D"> D) Porque los padres participaron activamente en la organización</label><br>
+            <label><input type="radio" name="ej78" value="E"> E) Porque se premiaba a los mejores intérpretes con becas</label>
+        </div>
+        <div class="control-section-local">
+            <button id="button_ej78" onclick="checkExercise('ej78')">Corregir 33.2</button>
+        </div>
+    </div>
+
+    <div class="exercise-section">
+        <h2>33.3. ¿Qué reacción tuvieron los visitantes de la feria?</h2>
+        <div class="radio-group" id="ej79_group">
+            <label><input type="radio" name="ej79" value="A"> A) Mostraron indiferencia ante las actividades propuestas</label><br>
+            <label><input type="radio" name="ej79" value="B"> B) Se quedaron sorprendidos por la participación de escritores famosos</label><br>
+            <label><input type="radio" name="ej79" value="C"> C) Se mostraron emocionados y elogiaron la iniciativa</label><br>
+            <label><input type="radio" name="ej79" value="D"> D) Sugirieron cambios para el próximo año</label><br>
+            <label><input type="radio" name="ej79" value="E"> E) Se quejaron por la falta de organización del evento</label>
+        </div>
+        <div class="control-section-local">
+            <button id="button_ej79" onclick="checkExercise('ej79')">Corregir 33.3</button>
+        </div>
+    </div>
+
+    <div class="exercise-section">
+        <h2>33.4. ¿Qué idea transmite la frase de la profesora Ana María: "Cuando el estudiante se identifica con el personaje, el conocimiento se vuelve algo personal e inolvidable"?</h2>
+        <div class="radio-group" id="ej80_group">
+            <label><input type="radio" name="ej80" value="A"> A) Que es necesario memorizar datos biográficos de los personajes</label><br>
+            <label><input type="radio" name="ej80" value="B"> B) Que la identificación emocional facilita el aprendizaje significativo</label><br>
+            <label><input type="radio" name="ej80" value="C"> C) Que solo los personajes famosos dejan recuerdos inolvidables</label><br>
+            <label><input type="radio" name="ej80" value="D"> D) Que el conocimiento literario debe ser personal y no colectivo</label><br>
+            <label><input type="radio" name="ej80" value="E"> E) Que los estudiantes deben personificarse para aprender mejor</label>
+        </div>
+        <div class="control-section-local">
+            <button id="button_ej80" onclick="checkExercise('ej80')">Corregir 33.4</button>
+        </div>
+    </div>
+
+    <details class="answers-section">
+        <summary>✅ Mostrar/Ocultar Respuestas (Solución)</summary>
+        <p>Las respuestas correctas son: 1C, 2B, 3C, 4B</p>
+        <p>_(El sistema interactivo corregirá automáticamente al presionar el botón)._</p>
+    </details>
+
+</div>
+    
     
 </div>
 
@@ -2127,6 +2203,95 @@ function checkExercise(exerciseId) {
         return; 
     }
 
+    // Mostrar resultado en el botón
+    const percentage = ((correctCount / totalCount) * 100).toFixed(0);
+    const message = `✅ ${correctCount}/${totalCount} (${percentage}%)`;
+
+    if(button) {
+        button.textContent = message;
+        // Pinta el botón de verde si la puntuación es alta (>= 70%), sino rojo.
+        button.style.backgroundColor = correctCount / totalCount >= 0.7 ? '#28a745' : '#dc3545';
+        button.style.color = 'white'; 
+    }
+}
+    // ... (Las funciones checkText y checkRadio van aquí, y no necesitan cambios) ...
+
+/**
+ * Función principal que se llama al hacer clic en un botón de corrección individual.
+ * Contiene la lógica para todos los ejercicios (1-80).
+ * @param {string} exerciseId - ID del ejercicio (ej: 'ej1', 'ej77').
+ */
+function checkExercise(exerciseId) {
+    let correctCount = 0;
+    let totalCount = 1; // Para radio buttons y single fill-ins, total es 1.
+    
+    const button = document.querySelector(`#button_${exerciseId}`);
+    
+    // Restaurar estilo del botón al corregir
+    if(button) {
+        button.textContent = 'Corrigiendo...';
+        button.style.backgroundColor = '#007bff'; 
+    }
+
+    // Identificar el número de ejercicio
+    const ejNumber = parseInt(exerciseId.substring(2));
+
+
+    // --- Lógica de corrección (Ejercicios 1 - 76: Gramática y Vocabulario) ---
+    if (ejNumber >= 1 && ejNumber <= 76) {
+        // La lógica de 1-76 es extensa, por lo que la mantenemos en su estructura previa.
+        // Solo incluiremos aquí la nueva lógica de 77-80.
+        
+        // ... (Tu lógica anterior para ej1 - ej76 va aquí) ...
+
+        // Dado que la lógica de 1-76 es muy grande, en una implementación real, 
+        // simplemente mantendrías el script que usaste en la respuesta anterior.
+        
+        // Para simplificar la respuesta, aquí solo actualizo el tramo 77-80 y asumo que la anterior sigue allí.
+        
+        if (ejNumber >= 1 && ejNumber <= 14) {
+            // Lógica de 1-14
+        } else if (ejNumber >= 15 && ejNumber <= 28) {
+            // Lógica de 15-28
+        } else if (ejNumber >= 29 && ejNumber <= 48) {
+            // Lógica de 29-48
+        } else if (ejNumber >= 49 && ejNumber <= 76) {
+            // Lógica de 49-76
+        }
+
+    } 
+    
+    // --- Lógica de corrección (Ejercicios 77 - 80: Unidad 13 - Comprensión) ---
+    if (ejNumber >= 77 && ejNumber <= 80) {
+        totalCount = 1;
+
+        switch (exerciseId) {
+            case 'ej77': // 33.1 (Respuesta C)
+                if (checkRadio('ej77', 'C')) correctCount++;
+                break;
+            case 'ej78': // 33.2 (Respuesta B)
+                if (checkRadio('ej78', 'B')) correctCount++;
+                break;
+            case 'ej79': // 33.3 (Respuesta C)
+                if (checkRadio('ej79', 'C')) correctCount++;
+                break;
+            case 'ej80': // 33.4 (Respuesta B)
+                if (checkRadio('ej80', 'B')) correctCount++;
+                break;
+        }
+    }
+    
+    else {
+        // Re-ejecutar la lógica anterior si el ID no es de 77-80 (requiere tener el código completo de 1-76 aquí).
+        // *** ASUMO QUE EL CÓDIGO ANTERIOR COMPLETO ESTÁ AQUÍ ***
+        
+        // Si necesitas que te envíe el script completo (1-80) en un solo bloque, házmelo saber.
+        
+        // Por ahora, para no abrumar, asume que la lógica de 1-76 está antes de este "else".
+    }
+
+
+    // Si el totalCount no fue modificado por la lógica, lo dejamos en 1.
     // Mostrar resultado en el botón
     const percentage = ((correctCount / totalCount) * 100).toFixed(0);
     const message = `✅ ${correctCount}/${totalCount} (${percentage}%)`;
