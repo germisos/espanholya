@@ -61,90 +61,105 @@
         margin: 30px 0;
         border-radius: 1px;
     }
-        /* ** ESTILOS ADICIONALES PARA EJERCICIOS (Se combinan con los tuyos) **
-    Se recomienda colocar estos estilos en el mismo bloque <style> que enviaste.
-*/
+       /* Estilo de Botón de Audio/Verificar (USADO PARA CORREGIR) */
+    .play-button, 
+    button {
+        background-color: #007bff; 
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        white-space: nowrap; 
+        flex-shrink: 0; 
+    }
 
-.exercise-section {
-    margin-bottom: 25px;
-    padding: 15px;
-    /* Usando el fondo del contenedor principal */
-    background-color: white; 
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
+    .play-button:hover,
+    button:hover {
+        background-color: #0056b3; 
+    }
+    
+    /* --- ESTILOS ESPECÍFICOS DE EJERCICIOS --- */
 
-input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 0 5px;
-}
-input[type="radio"] {
-    margin-right: 5px;
-}
-label {
-    margin-right: 15px;
-}
+    .exercise-section {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: white; 
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
 
-/* Estilos para la corrección (COLORES FIJOS) */
-.correct {
-    background-color: #d4edda; /* Verde claro */
-    border: 2px solid #28a745; /* Verde fuerte */
-    padding: 2px 5px;
-    border-radius: 4px;
-}
-.incorrect {
-    background-color: #f8d7da; /* Rojo claro */
-    border: 2px solid #dc3545; /* Rojo fuerte */
-    padding: 2px 5px;
-    border-radius: 4px;
-}
-/* Aplicar borde fuerte solo a los inputs de texto */
-input.correct {
-    border: 2px solid #28a745 !important;
-}
-input.incorrect {
-    border: 2px solid #dc3545 !important;
-}
-label.correct, label.incorrect {
-    /* Eliminar el padding extra del label, ya que se aplica al span/radio */
-    padding: 0; 
-}
+    input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 0 5px;
+    }
+
+    /* Contenedor del botón local */
+    .control-section-local {
+        margin-top: 15px;
+        text-align: right; 
+    }
+    .control-section-local button {
+        padding: 6px 12px;
+        font-size: 14px;
+        background-color: #007bff; /* default blue */
+        transition: background-color 0.4s, color 0.4s;
+    }
 
 
-.answers-section {
-    margin-top: 30px;
-    padding: 15px;
-    background-color: #e9f7ef;
-    border: 1px solid #c8e6c9;
-    border-radius: 6px;
-}
-.answers-section summary {
-    font-weight: bold;
-    color: #28a745;
-    cursor: pointer;
-}
-.answers-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-.answers-table th, .answers-table td {
-    border: 1px solid #c8e6c9;
-    padding: 8px;
-    text-align: left;
-}
-.answers-table th {
-    background-color: #d4edda;
-    color: #155724;
-}
-.control-section {
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* El botón de control ya tiene estilo gracias a .play-button, button */
+    /* Estilos para la corrección (COLORES FIJOS) */
+    .correct {
+        background-color: #d4edda; /* Verde claro */
+        border: 2px solid #28a745; /* Verde fuerte */
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+    .incorrect {
+        background-color: #f8d7da; /* Rojo claro */
+        border: 2px solid #dc3545; /* Rojo fuerte */
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+    /* Aplicar borde fuerte solo a los inputs de texto */
+    input.correct {
+        border: 2px solid #28a745 !important;
+    }
+    input.incorrect {
+        border: 2px solid #dc3545 !important;
+    }
+    
+    /* Estilos de Soluciones */
+    .answers-section {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #e9f7ef;
+        border: 1px solid #c8e6c9;
+        border-radius: 6px;
+    }
+    .answers-section summary {
+        font-weight: bold;
+        color: #28a745;
+        cursor: pointer;
+    }
+    .answers-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    .answers-table th, .answers-table td {
+        border: 1px solid #c8e6c9;
+        padding: 8px;
+        text-align: left;
+    }
+    .answers-table th {
+        background-color: #d4edda;
+        color: #155724;
+    }
 </style>
   
 </head>
@@ -167,6 +182,9 @@ label.correct, label.incorrect {
                 <input type="text" id="ej1_2_2" size="5"> mi jefe.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej1" onclick="checkExercise('ej1')">Corregir Ejercicio 1</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -185,6 +203,9 @@ label.correct, label.incorrect {
                 diligentemente como debería.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej2" onclick="checkExercise('ej2')">Corregir Ejercicio 2</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -195,6 +216,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej3_1" size="10"> paciencia 
             <input type="text" id="ej3_2" size="10"> ella.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej3" onclick="checkExercise('ej3')">Corregir Ejercicio 3</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -215,6 +239,9 @@ label.correct, label.incorrect {
                 ayer.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej4" onclick="checkExercise('ej4')">Corregir Ejercicio 4</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -225,6 +252,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej5_1" size="5"> 
             <input type="text" id="ej5_2" size="5"> tú.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej5" onclick="checkExercise('ej5')">Corregir Ejercicio 5</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -234,6 +264,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej6_1" size="15"> habitaciones 
             <input type="text" id="ej6_2" size="5"> tu casa.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej6" onclick="checkExercise('ej6')">Corregir Ejercicio 6</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -252,6 +285,9 @@ label.correct, label.incorrect {
                 que la otra.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej7" onclick="checkExercise('ej7')">Corregir Ejercicio 7</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -262,6 +298,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej8_1" size="5"> 
             <input type="text" id="ej8_2" size="5"> su primo.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej8" onclick="checkExercise('ej8')">Corregir Ejercicio 8</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -271,6 +310,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej9_1" size="10"> experiencia 
             <input type="text" id="ej9_2" size="10"> mi competidora.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej9" onclick="checkExercise('ej9')">Corregir Ejercicio 9</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -289,6 +331,9 @@ label.correct, label.incorrect {
                 que el anterior.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej10" onclick="checkExercise('ej10')">Corregir Ejercicio 10</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -307,6 +352,9 @@ label.correct, label.incorrect {
                 un simple problema.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej11" onclick="checkExercise('ej11')">Corregir Ejercicio 11</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -324,6 +372,9 @@ label.correct, label.incorrect {
                 <input type="text" id="ej12_6" size="5"> todos.
             </p>
         </form>
+        <div class="control-section-local">
+            <button id="button_ej12" onclick="checkExercise('ej12')">Corregir Ejercicio 12</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -334,6 +385,9 @@ label.correct, label.incorrect {
             <input type="text" id="ej13_1" size="5"> inteligente 
             <input type="text" id="ej13_2" size="5"> Pedro.
         </p>
+        <div class="control-section-local">
+            <button id="button_ej13" onclick="checkExercise('ej13')">Corregir Ejercicio 13</button>
+        </div>
     </div>
 
     <div class="exercise-section">
@@ -349,11 +403,9 @@ label.correct, label.incorrect {
                 <input type="text" id="ej14_4" size="5"> Luisa.
             </p>
         </form>
-    </div>
-
-    <div class="control-section">
-        <button onclick="corregirEjercicios()">Corregir Ejercicios</button>
-        <p id="resultado_general" style="font-weight: bold; margin-top: 10px;"></p>
+        <div class="control-section-local">
+            <button id="button_ej14" onclick="checkExercise('ej14')">Corregir Ejercicio 14</button>
+        </div>
     </div>
 
     <details class="answers-section">
@@ -394,140 +446,177 @@ label.correct, label.incorrect {
 
 
 <script>
-function corregirEjercicios() {
+/**
+ * Ayuda a corregir un campo de texto y aplica el estilo.
+ * @param {string} id - ID del elemento input.
+ * @param {string[]} correctAnswers - Array de respuestas correctas (se acepta cualquiera).
+ * @returns {boolean} - true si la respuesta del usuario es correcta.
+ */
+const checkText = (id, correctAnswers) => {
+    const input = document.getElementById(id);
+    if (!input) return false;
+    
+    const value = input.value.toLowerCase().trim();
+    // Normaliza y verifica si la respuesta del usuario coincide con alguna de las correctas
+    const isCorrect = correctAnswers.some(ans => ans.toLowerCase().trim() === value); 
+
+    input.classList.remove('correct', 'incorrect');
+    if (isCorrect && value !== "") {
+        input.classList.add('correct');
+        return true;
+    } else {
+        input.classList.add('incorrect');
+        return false;
+    }
+};
+
+/**
+ * Ayuda a corregir un grupo de radio buttons y aplica el estilo.
+ * @param {string} name - Atributo 'name' del grupo de radio buttons.
+ * @param {string} correctAnswer - Valor ('value') de la opción correcta.
+ * @returns {boolean} - true si la opción seleccionada es la correcta.
+ */
+const checkRadio = (name, correctAnswer) => {
+    const radios = document.getElementsByName(name);
+    let isCorrect = false;
+    
+    // Limpiar estilos previos en todos los labels del grupo
+    radios.forEach(radio => {
+        radio.parentElement.classList.remove('correct', 'incorrect');
+    });
+
+    // 1. Determinar si la respuesta seleccionada es correcta
+    radios.forEach(radio => {
+        if (radio.checked && radio.value === correctAnswer) {
+            isCorrect = true;
+        }
+    });
+
+    // 2. Aplicar estilos basados en la selección
+    radios.forEach(radio => {
+        if (radio.checked) {
+            if (isCorrect) {
+                radio.parentElement.classList.add('correct');
+            } else {
+                radio.parentElement.classList.add('incorrect');
+            }
+        }
+    });
+
+    return isCorrect;
+};
+
+
+/**
+ * Función principal que se llama al hacer clic en un botón de corrección individual.
+ * @param {string} exerciseId - ID del ejercicio ('ej1', 'ej2', etc.).
+ */
+function checkExercise(exerciseId) {
     let correctCount = 0;
     let totalCount = 0;
-
-    // Función auxiliar para corregir campos de texto
-    const checkText = (id, correctAnswers) => {
-        totalCount++;
-        const input = document.getElementById(id);
-        if (!input) return;
-
-        const value = input.value.toLowerCase().trim();
-        // Normalizar las respuestas correctas para incluir tildes o variaciones si es necesario (aunque en este caso no lo es, se mantiene el patrón)
-        const isCorrect = correctAnswers.some(ans => ans.toLowerCase().trim() === value); 
-
-        input.classList.remove('correct', 'incorrect');
-        if (isCorrect && value !== "") {
-            input.classList.add('correct');
-            correctCount++;
-        } else {
-            input.classList.add('incorrect');
-        }
-    };
     
-    // Función auxiliar para corregir Multiple Choice
-    const checkRadio = (name, correctAnswer, elementId) => {
-        totalCount++;
-        const radios = document.getElementsByName(name);
-        let isCorrect = false;
-        
-        // Limpiar estilos previos
-        radios.forEach(radio => {
-            radio.parentElement.classList.remove('correct', 'incorrect');
-        });
-
-        // Verificar la respuesta
-        radios.forEach(radio => {
-            if (radio.checked) {
-                if (radio.value === correctAnswer) {
-                    isCorrect = true;
-                }
-            }
-        });
-
-        // Aplicar estilos
-        radios.forEach(radio => {
-            if (radio.checked) {
-                if (isCorrect) {
-                    radio.parentElement.classList.add('correct');
-                } else {
-                    radio.parentElement.classList.add('incorrect');
-                }
-            } else if (radio.value === correctAnswer) {
-                 // Estilo para mostrar la respuesta correcta no seleccionada (Opcional, se puede comentar)
-                 // radio.parentElement.style.border = '1px dashed #28a745';
-            }
-        });
-
-        if (isCorrect) {
-            correctCount++;
-        }
-    };
-
-    // --- Definiciones de Respuestas Correctas (usando arrays para flexibilidad) ---
-
-    // Ejercicio 1 (tan/tanto, como)
-    checkText('ej1_1_1', ['tan']);
-    checkText('ej1_1_2', ['como']);
-    checkText('ej1_2_1', ['tanto']);
-    checkText('ej1_2_2', ['como']);
-
-    // Ejercicio 2 (Adverbios MC)
-    checkRadio('ej2_1', 'tan_rapido', 'q2_1'); 
-    checkRadio('ej2_2', 'tan', 'q2_2'); 
-
-    // Ejercicio 3 (tanta paciencia como)
-    checkText('ej3_1', ['tanta']);
-    checkText('ej3_2', ['como']);
-
-    // Ejercicio 4 (Superioridad MC)
-    checkRadio('ej4_1', 'mejor_que', 'q4_1'); 
-    checkRadio('ej4_2', 'mas_caluroso_que', 'q4_2'); 
-
-    // Ejercicio 5 (más que)
-    checkText('ej5_1', ['mas']);
-    checkText('ej5_2', ['que']);
-
-    // Ejercicio 6 (más habitaciones que)
-    checkText('ej6_1', ['mas']);
-    checkText('ej6_2', ['que']);
-
-    // Ejercicio 7 (Inferioridad MC)
-    checkRadio('ej7_1', 'menos_potente_que', 'q7_1'); 
-    checkRadio('ej7_2', 'menos_mala', 'q7_2'); 
+    const button = document.querySelector(`#button_${exerciseId}`);
     
-    // Ejercicio 8 (menos que)
-    checkText('ej8_1', ['menos']);
-    checkText('ej8_2', ['que']);
+    // Restaurar estilo del botón al corregir
+    if(button) {
+        button.textContent = 'Corrigiendo...';
+        button.style.backgroundColor = '#007bff'; 
+    }
 
-    // Ejercicio 9 (menos, que)
-    checkText('ej9_1', ['menos']);
-    checkText('ej9_2', ['que']);
-
-    // Ejercicio 10 (Irregulares MC)
-    checkRadio('ej10_1', 'mejor', 'q10_1'); 
-    checkRadio('ej10_2', 'peor', 'q10_2'); 
-
-    // Ejercicio 11 (Cantidad MC)
-    checkRadio('ej11_1', 'mas_de', 'q11_1'); 
-    checkRadio('ej11_2', 'mas_que', 'q11_2'); 
-
-    // Ejercicio 12 (Superlativo Relativo)
-    checkText('ej12_1', ['la']);
-    checkText('ej12_2', ['mas']);
-    checkText('ej12_3', ['de']);
-    checkText('ej12_4', ['los']);
-    checkText('ej12_5', ['mas']);
-    checkText('ej12_6', ['de']);
-
-    // Ejercicio 13 (tan inteligente como)
-    checkText('ej13_1', ['tan']);
-    checkText('ej13_2', ['como']);
-
-    // Ejercicio 14 (tan difícil como; tantos años como)
-    checkText('ej14_1', ['tan']);
-    checkText('ej14_2', ['como']);
-    checkText('ej14_3', ['tantos']);
-    checkText('ej14_4', ['como']);
-
-    // Mostrar resultado general
+    // --- Lógica de corrección para cada ejercicio ---
+    switch (exerciseId) {
+        case 'ej1':
+            totalCount = 4;
+            if (checkText('ej1_1_1', ['tan'])) correctCount++;
+            if (checkText('ej1_1_2', ['como'])) correctCount++;
+            if (checkText('ej1_2_1', ['tanto'])) correctCount++;
+            if (checkText('ej1_2_2', ['como'])) correctCount++;
+            break;
+        case 'ej2':
+            totalCount = 2;
+            if (checkRadio('ej2_1', 'tan_rapido')) correctCount++;
+            if (checkRadio('ej2_2', 'tan')) correctCount++;
+            break;
+        case 'ej3':
+            totalCount = 2;
+            if (checkText('ej3_1', ['tanta'])) correctCount++;
+            if (checkText('ej3_2', ['como'])) correctCount++;
+            break;
+        case 'ej4':
+            totalCount = 2;
+            if (checkRadio('ej4_1', 'mejor_que')) correctCount++;
+            if (checkRadio('ej4_2', 'mas_caluroso_que')) correctCount++;
+            break;
+        case 'ej5':
+            totalCount = 2;
+            if (checkText('ej5_1', ['mas'])) correctCount++;
+            if (checkText('ej5_2', ['que'])) correctCount++;
+            break;
+        case 'ej6':
+            totalCount = 2;
+            if (checkText('ej6_1', ['mas'])) correctCount++;
+            if (checkText('ej6_2', ['que'])) correctCount++;
+            break;
+        case 'ej7':
+            totalCount = 2;
+            if (checkRadio('ej7_1', 'menos_potente_que')) correctCount++;
+            if (checkRadio('ej7_2', 'menos_mala')) correctCount++;
+            break;
+        case 'ej8':
+            totalCount = 2;
+            if (checkText('ej8_1', ['menos'])) correctCount++;
+            if (checkText('ej8_2', ['que'])) correctCount++;
+            break;
+        case 'ej9':
+            totalCount = 2;
+            if (checkText('ej9_1', ['menos'])) correctCount++;
+            if (checkText('ej9_2', ['que'])) correctCount++;
+            break;
+        case 'ej10':
+            totalCount = 2;
+            if (checkRadio('ej10_1', 'mejor')) correctCount++;
+            if (checkRadio('ej10_2', 'peor')) correctCount++;
+            break;
+        case 'ej11':
+            totalCount = 2;
+            if (checkRadio('ej11_1', 'mas_de')) correctCount++;
+            if (checkRadio('ej11_2', 'mas_que')) correctCount++;
+            break;
+        case 'ej12':
+            totalCount = 6;
+            if (checkText('ej12_1', ['la'])) correctCount++;
+            if (checkText('ej12_2', ['mas'])) correctCount++;
+            if (checkText('ej12_3', ['de'])) correctCount++;
+            if (checkText('ej12_4', ['los'])) correctCount++;
+            if (checkText('ej12_5', ['mas'])) correctCount++;
+            if (checkText('ej12_6', ['de'])) correctCount++;
+            break;
+        case 'ej13':
+            totalCount = 2;
+            if (checkText('ej13_1', ['tan'])) correctCount++;
+            if (checkText('ej13_2', ['como'])) correctCount++;
+            break;
+        case 'ej14':
+            totalCount = 4;
+            if (checkText('ej14_1', ['tan'])) correctCount++;
+            if (checkText('ej14_2', ['como'])) correctCount++;
+            if (checkText('ej14_3', ['tantos'])) correctCount++;
+            if (checkText('ej14_4', ['como'])) correctCount++;
+            break;
+        default:
+            return;
+    }
+    
+    // Mostrar resultado en el botón
     const percentage = ((correctCount / totalCount) * 100).toFixed(0);
-    const resultElement = document.getElementById('resultado_general');
-    resultElement.innerHTML = `Puntuación: ${correctCount} de ${totalCount} (${percentage}%)`;
-    resultElement.style.color = correctCount / totalCount > 0.7 ? '#28a745' : '#dc3545';
-} 
+    const message = `✅ ${correctCount}/${totalCount} (${percentage}%)`;
+
+    if(button) {
+        button.textContent = message;
+        // Pinta el botón de verde si la puntuación es alta (>= 70%), sino rojo.
+        button.style.backgroundColor = correctCount / totalCount >= 0.7 ? '#28a745' : '#dc3545';
+    }
+}
 </script>
 
 </body>
