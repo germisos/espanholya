@@ -699,8 +699,12 @@ function checkExercise(exerciseId) {
         button.style.backgroundColor = '#007bff'; 
     }
 
-    // --- Lógica de corrección consolidada (Ejercicios 1 - 14: Comparativos) ---
-    if (parseInt(exerciseId.substring(2)) >= 1 && parseInt(exerciseId.substring(2)) <= 14) {
+    // Identificar el número de ejercicio
+    const ejNumber = parseInt(exerciseId.substring(2));
+
+
+    // --- Lógica de corrección (Ejercicios 1 - 14: Comparativos) ---
+    if (ejNumber >= 1 && ejNumber <= 14) {
         
         switch (exerciseId) {
             case 'ej1':
@@ -781,13 +785,12 @@ function checkExercise(exerciseId) {
                 if (checkText('ej14_3', ['tantos'])) correctCount++;
                 if (checkText('ej14_4', ['como'])) correctCount++;
                 break;
-            // No necesitamos un default aquí si todos los IDs válidos están cubiertos
         }
     } 
     
-    // --- Lógica de corrección consolidada (Ejercicios 15 - 28: Futuro Perfecto) ---
-    else if (parseInt(exerciseId.substring(2)) >= 15 && parseInt(exerciseId.substring(2)) <= 28) {
-        totalCount = 1; // La mayoría son ejercicios de un solo campo
+    // --- Lógica de corrección (Ejercicios 15 - 28: Futuro Perfecto) ---
+    else if (ejNumber >= 15 && ejNumber <= 28) {
+        totalCount = 1; 
         
         switch (exerciseId) {
             case 'ej15':
@@ -818,7 +821,7 @@ function checkExercise(exerciseId) {
                 if (checkText('ej23_1', ['habremos comprado'])) correctCount++;
                 break;
             case 'ej24':
-                if (checkText('ej24_1', ['Se habrá olvidado', 'se habrá olvidado'])) correctCount++; // Acepta mayúscula inicial
+                if (checkText('ej24_1', ['se habrá olvidado', 'Se habrá olvidado'])) correctCount++; 
                 break;
             case 'ej25':
                 if (checkText('ej25_1', ['habrán hecho'])) correctCount++;
@@ -832,8 +835,6 @@ function checkExercise(exerciseId) {
             case 'ej28':
                 if (checkText('ej28_1', ['habré escrito'])) correctCount++;
                 break;
-            default:
-                return;
         }
     } else {
         // ID de ejercicio no válido
@@ -848,7 +849,7 @@ function checkExercise(exerciseId) {
         button.textContent = message;
         // Pinta el botón de verde si la puntuación es alta (>= 70%), sino rojo.
         button.style.backgroundColor = correctCount / totalCount >= 0.7 ? '#28a745' : '#dc3545';
-        button.style.color = 'white'; // Asegura que el texto se vea en el nuevo color
+        button.style.color = 'white'; 
     }
 }
 </script>
