@@ -1,18 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const paginasGratis = [
-    "unidad1.html",
-    "ejercicios_unidad1.html",
-    "index.html",
-    "pago.html",
-    "contacto.html"
-  ];
+// bloqueo.js – bloquea todas las páginas excepto la Unidad 1 y ejercicios U1
 
-  const acceso = localStorage.getItem("pago_ok"); // true si pagó
-  const estaPagina = window.location.pathname.split("/").pop();
+// Páginas permitidas (sin bloqueo)
+const paginasLibres = [
+  "index.html",
+  "unidad1.html",
+  "ejercicios_unidad1.html",
+  "pago.html",
+  "registro.html",
+  "login.html"
+];
 
-  // Si no pagó y la página no es gratis, redirige
-  if (!acceso && !paginasGratis.includes(estaPagina)) {
-    alert("🔒 Esta unidad forma parte del curso completo. Accede después del pago.");
-    window.location.href = "pago.html";
-  }
-});
+// Obtiene el nombre del archivo actual
+const paginaActual = window.location.pathname.split("/").pop();
+
+// Si la página NO está permitida → redirigir a pago.html
+if (!paginasLibres.includes(paginaActual)) {
+  window.location.href = "pago.html";
+}
