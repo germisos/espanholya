@@ -65,22 +65,21 @@
   <div id="menu"></div>
 
   <main class="container">
-    <h1>Accede al curso completo 🔓</h1>
+    <h1>Acesse ao curso completo 🔓</h1>
     <p>
-      La Unidad 1 es gratuita. Para desbloquear todas las demás unidades y ejercicios,
-      realiza tu pago seguro a través de Mercado Pago.
+      A Unidade 1 e U1 exercícios são gratuitas. Para desbloquear todas as outras unidades e exercícios, faça seu pagamento seguro através do Mercado Pago.
     </p>
 
     <div id="wallet_container" style="margin: 30px 0;"></div>
 
     <p class="footer">
-      Tu pago es 100% seguro y te dará acceso inmediato al curso completo.
+      Seu pagamento é 100% seguro e lhe dará acesso imediato ao curso completo.
     </p>
   </main>
 
   <script>
     // Inicializa Mercado Pago con tu clave pública
-    const mp = new MercadoPago('TEST-65ffdbc3-dfdf-4006-bb77-27d3392b9fe6', { locale: 'es-AR' });
+    const mp = new MercadoPago('APP_USR-d225e3d7-3e94-4015-b727-8385c920a8b9', { locale: 'pt-BR' });
 
     // Crea el botón de pago
     mp.bricks().create("wallet", "wallet_container", {
@@ -91,12 +90,12 @@
         onSubmit: () => {
           // Al completar el pago correctamente
           localStorage.setItem("pago_ok", true);
-          alert("✅ ¡Pago exitoso! El curso completo ha sido desbloqueado.");
+          alert("✅ Pagamento bem-sucedido! O curso completo foi desbloqueado.");
           window.location.href = "index.html";
         },
         onError: (error) => {
           console.error(error);
-          alert("❌ Ocurrió un error con el pago. Intenta nuevamente.");
+          alert("❌ Ocorreu um erro com o pagamento. Tente novamente.");
         }
       }
     });
