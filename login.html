@@ -39,7 +39,9 @@
     }
   </style>
 </head>
+
 <body>
+
   <form id="loginForm">
     <h2>Entrar</h2>
     <input type="email" id="email" placeholder="E-mail" required>
@@ -50,7 +52,10 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+    import { 
+      getAuth, 
+      signInWithEmailAndPassword 
+    } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBI6sD0mx6KAhForbnm9ai_tDCO39LlNnI",
@@ -64,19 +69,29 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    document.getElementById("loginForm").addEventListener("submit", (e) => {
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          alert("✅ Bem-vindo ao curso!");
-          window.location.href = "index.html";
-        })
-        .catch((error) => {
-          alert("❌ Erro: " + error.message);
-        });
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("✅ Bem-vindo ao curso!");
+        window.location.href = "index.html";
+      } catch (error) {
+        console.log(error.code);
+
+        let msg = "❌ Erro ao entrar.";
+
+        if (error.code === "auth/invalid-email") msg = "❌ E-mail inválido.";
+        if (error.code === "auth/user-not-found") msg = "❌ Usuário não encontrado.";
+        if (error.code === "auth/wrong-password") msg = "❌ Senha incorreta.";
+        if (error.code === "auth/invalid-credential") msg = "❌ Verifique seu e-mail e senha.";
+        if (error.code === "auth/too-many-requests") msg = "❌ Muitas tentativas. Aguarde alguns minutos.";
+
+        alert(msg);
+      }
     });
   </script>
 </body>
