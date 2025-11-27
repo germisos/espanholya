@@ -156,14 +156,14 @@
       `;
       document.head.appendChild(style);
 
-      // 🔵 EVENTOS AUTH (simples, sin Firebase aún)
-      document.getElementById("btnLogin")?.addEventListener("click", () => {
-        alert("Abrir modal de Login (aún no implementado).");
-      });
+      // 🔵 EVENTOS AUTH - redirección a páginas reales
+document.getElementById("btnLogin")?.addEventListener("click", () => {
+  window.location.href = "login.html";
+});
 
-      document.getElementById("btnRegister")?.addEventListener("click", () => {
-        alert("Abrir modal de Registro (aún no implementado).");
-      });
+document.getElementById("btnRegister")?.addEventListener("click", () => {
+  window.location.href = "registro.html";
+});
 
       console.log("menu.js actualizado con login/registro");
     } catch (err) {
