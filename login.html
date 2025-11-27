@@ -11,7 +11,6 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
     form {
       background: white;
@@ -25,39 +24,27 @@
       width: 100%;
       margin-bottom: 15px;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
     }
     button {
       width: 100%;
-      background: #007bff;
+      background: #28a745;
       color: white;
       border: none;
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
     }
     button:hover {
-      background: #0056b3;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-      font-weight: bold;
+      background: #1e7e34;
     }
   </style>
 </head>
 <body>
-
   <form id="loginForm">
-    <h2>Entrar no curso</h2>
-
+    <h2>Entrar</h2>
     <input type="email" id="email" placeholder="E-mail" required>
     <input type="password" id="password" placeholder="Senha" required>
-
     <button type="submit">Entrar</button>
-
     <p>Não tem conta? <a href="registro.html">Criar conta</a></p>
   </form>
 
@@ -79,26 +66,18 @@
 
     document.getElementById("loginForm").addEventListener("submit", (e) => {
       e.preventDefault();
-
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
       signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-          alert("✅ Login realizado com sucesso!");
-          window.location.href = "index.html"; 
+          alert("✅ Bem-vindo ao curso!");
+          window.location.href = "index.html";
         })
         .catch((error) => {
-          let msg = "Erro ao entrar.";
-
-          if (error.code === "auth/user-not-found") msg = "Usuário não encontrado.";
-          if (error.code === "auth/wrong-password") msg = "Senha incorreta.";
-          if (error.code === "auth/invalid-email") msg = "E-mail inválido.";
-
-          alert("❌ " + msg);
+          alert("❌ Erro: " + error.message);
         });
     });
   </script>
-
 </body>
 </html>
