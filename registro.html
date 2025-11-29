@@ -70,6 +70,7 @@
     </form>
   </div>
 
+  <script src="menu.js" defer></script>
   <script type="module">
     // Imports para Autenticação e Firestore
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
@@ -120,7 +121,9 @@
       e.preventDefault();
       
       if (!hasPaid) {
-        alert("Erro: O registro só é permitido após o pagamento aprovado.");
+        // Usamos um modal ou mensagem em vez de alert()
+        accessMessage.textContent = "Erro: O registro só é permitido após o pagamento aprovado.";
+        accessMessage.classList.replace('success', 'error');
         return;
       }
 
@@ -143,7 +146,6 @@
           });
         })
         .then(() => {
-          // Usa modal personalizado em vez de alert()
           accessMessage.textContent = "Conta criada com sucesso e acesso garantido! Redirecionando para login...";
           setTimeout(() => {
             window.location.href = "login.html";
